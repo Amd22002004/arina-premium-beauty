@@ -3,8 +3,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import Index from "./pages/Index";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Price from "./pages/Price";
+import BeforeAfter from "./pages/BeforeAfter";
+import Reviews from "./pages/Reviews";
+import FAQ from "./pages/FAQ";
+import Contacts from "./pages/Contacts";
+import Booking from "./pages/Booking";
+import Privacy from "./pages/Privacy";
+import Consent from "./pages/Consent";
+import Memos from "./pages/Memos";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +27,17 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/price" element={<Price />} />
+          <Route path="/before-after" element={<BeforeAfter />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/consent" element={<Consent />} />
+          <Route path="/memos" element={<Memos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
