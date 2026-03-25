@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin } from "lucide-react";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
+import logoFull from "@/assets/logo-full.png";
 
 const Footer = () => (
   <footer className="bg-foreground text-primary-foreground">
     <div className="container-wide px-4 md:px-8 py-12 md:py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
-          <h3 className="font-heading text-2xl mb-3">Арина</h3>
+          <img src={logoFull} alt="АРТ Косметология" className="h-16 w-auto brightness-0 invert mb-3" />
           <p className="text-sm opacity-70 font-body leading-relaxed">
             Эстетическая косметология и&nbsp;омоложение в&nbsp;Санкт&#8209;Петербурге. Авторские протоколы, аппаратные процедуры, массаж.
           </p>
