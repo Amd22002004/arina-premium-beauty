@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin } from "lucide-react";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
+import logoFull from "@/assets/logo-full.png";
 
 const Footer = () => (
   <footer className="bg-foreground text-primary-foreground">
