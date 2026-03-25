@@ -77,7 +77,7 @@ const Index = () => (
               <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-8 text-base">Записаться онлайн</Button>
             </Link>
             <a href="tel:+79117193949">
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 text-base">
+              <Button size="lg" className="bg-primary-foreground/20 backdrop-blur-sm border border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30 px-8 text-base">
                 Получить консультацию
               </Button>
             </a>
