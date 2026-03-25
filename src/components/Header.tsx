@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
-import logoIcon from "@/assets/logo-icon.png";
 
 const navLinks = [
   { to: "/services", label: "Услуги" },
@@ -20,12 +19,11 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container-wide flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logoIcon} alt="АРТ Косметология" className="h-10 md:h-12 w-auto" />
-          <div>
-            <span className="font-heading text-lg md:text-xl font-semibold tracking-wide text-foreground leading-none">АРТ Косметология</span>
-            <span className="block text-[9px] md:text-[10px] font-body font-normal tracking-[0.15em] uppercase text-muted-foreground">авторские ритуалы и технологии</span>
-          </div>
+        <Link to="/" className="font-heading text-xl md:text-2xl font-semibold tracking-wide text-foreground">
+          Арина
+          <span className="block text-[10px] md:text-xs font-body font-normal tracking-[0.2em] uppercase text-muted-foreground">
+            эстетика & омоложение
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6">
