@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
+import logoIcon from "@/assets/logo-icon.png";
 
 const navLinks = [
   { to: "/services", label: "Услуги" },
