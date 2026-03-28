@@ -164,8 +164,8 @@ serve(async (req) => {
     }
     console.log("GEMINI_API_KEY is set, length:", GEMINI_API_KEY.length);
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-    console.log("Using model: gemini-1.5-flash");
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+    console.log("Using model: gemini-2.0-flash (v1beta)");
 
     const contents = buildGeminiMessages(messages);
 
