@@ -1,33 +1,9 @@
-import { useEffect, useRef } from "react";
 import { Phone, MapPin, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
 
 const Contacts = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://widgets.2gis.com/js/DGWidgetLoader.js";
-    script.charset = "utf-8";
-    script.async = true;
-    script.onload = () => {
-      if ((window as any).DGWidgetLoader && mapRef.current) {
-        new (window as any).DGWidgetLoader({
-          width: 500,
-          height: 400,
-          borderColor: "#a3a3a3",
-          pos: { lat: 59.86723905330512, lon: 30.46898169195629, zoom: 17 },
-          opt: { city: "spb" },
-          org: [{ id: "70000001066214518" }],
-        });
-      }
-    };
-    mapRef.current?.appendChild(script);
-    return () => { script.remove(); };
-  }, []);
-
   return (
     <Layout>
       <section className="section-padding">
@@ -77,7 +53,17 @@ const Contacts = () => {
 
             {/* 2GIS Map */}
             <div className="space-y-4">
-              <div ref={mapRef} className="rounded-lg overflow-hidden border border-border" style={{ maxWidth: 500, height: 400 }} />
+              <div className="rounded-lg overflow-hidden border border-border">
+                <iframe
+                  src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A59.86723905330512%2C%22lon%22%3A30.46898169195629%2C%22zoom%22%3A17%7D%2C%22opt%22%3A%7B%22city%22%3A%22spb%22%7D%2C%22org%22%3A%5B%7B%22id%22%3A%2270000001066214518%22%7D%5D%7D"
+                  width="100%"
+                  height="400"
+                  frameBorder="0"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  title="АРТ Косметология на карте 2GIS"
+                />
+              </div>
               <div className="flex flex-wrap gap-3 text-sm">
                 <a className="text-primary hover:underline" href="http://2gis.ru/spb/firm/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
                   📍 На карте
@@ -101,6 +87,7 @@ const Contacts = () => {
           name: "АРТ Косметология — Авторские ритуалы и технологии",
           telephone: "+79117193949",
           address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          openingHours: "Mo-Su 08:00-19:00",
         }),
       }} />
 
