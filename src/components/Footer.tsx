@@ -7,7 +7,8 @@ const Footer = () => (
     <div className="container-wide px-4 md:px-8 py-12 md:py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
-          <h3 className="font-heading text-2xl mb-3">Арина</h3>
+          <h3 className="font-heading text-2xl mb-1">АРТ Косметология</h3>
+          <p className="text-xs opacity-50 mb-3 tracking-widest uppercase">Авторские ритуалы и технологии</p>
           <p className="text-sm opacity-70 font-body leading-relaxed">
             Эстетическая косметология и&nbsp;омоложение в&nbsp;Санкт&#8209;Петербурге. Авторские протоколы, аппаратные процедуры, массаж.
           </p>
@@ -42,14 +43,14 @@ const Footer = () => (
 
         <div>
           <h4 className="font-heading text-lg mb-3">Запись</h4>
-          <Link to="/booking" className="inline-block gold-gradient text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+          <Link to="/booking" className="inline-block gold-gradient text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity shadow-lg">
             Записаться онлайн
           </Link>
         </div>
       </div>
 
       <div className="border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs opacity-50">
-        <span>© {new Date().getFullYear()} Арина — эстетика и омоложение. Все права защищены.</span>
+        <span>© {new Date().getFullYear()} АРТ Косметология. Все права защищены.</span>
         <div className="flex gap-4">
           <Link to="/privacy" className="hover:opacity-100">Политика конфиденциальности</Link>
           <Link to="/consent" className="hover:opacity-100">Согласие на обработку данных</Link>

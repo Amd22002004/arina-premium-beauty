@@ -1,20 +1,26 @@
 export interface Service {
   name: string;
   price: number;
+  pricePrefix?: string;
   category: string;
+  comingSoon?: boolean;
 }
 
 export const categories = [
   "Массаж лица",
+  "Уход за лицом",
   "Инъекции и биостимуляция",
   "Пилинги",
+  "Аппаратные протоколы лица",
   "Аппаратная косметология лица",
   "Лазерное омоложение",
   "Фотоомоложение BBL",
   "Фракционный лазер CO₂",
+  "Аппаратные протоколы тела",
   "Коррекция фигуры",
   "Озонотерапия",
   "Массаж тела",
+  "СПА и восстановление",
   "Дополнительные услуги",
 ];
 
@@ -23,6 +29,10 @@ export const services: Service[] = [
   { name: "Миофасциальный массаж лица", price: 2490, category: "Массаж лица" },
   { name: "Массаж лица 3D", price: 2490, category: "Массаж лица" },
   { name: "Удаление второго подбородка + подтяжка овала лица", price: 3490, category: "Массаж лица" },
+
+  { name: "Массаж лица + альгинатная маска", price: 3490, category: "Уход за лицом" },
+  { name: "Массаж лица + кислородная маска", price: 3790, category: "Уход за лицом" },
+  { name: "Массаж лица + увлажняющая маска", price: 3490, category: "Уход за лицом" },
 
   { name: "Биостимуляция", price: 3490, category: "Инъекции и биостимуляция" },
   { name: "Биоревитализация", price: 4490, category: "Инъекции и биостимуляция" },
@@ -33,6 +43,12 @@ export const services: Service[] = [
   { name: "Карбоновый пилинг", price: 3990, category: "Пилинги" },
   { name: "Пилинг миндальной кислотой", price: 3290, category: "Пилинги" },
   { name: "Пилинг Джесснера", price: 3990, category: "Пилинги" },
+
+  { name: "INDIBA лицо", price: 3790, category: "Аппаратные протоколы лица" },
+  { name: "РФ лифтинг 3D", price: 4490, category: "Аппаратные протоколы лица" },
+  { name: "БМС лица", price: 2590, category: "Аппаратные протоколы лица" },
+  { name: "Микроигольчатый RF", price: 15900, pricePrefix: "от", category: "Аппаратные протоколы лица" },
+  { name: "Холодная плазма", price: 2790, pricePrefix: "от", category: "Аппаратные протоколы лица" },
 
   { name: "Микротоковая терапия", price: 2490, category: "Аппаратная косметология лица" },
   { name: "Лазерная чистка лица", price: 3490, category: "Аппаратная косметология лица" },
@@ -51,6 +67,10 @@ export const services: Service[] = [
   { name: "Фракционный лазер CO₂ (декольте)", price: 9900, category: "Фракционный лазер CO₂" },
   { name: "Фракционный лазер CO₂ (кисти рук / шрамы / растяжки)", price: 7900, category: "Фракционный лазер CO₂" },
   { name: "Фракционный лазер CO₂ (щёки)", price: 8900, category: "Фракционный лазер CO₂" },
+
+  { name: "EMS Body Sculpt", price: 4490, category: "Аппаратные протоколы тела" },
+  { name: "INDIBA тело", price: 4290, category: "Аппаратные протоколы тела" },
+  { name: "БМС тела", price: 3990, category: "Аппаратные протоколы тела" },
 
   { name: "Кавитация", price: 2490, category: "Коррекция фигуры" },
   { name: "Прессотерапия (42 камеры)", price: 2490, category: "Коррекция фигуры" },
@@ -74,12 +94,23 @@ export const services: Service[] = [
   { name: "Массаж ШВЗ + спина", price: 2990, category: "Массаж тела" },
   { name: "Лимфодренажный массаж тела", price: 2490, category: "Массаж тела" },
   { name: "Медицинский массаж / лечебный массаж", price: 3490, category: "Массаж тела" },
+  { name: "Лимфодренажный массаж", price: 2490, category: "Массаж тела" },
+  { name: "Медицинский массаж (лечебный)", price: 3490, category: "Массаж тела" },
+
+  { name: "Инфракрасная сауна", price: 2290, category: "СПА и восстановление" },
+  { name: "Медовая выкатка", price: 1390, category: "СПА и восстановление" },
+  { name: "Комплекс", price: 2990, category: "СПА и восстановление" },
 
   { name: "Интимное омоложение", price: 11900, category: "Дополнительные услуги" },
   { name: "Инфракрасная сауна + медовая выкатка / обёртывание", price: 4900, category: "Дополнительные услуги" },
   { name: "Избавление от пяточной шпоры", price: 1990, category: "Дополнительные услуги" },
   { name: "Удаление новообразований", price: 500, category: "Дополнительные услуги" },
+
+  { name: "Биоэнергетический массаж", price: 0, category: "Массаж тела", comingSoon: true },
 ];
 
-export const formatPrice = (price: number) =>
-  price.toLocaleString("ru-RU") + " ₽";
+export const formatPrice = (price: number, prefix?: string) => {
+  if (price === 0) return "Скоро";
+  const formatted = price.toLocaleString("ru-RU") + " ₽";
+  return prefix ? `${prefix} ${formatted}` : formatted;
+};
