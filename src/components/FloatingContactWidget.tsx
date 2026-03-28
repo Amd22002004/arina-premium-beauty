@@ -41,8 +41,6 @@ const FloatingContactWidget = () => {
     setInput("");
     setMessages((prev) => [...prev, userMsg]);
     setIsLoading(true);
-
-    let assistantSoFar = "";
     const allMessages = [...messages, userMsg];
 
     try {
