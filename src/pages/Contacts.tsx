@@ -15,8 +15,8 @@ const Contacts = () => {
     script.onload = () => {
       if ((window as any).DGWidgetLoader && mapRef.current) {
         new (window as any).DGWidgetLoader({
-          width: "100%",
-          height: 350,
+          width: 500,
+          height: 400,
           borderColor: "#a3a3a3",
           pos: { lat: 59.86723905330512, lon: 30.46898169195629, zoom: 17 },
           opt: { city: "spb" },
