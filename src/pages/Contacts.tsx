@@ -55,7 +55,7 @@ const Contacts = () => {
 
                 <div className="flex items-center gap-3 text-foreground">
                   <div className="w-10 h-10 rounded-full bg-gold-light flex items-center justify-center"><Clock size={18} className="text-primary" /></div>
-                  <div><p className="text-sm font-medium">По записи</p><p className="text-xs text-muted-foreground">Индивидуальный график</p></div>
+                  <div><p className="text-sm font-medium">Ежедневно с 8:00 до 19:00</p><p className="text-xs text-muted-foreground">Без выходных</p></div>
                 </div>
               </div>
 
