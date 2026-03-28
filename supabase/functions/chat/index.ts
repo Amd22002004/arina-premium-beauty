@@ -132,7 +132,7 @@ serve(async (req) => {
     }
     console.log("LOVABLE_API_KEY is set");
 
-    const apiUrl = "https://ai-gateway.lovable.dev/chat/completions";
+    const apiUrl = "https://ai.gateway.lovable.dev/v1/chat/completions";
 
     // Build OpenAI-compatible messages with system prompt
     const openaiMessages = [
