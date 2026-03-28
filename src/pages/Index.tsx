@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Heart, Sparkles, Users, ChevronRight, Star, Zap, MapPin, CalendarCheck, UserCheck, MessageCircle, Check, Gift, Crown, Layers } from "lucide-react";
+import { Shield, Heart, Sparkles, Users, ChevronRight, Star, Zap, MapPin, CalendarCheck, UserCheck, MessageCircle, Check, Gift, Crown, Layers, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
 import heroBg from "@/assets/hero-bg.jpg";
+import specialistPhoto from "@/assets/specialist-arina.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -48,7 +49,6 @@ const Index = () => (
             Подбираем решение под задачу: лицо, тело, лифтинг, коррекция фигуры, деликатное омоложение.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-4 mb-10">
             <Link to="/booking">
               <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 text-base shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн</Button>
@@ -65,7 +65,6 @@ const Index = () => (
             </Link>
           </motion.div>
 
-          {/* Short accents */}
           <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-x-6 gap-y-2 text-primary-foreground/60 text-sm">
             <span className="flex items-center gap-1.5"><MapPin size={14} /> Санкт-Петербург</span>
             <span className="flex items-center gap-1.5"><CalendarCheck size={14} /> Приём по записи</span>
@@ -73,6 +72,54 @@ const Index = () => (
             <span className="flex items-center gap-1.5"><MessageCircle size={14} /> VK и Telegram для связи</span>
           </motion.div>
         </motion.div>
+      </div>
+    </section>
+
+    {/* ═══════════ SPECIALIST ═══════════ */}
+    <section className="py-24 md:py-32 bg-cream">
+      <div className="container-wide px-4 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
+            <img
+              src={specialistPhoto}
+              alt="Арина Ланова — специалист АРТ Косметология"
+              className="rounded-xl shadow-lg w-full max-w-md mx-auto"
+              width={800}
+              height={1000}
+            />
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeUp}>
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
+              <Star size={16} /> О специалисте
+            </div>
+            <h2 className="font-heading text-3xl md:text-4xl mb-4">Арина Ланова</h2>
+            <p className="text-lg text-muted-foreground mb-2 font-medium">
+              Специалист по массажу, аппаратной косметологии и коррекции фигуры
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Работает с лицом и телом: омоложение, восстановление, дренаж, тонус, эстетика.
+            </p>
+
+            <h3 className="font-heading text-xl mb-3">Комплексный подход:</h3>
+            <ul className="space-y-2 mb-6">
+              {["массаж и подготовка тканей", "аппаратные технологии", "восстановление и уход"].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-foreground/80">
+                  <Check size={16} className="text-primary shrink-0" /> {item}
+                </li>
+              ))}
+            </ul>
+
+            <p className="text-muted-foreground leading-relaxed mb-5">
+              Подбирает процедуры индивидуально под задачу клиента: лифтинг, коррекция фигуры, снятие отёков, улучшение качества кожи и общего состояния.
+            </p>
+
+            <div className="bg-gold-light/50 rounded-lg p-5 border border-primary/20">
+              <p className="text-foreground font-medium text-sm leading-relaxed">
+                📌 Не разовые процедуры, а системный результат через авторские протоколы.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
 
@@ -88,7 +135,6 @@ const Index = () => (
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Face */}
           <ServiceBlock
             icon={Sparkles}
             title="АРТ-протоколы лица"
@@ -97,30 +143,27 @@ const Index = () => (
             footer="Помогаем сделать лицо более собранным, свежим и ухоженным без перегруза процедур."
             index={0}
           />
-          {/* Body */}
           <ServiceBlock
             icon={Heart}
             title="АРТ-протоколы тела"
             subtitle="Аппаратные и ручные методики для коррекции фигуры, дренажа и восстановления."
-            items={["EMS Body Sculpt", "INDIBA", "БМС тела", "лимфодренажный массаж", "прессотерапия", "LPG", "кавитация", "вакуумный массаж", "4D-коррекция"]}
+            items={["EMS Body Sculpt", "INDIBA", "БМС тела", "миостимуляция", "лимфодренажный массаж", "прессотерапия", "LPG", "кавитация", "вакуумный массаж", "4D-коррекция"]}
             footer="Подбираем протокол под объёмы, отёчность, тонус и общее состояние тела."
             index={1}
           />
-          {/* Massage */}
           <ServiceBlock
             icon={Shield}
             title="Лечебный и восстанавливающий массаж"
             subtitle="Работа с мышечным напряжением, спазмом, усталостью и зажимами."
-            items={["медицинский массаж", "лечебный массаж", "массаж шейно-воротниковой зоны", "лимфодренаж", "восстановительные программы"]}
+            items={["медицинский массаж", "лечебный массаж", "массаж шейно-воротниковой зоны", "лимфодренаж", "БМ-массаж / БЭМ", "массаж для снятия отёков"]}
             footer="Подходит тем, кому важны не только эстетика, но и ощущение облегчения после процедуры."
             index={2}
           />
-          {/* SPA */}
           <ServiceBlock
-            icon={Users}
+            icon={Leaf}
             title="СПА и восстановление"
             subtitle="Комплексы для мягкого ухода, восстановления и усиления эффекта процедур."
-            items={["инфракрасная сауна", "медовая выкатка", "комплексные СПА-протоколы", "уходовые ритуалы для лица"]}
+            items={["инфракрасная капсула", "медовая выкатка", "комплекс (сауна + выкатка)", "обёртывания", "уходовые ритуалы для лица"]}
             footer="Хороший вариант для тех, кто хочет не просто процедуру, а полноценный ритуал восстановления."
             index={3}
           />

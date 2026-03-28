@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
-import specialistImg from "@/assets/specialist.jpg";
+import specialistPhoto from "@/assets/specialist-arina.png";
 import certificateImg from "@/assets/certificate.jpg";
 
 const fadeUp = {
@@ -9,28 +10,47 @@ const fadeUp = {
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
 };
 
+const approach = [
+  "массаж и подготовка тканей",
+  "аппаратные технологии",
+  "восстановление и уход",
+];
+
 const About = () => (
   <Layout>
     <section className="section-padding">
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" animate="visible" custom={0} variants={fadeUp}>
-            <img src={specialistImg} alt="Специалист Арина" className="rounded-lg shadow-lg w-full max-w-lg mx-auto" width={800} height={1000} />
+            <img src={specialistPhoto} alt="Арина Ланова — специалист АРТ Косметология" className="rounded-lg shadow-lg w-full max-w-lg mx-auto" width={800} height={1000} />
           </motion.div>
           <motion.div initial="hidden" animate="visible" custom={1} variants={fadeUp}>
-            <h1 className="font-heading text-4xl md:text-5xl mb-6">О специалисте</h1>
+            <h1 className="font-heading text-4xl md:text-5xl mb-6">Арина Ланова</h1>
+            <p className="text-lg text-muted-foreground mb-2 font-medium">
+              Специалист по массажу, аппаратной косметологии и коррекции фигуры
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Работает с лицом и телом: омоложение, восстановление, дренаж, тонус, эстетика.
+            </p>
+
+            <h3 className="font-heading text-xl mb-3">Комплексный подход</h3>
+            <ul className="space-y-2 mb-6">
+              {approach.map((item) => (
+                <li key={item} className="flex items-center gap-2 text-foreground/80">
+                  <Check size={16} className="text-primary shrink-0" /> {item}
+                </li>
+              ))}
+            </ul>
+
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Дипломированный специалист в области эстетической косметологии с многолетним практическим опытом. Работает в Санкт-Петербурге, принимает по адресу: пр-т Обуховской Обороны, 110к1.
+              Подбирает процедуры индивидуально под задачу клиента: лифтинг, коррекция фигуры, снятие отёков, улучшение качества кожи и общего состояния.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Специализация — комплексное омоложение лица и тела. Арина сочетает ручные массажные техники (скульптурный, миофасциальный, лимфодренажный массаж) с аппаратными методиками: BBL-фотоомоложение, фракционный лазер CO₂, микротоки, LPG, кавитация, прессотерапия.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Авторский протокол работы: подготовка тканей массажем и лимфодренажем, затем аппаратная процедура, затем восстановление и персональные рекомендации. Такой подход обеспечивает максимальную эффективность и безопасность каждой процедуры.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Регулярно повышает квалификацию, проходит обучение у ведущих экспертов индустрии. Использует только сертифицированное оборудование и препараты с доказанной эффективностью.
-            </p>
+
+            <div className="bg-gold-light/50 rounded-lg p-5 border border-primary/20">
+              <p className="text-foreground font-medium text-sm leading-relaxed">
+                📌 Акцент: не разовые процедуры, а системный результат через авторские протоколы.
+              </p>
+            </div>
           </motion.div>
         </div>
 
