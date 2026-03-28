@@ -15,8 +15,8 @@ const Contacts = () => {
     script.onload = () => {
       if ((window as any).DGWidgetLoader && mapRef.current) {
         new (window as any).DGWidgetLoader({
-          width: "100%",
-          height: 350,
+          width: 500,
+          height: 400,
           borderColor: "#a3a3a3",
           pos: { lat: 59.86723905330512, lon: 30.46898169195629, zoom: 17 },
           opt: { city: "spb" },
@@ -55,7 +55,7 @@ const Contacts = () => {
 
                 <div className="flex items-center gap-3 text-foreground">
                   <div className="w-10 h-10 rounded-full bg-gold-light flex items-center justify-center"><Clock size={18} className="text-primary" /></div>
-                  <div><p className="text-sm font-medium">По записи</p><p className="text-xs text-muted-foreground">Индивидуальный график</p></div>
+                  <div><p className="text-sm font-medium">Ежедневно с 8:00 до 19:00</p><p className="text-xs text-muted-foreground">Без выходных</p></div>
                 </div>
               </div>
 
@@ -77,7 +77,7 @@ const Contacts = () => {
 
             {/* 2GIS Map */}
             <div className="space-y-4">
-              <div ref={mapRef} className="rounded-lg overflow-hidden border border-border h-[350px]" />
+              <div ref={mapRef} className="rounded-lg overflow-hidden border border-border" style={{ maxWidth: 500, height: 400 }} />
               <div className="flex flex-wrap gap-3 text-sm">
                 <a className="text-primary hover:underline" href="http://2gis.ru/spb/firm/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
                   📍 На карте
