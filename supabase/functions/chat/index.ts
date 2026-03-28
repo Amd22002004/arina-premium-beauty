@@ -148,6 +148,7 @@ serve(async (req) => {
 
   try {
     const { messages } = await req.json();
+    console.log("Received messages count:", messages?.length);
 
     if (!messages || !Array.isArray(messages)) {
       return new Response(
@@ -158,8 +159,10 @@ serve(async (req) => {
 
     const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
     if (!GEMINI_API_KEY) {
+      console.error("GEMINI_API_KEY is NOT set in environment!");
       throw new Error("GEMINI_API_KEY is not configured");
     }
+    console.log("GEMINI_API_KEY is set, length:", GEMINI_API_KEY.length);
 
     const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
     console.log("Using model: gemini-1.5-flash");
