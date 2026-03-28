@@ -8,7 +8,6 @@ const Contacts = () => {
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Load 2GIS widget
     const script = document.createElement("script");
     script.src = "https://widgets.2gis.com/js/DGWidgetLoader.js";
     script.charset = "utf-8";
@@ -17,7 +16,7 @@ const Contacts = () => {
       if ((window as any).DGWidgetLoader && mapRef.current) {
         new (window as any).DGWidgetLoader({
           width: "100%",
-          height: 500,
+          height: 350,
           borderColor: "#a3a3a3",
           pos: { lat: 59.86723905330512, lon: 30.46898169195629, zoom: 17 },
           opt: { city: "spb" },
@@ -26,10 +25,7 @@ const Contacts = () => {
       }
     };
     mapRef.current?.appendChild(script);
-
-    return () => {
-      script.remove();
-    };
+    return () => { script.remove(); };
   }, []);
 
   return (
@@ -77,21 +73,23 @@ const Contacts = () => {
                   <TelegramIcon /> Telegram
                 </a>
               </div>
+            </div>
 
-              <div className="pt-4 space-y-2 text-sm">
-                <a className="text-primary hover:underline block" href="http://2gis.ru/spb/firm/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
-                  📍 Посмотреть на карте Санкт-Петербурга
+            {/* 2GIS Map */}
+            <div className="space-y-4">
+              <div ref={mapRef} className="rounded-lg overflow-hidden border border-border h-[350px]" />
+              <div className="flex flex-wrap gap-3 text-sm">
+                <a className="text-primary hover:underline" href="http://2gis.ru/spb/firm/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
+                  📍 На карте
                 </a>
-                <a className="text-primary hover:underline block" href="http://2gis.ru/spb/firm/70000001066214518/photos/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
-                  📷 Фотографии компании
+                <a className="text-primary hover:underline" href="http://2gis.ru/spb/firm/70000001066214518/photos/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
+                  📷 Фото
                 </a>
-                <a className="text-primary hover:underline block" href="http://2gis.ru/spb/center/30.469257,59.867195/zoom/17/routeTab/rsType/bus/to/30.469257,59.867195" target="_blank" rel="noopener noreferrer">
-                  🚌 Найти проезд
+                <a className="text-primary hover:underline" href="http://2gis.ru/spb/center/30.469257,59.867195/zoom/17/routeTab/rsType/bus/to/30.469257,59.867195" target="_blank" rel="noopener noreferrer">
+                  🚌 Проезд
                 </a>
               </div>
             </div>
-
-            <div ref={mapRef} className="rounded-lg overflow-hidden border border-border min-h-[400px]" />
           </div>
         </div>
       </section>
