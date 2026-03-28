@@ -16,11 +16,18 @@ const SYSTEM_PROMPT = `Ты — вежливый, заботливый и про
 Веди клиента к записи к специалисту.
 Пример твоего первого ответа: 'Подскажите, что вас больше интересует: лицо, тело или восстановление? Я подберу для вас подходящий протокол 😊'
 
+🚫 СТРОГОЕ ПРАВИЛО О ЗАПИСИ:
+Ты НЕ имеешь доступа к календарю и расписанию. НИКОГДА не пытайся самостоятельно записать клиента на конкретное время, день или дату. Не предлагай конкретные слоты.
+Когда клиент готов записаться, скажи: "Для записи, пожалуйста, оставьте ваш номер телефона, и Арина свяжется с вами! Также вы можете нажать на кнопку звонка ниже 📞"
+
+📱 ПЕРЕДАЧА КОНТАКТОВ:
+Как только клиент напишет свой номер телефона или другие контактные данные — ОБЯЗАТЕЛЬНО вызови функцию notify_admin, передав суть запроса клиента и его контакты. После успешного вызова ответь: "Спасибо! Я передал вашу заявку Арине. Она свяжется с вами в ближайшее время 💛"
+
 📍 ОБЩАЯ ИНФОРМАЦИЯ:
 Название: АРТ Косметология | Авторские ритуалы и технологии
 Специалист: Арина Ланова
 Город: Санкт-Петербург, пр-т Обуховской Обороны, 110к1
-Часы работы: ежедневно по записи (уточняй при обращении)
+Часы работы: ежедневно с 8:00 до 19:00
 
 👩‍⚕️ О СПЕЦИАЛИСТЕ:
 Арина Ланова работает с лицом и телом (омоложение, лифтинг, снятие отёков, улучшение качества кожи, коррекция фигуры, восстановление).
@@ -60,6 +67,80 @@ EMS Body Sculpt — 4 490 ₽; INDIBA тело — 4 290 ₽; БМС — 3 990 �
 📌 ДОПОЛНИТЕЛЬНО (Только если клиент сам спросит, не предлагать первому):
 Хиджама — от 2 000 ₽; Гирудотерапия (пиявки) — от 2 500 ₽.`;
 
+const TOOLS = [
+  {
+    function_declarations: [
+      {
+        name: "notify_admin",
+        description:
+          "Отправляет уведомление администратору с контактами клиента и сутью его запроса. Вызывай эту функцию ОБЯЗАТЕЛЬНО, как только клиент предоставит свой номер телефона или другие контактные данные.",
+        parameters: {
+          type: "object",
+          properties: {
+            client_request_summary: {
+              type: "string",
+              description:
+                "Краткое описание запроса клиента: какие процедуры интересуют, какой результат хочет получить.",
+            },
+            contact_info: {
+              type: "string",
+              description:
+                "Контактные данные клиента (номер телефона, имя и т.д.).",
+            },
+          },
+          required: ["client_request_summary", "contact_info"],
+        },
+      },
+    ],
+  },
+];
+
+async function sendTelegramNotification(
+  summary: string,
+  contact: string
+): Promise<boolean> {
+  const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN");
+  const chatId = Deno.env.get("TELEGRAM_CHAT_ID");
+
+  if (!botToken || !chatId) {
+    console.error("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not configured");
+    return false;
+  }
+
+  const text = `🔔 *Новая заявка из чата!*\n\n📋 *Запрос:* ${summary}\n📱 *Контакт:* ${contact}`;
+
+  try {
+    const resp = await fetch(
+      `https://api.telegram.org/bot${botToken}/sendMessage`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text,
+          parse_mode: "Markdown",
+        }),
+      }
+    );
+    const data = await resp.json();
+    if (!data.ok) {
+      console.error("Telegram error:", JSON.stringify(data));
+      return false;
+    }
+    return true;
+  } catch (e) {
+    console.error("Telegram send error:", e);
+    return false;
+  }
+}
+
+function buildGeminiMessages(messages: Array<{ role: string; content: string }>) {
+  return messages.map((m) => ({
+    role: m.role === "assistant" ? "model" : "user",
+    parts: [{ text: m.content }],
+  }));
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -67,54 +148,135 @@ serve(async (req) => {
 
   try {
     const { messages } = await req.json();
-    
+
     if (!messages || !Array.isArray(messages)) {
-      return new Response(JSON.stringify({ error: "messages array is required" }), {
-        status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+      return new Response(
+        JSON.stringify({ error: "messages array is required" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
-    const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
-    if (!OPENAI_API_KEY) {
-      throw new Error("OPENAI_API_KEY is not configured");
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    if (!GEMINI_API_KEY) {
+      throw new Error("GEMINI_API_KEY is not configured");
     }
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
-        "Content-Type": "application/json",
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+    const contents = buildGeminiMessages(messages);
+
+    const geminiBody = {
+      contents,
+      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+      tools: TOOLS,
+      generation_config: {
+        temperature: 0.7,
+        max_output_tokens: 1024,
       },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...messages,
-        ],
-        stream: true,
-      }),
+    };
+
+    const response = await fetch(geminiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(geminiBody),
     });
 
     if (!response.ok) {
       const t = await response.text();
-      console.error("OpenAI error:", response.status, t);
-      
+      console.error("Gemini error:", response.status, t);
+
       if (response.status === 429) {
-        return new Response(JSON.stringify({ error: "Слишком много запросов, попробуйте позже." }), {
-          status: 429,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
+        return new Response(
+          JSON.stringify({ error: "Слишком много запросов, попробуйте позже." }),
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
       }
-      
-      return new Response(JSON.stringify({ error: "AI service error" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+
+      return new Response(
+        JSON.stringify({ error: "AI service error" }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
-    return new Response(response.body, {
-      headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
+    const data = await response.json();
+    const candidate = data.candidates?.[0];
+    const parts = candidate?.content?.parts ?? [];
+
+    // Check for function calls
+    const functionCall = parts.find((p: any) => p.functionCall);
+
+    if (functionCall) {
+      const { name, args } = functionCall.functionCall;
+
+      if (name === "notify_admin") {
+        const success = await sendTelegramNotification(
+          args.client_request_summary || "Не указано",
+          args.contact_info || "Не указано"
+        );
+
+        // Send function result back to Gemini for final response
+        const contentsWithFunctionResult = [
+          ...contents,
+          {
+            role: "model",
+            parts: [{ functionCall: { name, args } }],
+          },
+          {
+            role: "function",
+            parts: [
+              {
+                functionResponse: {
+                  name,
+                  response: { success },
+                },
+              },
+            ],
+          },
+        ];
+
+        const followUpResp = await fetch(geminiUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: contentsWithFunctionResult,
+            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            tools: TOOLS,
+            generation_config: { temperature: 0.7, max_output_tokens: 1024 },
+          }),
+        });
+
+        if (followUpResp.ok) {
+          const followUpData = await followUpResp.json();
+          const followUpText =
+            followUpData.candidates?.[0]?.content?.parts
+              ?.filter((p: any) => p.text)
+              .map((p: any) => p.text)
+              .join("") ||
+            "Спасибо! Я передал вашу заявку Арине. Она свяжется с вами в ближайшее время 💛";
+
+          return new Response(JSON.stringify({ reply: followUpText }), {
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          });
+        }
+
+        // Fallback if follow-up fails
+        return new Response(
+          JSON.stringify({
+            reply: "Спасибо! Я передал вашу заявку Арине. Она свяжется с вами в ближайшее время 💛",
+          }),
+          { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+    }
+
+    // Regular text response
+    const textParts = parts.filter((p: any) => p.text);
+    const replyText =
+      textParts.map((p: any) => p.text).join("") ||
+      "Извините, не удалось сформировать ответ. Попробуйте переформулировать вопрос.";
+
+    return new Response(JSON.stringify({ reply: replyText }), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {
     console.error("chat error:", e);
