@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
@@ -17,6 +17,11 @@ const serviceGroups = [
     items: ["Скульптурный массаж лица", "Миофасциальный массаж лица", "Массаж лица 3D", "Удаление второго подбородка + подтяжка овала"],
   },
   {
+    title: "Уход за лицом",
+    desc: "Комплексные уходовые процедуры: массаж лица в сочетании с масками для глубокого увлажнения и восстановления",
+    items: ["Массаж лица + альгинатная маска", "Массаж лица + кислородная маска", "Массаж лица + увлажняющая маска"],
+  },
+  {
     title: "Инъекции и биостимуляция",
     desc: "Биоревитализация, мезотерапия, биостимуляция — восполнение ресурсов кожи на клеточном уровне",
     items: ["Биостимуляция", "Биоревитализация", "Мезотерапия", "Инъекции липолитиков"],
@@ -25,6 +30,12 @@ const serviceGroups = [
     title: "Пилинги",
     desc: "Карбоновый, миндальный, Джесснера — обновление текстуры кожи, выравнивание тона, устранение пигментации",
     items: ["Карбоновый пилинг", "Пилинг миндальной кислотой", "Пилинг Джесснера"],
+  },
+  {
+    title: "Аппаратные протоколы лица",
+    desc: "INDIBA, RF-лифтинг, БМС, микроигольчатый RF — передовые аппаратные методики для подтяжки и омоложения",
+    items: ["INDIBA лицо", "РФ лифтинг 3D", "БМС лица", "Микроигольчатый RF", "Холодная плазма"],
+    isNew: true,
   },
   {
     title: "Аппаратная косметология лица",
@@ -42,6 +53,12 @@ const serviceGroups = [
     items: ["Лицо", "Шея", "Декольте", "Кисти рук / шрамы / растяжки", "Щёки"],
   },
   {
+    title: "Аппаратные протоколы тела",
+    desc: "EMS, INDIBA, БМС — аппаратное моделирование тела и восстановление мышечного тонуса",
+    items: ["EMS Body Sculpt", "INDIBA тело", "БМС тела"],
+    isNew: true,
+  },
+  {
     title: "Коррекция фигуры",
     desc: "LPG, кавитация, прессотерапия, EMS — эффективное моделирование силуэта и борьба с целлюлитом",
     items: ["Кавитация", "Прессотерапия", "EMS Body Sculpt", "LPG-массаж", "Липосоникс MRTS", "Вакуумный массаж", "4D-коррекция фигуры"],
@@ -54,34 +71,59 @@ const serviceGroups = [
   {
     title: "Массаж тела",
     desc: "Лечебный, лимфодренажный массаж, массаж спины и шейно-воротниковой зоны",
-    items: ["ШВЗ + спина", "Лимфодренажный массаж тела", "Медицинский / лечебный массаж"],
+    items: ["ШВЗ + спина", "Лимфодренажный массаж тела", "Медицинский / лечебный массаж", "Лимфодренажный массаж", "Медицинский массаж (лечебный)"],
+    comingSoon: ["Биоэнергетический массаж"],
+  },
+  {
+    title: "СПА и восстановление",
+    desc: "Инфракрасная сауна, медовая выкатка — процедуры для глубокого расслабления и детоксикации",
+    items: ["Инфракрасная сауна", "Медовая выкатка", "Комплекс"],
+    isNew: true,
   },
   {
     title: "Дополнительные услуги",
-    desc: "Интимное омоложение, инфракрасная сауна, удаление новообразований и другие процедуры",
-    items: ["Интимное омоложение", "Инфракрасная сауна + обёртывание", "Избавление от пяточной шпоры", "Удаление новообразований"],
+    desc: "Интимное омоложение, удаление новообразований и другие процедуры",
+    items: ["Интимное омоложение", "Инфракрасная сауна + медовая выкатка / обёртывание", "Избавление от пяточной шпоры", "Удаление новообразований"],
   },
 ];
 
+interface ServiceGroup {
+  title: string;
+  desc: string;
+  items: string[];
+  isNew?: boolean;
+  comingSoon?: string[];
+}
+
 const Services = () => (
   <Layout>
-    <section className="section-padding">
-      <div className="container-wide">
+    <section className="py-20 md:py-28">
+      <div className="container-wide px-4 md:px-8">
         <h1 className="font-heading text-4xl md:text-5xl text-center mb-4">Услуги</h1>
-        <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-          Полный спектр процедур для красоты и здоровья лица и тела. Каждая услуга — часть комплексного авторского подхода.
+        <p className="text-muted-foreground text-center text-lg mb-16 max-w-2xl mx-auto">
+          Полный спектр процедур для красоты и здоровья лица и тела. Каждая услуга — часть комплексного авторского АРТ-протокола.
         </p>
 
         <div className="space-y-8">
-          {serviceGroups.map((g, i) => (
+          {serviceGroups.map((g: ServiceGroup, i) => (
             <motion.div key={g.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card rounded-lg p-8 border border-border hover-lift">
-              <h2 className="font-heading text-2xl mb-2">{g.title}</h2>
-              <p className="text-muted-foreground text-sm mb-4">{g.desc}</p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              className="bg-card rounded-xl p-8 md:p-10 border border-border hover-lift">
+              <div className="flex items-center gap-3 mb-3">
+                <h2 className="font-heading text-2xl">{g.title}</h2>
+                {g.isNew && (
+                  <span className="bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full uppercase tracking-wider">Новое</span>
+                )}
+              </div>
+              <p className="text-muted-foreground mb-5">{g.desc}</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {g.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-foreground/80">
+                  <li key={item} className="flex items-center gap-2 text-foreground/80">
                     <ChevronRight size={14} className="text-primary flex-shrink-0" /> {item}
+                  </li>
+                ))}
+                {g.comingSoon?.map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-muted-foreground/60">
+                    <Clock size={14} className="flex-shrink-0" /> {item} <span className="text-xs bg-muted px-2 py-0.5 rounded-full ml-1">скоро</span>
                   </li>
                 ))}
               </ul>
@@ -89,9 +131,9 @@ const Services = () => (
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-14">
           <Link to="/price">
-            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10">
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-12 shadow-xl hover:shadow-2xl transition-shadow">
               Смотреть прайс <ChevronRight size={16} className="ml-1" />
             </Button>
           </Link>

@@ -20,9 +20,9 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container-wide flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link to="/" className="font-heading text-xl md:text-2xl font-semibold tracking-wide text-foreground">
-          Арина
-          <span className="block text-[10px] md:text-xs font-body font-normal tracking-[0.2em] uppercase text-muted-foreground">
-            эстетика & омоложение
+          АРТ Косметология
+          <span className="block text-[10px] md:text-xs font-body font-normal tracking-[0.15em] uppercase text-muted-foreground">
+            Авторские ритуалы и технологии
           </span>
         </Link>
 
@@ -51,7 +51,7 @@ const Header = () => {
             <Phone size={18} />
           </a>
           <Link to="/booking">
-            <Button size="sm" className="gold-gradient text-primary-foreground border-0 ml-2 font-body text-sm">
+            <Button size="sm" className="gold-gradient text-primary-foreground border-0 ml-2 font-body text-sm shadow-lg hover:shadow-xl transition-shadow">
               Записаться
             </Button>
           </Link>
@@ -81,7 +81,7 @@ const Header = () => {
               <a href="tel:+79117193949" className="text-muted-foreground hover:text-primary"><Phone size={18} /></a>
             </div>
             <Link to="/booking" onClick={() => setOpen(false)}>
-              <Button className="w-full gold-gradient text-primary-foreground border-0 mt-2">Записаться онлайн</Button>
+              <Button className="w-full gold-gradient text-primary-foreground border-0 mt-2 shadow-lg">Записаться онлайн</Button>
             </Link>
           </nav>
         </div>
