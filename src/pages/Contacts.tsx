@@ -77,7 +77,7 @@ const Contacts = () => {
 
             {/* 2GIS Map */}
             <div className="space-y-4">
-              <div ref={mapRef} className="rounded-lg overflow-hidden border border-border h-[350px]" />
+              <div ref={mapRef} className="rounded-lg overflow-hidden border border-border" style={{ maxWidth: 500, height: 400 }} />
               <div className="flex flex-wrap gap-3 text-sm">
                 <a className="text-primary hover:underline" href="http://2gis.ru/spb/firm/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
                   📍 На карте
