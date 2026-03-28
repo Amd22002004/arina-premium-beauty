@@ -67,34 +67,6 @@ EMS Body Sculpt — 4 490 ₽; INDIBA тело — 4 290 ₽; БМС — 3 990 �
 📌 ДОПОЛНИТЕЛЬНО (Только если клиент сам спросит, не предлагать первому):
 Хиджама — от 2 000 ₽; Гирудотерапия (пиявки) — от 2 500 ₽.`;
 
-const TOOLS = [
-  {
-    function_declarations: [
-      {
-        name: "notify_admin",
-        description:
-          "Отправляет уведомление администратору с контактами клиента и сутью его запроса. Вызывай эту функцию ОБЯЗАТЕЛЬНО, как только клиент предоставит свой номер телефона или другие контактные данные.",
-        parameters: {
-          type: "object",
-          properties: {
-            client_request_summary: {
-              type: "string",
-              description:
-                "Краткое описание запроса клиента: какие процедуры интересуют, какой результат хочет получить.",
-            },
-            contact_info: {
-              type: "string",
-              description:
-                "Контактные данные клиента (номер телефона, имя и т.д.).",
-            },
-          },
-          required: ["client_request_summary", "contact_info"],
-        },
-      },
-    ],
-  },
-];
-
 async function sendTelegramNotification(
   summary: string,
   contact: string
@@ -108,6 +80,7 @@ async function sendTelegramNotification(
   }
 
   const text = `🔔 *Новая заявка из чата!*\n\n📋 *Запрос:* ${summary}\n📱 *Контакт:* ${contact}`;
+  console.log("Sending Telegram notification to chat:", chatId);
 
   try {
     const resp = await fetch(
@@ -124,21 +97,15 @@ async function sendTelegramNotification(
     );
     const data = await resp.json();
     if (!data.ok) {
-      console.error("Telegram error:", JSON.stringify(data));
+      console.error("Telegram API error:", JSON.stringify(data));
       return false;
     }
+    console.log("Telegram notification sent successfully!");
     return true;
   } catch (e) {
     console.error("Telegram send error:", e);
     return false;
   }
-}
-
-function buildGeminiMessages(messages: Array<{ role: string; content: string }>) {
-  return messages.map((m) => ({
-    role: m.role === "assistant" ? "model" : "user",
-    parts: [{ text: m.content }],
-  }));
 }
 
 serve(async (req) => {
@@ -148,6 +115,7 @@ serve(async (req) => {
 
   try {
     const { messages } = await req.json();
+    console.log("Received messages count:", messages?.length);
 
     if (!messages || !Array.isArray(messages)) {
       return new Response(
@@ -156,34 +124,69 @@ serve(async (req) => {
       );
     }
 
-    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
-    if (!GEMINI_API_KEY) {
-      throw new Error("GEMINI_API_KEY is not configured");
+    // Use Lovable AI proxy — no API key needed
+    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    if (!LOVABLE_API_KEY) {
+      console.error("LOVABLE_API_KEY is NOT set!");
+      throw new Error("LOVABLE_API_KEY is not configured");
     }
+    console.log("LOVABLE_API_KEY is set");
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+    const apiUrl = "https://ai.gateway.lovable.dev/v1/chat/completions";
 
-    const contents = buildGeminiMessages(messages);
+    // Build OpenAI-compatible messages with system prompt
+    const openaiMessages = [
+      { role: "system", content: SYSTEM_PROMPT },
+      ...messages,
+    ];
 
-    const geminiBody = {
-      contents,
-      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-      tools: TOOLS,
-      generation_config: {
-        temperature: 0.7,
-        max_output_tokens: 1024,
+    // Define notify_admin tool
+    const tools = [
+      {
+        type: "function",
+        function: {
+          name: "notify_admin",
+          description:
+            "Отправляет уведомление администратору с контактами клиента и сутью его запроса. Вызывай ОБЯЗАТЕЛЬНО, как только клиент предоставит номер телефона или другие контактные данные.",
+          parameters: {
+            type: "object",
+            properties: {
+              client_request_summary: {
+                type: "string",
+                description: "Краткое описание запроса клиента.",
+              },
+              contact_info: {
+                type: "string",
+                description: "Контактные данные клиента (номер телефона, имя и т.д.).",
+              },
+            },
+            required: ["client_request_summary", "contact_info"],
+          },
+        },
       },
-    };
+    ];
 
-    const response = await fetch(geminiUrl, {
+    console.log("Sending request to Lovable AI...");
+    const response = await fetch(apiUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(geminiBody),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${LOVABLE_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "google/gemini-2.5-flash",
+        messages: openaiMessages,
+        tools,
+        temperature: 0.7,
+        max_tokens: 1024,
+      }),
     });
+
+    console.log("AI response status:", response.status);
 
     if (!response.ok) {
       const t = await response.text();
-      console.error("Gemini error:", response.status, t);
+      console.error("AI API error:", response.status, t);
 
       if (response.status === 429) {
         return new Response(
@@ -199,67 +202,70 @@ serve(async (req) => {
     }
 
     const data = await response.json();
-    const candidate = data.candidates?.[0];
-    const parts = candidate?.content?.parts ?? [];
+    const choice = data.choices?.[0];
+    const message = choice?.message;
 
-    // Check for function calls
-    const functionCall = parts.find((p: any) => p.functionCall);
+    console.log("AI finish_reason:", choice?.finish_reason);
 
-    if (functionCall) {
-      const { name, args } = functionCall.functionCall;
+    // Handle tool calls
+    if (message?.tool_calls && message.tool_calls.length > 0) {
+      const toolCall = message.tool_calls[0];
+      console.log("Tool call detected:", toolCall.function.name);
 
-      if (name === "notify_admin") {
+      if (toolCall.function.name === "notify_admin") {
+        let args;
+        try {
+          args = JSON.parse(toolCall.function.arguments);
+        } catch {
+          args = { client_request_summary: "Не указано", contact_info: "Не указано" };
+        }
+        console.log("notify_admin args:", JSON.stringify(args));
+
         const success = await sendTelegramNotification(
           args.client_request_summary || "Не указано",
           args.contact_info || "Не указано"
         );
 
-        // Send function result back to Gemini for final response
-        const contentsWithFunctionResult = [
-          ...contents,
+        // Send tool result back to AI for final response
+        const followUpMessages = [
+          ...openaiMessages,
+          message,
           {
-            role: "model",
-            parts: [{ functionCall: { name, args } }],
-          },
-          {
-            role: "function",
-            parts: [
-              {
-                functionResponse: {
-                  name,
-                  response: { success },
-                },
-              },
-            ],
+            role: "tool",
+            tool_call_id: toolCall.id,
+            content: JSON.stringify({ success }),
           },
         ];
 
-        const followUpResp = await fetch(geminiUrl, {
+        console.log("Sending follow-up to AI with tool result...");
+        const followUpResp = await fetch(apiUrl, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${LOVABLE_API_KEY}`,
+          },
           body: JSON.stringify({
-            contents: contentsWithFunctionResult,
-            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-            tools: TOOLS,
-            generation_config: { temperature: 0.7, max_output_tokens: 1024 },
+            model: "google/gemini-2.5-flash",
+            messages: followUpMessages,
+            tools,
+            temperature: 0.7,
+            max_tokens: 1024,
           }),
         });
 
         if (followUpResp.ok) {
           const followUpData = await followUpResp.json();
           const followUpText =
-            followUpData.candidates?.[0]?.content?.parts
-              ?.filter((p: any) => p.text)
-              .map((p: any) => p.text)
-              .join("") ||
+            followUpData.choices?.[0]?.message?.content ||
             "Спасибо! Я передал вашу заявку Арине. Она свяжется с вами в ближайшее время 💛";
+          console.log("Follow-up response received");
 
           return new Response(JSON.stringify({ reply: followUpText }), {
             headers: { ...corsHeaders, "Content-Type": "application/json" },
           });
         }
 
-        // Fallback if follow-up fails
+        // Fallback
         return new Response(
           JSON.stringify({
             reply: "Спасибо! Я передал вашу заявку Арине. Она свяжется с вами в ближайшее время 💛",
@@ -270,10 +276,10 @@ serve(async (req) => {
     }
 
     // Regular text response
-    const textParts = parts.filter((p: any) => p.text);
     const replyText =
-      textParts.map((p: any) => p.text).join("") ||
+      message?.content ||
       "Извините, не удалось сформировать ответ. Попробуйте переформулировать вопрос.";
+    console.log("Returning text reply, length:", replyText.length);
 
     return new Response(JSON.stringify({ reply: replyText }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
