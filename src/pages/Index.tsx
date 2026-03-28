@@ -1,39 +1,15 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Heart, Sparkles, Users, ChevronRight, Star, Zap } from "lucide-react";
+import { Shield, Heart, Sparkles, Users, ChevronRight, Star, Zap, MapPin, CalendarCheck, UserCheck, MessageCircle, Check, Gift, Crown, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
-import CTASection from "@/components/CTASection";
+import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
 import heroBg from "@/assets/hero-bg.jpg";
-import specialistImg from "@/assets/specialist.jpg";
-import certificateImg from "@/assets/certificate.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.6 } }),
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.5 } }),
 };
-
-const directions = [
-  { icon: Sparkles, title: "Лицо", desc: "Массаж, пилинги, биоревитализация, микротоки, лазерная чистка" },
-  { icon: Heart, title: "Тело", desc: "LPG, кавитация, прессотерапия, лимфодренаж, обёртывания" },
-  { icon: Shield, title: "Аппаратные процедуры", desc: "BBL-фотоомоложение, фракционный CO₂, INDIBA, RF-лифтинг" },
-  { icon: Users, title: "Интимное омоложение", desc: "Деликатные процедуры с применением передовых технологий" },
-];
-
-const advantages = [
-  { title: "Авторские АРТ-протоколы", desc: "Каждая программа разрабатывается индивидуально с учётом особенностей вашей кожи и организма" },
-  { title: "Комплексный подход", desc: "Подготовка тканей массажем → аппаратная процедура → восстановление и рекомендации" },
-  { title: "Безопасность", desc: "Только сертифицированное оборудование и препараты с доказанной эффективностью" },
-  { title: "Результат", desc: "Видимые изменения уже после первой процедуры, стойкий эффект при курсовом лечении" },
-  { title: "Опыт и квалификация", desc: "Регулярное повышение квалификации, обучение у ведущих специалистов" },
-  { title: "Индивидуальный подбор", desc: "Нет шаблонных решений — только то, что подходит именно вам" },
-];
-
-const reviews = [
-  { name: "Елена М.", text: "Настоящий профессионал! После курса скульптурного массажа овал лица заметно подтянулся. Рекомендую всем!", rating: 5 },
-  { name: "Ольга К.", text: "Прошла курс фотоомоложения BBL. Пигментация ушла, кожа стала сияющей. Очень деликатный подход и комфортная атмосфера.", rating: 5 },
-  { name: "Марина С.", text: "Делала LPG и прессотерапию — объёмы ушли, целлюлит стал намного менее заметным. Идеально подобранная программа.", rating: 5 },
-];
 
 const Index = () => (
   <Layout>
@@ -47,32 +23,33 @@ const Index = () => (
           name: "АРТ Косметология — Авторские ритуалы и технологии",
           url: "https://arina-beauty.ru",
           telephone: "+79117193949",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "пр-т Обуховской Обороны, 110к1",
-            addressLocality: "Санкт-Петербург",
-            addressCountry: "RU",
-          },
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
           description: "АРТ Косметология — авторские ритуалы и технологии. Омоложение лица и тела в Санкт-Петербурге.",
         }),
       }}
     />
 
-    {/* HERO */}
-    <section className="relative min-h-[90vh] flex items-center">
+    {/* ═══════════ HERO ═══════════ */}
+    <section className="relative min-h-[92vh] flex items-center">
       <div className="absolute inset-0">
         <img src={heroBg} alt="Кабинет эстетической косметологии" className="w-full h-full object-cover" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
       </div>
-      <div className="relative container-wide px-4 md:px-8 py-20">
+      <div className="relative container-wide px-4 md:px-8 py-24">
         <motion.div initial="hidden" animate="visible" className="max-w-2xl">
-          <motion.h1 variants={fadeUp} custom={0} className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
+          <motion.p variants={fadeUp} custom={0} className="text-primary-foreground/60 text-sm tracking-[0.2em] uppercase font-medium mb-4">
+            АРТ Косметология | Авторские ритуалы и технологии
+          </motion.p>
+          <motion.h1 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
             Омоложение лица и&nbsp;тела в&nbsp;Санкт&#8209;Петербурге
           </motion.h1>
-          <motion.p variants={fadeUp} custom={1} className="text-primary-foreground/85 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
-            Массаж, аппаратные процедуры, коррекция фигуры и&nbsp;деликатное омоложение по&nbsp;авторским протоколам
+          <motion.p variants={fadeUp} custom={2} className="text-primary-foreground/80 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
+            Авторские АРТ-протоколы: массаж, аппаратные технологии, уход и&nbsp;восстановление.
+            Подбираем решение под задачу: лицо, тело, лифтинг, коррекция фигуры, деликатное омоложение.
           </motion.p>
-          <motion.div variants={fadeUp} custom={2} className="flex flex-col sm:flex-row gap-4">
+
+          {/* CTA Buttons */}
+          <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-4 mb-10">
             <Link to="/booking">
               <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 text-base shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн</Button>
             </Link>
@@ -87,79 +64,95 @@ const Index = () => (
               </Button>
             </Link>
           </motion.div>
+
+          {/* Short accents */}
+          <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-x-6 gap-y-2 text-primary-foreground/60 text-sm">
+            <span className="flex items-center gap-1.5"><MapPin size={14} /> Санкт-Петербург</span>
+            <span className="flex items-center gap-1.5"><CalendarCheck size={14} /> Приём по записи</span>
+            <span className="flex items-center gap-1.5"><UserCheck size={14} /> Индивидуальный подбор протокола</span>
+            <span className="flex items-center gap-1.5"><MessageCircle size={14} /> VK и Telegram для связи</span>
+          </motion.div>
         </motion.div>
       </div>
     </section>
 
-    {/* ART PROTOCOLS */}
-    <section className="py-20 md:py-28 bg-gradient-to-b from-background to-cream">
-      <div className="container-narrow px-4 md:px-8 text-center">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-8">
-            <Zap size={16} /> Авторская методика
-          </div>
-          <h2 className="font-heading text-3xl md:text-5xl mb-6">Авторские АРТ&#8209;протоколы</h2>
-          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
-            Мы не выполняем отдельные процедуры.
-          </p>
-          <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
-            Мы подбираем комплекс: подготовка тканей → аппаратная процедура → восстановление.
-          </p>
-        </motion.div>
-      </div>
-    </section>
-
-    {/* 4 DIRECTIONS */}
-    <section className="py-20 md:py-28">
+    {/* ═══════════ SERVICES BLOCKS ═══════════ */}
+    <section className="py-24 md:py-32">
       <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">Направления</h2>
-        <p className="text-muted-foreground text-center text-lg mb-14 max-w-xl mx-auto">Комплексный подход к красоте и здоровью — от лица до тела</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {directions.map((d, i) => (
-            <motion.div
-              key={d.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              variants={fadeUp}
-              className="bg-card rounded-xl p-8 hover-lift border border-border text-center"
-            >
-              <div className="w-16 h-16 rounded-full bg-gold-light flex items-center justify-center mx-auto mb-6">
-                <d.icon size={26} className="text-primary" />
-              </div>
-              <h3 className="font-heading text-xl mb-3">{d.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{d.desc}</p>
-            </motion.div>
-          ))}
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
+            <Zap size={16} /> Направления
+          </div>
+          <h2 className="font-heading text-3xl md:text-5xl mb-4">Услуги и протоколы</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Комплексный подход к красоте, здоровью и восстановлению</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Face */}
+          <ServiceBlock
+            icon={Sparkles}
+            title="АРТ-протоколы лица"
+            subtitle="Подготовка тканей, деликатный лифтинг, работа с отёками, качеством кожи и контуром лица."
+            items={["массаж лица", "лимфодренаж", "INDIBA", "РФ лифтинг 3D", "микроигольчатый RF", "холодная плазма", "БМС лица", "уходовые маски"]}
+            footer="Помогаем сделать лицо более собранным, свежим и ухоженным без перегруза процедур."
+            index={0}
+          />
+          {/* Body */}
+          <ServiceBlock
+            icon={Heart}
+            title="АРТ-протоколы тела"
+            subtitle="Аппаратные и ручные методики для коррекции фигуры, дренажа и восстановления."
+            items={["EMS Body Sculpt", "INDIBA", "БМС тела", "лимфодренажный массаж", "прессотерапия", "LPG", "кавитация", "вакуумный массаж", "4D-коррекция"]}
+            footer="Подбираем протокол под объёмы, отёчность, тонус и общее состояние тела."
+            index={1}
+          />
+          {/* Massage */}
+          <ServiceBlock
+            icon={Shield}
+            title="Лечебный и восстанавливающий массаж"
+            subtitle="Работа с мышечным напряжением, спазмом, усталостью и зажимами."
+            items={["медицинский массаж", "лечебный массаж", "массаж шейно-воротниковой зоны", "лимфодренаж", "восстановительные программы"]}
+            footer="Подходит тем, кому важны не только эстетика, но и ощущение облегчения после процедуры."
+            index={2}
+          />
+          {/* SPA */}
+          <ServiceBlock
+            icon={Users}
+            title="СПА и восстановление"
+            subtitle="Комплексы для мягкого ухода, восстановления и усиления эффекта процедур."
+            items={["инфракрасная сауна", "медовая выкатка", "комплексные СПА-протоколы", "уходовые ритуалы для лица"]}
+            footer="Хороший вариант для тех, кто хочет не просто процедуру, а полноценный ритуал восстановления."
+            index={3}
+          />
         </div>
-        <div className="text-center mt-12">
+
+        <div className="text-center mt-14">
           <Link to="/services">
             <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-              Все услуги <ChevronRight size={16} className="ml-1" />
+              Все услуги и цены <ChevronRight size={16} className="ml-1" />
             </Button>
           </Link>
         </div>
       </div>
     </section>
 
-    {/* AUTHOR PROTOCOL STEPS */}
-    <section className="py-20 md:py-28 bg-cream">
-      <div className="container-narrow px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">Как работает АРТ-протокол</h2>
-        <p className="text-muted-foreground text-center text-lg mb-14 max-w-2xl mx-auto">
-          Каждая процедура — это не одиночное воздействие, а продуманная программа из трёх этапов
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+    {/* ═══════════ SELLING SERVICES ═══════════ */}
+    <section className="py-24 md:py-32 bg-cream">
+      <div className="container-wide px-4 md:px-8">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-16">
+          <h2 className="font-heading text-3xl md:text-4xl mb-4">Как работают процедуры</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Каждая услуга — это не просто название, а конкретная ценность для вас</p>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
-            { step: "01", title: "Подготовка", desc: "Массаж и лимфодренаж для активации тканей, улучшения кровообращения и подготовки кожи к основной процедуре" },
-            { step: "02", title: "Процедура", desc: "Аппаратное или инъекционное воздействие с использованием сертифицированного оборудования и препаратов" },
-            { step: "03", title: "Восстановление", desc: "Индивидуальные рекомендации по уходу, домашний протокол и контроль результата" },
+            { title: "INDIBA для лица", desc: "Деликатная аппаратная технология для улучшения тонуса, качества кожи и общего состояния лица." },
+            { title: "EMS Body Sculpt", desc: "Подтяжка и проработка мышц тела без тренировок." },
+            { title: "Микроигольчатый RF", desc: "Глубокая работа с качеством кожи, рельефом и упругостью." },
+            { title: "Холодная плазма", desc: "Мягкая аппаратная процедура для деликатных зон и эстетической коррекции." },
           ].map((s, i) => (
-            <motion.div key={s.step} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="text-center p-8">
-              <span className="gold-text text-6xl font-heading font-bold">{s.step}</span>
-              <h3 className="font-heading text-xl mt-5 mb-4">{s.title}</h3>
+            <motion.div key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="bg-card p-8 rounded-xl border border-border hover-lift">
+              <h3 className="font-heading text-xl mb-3">{s.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
@@ -167,105 +160,122 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ADVANTAGES */}
-    <section className="py-20 md:py-28">
+    {/* ═══════════ OFFERS ═══════════ */}
+    <section className="py-24 md:py-32">
       <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-14">Почему выбирают нас</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {advantages.map((a, i) => (
-            <motion.div key={a.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="p-8 rounded-xl border border-border hover-lift">
-              <h3 className="font-heading text-lg mb-3">{a.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{a.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* ABOUT PREVIEW */}
-    <section className="py-20 md:py-28 bg-cream">
-      <div className="container-wide px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
-            <img src={specialistImg} alt="Специалист" className="rounded-xl shadow-lg w-full max-w-md mx-auto" loading="lazy" width={800} height={1000} />
-          </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeUp}>
-            <h2 className="font-heading text-3xl md:text-4xl mb-6">О специалисте</h2>
-            <p className="text-muted-foreground leading-relaxed text-base mb-5">
-              Дипломированный специалист в области эстетической косметологии с многолетним опытом работы. Регулярно проходит обучение и повышение квалификации у ведущих экспертов отрасли.
-            </p>
-            <p className="text-muted-foreground leading-relaxed text-base mb-8">
-              Специализируется на комплексном омоложении лица и тела, используя авторские протоколы, сочетающие ручные техники и современные аппаратные методики.
-            </p>
-            <Link to="/about">
-              <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-                Подробнее <ChevronRight size={16} className="ml-1" />
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-
-    {/* CERTIFICATES */}
-    <section className="py-20 md:py-28">
-      <div className="container-narrow px-4 md:px-8 text-center">
-        <h2 className="font-heading text-3xl md:text-4xl mb-4">Сертификаты и доверие</h2>
-        <p className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto">
-          Все процедуры выполняются на сертифицированном оборудовании с использованием препаратов, прошедших клинические исследования
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          {[1, 2, 3].map((n) => (
-            <img key={n} src={certificateImg} alt={`Сертификат ${n}`} className="rounded-xl shadow-md hover-lift" loading="lazy" width={800} height={600} />
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* REVIEWS */}
-    <section className="py-20 md:py-28 bg-cream">
-      <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-14">Отзывы клиентов</h2>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-16">
+          <h2 className="font-heading text-3xl md:text-4xl">Выгодные условия</h2>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reviews.map((r, i) => (
-            <motion.div key={r.name} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card p-8 rounded-xl border border-border">
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: r.rating }).map((_, j) => (
-                  <Star key={j} size={16} className="fill-primary text-primary" />
-                ))}
+          {[
+            {
+              icon: Gift,
+              title: "Первое посещение",
+              main: "Первая процедура знакомства — со скидкой до 30%",
+              sub: "Только на входные услуги: массаж, лимфодренаж, базовые уходы, мягкие коррекционные процедуры.",
+            },
+            {
+              icon: Crown,
+              title: "Премиальные процедуры",
+              main: "Для аппаратных и авторских протоколов — без демпинга, с акцентом на результат и комплекс",
+              sub: "Скидка не в лоб, а через грамотный подбор протокола и выгодные комплексы.",
+            },
+            {
+              icon: Layers,
+              title: "Комплекс выгоднее",
+              main: "Отдельные процедуры — это точечная работа. Комплекс — это системный результат.",
+              sub: "Подбираем связку: подготовка → аппарат → восстановление.",
+            },
+          ].map((o, i) => (
+            <motion.div key={o.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="bg-card p-8 rounded-xl border border-border hover-lift text-center">
+              <div className="w-14 h-14 rounded-full bg-gold-light flex items-center justify-center mx-auto mb-5">
+                <o.icon size={24} className="text-primary" />
               </div>
-              <p className="text-foreground/80 leading-relaxed mb-5 italic">«{r.text}»</p>
-              <span className="font-medium text-foreground">{r.name}</span>
+              <h3 className="font-heading text-xl mb-3">{o.title}</h3>
+              <p className="text-foreground font-medium leading-relaxed mb-3">{o.main}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{o.sub}</p>
             </motion.div>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <Link to="/reviews">
-            <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-              Все отзывы <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </Link>
+      </div>
+    </section>
+
+    {/* ═══════════ SHORT ADVANTAGES ═══════════ */}
+    <section className="py-20 md:py-28 bg-cream">
+      <div className="container-narrow px-4 md:px-8">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-12">
+          <h2 className="font-heading text-3xl md:text-4xl">Почему выбирают нас</h2>
+        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            "Авторский подход, а не шаблонные процедуры",
+            "Услуги для лица, тела и восстановления",
+            "Чёткий прайс без путаницы",
+            "Удобная запись через сайт, VK и Telegram",
+            "Акцент на доверии, аккуратности и эстетике",
+          ].map((t, i) => (
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-5 bg-card rounded-lg border border-border">
+              <Check size={18} className="text-primary mt-0.5 shrink-0" />
+              <span className="text-foreground leading-relaxed">{t}</span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
 
-    {/* FIRST VISIT */}
-    <section className="py-20 md:py-28">
+    {/* ═══════════ CTA ═══════════ */}
+    <section className="py-24 md:py-32">
       <div className="container-narrow px-4 md:px-8 text-center">
-        <h2 className="font-heading text-3xl md:text-4xl mb-6">Первый визит</h2>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          Первая процедура-знакомство — возможность оценить качество работы и уровень сервиса. На отдельные входные услуги действует скидка до 30%. Запишитесь, и мы подберём оптимальную программу именно для вас.
-        </p>
-        <Link to="/booking">
-          <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-12 text-base shadow-xl hover:shadow-2xl transition-shadow">Записаться на первый визит</Button>
-        </Link>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
+          <h2 className="font-heading text-3xl md:text-4xl mb-5">Запишитесь на АРТ-протокол</h2>
+          <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
+            Подберём процедуру под вашу задачу: лицо, тело, восстановление или комплексный уход.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/booking">
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow text-base">Записаться онлайн</Button>
+            </Link>
+            <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 text-base gap-2">
+                <TelegramIcon size={18} /> Написать в Telegram
+              </Button>
+            </a>
+            <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 text-base gap-2">
+                <VKIcon size={18} /> Открыть VK
+              </Button>
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
-
-    <CTASection />
   </Layout>
+);
+
+/* ═══════════ Service Block Component ═══════════ */
+const ServiceBlock = ({ icon: Icon, title, subtitle, items, footer, index }: {
+  icon: React.ElementType; title: string; subtitle: string; items: string[]; footer: string; index: number;
+}) => (
+  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={index} variants={fadeUp}
+    className="bg-card rounded-xl p-8 md:p-10 border border-border hover-lift">
+    <div className="flex items-center gap-4 mb-5">
+      <div className="w-12 h-12 rounded-full bg-gold-light flex items-center justify-center shrink-0">
+        <Icon size={22} className="text-primary" />
+      </div>
+      <h3 className="font-heading text-2xl">{title}</h3>
+    </div>
+    <p className="text-muted-foreground leading-relaxed mb-5">{subtitle}</p>
+    <div className="flex flex-wrap gap-2 mb-6">
+      {items.map((item) => (
+        <span key={item} className="inline-flex items-center gap-1.5 bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm">
+          <Check size={13} className="text-primary" /> {item}
+        </span>
+      ))}
+    </div>
+    <p className="text-foreground/70 text-sm italic leading-relaxed">{footer}</p>
+  </motion.div>
 );
 
 export default Index;
