@@ -179,21 +179,27 @@ serve(async (req) => {
       },
     };
 
+    console.log("Sending request to Gemini API...");
     const response = await fetch(geminiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(geminiBody),
     });
 
+    console.log("Gemini response status:", response.status);
+
     if (!response.ok) {
       const t = await response.text();
-      console.error("Gemini error:", response.status, t);
+      console.error("Gemini API error:", response.status, t);
 
       if (response.status === 429) {
         return new Response(
           JSON.stringify({ error: "Слишком много запросов, попробуйте позже." }),
           { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
+      }
+      if (response.status === 401 || response.status === 403) {
+        console.error("Gemini AUTH error — check GEMINI_API_KEY validity!");
       }
 
       return new Response(
@@ -203,8 +209,10 @@ serve(async (req) => {
     }
 
     const data = await response.json();
+    console.log("Gemini candidates count:", data.candidates?.length);
     const candidate = data.candidates?.[0];
     const parts = candidate?.content?.parts ?? [];
+    console.log("Response parts:", parts.map((p: any) => p.functionCall ? "functionCall:" + p.functionCall.name : "text"));
 
     // Check for function calls
     const functionCall = parts.find((p: any) => p.functionCall);
