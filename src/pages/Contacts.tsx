@@ -14,7 +14,7 @@ const Contacts = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h2 className="font-heading text-2xl mb-4">Арина Ланова</h2>
+                <h2 className="font-heading text-2xl mb-4">Ариана Ханова</h2>
                 <p className="text-muted-foreground text-sm mb-6">Специалист по массажу, аппаратной косметологии и коррекции фигуры</p>
               </div>
 
