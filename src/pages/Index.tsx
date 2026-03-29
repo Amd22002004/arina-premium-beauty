@@ -82,7 +82,7 @@ const Index = () => (
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
             <img
               src={specialistPhoto}
-              alt="Арина Ханова — специалист АРТ Косметология"
+              alt="Ариана Ханова — специалист АРТ Косметология"
               className="rounded-xl shadow-lg w-full max-w-md mx-auto"
               width={800}
               height={1000}
