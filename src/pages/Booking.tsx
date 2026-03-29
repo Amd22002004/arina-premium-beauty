@@ -139,8 +139,8 @@ const Booking = () => {
               </div>
               {errors.consent && <p className="text-destructive text-xs">{errors.consent}</p>}
 
-              <Button type="submit" size="lg" className="w-full gold-gradient text-primary-foreground border-0">
-                Отправить заявку
+              <Button type="submit" size="lg" className="w-full gold-gradient text-primary-foreground border-0" disabled={isSubmitting}>
+                {isSubmitting ? "Отправляем..." : "Отправить заявку"}
               </Button>
             </form>
           </motion.div>
