@@ -8,7 +8,7 @@ const corsHeaders = {
 };
 
 const WEB3FORMS_KEY = "66bbf0d1-249e-409e-9cce-69821796c537";
-const EMAIL_RECIPIENTS = ["kaonis@mail.ru", "kaonis79@yandex.ru", "Amd22002004@mail.ru"];
+const EMAIL_RECIPIENTS = ["kaonis@mail.ru", "kaonis79@yandex.ru"];
 
 const BookingSchema = z.object({
   name: z.string().trim().min(2).max(100),
