@@ -26,7 +26,7 @@ const Contacts = () => {
 
                 <div className="flex items-center gap-3 text-foreground">
                   <div className="w-10 h-10 rounded-full bg-gold-light flex items-center justify-center"><MapPin size={18} className="text-primary" /></div>
-                  <div><p className="text-sm font-medium">пр-т Обуховской Обороны, 110к1</p><p className="text-xs text-muted-foreground">Санкт-Петербург</p></div>
+                  <div><p className="text-sm font-medium">пр-т Энергетиков, 2к1</p><p className="text-xs text-muted-foreground">Санкт-Петербург</p></div>
                 </div>
 
                 <div className="flex items-center gap-3 text-foreground">
