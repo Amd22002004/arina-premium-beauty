@@ -86,7 +86,7 @@ const Contacts = () => {
           "@type": "LocalBusiness",
           name: "АРТ Косметология — Авторские ритуалы и технологии",
           telephone: "+79117193949",
-          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Энергетиков, 2к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
           openingHours: "Mo-Su 08:00-19:00",
         }),
       }} />

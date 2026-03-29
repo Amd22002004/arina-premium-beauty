@@ -25,7 +25,7 @@ const About = () => (
             <img src={specialistPhoto} alt="Ариана Ханова — специалист АРТ Косметология" className="rounded-lg shadow-lg w-full max-w-lg mx-auto" width={800} height={1000} />
           </motion.div>
           <motion.div initial="hidden" animate="visible" custom={1} variants={fadeUp}>
-            <h1 className="font-heading text-4xl md:text-5xl mb-6">Арина Ланова</h1>
+            <h1 className="font-heading text-4xl md:text-5xl mb-6">Ариана Ханова</h1>
             <p className="text-lg text-muted-foreground mb-2 font-medium">
               Специалист по массажу, аппаратной косметологии и коррекции фигуры
             </p>
