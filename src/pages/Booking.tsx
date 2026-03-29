@@ -10,6 +10,8 @@ import { categories } from "@/data/services";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
 
+const SUBMIT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-booking`;
+
 const bookingSchema = z.object({
   name: z.string().trim().min(2, "Введите имя").max(100),
   phone: z.string().trim().min(10, "Введите корректный телефон").max(20),
@@ -21,8 +23,9 @@ const bookingSchema = z.object({
 const Booking = () => {
   const [form, setForm] = useState({ name: "", phone: "", service: "", comment: "", consent: false });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = bookingSchema.safeParse(form);
     if (!result.success) {
@@ -34,8 +37,32 @@ const Booking = () => {
       return;
     }
     setErrors({});
-    toast({ title: "Заявка отправлена!", description: "Мы свяжемся с вами в ближайшее время для подтверждения записи." });
-    setForm({ name: "", phone: "", service: "", comment: "", consent: false });
+    setIsSubmitting(true);
+
+    try {
+      const resp = await fetch(SUBMIT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          service: form.service || undefined,
+          comment: form.comment || undefined,
+        }),
+      });
+
+      if (!resp.ok) throw new Error("Request failed");
+
+      toast({ title: "Заявка отправлена!", description: "Мы свяжемся с вами в ближайшее время для подтверждения записи." });
+      setForm({ name: "", phone: "", service: "", comment: "", consent: false });
+    } catch {
+      toast({ title: "Ошибка", description: "Не удалось отправить заявку. Попробуйте позже или позвоните нам.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
