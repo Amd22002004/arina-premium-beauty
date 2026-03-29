@@ -24,7 +24,7 @@ const Index = () => (
           name: "АРТ Косметология — Авторские ритуалы и технологии",
           url: "https://arina-beauty.ru",
           telephone: "+79117193949",
-          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Энергетиков, 2к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
           description: "АРТ Косметология — авторские ритуалы и технологии. Омоложение лица и тела в Санкт-Петербурге.",
         }),
       }}
