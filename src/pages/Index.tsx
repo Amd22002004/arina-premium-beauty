@@ -24,7 +24,7 @@ const Index = () => (
           name: "АРТ Косметология — Авторские ритуалы и технологии",
           url: "https://arina-beauty.ru",
           telephone: "+79117193949",
-          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Энергетиков, 2к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
           description: "АРТ Косметология — авторские ритуалы и технологии. Омоложение лица и тела в Санкт-Петербурге.",
         }),
       }}
@@ -82,7 +82,7 @@ const Index = () => (
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
             <img
               src={specialistPhoto}
-              alt="Арина Ханова — специалист АРТ Косметология"
+              alt="Ариана Ханова — специалист АРТ Косметология"
               className="rounded-xl shadow-lg w-full max-w-md mx-auto"
               width={800}
               height={1000}
@@ -92,7 +92,7 @@ const Index = () => (
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
               <Star size={16} /> О специалисте
             </div>
-            <h2 className="font-heading text-3xl md:text-4xl mb-4">Арина Ханова</h2>
+            <h2 className="font-heading text-3xl md:text-4xl mb-4">Ариана Ханова</h2>
             <p className="text-lg text-muted-foreground mb-2 font-medium">
               Специалист по массажу, аппаратной косметологии и коррекции фигуры
             </p>

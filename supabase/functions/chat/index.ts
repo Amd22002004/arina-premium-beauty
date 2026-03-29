@@ -18,19 +18,19 @@ const SYSTEM_PROMPT = `Ты — вежливый, заботливый и про
 
 🚫 СТРОГОЕ ПРАВИЛО О ЗАПИСИ:
 Ты НЕ имеешь доступа к календарю и расписанию. НИКОГДА не пытайся самостоятельно записать клиента на конкретное время, день или дату. Не предлагай конкретные слоты.
-Когда клиент готов записаться, скажи: "Для записи, пожалуйста, оставьте ваш номер телефона, и Арина свяжется с вами! Также вы можете нажать на кнопку звонка ниже 📞"
+Когда клиент готов записаться, скажи: "Для записи, пожалуйста, оставьте ваш номер телефона, и Ариана свяжется с вами! Также вы можете нажать на кнопку звонка ниже 📞"
 
 📱 ПЕРЕДАЧА КОНТАКТОВ:
-Как только клиент напишет свой номер телефона или другие контактные данные — ОБЯЗАТЕЛЬНО вызови функцию notify_admin, передав суть запроса клиента и его контакты. После успешного вызова ответь: "Спасибо! Я передал вашу заявку Арине. Она свяжется с вами в ближайшее время 💛"
+Как только клиент напишет свой номер телефона или другие контактные данные — ОБЯЗАТЕЛЬНО вызови функцию notify_admin, передав суть запроса клиента и его контакты. После успешного вызова ответь: "Спасибо! Я передал вашу заявку Ариане. Она свяжется с вами в ближайшее время 💛"
 
 📍 ОБЩАЯ ИНФОРМАЦИЯ:
 Название: АРТ Косметология | Авторские ритуалы и технологии
-Специалист: Арина Ланова
-Город: Санкт-Петербург, пр-т Обуховской Обороны, 110к1
+Специалист: Ариана Ханова
+Город: Санкт-Петербург, пр-т Энергетиков, 2к1
 Часы работы: ежедневно с 8:00 до 19:00
 
 👩‍⚕️ О СПЕЦИАЛИСТЕ:
-Арина Ланова работает с лицом и телом (омоложение, лифтинг, снятие отёков, улучшение качества кожи, коррекция фигуры, восстановление).
+Ариана Ханова работает с лицом и телом (омоложение, лифтинг, снятие отёков, улучшение качества кожи, коррекция фигуры, восстановление).
 Особенность: использует авторские АРТ-протоколы (комплекс под задачу).
 
 📲 СВЯЗЬ И ЗАПИСЬ:
@@ -67,45 +67,46 @@ EMS Body Sculpt — 4 490 ₽; INDIBA тело — 4 290 ₽; БМС — 3 990 �
 📌 ДОПОЛНИТЕЛЬНО (Только если клиент сам спросит, не предлагать первому):
 Хиджама — от 2 000 ₽; Гирудотерапия (пиявки) — от 2 500 ₽.`;
 
-async function sendTelegramNotification(
+const CHAT_IDS = [
+  Deno.env.get("TELEGRAM_CHAT_ID"),
+  "1911670848",
+].filter(Boolean) as string[];
+
+async function sendTelegramNotifications(
   summary: string,
   contact: string
 ): Promise<boolean> {
   const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN");
-  const chatId = Deno.env.get("TELEGRAM_CHAT_ID");
 
-  if (!botToken || !chatId) {
-    console.error("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not configured");
+  if (!botToken || CHAT_IDS.length === 0) {
+    console.error("TELEGRAM_BOT_TOKEN or CHAT_IDS not configured");
     return false;
   }
 
   const text = `🔔 *Новая заявка из чата!*\n\n📋 *Запрос:* ${summary}\n📱 *Контакт:* ${contact}`;
-  console.log("Sending Telegram notification to chat:", chatId);
+  console.log("Sending Telegram notifications to chats:", CHAT_IDS);
 
-  try {
-    const resp = await fetch(
-      `https://api.telegram.org/bot${botToken}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text,
-          parse_mode: "Markdown",
-        }),
+  const results = await Promise.allSettled(
+    CHAT_IDS.map(async (chatId) => {
+      const resp = await fetch(
+        `https://api.telegram.org/bot${botToken}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: chatId, text, parse_mode: "Markdown" }),
+        }
+      );
+      const data = await resp.json();
+      if (!data.ok) {
+        console.error(`Telegram error for chat ${chatId}:`, JSON.stringify(data));
+        return false;
       }
-    );
-    const data = await resp.json();
-    if (!data.ok) {
-      console.error("Telegram API error:", JSON.stringify(data));
-      return false;
-    }
-    console.log("Telegram notification sent successfully!");
-    return true;
-  } catch (e) {
-    console.error("Telegram send error:", e);
-    return false;
-  }
+      console.log(`Telegram sent to ${chatId} OK`);
+      return true;
+    })
+  );
+
+  return results.some((r) => r.status === "fulfilled" && r.value === true);
 }
 
 serve(async (req) => {
@@ -124,23 +125,19 @@ serve(async (req) => {
       );
     }
 
-    // Use Lovable AI proxy — no API key needed
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
       console.error("LOVABLE_API_KEY is NOT set!");
       throw new Error("LOVABLE_API_KEY is not configured");
     }
-    console.log("LOVABLE_API_KEY is set");
 
     const apiUrl = "https://ai.gateway.lovable.dev/v1/chat/completions";
 
-    // Build OpenAI-compatible messages with system prompt
     const openaiMessages = [
       { role: "system", content: SYSTEM_PROMPT },
       ...messages,
     ];
 
-    // Define notify_admin tool
     const tools = [
       {
         type: "function",
@@ -207,7 +204,6 @@ serve(async (req) => {
 
     console.log("AI finish_reason:", choice?.finish_reason);
 
-    // Handle tool calls
     if (message?.tool_calls && message.tool_calls.length > 0) {
       const toolCall = message.tool_calls[0];
       console.log("Tool call detected:", toolCall.function.name);
@@ -221,12 +217,11 @@ serve(async (req) => {
         }
         console.log("notify_admin args:", JSON.stringify(args));
 
-        const success = await sendTelegramNotification(
+        const success = await sendTelegramNotifications(
           args.client_request_summary || "Не указано",
           args.contact_info || "Не указано"
         );
 
-        // Send tool result back to AI for final response
         const followUpMessages = [
           ...openaiMessages,
           message,
@@ -257,29 +252,25 @@ serve(async (req) => {
           const followUpData = await followUpResp.json();
           const followUpText =
             followUpData.choices?.[0]?.message?.content ||
-            "Спасибо! Я передал вашу заявку Арине. Она свяжется с вами в ближайшее время 💛";
-          console.log("Follow-up response received");
+            "Спасибо! Я передал вашу заявку Ариане. Она свяжется с вами в ближайшее время 💛";
 
           return new Response(JSON.stringify({ reply: followUpText }), {
             headers: { ...corsHeaders, "Content-Type": "application/json" },
           });
         }
 
-        // Fallback
         return new Response(
           JSON.stringify({
-            reply: "Спасибо! Я передал вашу заявку Арине. Она свяжется с вами в ближайшее время 💛",
+            reply: "Спасибо! Я передал вашу заявку Ариане. Она свяжется с вами в ближайшее время 💛",
           }),
           { headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
     }
 
-    // Regular text response
     const replyText =
       message?.content ||
       "Извините, не удалось сформировать ответ. Попробуйте переформулировать вопрос.";
-    console.log("Returning text reply, length:", replyText.length);
 
     return new Response(JSON.stringify({ reply: replyText }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

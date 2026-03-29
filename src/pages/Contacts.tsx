@@ -14,7 +14,7 @@ const Contacts = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h2 className="font-heading text-2xl mb-4">Арина Ланова</h2>
+                <h2 className="font-heading text-2xl mb-4">Ариана Ханова</h2>
                 <p className="text-muted-foreground text-sm mb-6">Специалист по массажу, аппаратной косметологии и коррекции фигуры</p>
               </div>
 
@@ -26,7 +26,7 @@ const Contacts = () => {
 
                 <div className="flex items-center gap-3 text-foreground">
                   <div className="w-10 h-10 rounded-full bg-gold-light flex items-center justify-center"><MapPin size={18} className="text-primary" /></div>
-                  <div><p className="text-sm font-medium">пр-т Обуховской Обороны, 110к1</p><p className="text-xs text-muted-foreground">Санкт-Петербург</p></div>
+                  <div><p className="text-sm font-medium">пр-т Энергетиков, 2к1</p><p className="text-xs text-muted-foreground">Санкт-Петербург</p></div>
                 </div>
 
                 <div className="flex items-center gap-3 text-foreground">
@@ -53,27 +53,20 @@ const Contacts = () => {
 
             {/* 2GIS Map */}
             <div className="space-y-4">
-              <div className="rounded-lg overflow-hidden border border-border">
-                <iframe
-                  src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A59.86723905330512%2C%22lon%22%3A30.46898169195629%2C%22zoom%22%3A17%7D%2C%22opt%22%3A%7B%22city%22%3A%22spb%22%7D%2C%22org%22%3A%5B%7B%22id%22%3A%2270000001066214518%22%7D%5D%7D"
-                  width="100%"
-                  height="400"
-                  frameBorder="0"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  title="АРТ Косметология на карте 2GIS"
-                />
-              </div>
-              <div className="flex flex-wrap gap-3 text-sm">
-                <a className="text-primary hover:underline" href="http://2gis.ru/spb/firm/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
-                  📍 На карте
-                </a>
-                <a className="text-primary hover:underline" href="http://2gis.ru/spb/firm/70000001066214518/photos/70000001066214518/center/30.46898169195629,59.86723905330512/zoom/17" target="_blank" rel="noopener noreferrer">
-                  📷 Фото
-                </a>
-                <a className="text-primary hover:underline" href="http://2gis.ru/spb/center/30.469257,59.867195/zoom/17/routeTab/rsType/bus/to/30.469257,59.867195" target="_blank" rel="noopener noreferrer">
-                  🚌 Проезд
-                </a>
+              <div className="rounded-lg overflow-hidden border border-border bg-secondary p-8 flex items-center justify-center" style={{ minHeight: 400 }}>
+                <div className="text-center">
+                  <MapPin size={48} className="text-primary mx-auto mb-4" />
+                  <p className="text-lg font-heading mb-2">пр-т Энергетиков, 2к1</p>
+                  <p className="text-muted-foreground text-sm mb-4">Санкт-Петербург</p>
+                  <a
+                    href="https://2gis.ru/spb/search/пр-т%20Энергетиков%202к1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline text-sm"
+                  >
+                    📍 Открыть на карте 2GIS
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -86,7 +79,7 @@ const Contacts = () => {
           "@type": "LocalBusiness",
           name: "АРТ Косметология — Авторские ритуалы и технологии",
           telephone: "+79117193949",
-          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Энергетиков, 2к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
           openingHours: "Mo-Su 08:00-19:00",
         }),
       }} />

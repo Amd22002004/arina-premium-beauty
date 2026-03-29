@@ -187,7 +187,7 @@ const FloatingContactWidget = () => {
               className="flex items-center gap-3 bg-card border border-border rounded-full pl-4 pr-5 py-3 shadow-lg hover:shadow-xl transition-shadow text-sm font-medium text-foreground"
             >
               <span className="text-lg">📞</span>
-              Позвонить Арине
+              Позвонить Ариане
             </a>
           </motion.div>
         )}
