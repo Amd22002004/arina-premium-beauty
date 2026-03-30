@@ -75,13 +75,13 @@ const RelatedServices = ({ currentPath, count = 4 }: RelatedServicesProps) => {
             <motion.div key={s.path} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}>
               <Link
                 to={s.path}
-                className="flex items-center justify-between bg-card rounded-xl p-5 border border-border hover:border-primary/40 transition-colors group"
+                className="flex flex-col bg-card rounded-xl p-6 border border-border hover:border-primary/40 hover:shadow-md transition-all group h-full"
               >
-                <div>
-                  <h3 className="font-heading text-lg group-hover:text-primary transition-colors">{s.title}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">{s.short}</p>
+                <h3 className="font-heading text-lg group-hover:text-primary transition-colors">{s.title}</h3>
+                <p className="text-muted-foreground text-sm mt-2 flex-1">{s.short}</p>
+                <div className="flex items-center gap-1 text-primary text-sm font-medium mt-4">
+                  Подробнее <ChevronRight size={14} />
                 </div>
-                <ChevronRight size={18} className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-3" />
               </Link>
             </motion.div>
           ))}
