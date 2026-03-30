@@ -30,6 +30,7 @@ import OzonoterapiyaSpb from "./pages/OzonoterapiyaSpb";
 import MassazhTelaSpb from "./pages/MassazhTelaSpb";
 import VosstanovitelnyeMassazhiSpb from "./pages/VosstanovitelnyeMassazhiSpb";
 import SpaIVosstanovlenieSpb from "./pages/SpaIVosstanovlenieSpb";
+import DopolnitelnyeUslugiSpb from "./pages/DopolnitelnyeUslugiSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
