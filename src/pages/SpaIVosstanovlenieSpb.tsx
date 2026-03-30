@@ -5,6 +5,7 @@ import { CheckCircle2, ChevronRight, AlertCircle, Sparkles, BadgePercent } from 
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
+import RelatedServices from "@/components/RelatedServices";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -226,7 +227,7 @@ const SpaIVosstanovlenieSpb = () => (
                 Записаться онлайн
               </Button>
             </Link>
-            <a href="https://t.me/art_kosmetologiya" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/ART_and_beauty_studio" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-10">
                 Написать в Telegram
               </Button>
@@ -236,6 +237,7 @@ const SpaIVosstanovlenieSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/spa-i-vosstanovlenie-spb" />
     <CTASection />
   </Layout>
 );

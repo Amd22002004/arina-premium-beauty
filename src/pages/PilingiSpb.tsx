@@ -5,6 +5,7 @@ import { CheckCircle2, ChevronRight, Sparkles, UserCheck, ShieldCheck, ListCheck
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
+import RelatedServices from "@/components/RelatedServices";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -224,6 +225,7 @@ const PilingiSpb = () => (
         </motion.div>
       </div>
     </section>
+    <RelatedServices currentPath="/pilingi-spb" />
     <CTASection />
   </Layout>
 );

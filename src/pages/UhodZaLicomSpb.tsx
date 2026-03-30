@@ -5,6 +5,7 @@ import { CheckCircle2, ChevronRight, Sparkles, Clock, ShieldCheck, Heart, Drople
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
+import RelatedServices from "@/components/RelatedServices";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -219,7 +220,7 @@ const UhodZaLicomSpb = () => (
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
           className="max-w-2xl mx-auto text-center bg-card rounded-xl p-8 md:p-10 border border-primary/30 shadow-lg">
           <Star size={32} className="text-primary mx-auto mb-4" />
-          <h2 className="font-heading text-2xl md:text-3xl mb-3">Скидка 20% на первое посещение</h2>
+          <h2 className="font-heading text-2xl md:text-3xl mb-3">Скидка 30% на первое посещение</h2>
           <p className="text-muted-foreground mb-6">Попробуйте комплексный уход за лицом со скидкой — запишитесь и&nbsp;убедитесь в&nbsp;результате</p>
           <Link to="/booking">
             <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">Записаться со скидкой</Button>
@@ -228,6 +229,7 @@ const UhodZaLicomSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/uhod-za-licom-spb" />
     <CTASection />
   </Layout>
 );

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, AlertTriangle, Sparkles, Target, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
+import RelatedServices from "@/components/RelatedServices";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -182,6 +183,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/apparatnye-protokoly-tela-spb" />
     <CTASection />
   </Layout>
 );
