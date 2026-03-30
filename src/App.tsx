@@ -23,6 +23,7 @@ import PilingiSpb from "./pages/PilingiSpb";
 import AparatnyeProtokolyLicaSpb from "./pages/AparatnyeProtokolyLicaSpb";
 import ApparatnayaKosmetologiyaLicaSpb from "./pages/ApparatnayaKosmetologiyaLicaSpb";
 import FotoomolozhenieBblSpb from "./pages/FotoomolozhenieBblSpb";
+import FrakcionnyyLazerCo2Spb from "./pages/FrakcionnyyLazerCo2Spb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/aparatnye-protokoly-lica-spb" element={<AparatnyeProtokolyLicaSpb />} />
           <Route path="/apparatnaya-kosmetologiya-lica-spb" element={<ApparatnayaKosmetologiyaLicaSpb />} />
           <Route path="/fotoomolozhenie-bbl-spb" element={<FotoomolozhenieBblSpb />} />
+          <Route path="/frakcionnyy-lazer-co2-spb" element={<FrakcionnyyLazerCo2Spb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
