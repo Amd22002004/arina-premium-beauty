@@ -65,6 +65,7 @@ const App = () => (
           <Route path="/korrekciya-figury-spb" element={<KorrekciyaFigurySpb />} />
           <Route path="/ozonoterapiya-spb" element={<OzonoterapiyaSpb />} />
           <Route path="/massazh-tela-spb" element={<MassazhTelaSpb />} />
+          <Route path="/vosstanovitelnye-massazhi-spb" element={<VosstanovitelnyeMassazhiSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
