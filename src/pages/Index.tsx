@@ -124,6 +124,8 @@ const Index = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
+
     {/* ═══════════ SERVICES BLOCKS ═══════════ */}
     <section className="py-8 md:py-10">
       <div className="container-wide px-4 md:px-8">
