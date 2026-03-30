@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
+import NextStep from "@/components/NextStep";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -232,6 +233,7 @@ const VosstanovitelnyeMassazhiSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/vosstanovitelnye-massazhi-spb" />
     <RelatedServices currentPath="/vosstanovitelnye-massazhi-spb" />
     <CTASection />
   </Layout>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
+import NextStep from "@/components/NextStep";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -260,6 +261,7 @@ const KorrekciyaFigurySpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/korrekciya-figury-spb" />
     <RelatedServices currentPath="/korrekciya-figury-spb" />
     <CTASection />
   </Layout>

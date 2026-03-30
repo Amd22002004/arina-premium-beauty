@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
+import NextStep from "@/components/NextStep";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -225,6 +226,7 @@ const PilingiSpb = () => (
         </motion.div>
       </div>
     </section>
+    <NextStep currentPath="/pilingi-spb" />
     <RelatedServices currentPath="/pilingi-spb" />
     <CTASection />
   </Layout>

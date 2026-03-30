@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
+import NextStep from "@/components/NextStep";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -261,6 +262,7 @@ const OzonoterapiyaSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/ozonoterapiya-spb" />
     <RelatedServices currentPath="/ozonoterapiya-spb" />
     <CTASection />
   </Layout>
