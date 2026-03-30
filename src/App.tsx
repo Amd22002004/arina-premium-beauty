@@ -21,6 +21,7 @@ import UhodZaLicomSpb from "./pages/UhodZaLicomSpb";
 import InekciiSpb from "./pages/InekciiSpb";
 import PilingiSpb from "./pages/PilingiSpb";
 import AparatnyeProtokolyLicaSpb from "./pages/AparatnyeProtokolyLicaSpb";
+import ApparatnayaKosmetologiyaLicaSpb from "./pages/ApparatnayaKosmetologiyaLicaSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/inekcii-i-biostimulyaciya-spb" element={<InekciiSpb />} />
           <Route path="/pilingi-spb" element={<PilingiSpb />} />
           <Route path="/aparatnye-protokoly-lica-spb" element={<AparatnyeProtokolyLicaSpb />} />
+          <Route path="/apparatnaya-kosmetologiya-lica-spb" element={<ApparatnayaKosmetologiyaLicaSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
