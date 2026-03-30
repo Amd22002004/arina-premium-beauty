@@ -41,11 +41,13 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/consent" element={<Consent />} />
           <Route path="/memos" element={<Memos />} />
+          <Route path="/massazh-lica-spb" element={<MassazhLicaSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
