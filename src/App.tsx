@@ -23,6 +23,7 @@ import PilingiSpb from "./pages/PilingiSpb";
 import AparatnyeProtokolyLicaSpb from "./pages/AparatnyeProtokolyLicaSpb";
 import ApparatnayaKosmetologiyaLicaSpb from "./pages/ApparatnayaKosmetologiyaLicaSpb";
 import FotoomolozhenieBblSpb from "./pages/FotoomolozhenieBblSpb";
+import FrakcionnyyLazerCo2Spb from "./pages/FrakcionnyyLazerCo2Spb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
