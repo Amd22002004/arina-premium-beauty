@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, AlertTriangle, Sparkles, Target, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
