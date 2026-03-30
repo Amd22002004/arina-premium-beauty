@@ -192,15 +192,6 @@ const ApparatnayaKosmetologiyaLicaSpb = () => (
     </section>
 
     <ServicePricingTiers title="Цены" prices={procedures} />
-        <div className="text-center mt-8">
-          <Link to="/price">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              Полный прайс-лист <ChevronRight size={14} className="ml-1" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </section>
 
     <NextStep currentPath="/apparatnaya-kosmetologiya-lica-spb" />
     <RelatedServices currentPath="/apparatnaya-kosmetologiya-lica-spb" />
