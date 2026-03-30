@@ -109,9 +109,6 @@ const UhodZaLicomSpb = () => (
           <Link to="/booking">
             <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">Записаться онлайн</Button>
           </Link>
-          <a href="https://wa.me/79219221783" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-10">WhatsApp</Button>
-          </a>
         </motion.div>
       </div>
     </section>
