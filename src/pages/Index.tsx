@@ -76,7 +76,7 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SPECIALIST ═══════════ */}
-    <section className="py-12 md:py-16 bg-cream">
+    <section className="py-8 md:py-12 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
@@ -124,9 +124,9 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SERVICES BLOCKS ═══════════ */}
-    <section className="py-10 md:py-14">
+    <section className="py-8 md:py-10">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-12">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
             <Zap size={16} /> Направления
           </div>
@@ -169,7 +169,7 @@ const Index = () => (
           />
         </div>
 
-        <div className="text-center mt-14">
+        <div className="text-center mt-8">
           <Link to="/services">
             <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
               Все услуги и цены <ChevronRight size={16} className="ml-1" />
@@ -180,9 +180,9 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SELLING SERVICES ═══════════ */}
-    <section className="py-10 md:py-14 bg-cream">
+    <section className="py-8 md:py-10 bg-cream">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-16">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
           <h2 className="font-heading text-3xl md:text-4xl mb-4">Как работают процедуры</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Каждая услуга — это не просто название, а конкретная ценность для вас</p>
         </motion.div>
@@ -204,9 +204,9 @@ const Index = () => (
     </section>
 
     {/* ═══════════ OFFERS ═══════════ */}
-    <section className="py-24 md:py-32">
+    <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-16">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
           <h2 className="font-heading text-3xl md:text-4xl">Выгодные условия</h2>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -245,9 +245,9 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SHORT ADVANTAGES ═══════════ */}
-    <section className="py-20 md:py-28 bg-cream">
+    <section className="py-10 md:py-14 bg-cream">
       <div className="container-narrow px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-12">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl">Почему выбирают нас</h2>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -269,7 +269,7 @@ const Index = () => (
     </section>
 
     {/* ═══════════ CTA ═══════════ */}
-    <section className="py-24 md:py-32">
+    <section className="py-10 md:py-14">
       <div className="container-narrow px-4 md:px-8 text-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
           <h2 className="font-heading text-3xl md:text-4xl mb-5">Запишитесь на АРТ-протокол</h2>
