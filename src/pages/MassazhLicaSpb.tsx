@@ -99,6 +99,7 @@ const MassazhLicaSpb = () => (
     <Helmet>
       <title>Массаж лица в Санкт-Петербурге — скульптурный, миофасциальный, 3D | АРТ Косметология</title>
       <meta name="description" content="Массаж лица в Санкт-Петербурге: скульптурный, миофасциальный и 3D-массаж для подтяжки овала, тонуса кожи и уменьшения отёчности. Запись онлайн." />
+      <meta name="keywords" content="массаж лица спб, скульптурный массаж лица спб, миофасциальный массаж спб, 3d массаж лица спб, подтяжка овала лица спб, массаж лица цена спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/massazh-lica-spb" />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>
