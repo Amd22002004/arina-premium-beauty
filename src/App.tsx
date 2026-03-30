@@ -25,6 +25,7 @@ import ApparatnayaKosmetologiyaLicaSpb from "./pages/ApparatnayaKosmetologiyaLic
 import FotoomolozhenieBblSpb from "./pages/FotoomolozhenieBblSpb";
 import FrakcionnyyLazerCo2Spb from "./pages/FrakcionnyyLazerCo2Spb";
 import ApparatnyeProtokolyTelaSpb from "./pages/ApparatnyeProtokolyTelaSpb";
+import KorrekciyaFigurySpb from "./pages/KorrekciyaFigurySpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/fotoomolozhenie-bbl-spb" element={<FotoomolozhenieBblSpb />} />
           <Route path="/frakcionnyy-lazer-co2-spb" element={<FrakcionnyyLazerCo2Spb />} />
           <Route path="/apparatnye-protokoly-tela-spb" element={<ApparatnyeProtokolyTelaSpb />} />
+          <Route path="/korrekciya-figury-spb" element={<KorrekciyaFigurySpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
