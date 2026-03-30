@@ -237,7 +237,7 @@ const MassazhLicaSpb = () => (
             Попробуйте и&nbsp;оцените результат!
           </p>
           <Link to="/booking" className="relative z-10">
-            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl transition-shadow">
+            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               Записаться со скидкой 30%
             </Button>
           </Link>
