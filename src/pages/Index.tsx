@@ -169,7 +169,7 @@ const Index = () => (
           />
         </div>
 
-        <div className="text-center mt-14">
+        <div className="text-center mt-8">
           <Link to="/services">
             <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
               Все услуги и цены <ChevronRight size={16} className="ml-1" />
