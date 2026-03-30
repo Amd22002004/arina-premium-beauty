@@ -76,7 +76,7 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SPECIALIST ═══════════ */}
-    <section className="py-24 md:py-32 bg-cream">
+    <section className="py-12 md:py-16 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
@@ -124,7 +124,7 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SERVICES BLOCKS ═══════════ */}
-    <section className="py-14 md:py-20">
+    <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
@@ -180,7 +180,7 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SELLING SERVICES ═══════════ */}
-    <section className="py-24 md:py-32 bg-cream">
+    <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-16">
           <h2 className="font-heading text-3xl md:text-4xl mb-4">Как работают процедуры</h2>
