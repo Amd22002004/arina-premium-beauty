@@ -76,7 +76,7 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SPECIALIST ═══════════ */}
-    <section className="py-24 md:py-32 bg-cream">
+    <section className="py-12 md:py-16 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
