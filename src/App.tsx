@@ -30,6 +30,7 @@ import OzonoterapiyaSpb from "./pages/OzonoterapiyaSpb";
 import MassazhTelaSpb from "./pages/MassazhTelaSpb";
 import VosstanovitelnyeMassazhiSpb from "./pages/VosstanovitelnyeMassazhiSpb";
 import SpaIVosstanovlenieSpb from "./pages/SpaIVosstanovlenieSpb";
+import DopolnitelnyeUslugiSpb from "./pages/DopolnitelnyeUslugiSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -68,6 +69,7 @@ const App = () => (
           <Route path="/massazh-tela-spb" element={<MassazhTelaSpb />} />
           <Route path="/vosstanovitelnye-massazhi-spb" element={<VosstanovitelnyeMassazhiSpb />} />
           <Route path="/spa-i-vosstanovlenie-spb" element={<SpaIVosstanovlenieSpb />} />
+          <Route path="/dopolnitelnye-uslugi-spb" element={<DopolnitelnyeUslugiSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
