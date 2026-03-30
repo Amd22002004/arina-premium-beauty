@@ -80,6 +80,7 @@ const InekciiSpb = () => (
     <Helmet>
       <title>Инъекции и биостимуляция в Санкт-Петербурге | АРТ Косметология</title>
       <meta name="description" content="Инъекции и биостимуляция в Санкт-Петербурге: биостимуляция, биоревитализация, мезотерапия и липолитики для восстановления кожи и улучшения её качества." />
+      <meta name="keywords" content="биоревитализация спб, мезотерапия спб, биостимуляция спб, инъекции липолитиков спб, инъекционная косметология спб, уколы красоты спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/inekcii-i-biostimulyaciya-spb" />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>

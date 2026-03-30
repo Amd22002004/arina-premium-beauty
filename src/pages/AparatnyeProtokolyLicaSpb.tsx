@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, Sparkles, UserCheck, ShieldCheck, ListChecks, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import CTASection from "@/components/CTASection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -245,6 +246,7 @@ const AparatnyeProtokolyLicaSpb = () => (
         </motion.div>
       </div>
     </section>
+    <CTASection />
   </Layout>
 );
 

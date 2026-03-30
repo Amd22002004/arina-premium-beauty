@@ -92,6 +92,7 @@ const UhodZaLicomSpb = () => (
     <Helmet>
       <title>Уход за лицом в Санкт-Петербурге — массаж лица с масками | АРТ Косметология</title>
       <meta name="description" content="Уход за лицом в Санкт-Петербурге: массаж лица в сочетании с альгинатной, кислородной и увлажняющей масками для глубокого восстановления и увлажнения кожи." />
+      <meta name="keywords" content="уход за лицом спб, массаж лица с маской спб, альгинатная маска спб, кислородная маска спб, увлажнение лица спб, уходовые процедуры спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/uhod-za-licom-spb" />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>

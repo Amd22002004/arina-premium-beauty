@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, Sparkles, UserCheck, ShieldCheck, ListChecks } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import CTASection from "@/components/CTASection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -223,6 +224,7 @@ const PilingiSpb = () => (
         </motion.div>
       </div>
     </section>
+    <CTASection />
   </Layout>
 );
 
