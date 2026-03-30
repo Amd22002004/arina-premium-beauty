@@ -211,6 +211,7 @@ const ApparatnayaKosmetologiyaLicaSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/apparatnaya-kosmetologiya-lica-spb" />
     <RelatedServices currentPath="/apparatnaya-kosmetologiya-lica-spb" />
     <CTASection />
   </Layout>

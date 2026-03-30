@@ -263,6 +263,7 @@ const MassazhLicaSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/massazh-lica-spb" />
     <RelatedServices currentPath="/massazh-lica-spb" />
     <CTASection />
   </Layout>

@@ -237,6 +237,7 @@ const SpaIVosstanovlenieSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/spa-i-vosstanovlenie-spb" />
     <RelatedServices currentPath="/spa-i-vosstanovlenie-spb" />
     <CTASection />
   </Layout>

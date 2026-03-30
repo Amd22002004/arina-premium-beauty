@@ -212,6 +212,7 @@ const DopolnitelnyeUslugiSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/dopolnitelnye-uslugi-spb" />
     <RelatedServices currentPath="/dopolnitelnye-uslugi-spb" />
     <CTASection />
   </Layout>

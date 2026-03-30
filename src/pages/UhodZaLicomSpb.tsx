@@ -229,6 +229,7 @@ const UhodZaLicomSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/uhod-za-licom-spb" />
     <RelatedServices currentPath="/uhod-za-licom-spb" />
     <CTASection />
   </Layout>

@@ -184,6 +184,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/apparatnye-protokoly-tela-spb" />
     <RelatedServices currentPath="/apparatnye-protokoly-tela-spb" />
     <CTASection />
   </Layout>

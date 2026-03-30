@@ -261,6 +261,7 @@ const OzonoterapiyaSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/ozonoterapiya-spb" />
     <RelatedServices currentPath="/ozonoterapiya-spb" />
     <CTASection />
   </Layout>

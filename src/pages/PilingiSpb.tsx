@@ -225,6 +225,7 @@ const PilingiSpb = () => (
         </motion.div>
       </div>
     </section>
+    <NextStep currentPath="/pilingi-spb" />
     <RelatedServices currentPath="/pilingi-spb" />
     <CTASection />
   </Layout>

@@ -190,6 +190,7 @@ const FotoomolozhenieBblSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/fotoomolozhenie-bbl-spb" />
     <RelatedServices currentPath="/fotoomolozhenie-bbl-spb" />
     <CTASection />
   </Layout>

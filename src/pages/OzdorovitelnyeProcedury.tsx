@@ -238,6 +238,7 @@ const OzdorovitelnyeProcedury = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/ozdorovitelnye-procedury-spb" />
     <RelatedServices currentPath="/ozdorovitelnye-procedury-spb" />
     <CTASection />
   </Layout>

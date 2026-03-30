@@ -217,6 +217,7 @@ const InekciiSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/inekcii-i-biostimulyaciya-spb" />
     <RelatedServices currentPath="/inekcii-i-biostimulyaciya-spb" />
     <CTASection />
   </Layout>

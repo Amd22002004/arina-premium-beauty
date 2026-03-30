@@ -240,6 +240,7 @@ const MassazhTelaSpb = () => (
       </div>
     </section>
 
+    <NextStep currentPath="/massazh-tela-spb" />
     <RelatedServices currentPath="/massazh-tela-spb" />
     <CTASection />
   </Layout>
