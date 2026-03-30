@@ -180,7 +180,7 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SELLING SERVICES ═══════════ */}
-    <section className="py-24 md:py-32 bg-cream">
+    <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-16">
           <h2 className="font-heading text-3xl md:text-4xl mb-4">Как работают процедуры</h2>
