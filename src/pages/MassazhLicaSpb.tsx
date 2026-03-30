@@ -237,8 +237,8 @@ const MassazhLicaSpb = () => (
             Попробуйте и&nbsp;оцените результат!
           </p>
           <Link to="/booking">
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-10">
-              Записаться со скидкой
+            <Button size="lg" className="relative overflow-hidden bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl transition-shadow before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] before:animate-[shimmer_2.5s_ease-in-out_infinite] before:-translate-x-full">
+              Записаться со скидкой 30%
             </Button>
           </Link>
         </motion.div>
