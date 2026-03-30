@@ -6,6 +6,7 @@ import Layout from "@/components/Layout";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
 import heroBg from "@/assets/hero-bg.jpg";
 import specialistPhoto from "@/assets/specialist-arina.png";
+import ConsultationCapture from "@/components/ConsultationCapture";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },

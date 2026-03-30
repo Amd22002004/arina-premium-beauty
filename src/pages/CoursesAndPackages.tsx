@@ -520,6 +520,7 @@ const CoursesAndPackages = () => {
       </section>
 
       {/* Trust */}
+      <ConsultationCapture />
       <TrustBlock />
 
       <CTASection />
