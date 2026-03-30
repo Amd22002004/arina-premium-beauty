@@ -191,18 +191,7 @@ const ApparatnayaKosmetologiyaLicaSpb = () => (
       </div>
     </section>
 
-    {/* Цены */}
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <h2 className="font-heading text-3xl text-center mb-10">Цены</h2>
-        <div className="bg-card rounded-xl border border-border overflow-hidden">
-          {procedures.map((p, i) => (
-            <div key={p.name} className={`flex items-center justify-between p-5 ${i < procedures.length - 1 ? "border-b border-border" : ""}`}>
-              <span className="font-medium">{p.name}</span>
-              <span className="text-primary font-semibold whitespace-nowrap ml-4">{p.price}</span>
-            </div>
-          ))}
-        </div>
+    <ServicePricingTiers title="Цены" prices={procedures} />
         <div className="text-center mt-8">
           <Link to="/price">
             <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">

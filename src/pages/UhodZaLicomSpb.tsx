@@ -200,21 +200,7 @@ const UhodZaLicomSpb = () => (
       </div>
     </section>
 
-    {/* Цены */}
-    <section className="py-10 md:py-14">
-      <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Цены на уход за лицом</h2>
-        <div className="max-w-xl mx-auto bg-card rounded-xl border border-border overflow-hidden">
-          {procedures.map((p, i) => (
-            <div key={p.name} className={`flex justify-between items-center p-5 ${i < procedures.length - 1 ? "border-b border-border" : ""}`}>
-              <span className="font-medium">{p.name}</span>
-              <span className="font-bold text-primary whitespace-nowrap ml-4">{p.price}</span>
-            </div>
-          ))}
-        </div>
-        <p className="text-center mt-6 text-muted-foreground text-sm">Точная стоимость определяется на консультации</p>
-      </div>
-    </section>
+    <ServicePricingTiers title="Цены на уход за лицом" prices={procedures} />
 
     {/* Акция */}
     <section className="py-10 md:py-14 bg-secondary/30">

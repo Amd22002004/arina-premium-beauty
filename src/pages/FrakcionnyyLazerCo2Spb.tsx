@@ -208,22 +208,7 @@ const FrakcionnyyLazerCo2Spb = () => (
       </div>
     </section>
 
-    {/* Цены */}
-    <section className="py-16">
-      <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={6} variants={fadeUp}>
-          <h2 className="font-heading text-3xl text-center mb-10">Цены на фракционный лазер CO₂</h2>
-          <div className="max-w-2xl mx-auto space-y-4">
-            {prices.map((p) => (
-              <div key={p.name} className="flex items-center justify-between bg-card rounded-xl p-5 border border-border">
-                <span className="font-medium">{p.name}</span>
-                <span className="font-heading text-xl text-primary">{p.price}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <ServicePricingTiers title="Цены на фракционный лазер CO₂" prices={prices} />
 
     <NextStep currentPath="/frakcionnyy-lazer-co2-spb" />
     <RelatedServices currentPath="/frakcionnyy-lazer-co2-spb" />

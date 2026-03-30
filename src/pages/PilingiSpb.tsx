@@ -190,20 +190,7 @@ const PilingiSpb = () => (
       </div>
     </section>
 
-    {/* Цены */}
-    <section className="pb-16">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <h2 className="font-heading text-2xl md:text-3xl text-center mb-8">Цены на пилинги</h2>
-        <div className="bg-card rounded-xl border border-border overflow-hidden">
-          {prices.map((p, i) => (
-            <div key={p.name} className={`flex justify-between items-center p-5 ${i < prices.length - 1 ? "border-b border-border" : ""}`}>
-              <span className="font-medium">{p.name}</span>
-              <span className="font-heading text-primary text-lg">{p.price}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <ServicePricingTiers title="Цены на пилинги" prices={prices} />
 
     {/* CTA */}
     <section className="pb-20">

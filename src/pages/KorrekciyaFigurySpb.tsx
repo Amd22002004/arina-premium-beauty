@@ -210,33 +210,7 @@ const KorrekciyaFigurySpb = () => (
       </div>
     </section>
 
-    {/* Цены */}
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={5} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Цены</h2>
-          <div className="space-y-4">
-            {prices.map((p) => (
-              <div key={p.name} className="flex items-center justify-between py-3 border-b border-border last:border-0">
-                <div className="flex items-center gap-2">
-                  <span className="font-medium">{p.name}</span>
-                  {p.discount && (
-                    <span className="inline-flex items-center gap-1 text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                      <BadgePercent size={12} /> −30% первое посещение
-                    </span>
-                  )}
-                </div>
-                <span className="font-semibold text-primary">{p.price}</span>
-              </div>
-            ))}
-          </div>
-          <p className="text-muted-foreground text-sm mt-4">
-            Скидка 30% на первое посещение действует для кавитации, прессотерапии и вакуумного массажа.
-          </p>
-        </motion.div>
-      </div>
-    </section>
+    <ServicePricingTiers title="Цены" prices={prices} />
 
     {/* CTA */}
     <section className="pb-16 md:pb-20">
