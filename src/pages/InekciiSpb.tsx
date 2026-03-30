@@ -5,6 +5,7 @@ import { Sparkles, Heart, ShieldCheck, Droplets, Star, Syringe } from "lucide-re
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
+import RelatedServices from "@/components/RelatedServices";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
