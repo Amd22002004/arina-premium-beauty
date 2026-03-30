@@ -229,15 +229,15 @@ const MassazhLicaSpb = () => (
     <section className="py-10 md:py-14">
       <div className="container-narrow px-4 md:px-8">
         <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground">
-          <Star size={40} className="mx-auto mb-4 opacity-80" />
-          <h2 className="font-heading text-3xl md:text-4xl mb-3">Первое посещение</h2>
-          <p className="text-lg opacity-90 mb-6 max-w-xl mx-auto">
+          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground before:absolute before:inset-0 before:bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.18)_50%,transparent_70%)] before:animate-[shimmer_3s_ease-in-out_infinite] before:-translate-x-full before:pointer-events-none">
+          <Star size={40} className="mx-auto mb-4 opacity-80 relative z-10" />
+          <h2 className="font-heading text-3xl md:text-4xl mb-3 relative z-10">Первое посещение</h2>
+          <p className="text-lg opacity-90 mb-6 max-w-xl mx-auto relative z-10">
             Скидка <strong>30%</strong> на скульптурный массаж лица для новых клиентов. 
             Попробуйте и&nbsp;оцените результат!
           </p>
-          <Link to="/booking">
-            <Button size="lg" className="relative overflow-hidden bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl transition-shadow before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] before:animate-[shimmer_2.5s_ease-in-out_infinite] before:-translate-x-full">
+          <Link to="/booking" className="relative z-10">
+            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl transition-shadow">
               Записаться со скидкой 30%
             </Button>
           </Link>
