@@ -8,6 +8,7 @@ import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
+import ConsultationCapture from "@/components/ConsultationCapture";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -198,6 +199,7 @@ const AparatnyeProtokolyLicaSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на аппаратные протоколы" prices={prices} />
 
     {/* Акцент на результат */}

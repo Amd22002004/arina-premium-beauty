@@ -8,6 +8,7 @@ import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
+import ConsultationCapture from "@/components/ConsultationCapture";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -183,6 +184,7 @@ const OzdorovitelnyeProcedury = () => (
     </section>
 
     {/* Цены */}
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены" prices={prices} />
 
     {/* Консультация */}

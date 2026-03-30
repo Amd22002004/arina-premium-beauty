@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
+import ConsultationCapture from "@/components/ConsultationCapture";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -519,6 +520,7 @@ const CoursesAndPackages = () => {
       </section>
 
       {/* Trust */}
+      <ConsultationCapture />
       <TrustBlock />
 
       <CTASection />
