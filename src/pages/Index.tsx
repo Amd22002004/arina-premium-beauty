@@ -206,7 +206,7 @@ const Index = () => (
     {/* ═══════════ OFFERS ═══════════ */}
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-16">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
           <h2 className="font-heading text-3xl md:text-4xl">Выгодные условия</h2>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
