@@ -224,6 +224,7 @@ const MassazhLicaSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на массаж лица" prices={prices} />
 
     {/* Акция */}
