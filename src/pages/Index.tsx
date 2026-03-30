@@ -216,6 +216,8 @@ const Index = () => (
               title: "Первое посещение",
               main: "Скидка 30% на входные процедуры знакомства",
               sub: "Массаж, лимфодренаж, мягкие уходы и базовые коррекционные процедуры.",
+              link: "/art-protokol-znakomstvo",
+              cta: "Подробнее",
             },
             {
               icon: Crown,
@@ -225,9 +227,11 @@ const Index = () => (
             },
             {
               icon: Layers,
-              title: "Комплекс выгоднее",
-              main: "Лучший эффект дают сочетания процедур",
+              title: "Курсы и комплексы",
+              main: "Экономия до 20% при покупке курса",
               sub: "Подбираем связку: подготовка → аппарат → восстановление.",
+              link: "/kursy-i-kompleksy",
+              cta: "Смотреть курсы",
             },
           ].map((o, i) => (
             <motion.div key={o.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
@@ -237,7 +241,14 @@ const Index = () => (
               </div>
               <h3 className="font-heading text-xl mb-3">{o.title}</h3>
               <p className="text-foreground font-medium leading-relaxed mb-3">{o.main}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">{o.sub}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{o.sub}</p>
+              {o.link && (
+                <Link to={o.link}>
+                  <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    {o.cta} <ChevronRight size={14} className="ml-1" />
+                  </Button>
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
