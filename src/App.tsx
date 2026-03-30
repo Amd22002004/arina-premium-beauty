@@ -45,6 +45,7 @@ const App = () => (
           <Route path="/memos" element={<Memos />} />
           <Route path="/massazh-lica-spb" element={<MassazhLicaSpb />} />
           <Route path="/uhod-za-licom-spb" element={<UhodZaLicomSpb />} />
+          <Route path="/inekcii-i-biostimulyaciya-spb" element={<InekciiSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
