@@ -154,6 +154,15 @@ const Services = () => (
                   </Link>
                 </div>
               )}
+              {g.title === "Пилинги" && (
+                <div className="mt-5">
+                  <Link to="/pilingi-spb">
+                    <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                      Подробнее <ChevronRight size={14} className="ml-1" />
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
