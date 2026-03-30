@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,11 +16,13 @@ import Booking from "./pages/Booking";
 import Privacy from "./pages/Privacy";
 import Consent from "./pages/Consent";
 import Memos from "./pages/Memos";
+import MassazhLicaSpb from "./pages/MassazhLicaSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
+  <HelmetProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -38,11 +41,13 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/consent" element={<Consent />} />
           <Route path="/memos" element={<Memos />} />
+          <Route path="/massazh-lica-spb" element={<MassazhLicaSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
