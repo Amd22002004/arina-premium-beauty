@@ -27,6 +27,7 @@ import FrakcionnyyLazerCo2Spb from "./pages/FrakcionnyyLazerCo2Spb";
 import ApparatnyeProtokolyTelaSpb from "./pages/ApparatnyeProtokolyTelaSpb";
 import KorrekciyaFigurySpb from "./pages/KorrekciyaFigurySpb";
 import OzonoterapiyaSpb from "./pages/OzonoterapiyaSpb";
+import MassazhTelaSpb from "./pages/MassazhTelaSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
