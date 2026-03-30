@@ -124,9 +124,9 @@ const Index = () => (
     </section>
 
     {/* ═══════════ SERVICES BLOCKS ═══════════ */}
-    <section className="py-24 md:py-32">
+    <section className="py-14 md:py-20">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-20">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
             <Zap size={16} /> Направления
           </div>
