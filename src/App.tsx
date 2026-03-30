@@ -17,6 +17,7 @@ import Privacy from "./pages/Privacy";
 import Consent from "./pages/Consent";
 import Memos from "./pages/Memos";
 import MassazhLicaSpb from "./pages/MassazhLicaSpb";
+import UhodZaLicomSpb from "./pages/UhodZaLicomSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
