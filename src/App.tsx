@@ -27,6 +27,7 @@ import FrakcionnyyLazerCo2Spb from "./pages/FrakcionnyyLazerCo2Spb";
 import ApparatnyeProtokolyTelaSpb from "./pages/ApparatnyeProtokolyTelaSpb";
 import KorrekciyaFigurySpb from "./pages/KorrekciyaFigurySpb";
 import OzonoterapiyaSpb from "./pages/OzonoterapiyaSpb";
+import MassazhTelaSpb from "./pages/MassazhTelaSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="/apparatnye-protokoly-tela-spb" element={<ApparatnyeProtokolyTelaSpb />} />
           <Route path="/korrekciya-figury-spb" element={<KorrekciyaFigurySpb />} />
           <Route path="/ozonoterapiya-spb" element={<OzonoterapiyaSpb />} />
+          <Route path="/massazh-tela-spb" element={<MassazhTelaSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
