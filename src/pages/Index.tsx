@@ -269,7 +269,7 @@ const Index = () => (
     </section>
 
     {/* ═══════════ CTA ═══════════ */}
-    <section className="py-24 md:py-32">
+    <section className="py-10 md:py-14">
       <div className="container-narrow px-4 md:px-8 text-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
           <h2 className="font-heading text-3xl md:text-4xl mb-5">Запишитесь на АРТ-протокол</h2>
