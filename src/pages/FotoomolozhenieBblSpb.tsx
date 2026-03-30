@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, AlertTriangle, Sparkles, Target, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
@@ -174,22 +175,7 @@ const FotoomolozhenieBblSpb = () => (
       </div>
     </section>
 
-    {/* Цены */}
-    <section className="py-16 bg-secondary/30">
-      <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={5} variants={fadeUp}>
-          <h2 className="font-heading text-3xl text-center mb-10">Цены на фотоомоложение BBL</h2>
-          <div className="max-w-2xl mx-auto space-y-4">
-            {prices.map((p) => (
-              <div key={p.name} className="flex items-center justify-between bg-card rounded-xl p-5 border border-border">
-                <span className="font-medium">{p.name}</span>
-                <span className="font-heading text-xl text-primary">{p.price}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <ServicePricingTiers title="Цены на фотоомоложение BBL" prices={prices} />
 
     <NextStep currentPath="/fotoomolozhenie-bbl-spb" />
     <RelatedServices currentPath="/fotoomolozhenie-bbl-spb" />

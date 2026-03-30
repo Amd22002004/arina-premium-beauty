@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, Sparkles, Users, Zap, ShieldCheck, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
@@ -190,27 +191,7 @@ const ApparatnayaKosmetologiyaLicaSpb = () => (
       </div>
     </section>
 
-    {/* Цены */}
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <h2 className="font-heading text-3xl text-center mb-10">Цены</h2>
-        <div className="bg-card rounded-xl border border-border overflow-hidden">
-          {procedures.map((p, i) => (
-            <div key={p.name} className={`flex items-center justify-between p-5 ${i < procedures.length - 1 ? "border-b border-border" : ""}`}>
-              <span className="font-medium">{p.name}</span>
-              <span className="text-primary font-semibold whitespace-nowrap ml-4">{p.price}</span>
-            </div>
-          ))}
-        </div>
-        <div className="text-center mt-8">
-          <Link to="/price">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              Полный прайс-лист <ChevronRight size={14} className="ml-1" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </section>
+    <ServicePricingTiers title="Цены" prices={procedures} />
 
     <NextStep currentPath="/apparatnaya-kosmetologiya-lica-spb" />
     <RelatedServices currentPath="/apparatnaya-kosmetologiya-lica-spb" />

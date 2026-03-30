@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, Sparkles, UserCheck, ShieldCheck, ListChecks, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
@@ -197,20 +198,7 @@ const AparatnyeProtokolyLicaSpb = () => (
       </div>
     </section>
 
-    {/* Цены */}
-    <section className="pb-16">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <h2 className="font-heading text-2xl md:text-3xl text-center mb-8">Цены на аппаратные протоколы</h2>
-        <div className="bg-card rounded-xl border border-border overflow-hidden">
-          {prices.map((p, i) => (
-            <div key={p.name} className={`flex justify-between items-center p-5 ${i < prices.length - 1 ? "border-b border-border" : ""}`}>
-              <span className="font-medium">{p.name}</span>
-              <span className="font-heading text-primary text-lg">{p.price}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <ServicePricingTiers title="Цены на аппаратные протоколы" prices={prices} />
 
     {/* Акцент на результат */}
     <section className="pb-16">

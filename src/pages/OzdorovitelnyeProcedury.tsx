@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, AlertCircle, Sparkles, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
@@ -182,22 +183,7 @@ const OzdorovitelnyeProcedury = () => (
     </section>
 
     {/* Цены */}
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={5} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Цены</h2>
-          <div className="space-y-4">
-            {prices.map((p) => (
-              <div key={p.name} className="flex items-center justify-between py-3 border-b border-border last:border-0">
-                <span className="font-medium">{p.name}</span>
-                <span className="font-semibold text-primary">{p.price}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <ServicePricingTiers title="Цены" prices={prices} />
 
     {/* Консультация */}
     <section className="pb-16 md:pb-20">
