@@ -248,9 +248,9 @@ const MassazhLicaSpb = () => (
         <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
           className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground">
           <Star size={40} className="mx-auto mb-4 opacity-80" />
-          <h2 className="font-heading text-3xl md:text-4xl mb-3">Акция на первое посещение</h2>
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Первое посещение</h2>
           <p className="text-lg opacity-90 mb-6 max-w-xl mx-auto">
-            Скидка <strong>20%</strong> на первый массаж лица для новых клиентов. 
+            Скидка <strong>30%</strong> на скульптурный массаж лица для новых клиентов. 
             Попробуйте и&nbsp;оцените результат!
           </p>
           <Link to="/booking">
