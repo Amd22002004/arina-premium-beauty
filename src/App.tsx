@@ -24,6 +24,7 @@ import AparatnyeProtokolyLicaSpb from "./pages/AparatnyeProtokolyLicaSpb";
 import ApparatnayaKosmetologiyaLicaSpb from "./pages/ApparatnayaKosmetologiyaLicaSpb";
 import FotoomolozhenieBblSpb from "./pages/FotoomolozhenieBblSpb";
 import FrakcionnyyLazerCo2Spb from "./pages/FrakcionnyyLazerCo2Spb";
+import ApparatnyeProtokolyTelaSpb from "./pages/ApparatnyeProtokolyTelaSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
