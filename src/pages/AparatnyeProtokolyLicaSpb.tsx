@@ -199,6 +199,7 @@ const AparatnyeProtokolyLicaSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на аппаратные протоколы" prices={prices} />
 
     {/* Акцент на результат */}

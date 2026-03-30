@@ -211,6 +211,7 @@ const KorrekciyaFigurySpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены" prices={prices} />
 
     {/* CTA */}

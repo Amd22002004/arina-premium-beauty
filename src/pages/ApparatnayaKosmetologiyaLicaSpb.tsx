@@ -192,6 +192,7 @@ const ApparatnayaKosmetologiyaLicaSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены" prices={procedures} />
 
     <NextStep currentPath="/apparatnaya-kosmetologiya-lica-spb" />

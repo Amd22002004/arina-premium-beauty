@@ -170,6 +170,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на аппаратные протоколы тела" prices={prices} />
 
     <NextStep currentPath="/apparatnye-protokoly-tela-spb" />

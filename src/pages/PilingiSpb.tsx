@@ -191,6 +191,7 @@ const PilingiSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на пилинги" prices={prices} />
 
     {/* CTA */}

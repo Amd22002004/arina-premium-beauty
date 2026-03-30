@@ -184,6 +184,7 @@ const OzdorovitelnyeProcedury = () => (
     </section>
 
     {/* Цены */}
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены" prices={prices} />
 
     {/* Консультация */}

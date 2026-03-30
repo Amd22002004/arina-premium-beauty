@@ -209,6 +209,7 @@ const FrakcionnyyLazerCo2Spb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на фракционный лазер CO₂" prices={prices} />
 
     <NextStep currentPath="/frakcionnyy-lazer-co2-spb" />

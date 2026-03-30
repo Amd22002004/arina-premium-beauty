@@ -176,6 +176,7 @@ const FotoomolozhenieBblSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на фотоомоложение BBL" prices={prices} />
 
     <NextStep currentPath="/fotoomolozhenie-bbl-spb" />

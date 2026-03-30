@@ -206,6 +206,7 @@ const OzonoterapiyaSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены" prices={prices} />
 
     {/* Консультация */}

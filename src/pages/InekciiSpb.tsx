@@ -189,6 +189,7 @@ const InekciiSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на инъекции и биостимуляцию" prices={procedures} />
 
     {/* Акция */}

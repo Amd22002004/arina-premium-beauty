@@ -185,6 +185,7 @@ const VosstanovitelnyeMassazhiSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены" prices={prices} />
 
     <section className="pb-16 md:pb-20">
