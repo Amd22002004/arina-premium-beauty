@@ -224,6 +224,7 @@ const PilingiSpb = () => (
         </motion.div>
       </div>
     </section>
+    <CTASection />
   </Layout>
 );
 
