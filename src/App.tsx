@@ -21,6 +21,7 @@ import UhodZaLicomSpb from "./pages/UhodZaLicomSpb";
 import InekciiSpb from "./pages/InekciiSpb";
 import PilingiSpb from "./pages/PilingiSpb";
 import AparatnyeProtokolyLicaSpb from "./pages/AparatnyeProtokolyLicaSpb";
+import ApparatnayaKosmetologiyaLicaSpb from "./pages/ApparatnayaKosmetologiyaLicaSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
