@@ -17,6 +17,7 @@ import Privacy from "./pages/Privacy";
 import Consent from "./pages/Consent";
 import Memos from "./pages/Memos";
 import MassazhLicaSpb from "./pages/MassazhLicaSpb";
+import UhodZaLicomSpb from "./pages/UhodZaLicomSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/consent" element={<Consent />} />
           <Route path="/memos" element={<Memos />} />
           <Route path="/massazh-lica-spb" element={<MassazhLicaSpb />} />
+          <Route path="/uhod-za-licom-spb" element={<UhodZaLicomSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
