@@ -87,8 +87,8 @@ const serviceGroups = [
     items: ["Интимное омоложение", "Инфракрасная сауна + медовая выкатка / обёртывание", "Избавление от пяточной шпоры", "Удаление новообразований"],
   },
   {
-    title: "Дополнительные оздоровительные процедуры",
-    desc: "Традиционные оздоровительные методики для комплексного восстановления организма",
+    title: "Оздоровительные процедуры",
+    desc: "Дополнительные методы восстановления организма по индивидуальной консультации",
     items: ["Хиджама", "Гирудотерапия"],
   },
 ];
@@ -256,6 +256,15 @@ const Services = () => (
               {g.title === "Дополнительные услуги" && (
                 <div className="mt-5">
                   <Link to="/dopolnitelnye-uslugi-spb">
+                    <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                      Подробнее <ChevronRight size={14} className="ml-1" />
+                    </Button>
+                  </Link>
+                </div>
+              )}
+              {g.title === "Оздоровительные процедуры" && (
+                <div className="mt-5">
+                  <Link to="/ozdorovitelnye-procedury-spb">
                     <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                       Подробнее <ChevronRight size={14} className="ml-1" />
                     </Button>
