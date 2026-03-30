@@ -260,6 +260,7 @@ const KorrekciyaFigurySpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/korrekciya-figury-spb" />
     <CTASection />
   </Layout>
 );

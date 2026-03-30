@@ -232,6 +232,7 @@ const VosstanovitelnyeMassazhiSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/vosstanovitelnye-massazhi-spb" />
     <CTASection />
   </Layout>
 );

@@ -183,6 +183,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/apparatnye-protokoly-tela-spb" />
     <CTASection />
   </Layout>
 );

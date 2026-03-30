@@ -238,6 +238,7 @@ const OzdorovitelnyeProcedury = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/ozdorovitelnye-procedury-spb" />
     <CTASection />
   </Layout>
 );

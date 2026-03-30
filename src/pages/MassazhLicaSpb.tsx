@@ -262,6 +262,7 @@ const MassazhLicaSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/massazh-lica-spb" />
     <CTASection />
   </Layout>
 );

@@ -211,6 +211,7 @@ const ApparatnayaKosmetologiyaLicaSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/apparatnaya-kosmetologiya-lica-spb" />
     <CTASection />
   </Layout>
 );

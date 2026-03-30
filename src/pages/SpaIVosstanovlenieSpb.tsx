@@ -237,6 +237,7 @@ const SpaIVosstanovlenieSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/spa-i-vosstanovlenie-spb" />
     <CTASection />
   </Layout>
 );

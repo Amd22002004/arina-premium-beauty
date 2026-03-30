@@ -247,6 +247,7 @@ const AparatnyeProtokolyLicaSpb = () => (
         </motion.div>
       </div>
     </section>
+    <RelatedServices currentPath="/aparatnye-protokoly-lica-spb" />
     <CTASection />
   </Layout>
 );

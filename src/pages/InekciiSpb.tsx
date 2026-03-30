@@ -217,6 +217,7 @@ const InekciiSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/inekcii-i-biostimulyaciya-spb" />
     <CTASection />
   </Layout>
 );

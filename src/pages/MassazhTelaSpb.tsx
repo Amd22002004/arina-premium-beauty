@@ -240,6 +240,7 @@ const MassazhTelaSpb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/massazh-tela-spb" />
     <CTASection />
   </Layout>
 );

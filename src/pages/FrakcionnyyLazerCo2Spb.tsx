@@ -223,6 +223,7 @@ const FrakcionnyyLazerCo2Spb = () => (
       </div>
     </section>
 
+    <RelatedServices currentPath="/frakcionnyy-lazer-co2-spb" />
     <CTASection />
   </Layout>
 );
