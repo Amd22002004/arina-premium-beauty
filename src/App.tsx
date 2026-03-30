@@ -22,6 +22,7 @@ import InekciiSpb from "./pages/InekciiSpb";
 import PilingiSpb from "./pages/PilingiSpb";
 import AparatnyeProtokolyLicaSpb from "./pages/AparatnyeProtokolyLicaSpb";
 import ApparatnayaKosmetologiyaLicaSpb from "./pages/ApparatnayaKosmetologiyaLicaSpb";
+import FotoomolozhenieBblSpb from "./pages/FotoomolozhenieBblSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
