@@ -61,6 +61,7 @@ const App = () => (
           <Route path="/frakcionnyy-lazer-co2-spb" element={<FrakcionnyyLazerCo2Spb />} />
           <Route path="/apparatnye-protokoly-tela-spb" element={<ApparatnyeProtokolyTelaSpb />} />
           <Route path="/korrekciya-figury-spb" element={<KorrekciyaFigurySpb />} />
+          <Route path="/ozonoterapiya-spb" element={<OzonoterapiyaSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
