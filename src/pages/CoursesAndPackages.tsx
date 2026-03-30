@@ -65,7 +65,7 @@ const courses: Course[] = [
     links: [
       { label: "Массаж лица", href: "/massazh-lica-spb" },
       { label: "Уход за лицом", href: "/uhod-za-licom-spb" },
-      { label: "Аппаратные протоколы лица", href: "/apparatnye-protokoly-lica-spb" },
+      { label: "Аппаратные протоколы лица", href: "/aparatnye-protokoly-lica-spb" },
     ],
   },
   {
