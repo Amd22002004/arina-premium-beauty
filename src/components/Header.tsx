@@ -40,6 +40,13 @@ const serviceCategories = [
       { to: "/ozdorovitelnye-procedury-spb", label: "Оздоровительные процедуры" },
     ],
   },
+  {
+    label: "Спецпредложения",
+    items: [
+      { to: "/art-protokol-znakomstvo", label: "Знакомство с АРТ-протоколом" },
+      { to: "/kursy-i-kompleksy", label: "Курсы и комплексы" },
+    ],
+  },
 ];
 
 const navLinks = [
