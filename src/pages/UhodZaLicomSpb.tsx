@@ -201,6 +201,7 @@ const UhodZaLicomSpb = () => (
       </div>
     </section>
 
+    <ConsultationCapture />
     <ServicePricingTiers title="Цены на уход за лицом" prices={procedures} />
 
     {/* Акция */}
