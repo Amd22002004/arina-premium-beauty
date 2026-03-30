@@ -19,6 +19,7 @@ import Memos from "./pages/Memos";
 import MassazhLicaSpb from "./pages/MassazhLicaSpb";
 import UhodZaLicomSpb from "./pages/UhodZaLicomSpb";
 import InekciiSpb from "./pages/InekciiSpb";
+import PilingiSpb from "./pages/PilingiSpb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
