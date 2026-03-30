@@ -43,6 +43,7 @@ const App = () => (
           <Route path="/consent" element={<Consent />} />
           <Route path="/memos" element={<Memos />} />
           <Route path="/massazh-lica-spb" element={<MassazhLicaSpb />} />
+          <Route path="/uhod-za-licom-spb" element={<UhodZaLicomSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
