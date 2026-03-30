@@ -31,6 +31,7 @@ import MassazhTelaSpb from "./pages/MassazhTelaSpb";
 import VosstanovitelnyeMassazhiSpb from "./pages/VosstanovitelnyeMassazhiSpb";
 import SpaIVosstanovlenieSpb from "./pages/SpaIVosstanovlenieSpb";
 import DopolnitelnyeUslugiSpb from "./pages/DopolnitelnyeUslugiSpb";
+import OzdorovitelnyeProcedury from "./pages/OzdorovitelnyeProcedury";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
