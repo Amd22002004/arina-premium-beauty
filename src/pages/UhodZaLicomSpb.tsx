@@ -160,8 +160,7 @@ const UhodZaLicomSpb = () => (
               className="bg-card rounded-xl p-6 md:p-8 border border-border hover-lift text-center">
               <Droplets size={28} className="text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl mb-2">{p.name}</h3>
-              <p className="text-muted-foreground text-sm mb-4">{p.desc}</p>
-              <p className="text-2xl font-bold text-primary">{p.price}</p>
+              <p className="text-muted-foreground text-sm">{p.desc}</p>
             </motion.div>
           ))}
         </div>
