@@ -199,42 +199,6 @@ const AparatnyeProtokolyLicaSpb = () => (
     <ConsultationCapture />
     <ServicePricingTiers title="Цены на аппаратные протоколы" prices={prices} />
 
-    {/* Акцент на результат */}
-    <section className="pb-16">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-          className="bg-gold-light/50 rounded-xl p-8 border border-primary/20 text-center">
-          <h2 className="font-heading text-2xl mb-3">Акцент на результат</h2>
-          <p className="text-foreground/80 leading-relaxed max-w-xl mx-auto">
-            Аппаратные протоколы — это премиальные процедуры с выраженным накопительным эффектом.
-            Подбираем протокол индивидуально: подготовка тканей → аппаратное воздействие → восстановление.
-          </p>
-        </motion.div>
-      </div>
-    </section>
-
-    {/* CTA */}
-    <section className="pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto text-center">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-          className="bg-card rounded-xl p-10 border border-border">
-          <h2 className="font-heading text-2xl md:text-3xl mb-4">Запишитесь на аппаратный протокол</h2>
-          <p className="text-muted-foreground mb-6">Подберём оптимальную процедуру под вашу задачу и состояние кожи</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/booking">
-              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow w-full sm:w-auto">
-                Записаться онлайн
-              </Button>
-            </Link>
-            <a href="https://t.me/ART_and_beauty_studio" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto">
-                Написать в Telegram
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
     <NextStep currentPath="/aparatnye-protokoly-lica-spb" />
     <RelatedServices currentPath="/aparatnye-protokoly-lica-spb" />
     <CTASection />
