@@ -143,12 +143,9 @@ const AparatnyeProtokolyLicaSpb = () => (
         <div className="grid gap-5">
           {prices.map((p, i) => (
             <motion.div key={p.name} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card rounded-xl p-6 border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <h3 className="font-heading text-lg mb-1">{p.name}</h3>
-                <p className="text-muted-foreground text-sm">{p.desc}</p>
-              </div>
-              <span className="text-xl font-heading text-primary whitespace-nowrap">{p.price}</span>
+              className="bg-card rounded-xl p-6 border border-border">
+              <h3 className="font-heading text-lg mb-1">{p.name}</h3>
+              <p className="text-muted-foreground text-sm">{p.desc}</p>
             </motion.div>
           ))}
         </div>
