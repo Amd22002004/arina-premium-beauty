@@ -1,11 +1,44 @@
-import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Phone, Send, Sparkles } from "lucide-react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { MessageCircle, X, Send, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
-type Msg = { role: "user" | "assistant"; content: string };
+type Msg = { role: "user" | "assistant"; content: string; isTyping?: boolean };
+
+/** Simulates typewriter effect by revealing text character by character */
+const useTypewriter = (fullText: string, speed = 18) => {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    if (!fullText) return;
+    setDisplayed("");
+    setDone(false);
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setDisplayed(fullText.slice(0, i));
+      if (i >= fullText.length) {
+        clearInterval(interval);
+        setDone(true);
+      }
+    }, speed);
+    return () => clearInterval(interval);
+  }, [fullText, speed]);
+
+  return { displayed, done };
+};
+
+const TypewriterMessage = ({ content }: { content: string }) => {
+  const { displayed } = useTypewriter(content, 15);
+  return (
+    <div className="prose prose-sm max-w-none [&_p]:m-0 [&_ul]:my-1 [&_li]:my-0">
+      <ReactMarkdown>{displayed}</ReactMarkdown>
+    </div>
+  );
+};
 
 const FloatingContactWidget = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,23 +46,23 @@ const FloatingContactWidget = () => {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [latestAssistantIdx, setLatestAssistantIdx] = useState<number | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isLoading]);
 
   const openChat = () => {
     setIsMenuOpen(false);
     setIsChatOpen(true);
     if (messages.length === 0) {
-      setMessages([
-        {
-          role: "assistant",
-          content:
-            "Здравствуйте! 👋 Добро пожаловать в студию «АРТ Косметология». Подскажите, что вас больше интересует: лицо, тело или восстановление? Я подберу для вас подходящий протокол 😊",
-        },
-      ]);
+      const greeting: Msg = {
+        role: "assistant",
+        content: "Здравствуйте! 👋 Добро пожаловать в студию «АРТ Косметология». Подскажите, что вас больше интересует: лицо, тело или восстановление? Я подберу для вас подходящий протокол 😊",
+      };
+      setMessages([greeting]);
+      setLatestAssistantIdx(0);
     }
   };
 
@@ -55,19 +88,24 @@ const FloatingContactWidget = () => {
         }),
       });
 
-      if (!resp.ok) {
-        throw new Error("Request failed");
-      }
+      if (!resp.ok) throw new Error("Request failed");
 
       const data = await resp.json();
       const replyText = data.reply || "Извините, не удалось получить ответ.";
-      setMessages((prev) => [...prev, { role: "assistant", content: replyText }]);
+      setMessages((prev) => {
+        const newIdx = prev.length;
+        setLatestAssistantIdx(newIdx);
+        return [...prev, { role: "assistant", content: replyText }];
+      });
     } catch (e) {
       console.error(e);
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "Извините, произошла ошибка. Попробуйте позже или позвоните нам: +7 911 719-39-49" },
-      ]);
+      setMessages((prev) => {
+        setLatestAssistantIdx(prev.length);
+        return [
+          ...prev,
+          { role: "assistant", content: "Извините, произошла ошибка. Попробуйте позже или позвоните нам: +7 911 719-39-49" },
+        ];
+      });
     } finally {
       setIsLoading(false);
     }
@@ -112,16 +150,20 @@ const FloatingContactWidget = () => {
                     }`}
                   >
                     {msg.role === "assistant" ? (
-                      <div className="prose prose-sm max-w-none [&_p]:m-0 [&_ul]:my-1 [&_li]:my-0">
-                        <ReactMarkdown>{msg.content}</ReactMarkdown>
-                      </div>
+                      i === latestAssistantIdx ? (
+                        <TypewriterMessage content={msg.content} />
+                      ) : (
+                        <div className="prose prose-sm max-w-none [&_p]:m-0 [&_ul]:my-1 [&_li]:my-0">
+                          <ReactMarkdown>{msg.content}</ReactMarkdown>
+                        </div>
+                      )
                     ) : (
                       msg.content
                     )}
                   </div>
                 </div>
               ))}
-              {isLoading && messages[messages.length - 1]?.role === "user" && (
+              {isLoading && (
                 <div className="flex justify-start">
                   <div className="bg-secondary rounded-2xl rounded-bl-sm px-4 py-3">
                     <div className="flex gap-1.5">

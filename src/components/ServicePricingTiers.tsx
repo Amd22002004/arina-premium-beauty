@@ -83,10 +83,10 @@ const PricingCard = ({ service, idx }: { service: ServicePrice; idx: number }) =
                   className={`relative flex flex-col items-center gap-1 rounded-lg px-3 py-3 md:py-4 text-sm font-medium transition-all duration-200 border-2 cursor-pointer ${
                     isActive
                       ? is10
-                        ? "border-primary bg-primary/10 text-primary scale-[1.03] shadow-md"
+                        ? "border-primary bg-primary/10 text-primary scale-[1.03] shadow-md animate-border-glow"
                         : is5
-                          ? "border-primary/60 bg-primary/5 text-primary"
-                          : "border-primary/40 bg-secondary/30 text-foreground"
+                          ? "border-primary/60 bg-primary/5 text-primary animate-border-glow"
+                          : "border-primary/40 bg-secondary/30 text-foreground animate-border-glow"
                       : "border-border bg-background text-muted-foreground hover:border-primary/30 hover:bg-secondary/20"
                   }`}
                 >

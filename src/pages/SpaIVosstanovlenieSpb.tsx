@@ -193,29 +193,6 @@ const SpaIVosstanovlenieSpb = () => (
     <ConsultationCapture />
     <ServicePricingTiers title="Цены" prices={prices} />
 
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto text-center">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={6} variants={fadeUp}>
-          <h2 className="font-heading text-2xl mb-4">Запишитесь на СПА-процедуру</h2>
-          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Подберём процедуру под ваш запрос — расслабление, детокс или комплексное восстановление.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/booking">
-              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-                Записаться онлайн
-              </Button>
-            </Link>
-            <a href="https://t.me/ART_and_beauty_studio" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-10">
-                Написать в Telegram
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-
     <NextStep currentPath="/spa-i-vosstanovlenie-spb" />
     <RelatedServices currentPath="/spa-i-vosstanovlenie-spb" />
     <CTASection />

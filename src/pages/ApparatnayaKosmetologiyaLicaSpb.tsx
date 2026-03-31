@@ -139,8 +139,7 @@ const ApparatnayaKosmetologiyaLicaSpb = () => (
             <motion.div key={p.name} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
               className="bg-card rounded-xl p-6 border border-border hover-lift">
               <h3 className="font-heading text-xl mb-2">{p.name}</h3>
-              <p className="text-muted-foreground text-sm mb-4">{p.desc}</p>
-              <span className="text-primary font-semibold text-lg">{p.price}</span>
+              <p className="text-muted-foreground text-sm">{p.desc}</p>
             </motion.div>
           ))}
         </div>
