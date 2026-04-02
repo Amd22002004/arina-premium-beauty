@@ -15,10 +15,12 @@ const SUBMIT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-boo
 /* ── phone mask helpers ── */
 const DIGITS_ONLY = /\d/g;
 const MAX_DIGITS = 10;
+const PHONE_PREFIX = "+7 ";
+const PHONE_CARET_START = PHONE_PREFIX.length;
 
 function formatPhone(digits: string): string {
   const d = digits.slice(0, MAX_DIGITS);
-  if (d.length === 0) return "+7 ";
+  if (d.length === 0) return PHONE_PREFIX;
   let result = "+7 (";
   result += d.slice(0, 3);
   if (d.length > 3) result += ") " + d.slice(3, 6);
@@ -29,9 +31,29 @@ function formatPhone(digits: string): string {
 }
 
 function extractDigits(masked: string): string {
-  // remove the leading +7 then grab digits
   const raw = masked.replace(/^\+7\s*/, "");
   return (raw.match(DIGITS_ONLY) || []).join("").slice(0, MAX_DIGITS);
+}
+
+function countEditableDigitsBeforeCursor(value: string, cursorPosition: number): number {
+  const raw = value.slice(0, cursorPosition).replace(/^\+7\s*/, "");
+  return (raw.match(DIGITS_ONLY) || []).length;
+}
+
+function getCursorPositionForDigits(formatted: string, digitCount: number): number {
+  if (digitCount <= 0) return PHONE_CARET_START;
+
+  let seenDigits = 0;
+
+  for (let i = 0; i < formatted.length; i += 1) {
+    if (!/\d/.test(formatted[i])) continue;
+    if (i === 1 && formatted.startsWith("+7")) continue;
+
+    seenDigits += 1;
+    if (seenDigits === digitCount) return i + 1;
+  }
+
+  return formatted.length;
 }
 
 /* ── validation ── */
@@ -57,6 +79,7 @@ const Booking = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const phoneRef = useRef<HTMLInputElement>(null);
+  const pendingSelectionRef = useRef<number | null>(null);
 
   // Update service when URL param changes
   useEffect(() => {
@@ -68,8 +91,17 @@ const Booking = () => {
   useEffect(() => {
     if (phoneRef.current) {
       phoneRef.current.focus();
+      phoneRef.current.setSelectionRange(PHONE_CARET_START, PHONE_CARET_START);
     }
   }, []);
+
+  useEffect(() => {
+    if (pendingSelectionRef.current === null || !phoneRef.current) return;
+
+    const nextPosition = pendingSelectionRef.current;
+    pendingSelectionRef.current = null;
+    phoneRef.current.setSelectionRange(nextPosition, nextPosition);
+  }, [phoneDigits]);
 
   const handlePhoneChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const digits = extractDigits(e.target.value);
@@ -77,16 +109,56 @@ const Booking = () => {
   }, []);
 
   const handlePhoneKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-    // allow: backspace, delete, tab, escape, enter, arrows, home, end, select-all, copy, paste
-    const allowedKeys = ["Backspace", "Delete", "Tab", "Escape", "Enter", "ArrowLeft", "ArrowRight", "Home", "End"];
+    const input = e.currentTarget;
+
+    if (e.key === "Backspace" || e.key === "Delete") {
+      const selectionStart = input.selectionStart ?? input.value.length;
+      const selectionEnd = input.selectionEnd ?? selectionStart;
+      const formattedValue = formatPhone(phoneDigits);
+      const startDigitIndex = countEditableDigitsBeforeCursor(formattedValue, selectionStart);
+      const endDigitIndex = countEditableDigitsBeforeCursor(formattedValue, selectionEnd);
+
+      let nextDigits = phoneDigits;
+      let nextDigitCursor = startDigitIndex;
+
+      if (selectionStart !== selectionEnd) {
+        nextDigits = phoneDigits.slice(0, startDigitIndex) + phoneDigits.slice(endDigitIndex);
+      } else if (e.key === "Backspace") {
+        if (startDigitIndex === 0) {
+          e.preventDefault();
+          return;
+        }
+
+        nextDigitCursor = startDigitIndex - 1;
+        nextDigits = phoneDigits.slice(0, startDigitIndex - 1) + phoneDigits.slice(startDigitIndex);
+      } else {
+        if (startDigitIndex >= phoneDigits.length) {
+          e.preventDefault();
+          return;
+        }
+
+        nextDigits = phoneDigits.slice(0, startDigitIndex) + phoneDigits.slice(startDigitIndex + 1);
+      }
+
+      e.preventDefault();
+
+      if (nextDigits !== phoneDigits) {
+        pendingSelectionRef.current = getCursorPositionForDigits(formatPhone(nextDigits), nextDigitCursor);
+        setPhoneDigits(nextDigits);
+      }
+      return;
+    }
+
+    const allowedKeys = ["Tab", "Escape", "Enter", "ArrowLeft", "ArrowRight", "Home", "End"];
+
     if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
       return;
     }
-    // block non-digit characters
+
     if (e.key.length === 1 && !/\d/.test(e.key)) {
       e.preventDefault();
     }
-  }, []);
+  }, [phoneDigits]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
