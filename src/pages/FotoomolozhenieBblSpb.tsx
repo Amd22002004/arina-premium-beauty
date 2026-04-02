@@ -16,9 +16,10 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "BBL лицо", price: "9 900 ₽" },
+  { name: "BBL лицо", price: "9 990 ₽" },
   { name: "BBL шея / декольте", price: "7 900 ₽" },
   { name: "BBL кисти рук", price: "5 900 ₽" },
+  { name: "BBL лицо + шея + декольте", price: "17 890 ₽" },
 ];
 
 const benefits = [

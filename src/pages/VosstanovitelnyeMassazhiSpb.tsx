@@ -16,9 +16,26 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Массаж для снятия отёков", price: "2 490 ₽", discount: true },
-  { name: "Биоэнергетический массаж", price: "2 490 ₽", discount: false },
-  { name: "БМ-массаж / БЭМ", price: "2 990 ₽", discount: false },
+  {
+    name: "Лимфодренажный массаж",
+    price: "3 000 ₽",
+    priceValue: 3000,
+    tiers: [
+      { count: 5, total: 13500 },
+      { count: 10, total: 26000 },
+    ],
+    desc: "Дренаж, снятие отёков, улучшение лимфотока",
+  },
+  {
+    name: "Висцеральный массаж",
+    price: "3 500 ₽",
+    priceValue: 3500,
+    tiers: [
+      { count: 3, total: 10000 },
+      { count: 5, total: 15000 },
+    ],
+    desc: "Работа с внутренними органами и восстановление",
+  },
 ];
 
 const benefits = [

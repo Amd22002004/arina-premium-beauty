@@ -14,10 +14,16 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "EMS Body Sculpt", price: "4 490 ₽" },
-  { name: "INDIBA тело", price: "4 290 ₽" },
-  { name: "БМС (биомеханическая стимуляция мышц)", price: "3 990 ₽" },
-  { name: "Миостимуляция", price: "2 490 ₽" },
+  {
+    name: "EMS / INDIBA / БМС",
+    price: "3 500 ₽",
+    priceValue: 3500,
+    tiers: [
+      { count: 5, total: 16000 },
+      { count: 10, total: 30000 },
+    ],
+    desc: "EMS Body Sculpt, INDIBA, БМС — аппаратное моделирование тела",
+  },
 ];
 
 const benefits = [

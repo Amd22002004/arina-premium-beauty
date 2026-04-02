@@ -5,12 +5,18 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Sparkles, Star } from "lucide-react";
 
-interface ServicePrice {
+export interface PriceTier {
+  count: number;
+  total: number;
+}
+
+export interface ServicePrice {
   name: string;
   price: string;
-  duration?: string;
+  priceValue?: number;
+  tiers?: PriceTier[];
   desc?: string;
-  discount?: boolean;
+  duration?: string;
 }
 
 interface ServicePricingTiersProps {
@@ -18,23 +24,9 @@ interface ServicePricingTiersProps {
   prices: ServicePrice[];
 }
 
-type TierKey = 1 | 5 | 10;
-
-function parsePrice(priceStr: string): number | null {
-  const cleaned = priceStr.replace(/от\s*/i, "").replace(/\s/g, "").replace("₽", "");
-  const num = parseInt(cleaned, 10);
-  return isNaN(num) ? null : num;
-}
-
 function formatPrice(n: number): string {
   return n.toLocaleString("ru-RU") + " ₽";
 }
-
-const tiers: { key: TierKey; label: string; shortLabel: string; discount: number; badge?: string; icon?: typeof Star }[] = [
-  { key: 1, label: "1 процедура", shortLabel: "1", discount: 0 },
-  { key: 5, label: "5 процедур", shortLabel: "5", discount: 0.1, badge: "Оптимальный", icon: Star },
-  { key: 10, label: "10 процедур", shortLabel: "10", discount: 0.15, badge: "Самый выгодный", icon: Sparkles },
-];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -42,15 +34,21 @@ const fadeUp = {
 };
 
 const PricingCard = ({ service, idx }: { service: ServicePrice; idx: number }) => {
-  const base = parsePrice(service.price);
-  const hasFrom = service.price.trim().startsWith("от");
-  const canTier = base !== null && !hasFrom;
+  const hasTiers = service.tiers && service.tiers.length > 0 && service.priceValue;
+  const allOptions = hasTiers ? [1, ...service.tiers!.map((t) => t.count)] : [1];
+  const [selected, setSelected] = useState(hasTiers ? service.tiers![0].count : 1);
 
-  const [selected, setSelected] = useState<TierKey>(canTier ? 5 : 1);
+  const selectedTier = hasTiers ? service.tiers!.find((t) => t.count === selected) : null;
+  const totalPrice = selectedTier ? selectedTier.total : null;
+  const saving = selectedTier && service.priceValue ? service.priceValue * selected - selectedTier.total : null;
+  const perUnit = selectedTier && service.priceValue ? Math.round(selectedTier.total / selected) : null;
+  const bestTier = hasTiers ? service.tiers![service.tiers!.length - 1].count : 1;
 
-  const tier = tiers.find((t) => t.key === selected)!;
-  const totalPrice = canTier ? Math.round(base * selected * (1 - tier.discount)) : null;
-  const saving = canTier && selected > 1 ? base * selected - totalPrice! : null;
+  const countLabel = (n: number) => {
+    if (n === 1) return "процедура";
+    if (n >= 2 && n <= 4) return "процедуры";
+    return "процедур";
+  };
 
   return (
     <motion.div
@@ -61,47 +59,45 @@ const PricingCard = ({ service, idx }: { service: ServicePrice; idx: number }) =
       variants={fadeUp}
       className="bg-card rounded-xl border border-border overflow-hidden"
     >
-      {/* Header */}
       <div className="p-5 md:p-6">
         <h3 className="font-heading text-xl">{service.name}</h3>
         {service.desc && <p className="text-muted-foreground text-sm mt-1">{service.desc}</p>}
         {service.duration && <p className="text-muted-foreground text-xs mt-1">{service.duration}</p>}
       </div>
 
-      {/* Tier selector */}
-      {canTier && (
+      {hasTiers && (
         <div className="px-4 md:px-6 pb-4">
-          <div className="grid grid-cols-3 gap-2">
-            {tiers.map((t) => {
-              const isActive = selected === t.key;
-              const is10 = t.key === 10;
-              const is5 = t.key === 5;
+          <div className={`grid gap-2`} style={{ gridTemplateColumns: `repeat(${allOptions.length}, 1fr)` }}>
+            {allOptions.map((count) => {
+              const isActive = selected === count;
+              const isBest = count === bestTier;
+              const tier = service.tiers!.find((t) => t.count === count);
+              const discount = tier && service.priceValue
+                ? Math.round((1 - tier.total / (service.priceValue * count)) * 100)
+                : 0;
+
               return (
                 <button
-                  key={t.key}
-                  onClick={() => setSelected(t.key)}
+                  key={count}
+                  onClick={() => setSelected(count)}
                   className={`relative flex flex-col items-center gap-1 rounded-lg px-3 py-3 md:py-4 text-sm font-medium transition-all duration-200 border-2 cursor-pointer ${
                     isActive
-                      ? is10
+                      ? isBest
                         ? "border-primary bg-primary/10 text-primary scale-[1.03] shadow-md animate-border-glow"
-                        : is5
+                        : count > 1
                           ? "border-primary/60 bg-primary/5 text-primary animate-border-glow"
                           : "border-primary/40 bg-secondary/30 text-foreground animate-border-glow"
                       : "border-border bg-background text-muted-foreground hover:border-primary/30 hover:bg-secondary/20"
                   }`}
                 >
-                  {t.badge && (
-                    <span className={`absolute -top-2.5 left-1/2 -translate-x-1/2 text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
-                      is10 ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"
-                    }`}>
-                      {t.badge}
+                  {isBest && count > 1 && (
+                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap bg-primary text-primary-foreground">
+                      Самый выгодный
                     </span>
                   )}
-                  <span className="font-heading text-lg md:text-xl">{t.shortLabel}</span>
-                  <span className="text-xs">{t.key === 1 ? "процедура" : "процедур"}</span>
-                  {t.discount > 0 && (
-                    <span className="text-xs font-semibold text-primary">−{t.discount * 100}%</span>
-                  )}
+                  <span className="font-heading text-lg md:text-xl">{count}</span>
+                  <span className="text-xs">{countLabel(count)}</span>
+                  {discount > 0 && <span className="text-xs font-semibold text-primary">−{discount}%</span>}
                 </button>
               );
             })}
@@ -109,7 +105,6 @@ const PricingCard = ({ service, idx }: { service: ServicePrice; idx: number }) =
         </div>
       )}
 
-      {/* Price display */}
       <div className="px-5 md:px-6 pb-2">
         <AnimatePresence mode="wait">
           <motion.div
@@ -121,7 +116,7 @@ const PricingCard = ({ service, idx }: { service: ServicePrice; idx: number }) =
             className="text-center py-4"
           >
             <div className="font-heading text-3xl md:text-4xl text-primary">
-              {canTier && totalPrice !== null ? formatPrice(totalPrice) : service.price}
+              {totalPrice !== null ? formatPrice(totalPrice) : service.price}
             </div>
             {saving !== null && saving > 0 && (
               <motion.div
@@ -132,36 +127,32 @@ const PricingCard = ({ service, idx }: { service: ServicePrice; idx: number }) =
                 <Badge variant="secondary" className="text-xs">
                   Экономия {formatPrice(saving)}
                 </Badge>
-                {selected === 10 && (
+                {selected === bestTier && (
                   <Badge className="bg-primary text-primary-foreground text-xs">
                     <Sparkles size={10} className="mr-1" /> Рекомендуем
                   </Badge>
                 )}
-                {selected === 5 && (
-                  <span className="text-xs text-muted-foreground">Самый популярный вариант</span>
-                )}
               </motion.div>
             )}
-            {canTier && selected > 1 && (
+            {perUnit !== null && selected > 1 && (
               <p className="text-xs text-muted-foreground mt-2">
-                {formatPrice(Math.round(base * (1 - tier.discount)))} за процедуру вместо {service.price}
+                {formatPrice(perUnit)} за процедуру вместо {service.price}
               </p>
             )}
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* CTA */}
       <div className="p-4 md:px-6 border-t border-border bg-secondary/10 text-center">
         <Link to="/booking">
           <Button
             size="lg"
             className={`w-full sm:w-auto ${
-              selected >= 5
+              selected > 1
                 ? "bg-primary text-primary-foreground hover:bg-primary/90"
                 : ""
             }`}
-            variant={selected >= 5 ? "default" : "outline"}
+            variant={selected > 1 ? "default" : "outline"}
           >
             {selected > 1 ? "Записаться на курс" : "Записаться"}
             <ChevronRight size={16} className="ml-1" />

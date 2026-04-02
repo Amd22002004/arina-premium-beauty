@@ -16,13 +16,16 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Кавитация", price: "2 490 ₽", discount: true },
-  { name: "Прессотерапия", price: "2 490 ₽", discount: true },
-  { name: "Вакуумный массаж", price: "2 490 ₽", discount: true },
-  { name: "4D-коррекция фигуры", price: "2 990 ₽", discount: false },
-  { name: "LPG-массаж", price: "2 990 ₽", discount: false },
-  { name: "EMS Body Sculpt", price: "4 490 ₽", discount: false },
-  { name: "Липосоникс MRTS", price: "11 900 ₽", discount: false },
+  {
+    name: "Коррекция фигуры",
+    price: "3 500 ₽",
+    priceValue: 3500,
+    tiers: [
+      { count: 5, total: 16000 },
+      { count: 10, total: 30000 },
+    ],
+    desc: "Кавитация, прессотерапия, LPG, вакуумный массаж — подбираем методику",
+  },
 ];
 
 const benefits = [

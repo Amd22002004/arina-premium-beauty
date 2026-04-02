@@ -11,8 +11,7 @@ const serviceCategories = [
       { to: "/massazh-lica-spb", label: "Массаж лица" },
       { to: "/uhod-za-licom-spb", label: "Уход за лицом" },
       { to: "/pilingi-spb", label: "Пилинги" },
-      { to: "/aparatnye-protokoly-lica-spb", label: "Аппаратные протоколы лица" },
-      { to: "/apparatnaya-kosmetologiya-lica-spb", label: "Аппаратная косметология" },
+      { to: "/aparatnye-protokoly-lica-spb", label: "Аппаратные процедуры лица" },
       { to: "/fotoomolozhenie-bbl-spb", label: "Фотоомоложение BBL" },
       { to: "/frakcionnyy-lazer-co2-spb", label: "Фракционный лазер CO₂" },
     ],
@@ -20,23 +19,22 @@ const serviceCategories = [
   {
     label: "Тело",
     items: [
-      { to: "/apparatnye-protokoly-tela-spb", label: "Аппаратные протоколы тела" },
+      { to: "/apparatnye-protokoly-tela-spb", label: "EMS / INDIBA / БМС" },
       { to: "/korrekciya-figury-spb", label: "Коррекция фигуры" },
-      { to: "/ozonoterapiya-spb", label: "Озонотерапия" },
     ],
   },
   {
     label: "Массажи",
     items: [
-      { to: "/massazh-tela-spb", label: "Массаж тела" },
-      { to: "/vosstanovitelnye-massazhi-spb", label: "Восстановительные массажи" },
+      { to: "/massazh-tela-spb", label: "Медицинский массаж" },
+      { to: "/vosstanovitelnye-massazhi-spb", label: "Лимфодренажный и висцеральный" },
     ],
   },
   {
     label: "Дополнительно",
     items: [
       { to: "/spa-i-vosstanovlenie-spb", label: "СПА и восстановление" },
-      { to: "/dopolnitelnye-uslugi-spb", label: "Дополнительные услуги" },
+      { to: "/dopolnitelnye-uslugi-spb", label: "Деликатные услуги" },
       { to: "/ozdorovitelnye-procedury-spb", label: "Оздоровительные процедуры" },
     ],
   },
