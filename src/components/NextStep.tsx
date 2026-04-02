@@ -16,12 +16,12 @@ interface NextStepItem {
 
 const stepsByPath: Record<string, NextStepItem[]> = {
   "/massazh-lica-spb": [
-    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Аппаратные протоколы лица — RF, INDIBA, холодная плазма", path: "/aparatnye-protokoly-lica-spb" },
+    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Аппаратные процедуры лица — RF, INDIBA, холодная плазма", path: "/aparatnye-protokoly-lica-spb" },
     { icon: <RefreshCw size={20} />, label: "Закрепить результат", desc: "Курс пилингов для обновления и сияния кожи", path: "/pilingi-spb" },
     { icon: <Sparkles size={20} />, label: "Комплексный уход", desc: "Массаж + маска для глубокого увлажнения", path: "/uhod-za-licom-spb" },
   ],
   "/uhod-za-licom-spb": [
-    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Аппаратная косметология — микротоки, карбокситерапия", path: "/apparatnaya-kosmetologiya-lica-spb" },
+    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Аппаратные процедуры лица — RF, INDIBA, плазма", path: "/aparatnye-protokoly-lica-spb" },
     { icon: <RefreshCw size={20} />, label: "Поддержать результат", desc: "Регулярный массаж лица для тонуса и лифтинга", path: "/massazh-lica-spb" },
     { icon: <Sparkles size={20} />, label: "Глубокое обновление", desc: "Пилинги для выравнивания текстуры и цвета", path: "/pilingi-spb" },
   ],
@@ -32,62 +32,48 @@ const stepsByPath: Record<string, NextStepItem[]> = {
   "/aparatnye-protokoly-lica-spb": [
     { icon: <Zap size={20} />, label: "Максимальный результат", desc: "Фракционный лазер CO₂ для глубокого обновления", path: "/frakcionnyy-lazer-co2-spb" },
     { icon: <RefreshCw size={20} />, label: "Поддержать тонус", desc: "Массаж лица для закрепления лифтинг-эффекта", path: "/massazh-lica-spb" },
-    { icon: <Sparkles size={20} />, label: "Комплексный подход", desc: "Аппаратная косметология — микротоки и лазерная чистка", path: "/apparatnaya-kosmetologiya-lica-spb" },
-  ],
-  "/apparatnaya-kosmetologiya-lica-spb": [
-    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Аппаратные протоколы лица — RF-лифтинг и INDIBA", path: "/aparatnye-protokoly-lica-spb" },
-    { icon: <RefreshCw size={20} />, label: "Обновление кожи", desc: "Пилинги для выравнивания текстуры", path: "/pilingi-spb" },
+    { icon: <Sparkles size={20} />, label: "Обновление текстуры", desc: "Пилинги для выравнивания кожи", path: "/pilingi-spb" },
   ],
   "/fotoomolozhenie-bbl-spb": [
     { icon: <Zap size={20} />, label: "Глубокое обновление", desc: "Фракционный лазер CO₂ для рубцов и морщин", path: "/frakcionnyy-lazer-co2-spb" },
-    { icon: <RefreshCw size={20} />, label: "Поддержать результат", desc: "Аппаратная косметология для ежемесячного ухода", path: "/apparatnaya-kosmetologiya-lica-spb" },
     { icon: <Sparkles size={20} />, label: "Подготовить кожу", desc: "Пилинги перед курсом фотоомоложения", path: "/pilingi-spb" },
   ],
   "/frakcionnyy-lazer-co2-spb": [
     { icon: <RefreshCw size={20} />, label: "Восстановление после лазера", desc: "Уход за лицом с успокаивающими масками", path: "/uhod-za-licom-spb" },
     { icon: <Sparkles size={20} />, label: "Поддержать эффект", desc: "Фотоомоложение BBL для коррекции пигментации", path: "/fotoomolozhenie-bbl-spb" },
   ],
-  "/inekcii-i-biostimulyaciya-spb": [
-    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Аппаратная косметология для комплексного подхода", path: "/apparatnaya-kosmetologiya-lica-spb" },
-    { icon: <RefreshCw size={20} />, label: "Подготовить кожу", desc: "Пилинги для лучшего проникновения препаратов", path: "/pilingi-spb" },
-    { icon: <Sparkles size={20} />, label: "Закрепить результат", desc: "Фотоомоложение BBL для ровного тона", path: "/fotoomolozhenie-bbl-spb" },
-  ],
   "/apparatnye-protokoly-tela-spb": [
     { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Коррекция фигуры — кавитация и LPG-массаж", path: "/korrekciya-figury-spb" },
-    { icon: <RefreshCw size={20} />, label: "Расслабление после процедуры", desc: "Массаж тела для снятия напряжения", path: "/massazh-tela-spb" },
+    { icon: <RefreshCw size={20} />, label: "Расслабление после процедуры", desc: "Медицинский массаж для снятия напряжения", path: "/massazh-tela-spb" },
     { icon: <Sparkles size={20} />, label: "Комплексное восстановление", desc: "СПА-процедуры и обёртывания", path: "/spa-i-vosstanovlenie-spb" },
   ],
   "/korrekciya-figury-spb": [
-    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Аппаратные протоколы тела — EMS и INDIBA", path: "/apparatnye-protokoly-tela-spb" },
-    { icon: <RefreshCw size={20} />, label: "Поддержать результат", desc: "Курс массажа тела для лимфодренажа", path: "/massazh-tela-spb" },
+    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "EMS / INDIBA / БМС для тонуса мышц", path: "/apparatnye-protokoly-tela-spb" },
+    { icon: <RefreshCw size={20} />, label: "Поддержать результат", desc: "Лимфодренажный массаж для дренажа", path: "/vosstanovitelnye-massazhi-spb" },
     { icon: <Sparkles size={20} />, label: "Детокс и восстановление", desc: "СПА-процедуры с обёртываниями", path: "/spa-i-vosstanovlenie-spb" },
-  ],
-  "/ozonoterapiya-spb": [
-    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Аппаратные протоколы тела для тонуса мышц", path: "/apparatnye-protokoly-tela-spb" },
-    { icon: <RefreshCw size={20} />, label: "Расслабление", desc: "Восстановительные массажи для мягкого восстановления", path: "/vosstanovitelnye-massazhi-spb" },
   ],
   "/massazh-tela-spb": [
     { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Коррекция фигуры — прессотерапия и LPG", path: "/korrekciya-figury-spb" },
-    { icon: <RefreshCw size={20} />, label: "Мягкое восстановление", desc: "Восстановительные массажи для расслабления", path: "/vosstanovitelnye-massazhi-spb" },
+    { icon: <RefreshCw size={20} />, label: "Лимфодренаж", desc: "Лимфодренажный и висцеральный массаж", path: "/vosstanovitelnye-massazhi-spb" },
     { icon: <Sparkles size={20} />, label: "Полный релакс", desc: "СПА-процедуры с инфракрасной капсулой", path: "/spa-i-vosstanovlenie-spb" },
   ],
   "/vosstanovitelnye-massazhi-spb": [
-    { icon: <Zap size={20} />, label: "Добавить тонус", desc: "Массаж тела — лечебный и лимфодренажный", path: "/massazh-tela-spb" },
+    { icon: <Zap size={20} />, label: "Добавить тонус", desc: "Медицинский массаж — ШВЗ и спина", path: "/massazh-tela-spb" },
     { icon: <RefreshCw size={20} />, label: "Глубокий релакс", desc: "СПА-процедуры и обёртывания", path: "/spa-i-vosstanovlenie-spb" },
     { icon: <Sparkles size={20} />, label: "Уход за лицом", desc: "Массаж лица для комплексного эффекта", path: "/massazh-lica-spb" },
   ],
   "/spa-i-vosstanovlenie-spb": [
-    { icon: <Zap size={20} />, label: "Усилить детокс", desc: "Массаж тела для лимфодренажа и тонуса", path: "/massazh-tela-spb" },
-    { icon: <RefreshCw size={20} />, label: "Мягкое восстановление", desc: "Восстановительные массажи после СПА", path: "/vosstanovitelnye-massazhi-spb" },
+    { icon: <Zap size={20} />, label: "Усилить детокс", desc: "Лимфодренажный массаж для дренажа", path: "/vosstanovitelnye-massazhi-spb" },
+    { icon: <RefreshCw size={20} />, label: "Мягкое восстановление", desc: "Медицинский массаж после СПА", path: "/massazh-tela-spb" },
     { icon: <Sparkles size={20} />, label: "Уход за лицом", desc: "Комплексный уход с масками и массажем", path: "/uhod-za-licom-spb" },
   ],
   "/dopolnitelnye-uslugi-spb": [
-    { icon: <Zap size={20} />, label: "Аппаратное воздействие", desc: "Аппаратные протоколы тела для тонуса", path: "/apparatnye-protokoly-tela-spb" },
+    { icon: <Zap size={20} />, label: "Аппаратное воздействие", desc: "EMS / INDIBA / БМС для тонуса", path: "/apparatnye-protokoly-tela-spb" },
     { icon: <RefreshCw size={20} />, label: "Расслабление", desc: "СПА-процедуры и восстановление", path: "/spa-i-vosstanovlenie-spb" },
   ],
   "/ozdorovitelnye-procedury-spb": [
     { icon: <RefreshCw size={20} />, label: "Восстановление", desc: "СПА-процедуры и обёртывания", path: "/spa-i-vosstanovlenie-spb" },
-    { icon: <Sparkles size={20} />, label: "Мягкий массаж", desc: "Восстановительные массажи после процедур", path: "/vosstanovitelnye-massazhi-spb" },
+    { icon: <Sparkles size={20} />, label: "Мягкий массаж", desc: "Лимфодренажный массаж после процедур", path: "/vosstanovitelnye-massazhi-spb" },
   ],
 };
 

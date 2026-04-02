@@ -18,15 +18,12 @@ import Consent from "./pages/Consent";
 import Memos from "./pages/Memos";
 import MassazhLicaSpb from "./pages/MassazhLicaSpb";
 import UhodZaLicomSpb from "./pages/UhodZaLicomSpb";
-import InekciiSpb from "./pages/InekciiSpb";
 import PilingiSpb from "./pages/PilingiSpb";
 import AparatnyeProtokolyLicaSpb from "./pages/AparatnyeProtokolyLicaSpb";
-import ApparatnayaKosmetologiyaLicaSpb from "./pages/ApparatnayaKosmetologiyaLicaSpb";
 import FotoomolozhenieBblSpb from "./pages/FotoomolozhenieBblSpb";
 import FrakcionnyyLazerCo2Spb from "./pages/FrakcionnyyLazerCo2Spb";
 import ApparatnyeProtokolyTelaSpb from "./pages/ApparatnyeProtokolyTelaSpb";
 import KorrekciyaFigurySpb from "./pages/KorrekciyaFigurySpb";
-import OzonoterapiyaSpb from "./pages/OzonoterapiyaSpb";
 import MassazhTelaSpb from "./pages/MassazhTelaSpb";
 import VosstanovitelnyeMassazhiSpb from "./pages/VosstanovitelnyeMassazhiSpb";
 import SpaIVosstanovlenieSpb from "./pages/SpaIVosstanovlenieSpb";
@@ -62,15 +59,12 @@ const App = () => (
           <Route path="/memos" element={<Memos />} />
           <Route path="/massazh-lica-spb" element={<MassazhLicaSpb />} />
           <Route path="/uhod-za-licom-spb" element={<UhodZaLicomSpb />} />
-          <Route path="/inekcii-i-biostimulyaciya-spb" element={<InekciiSpb />} />
           <Route path="/pilingi-spb" element={<PilingiSpb />} />
           <Route path="/aparatnye-protokoly-lica-spb" element={<AparatnyeProtokolyLicaSpb />} />
-          <Route path="/apparatnaya-kosmetologiya-lica-spb" element={<ApparatnayaKosmetologiyaLicaSpb />} />
           <Route path="/fotoomolozhenie-bbl-spb" element={<FotoomolozhenieBblSpb />} />
           <Route path="/frakcionnyy-lazer-co2-spb" element={<FrakcionnyyLazerCo2Spb />} />
           <Route path="/apparatnye-protokoly-tela-spb" element={<ApparatnyeProtokolyTelaSpb />} />
           <Route path="/korrekciya-figury-spb" element={<KorrekciyaFigurySpb />} />
-          <Route path="/ozonoterapiya-spb" element={<OzonoterapiyaSpb />} />
           <Route path="/massazh-tela-spb" element={<MassazhTelaSpb />} />
           <Route path="/vosstanovitelnye-massazhi-spb" element={<VosstanovitelnyeMassazhiSpb />} />
           <Route path="/spa-i-vosstanovlenie-spb" element={<SpaIVosstanovlenieSpb />} />
