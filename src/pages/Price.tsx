@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { Clock } from "lucide-react";
+import { ChevronRight, Clock, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
@@ -13,11 +14,17 @@ const Price = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Прайс-лист — АРТ Косметология | Цены на процедуры в СПб</title>
+        <meta name="description" content="Актуальный прайс-лист АРТ Косметологии: массаж лица, пилинги, BBL, коррекция фигуры, СПА. Цены от 500 ₽. Запись онлайн." />
+        <link rel="canonical" href="https://arina-premium-beauty.lovable.app/price" />
+      </Helmet>
+
       <section className="py-20 md:py-28">
         <div className="container-wide px-4 md:px-8">
           <h1 className="font-heading text-4xl md:text-5xl text-center mb-4">Прайс-лист</h1>
           <p className="text-muted-foreground text-center text-lg mb-12 max-w-xl mx-auto">
-            Актуальные цены на все процедуры. Окончательная стоимость определяется на консультации с учётом индивидуальных особенностей.
+            Актуальные цены на все процедуры. Нажмите на название для подробностей.
           </p>
 
           {/* Filters */}
@@ -39,34 +46,62 @@ const Price = () => {
             ))}
           </div>
 
-          {/* Table */}
-          <div className="bg-card rounded-xl border border-border overflow-hidden">
-            <div className="hidden md:grid grid-cols-[1fr_auto] gap-4 px-8 py-4 bg-muted text-sm font-medium text-muted-foreground uppercase tracking-wider">
-              <span>Услуга</span>
-              <span>Стоимость</span>
-            </div>
+          {/* Cards */}
+          <div className="space-y-3 max-w-4xl mx-auto">
             {filtered.map((s, i) => (
               <motion.div
                 key={s.name + s.category}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.02 }}
-                className={`grid grid-cols-1 md:grid-cols-[1fr_auto] gap-2 md:gap-4 px-8 py-5 border-t border-border/50 hover:bg-muted/30 transition-colors ${s.comingSoon ? 'opacity-60' : ''}`}
+                className={`bg-card rounded-xl border border-border p-5 md:p-6 hover:border-primary/30 transition-colors ${s.comingSoon ? "opacity-60" : ""}`}
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-foreground">{s.name}</span>
-                  {s.comingSoon && (
-                    <span className="inline-flex items-center gap-1 text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded-full">
-                      <Clock size={10} /> скоро
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                  {/* Name & result */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {s.link ? (
+                        <Link to={s.link} className="font-heading text-lg text-foreground hover:text-primary transition-colors">
+                          {s.name}
+                        </Link>
+                      ) : (
+                        <span className="font-heading text-lg text-foreground">{s.name}</span>
+                      )}
+                      {s.comingSoon && (
+                        <span className="inline-flex items-center gap-1 text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded-full">
+                          <Clock size={10} /> скоро
+                        </span>
+                      )}
+                    </div>
+                    {s.result && (
+                      <p className="text-sm text-muted-foreground mt-1">{s.result}</p>
+                    )}
+                  </div>
+
+                  {/* Price */}
+                  <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+                    <span className="font-heading text-xl text-primary whitespace-nowrap">
+                      {s.comingSoon ? "Скоро" : formatPrice(s.price, s.pricePrefix)}
                     </span>
-                  )}
-                  <span className="md:hidden font-semibold text-primary ml-auto">
-                    {s.comingSoon ? "Скоро" : formatPrice(s.price, s.pricePrefix)}
-                  </span>
+
+                    <div className="flex items-center gap-2">
+                      {s.link && (
+                        <Link to={s.link}>
+                          <Button size="sm" variant="outline" className="border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground text-xs px-3">
+                            Подробнее
+                          </Button>
+                        </Link>
+                      )}
+                      {!s.comingSoon && (
+                        <Link to="/booking">
+                          <Button size="sm" className="gold-gradient text-primary-foreground border-0 text-xs px-3">
+                            Записаться
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <span className="hidden md:block font-semibold text-primary whitespace-nowrap">
-                  {s.comingSoon ? "Скоро" : formatPrice(s.price, s.pricePrefix)}
-                </span>
               </motion.div>
             ))}
           </div>
