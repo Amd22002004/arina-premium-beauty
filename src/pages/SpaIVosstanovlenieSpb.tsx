@@ -16,10 +16,11 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Медовая выкатка", price: "1 390 ₽", discount: true },
-  { name: "Инфракрасная капсула", price: "2 290 ₽", discount: false },
-  { name: "Комплекс (сауна + выкатка)", price: "2 990 ₽", discount: false },
-  { name: "Обёртывания", price: "2 990 ₽", discount: false },
+  { name: "Обёртывание", price: "1 500 ₽" },
+  { name: "Инфракрасная капсула (50 мин)", price: "2 000 ₽" },
+  { name: "Медовая выкатка (45 мин)", price: "2 500 ₽" },
+  { name: "Медовая выкатка (60 мин)", price: "3 500 ₽" },
+  { name: "Комплекс (капсула + выкатка)", price: "3 700 ₽" },
 ];
 
 const benefits = [

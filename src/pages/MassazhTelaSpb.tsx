@@ -16,9 +16,33 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "ШВЗ + спина", price: "1 990 ₽", discount: false },
-  { name: "Лимфодренажный массаж тела", price: "3 390 ₽", discount: true },
-  { name: "Медицинский / лечебный массаж", price: "3 490 ₽", discount: false },
+  {
+    name: "ШВЗ (30 мин)",
+    price: "2 500 ₽",
+    priceValue: 2500,
+    tiers: [
+      { count: 5, total: 11250 },
+      { count: 10, total: 21250 },
+    ],
+  },
+  {
+    name: "Спина (30 мин)",
+    price: "2 500 ₽",
+    priceValue: 2500,
+    tiers: [
+      { count: 5, total: 11250 },
+      { count: 10, total: 21250 },
+    ],
+  },
+  {
+    name: "Глубокий массаж (ШВЗ + спина)",
+    price: "3 500 ₽",
+    priceValue: 3500,
+    tiers: [
+      { count: 5, total: 15750 },
+      { count: 10, total: 29750 },
+    ],
+  },
 ];
 
 const benefits = [
