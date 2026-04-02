@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronRight, Check, X, Sparkles, Clock, Heart, Users, Star } from "lucide-react";
+import { ChevronRight, Check, X, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -29,15 +29,6 @@ const prices = [
   },
 ];
 
-const benefits = [
-  "Подтяжка овала лица без инъекций",
-  "Уменьшение отёчности и улучшение лимфотока",
-  "Повышение тонуса и эластичности кожи",
-  "Разглаживание мимических морщин",
-  "Улучшение цвета лица и микроциркуляции",
-  "Снятие мышечных зажимов и напряжения",
-];
-
 const suitableFor = [
   "Потеря чёткости овала лица",
   "Отёчность и пастозность",
@@ -47,13 +38,13 @@ const suitableFor = [
   "Желание поддерживать молодость без инъекций",
 ];
 
-const contraindications = [
-  "Острые воспалительные процессы на коже",
-  "Герпес в стадии обострения",
-  "Онкологические заболевания",
-  "Нарушение целостности кожного покрова",
-  "Повышенная температура тела",
-  "Гнойничковые высыпания",
+const benefits = [
+  "Подтяжка овала лица без инъекций",
+  "Уменьшение отёчности и улучшение лимфотока",
+  "Повышение тонуса и эластичности кожи",
+  "Разглаживание мимических морщин",
+  "Улучшение цвета лица и микроциркуляции",
+  "Снятие мышечных зажимов и напряжения",
 ];
 
 const massageTypes = [
@@ -82,6 +73,15 @@ const steps = [
   { step: "4", title: "Завершение", desc: "Нанесение увлажняющего крема или маски для закрепления результата" },
 ];
 
+const contraindications = [
+  "Острые воспалительные процессы на коже",
+  "Герпес в стадии обострения",
+  "Онкологические заболевания",
+  "Нарушение целостности кожного покрова",
+  "Повышенная температура тела",
+  "Гнойничковые высыпания",
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -90,32 +90,23 @@ const jsonLd = {
   provider: {
     "@type": "BeautySalon",
     name: "АРТ Косметология",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Санкт-Петербург",
-      addressCountry: "RU",
-    },
+    address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
     telephone: "+79117193949",
   },
-  offers: prices.map((p) => ({
-    "@type": "Offer",
-    name: p.name,
-    price: p.price.replace(/\s/g, "").replace("₽", ""),
-    priceCurrency: "RUB",
-  })),
+  offers: { "@type": "Offer", price: "2490", priceCurrency: "RUB" },
 };
 
 const MassazhLicaSpb = () => (
   <Layout>
     <Helmet>
       <title>Массаж лица в Санкт-Петербурге — скульптурный, миофасциальный, 3D | АРТ Косметология</title>
-      <meta name="description" content="Массаж лица в Санкт-Петербурге: скульптурный, миофасциальный и 3D-массаж для подтяжки овала, тонуса кожи и уменьшения отёчности. Запись онлайн." />
+      <meta name="description" content="Массаж лица в СПб: скульптурный, миофасциальный и 3D-массаж для подтяжки овала и тонуса кожи. От 2 490 ₽. Запись онлайн." />
       <meta name="keywords" content="массаж лица спб, скульптурный массаж лица спб, миофасциальный массаж спб, 3d массаж лица спб, подтяжка овала лица спб, массаж лица цена спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/massazh-lica-spb" />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>
 
-    {/* Hero */}
+    {/* 1. Hero с ценовым ориентиром */}
     <section className="py-14 md:py-20 bg-cream">
       <div className="container-wide px-4 md:px-8 text-center">
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
@@ -123,32 +114,42 @@ const MassazhLicaSpb = () => (
           Массаж лица в&nbsp;Санкт&#8209;Петербурге
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.5 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8">
-          Скульптурный, миофасциальный и&nbsp;3D&#8209;массаж для подтяжки овала, улучшения тонуса кожи и&nbsp;уменьшения отёчности
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
+          Скульптурный, миофасциальный и&nbsp;3D&#8209;массаж для подтяжки овала, тонуса кожи и&nbsp;уменьшения отёчности
         </motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">
+          от 2&nbsp;490&nbsp;₽
+        </motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/booking">
             <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
               Записаться онлайн <ChevronRight size={16} className="ml-1" />
             </Button>
           </Link>
+          <a href="#prices">
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
+              Смотреть цены
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>
 
-    {/* Что это */}
+    {/* 2. Что это — кратко */}
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-6">Что такое массаж лица?</h2>
         <p className="text-muted-foreground text-lg max-w-3xl mx-auto text-center leading-relaxed">
-          Массаж лица — это ручная техника глубокой проработки мышц и тканей, которая позволяет подтянуть овал, 
-          разгладить морщины и улучшить цвет кожи без инъекций и хирургического вмешательства. В&nbsp;нашей клинике 
-          мы используем авторские АРТ&#8209;протоколы, сочетающие лучшие мировые методики для максимального результата.
+          Ручная техника глубокой проработки мышц и тканей, которая позволяет подтянуть овал, 
+          разгладить морщины и улучшить цвет кожи без инъекций. Мы используем авторские 
+          АРТ&#8209;протоколы для максимального результата.
         </p>
       </div>
     </section>
 
-    {/* Кому подходит */}
+    {/* 3. Кому подходит */}
     <section className="py-10 md:py-14 bg-card">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Кому подходит</h2>
@@ -164,7 +165,31 @@ const MassazhLicaSpb = () => (
       </div>
     </section>
 
-    {/* Что даёт */}
+    {/* 4. ЦЕНЫ — ключевой блок, высоко на странице */}
+    <div id="prices">
+      <ServicePricingTiers title="Цены на массаж лица" prices={prices} />
+    </div>
+
+    {/* Акция — первое посещение */}
+    <section className="py-8 md:py-10">
+      <div className="container-narrow px-4 md:px-8">
+        <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground before:absolute before:inset-0 before:bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.18)_50%,transparent_70%)] before:animate-[shimmer_3s_ease-in-out_infinite] before:-translate-x-full before:pointer-events-none">
+          <Star size={36} className="mx-auto mb-3 opacity-80 relative z-10" />
+          <h2 className="font-heading text-2xl md:text-3xl mb-2 relative z-10">Первое посещение — скидка 30%</h2>
+          <p className="text-base opacity-90 mb-5 max-w-xl mx-auto relative z-10">
+            На скульптурный массаж лица для новых клиентов
+          </p>
+          <Link to="/booking" className="relative z-10">
+            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              Записаться со скидкой
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* 5. Что даёт */}
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Что даёт массаж лица</h2>
@@ -180,7 +205,7 @@ const MassazhLicaSpb = () => (
       </div>
     </section>
 
-    {/* Виды массажа */}
+    {/* 6. Виды массажа */}
     <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Виды массажа лица</h2>
@@ -196,7 +221,7 @@ const MassazhLicaSpb = () => (
       </div>
     </section>
 
-    {/* Как проходит */}
+    {/* 7. Как проходит */}
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как проходит процедура</h2>
@@ -215,45 +240,25 @@ const MassazhLicaSpb = () => (
       </div>
     </section>
 
-    {/* Противопоказания */}
-    <section className="py-10 md:py-14 bg-card">
+    {/* 8. Противопоказания — компактно */}
+    <section className="py-8 md:py-10 bg-card">
       <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Противопоказания</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-          {contraindications.map((c, i) => (
-            <motion.div key={c} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border">
-              <X size={16} className="text-destructive flex-shrink-0" />
-              <span className="text-foreground/80">{c}</span>
-            </motion.div>
+        <h2 className="font-heading text-2xl md:text-3xl text-center mb-6">Противопоказания</h2>
+        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          {contraindications.map((c) => (
+            <span key={c} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border text-sm text-muted-foreground">
+              <X size={14} className="text-destructive flex-shrink-0" />
+              {c}
+            </span>
           ))}
         </div>
       </div>
     </section>
 
+    {/* 9. Подбор процедуры */}
     <ConsultationCapture />
-    <ServicePricingTiers title="Цены на массаж лица" prices={prices} />
 
-    {/* Акция */}
-    <section className="py-10 md:py-14">
-      <div className="container-narrow px-4 md:px-8">
-        <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground before:absolute before:inset-0 before:bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.18)_50%,transparent_70%)] before:animate-[shimmer_3s_ease-in-out_infinite] before:-translate-x-full before:pointer-events-none">
-          <Star size={40} className="mx-auto mb-4 opacity-80 relative z-10" />
-          <h2 className="font-heading text-3xl md:text-4xl mb-3 relative z-10">Первое посещение</h2>
-          <p className="text-lg opacity-90 mb-6 max-w-xl mx-auto relative z-10">
-            Скидка <strong>30%</strong> на скульптурный массаж лица для новых клиентов. 
-            Попробуйте и&nbsp;оцените результат!
-          </p>
-          <Link to="/booking" className="relative z-10">
-            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">
-              Записаться со скидкой 30%
-            </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-
+    {/* 10. Доп. блоки */}
     <NextStep currentPath="/massazh-lica-spb" />
     <RelatedServices currentPath="/massazh-lica-spb" />
     <CTASection />
