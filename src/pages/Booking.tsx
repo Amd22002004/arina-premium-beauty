@@ -77,20 +77,16 @@ const Booking = () => {
   }, []);
 
   const handlePhoneKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-    // prevent deleting the +7 prefix
-    const input = e.currentTarget;
-    if (e.key === "Backspace" && phoneDigits.length === 0) {
+    // allow: backspace, delete, tab, escape, enter, arrows, home, end, select-all, copy, paste
+    const allowedKeys = ["Backspace", "Delete", "Tab", "Escape", "Enter", "ArrowLeft", "ArrowRight", "Home", "End"];
+    if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+      return;
+    }
+    // block non-digit characters
+    if (e.key.length === 1 && !/\d/.test(e.key)) {
       e.preventDefault();
     }
-    // block non-digit keys (allow navigation/control keys)
-    if (
-      e.key.length === 1 &&
-      !/\d/.test(e.key) &&
-      !e.ctrlKey && !e.metaKey
-    ) {
-      e.preventDefault();
-    }
-  }, [phoneDigits.length]);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
