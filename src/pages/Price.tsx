@@ -93,7 +93,7 @@ const Price = () => {
                         </Link>
                       )}
                       {!s.comingSoon && (
-                        <Link to="/booking">
+                        <Link to={`/booking?service=${encodeURIComponent(s.name)}`}>
                           <Button size="sm" className="gold-gradient text-primary-foreground border-0 text-xs px-3">
                             Записаться
                           </Button>

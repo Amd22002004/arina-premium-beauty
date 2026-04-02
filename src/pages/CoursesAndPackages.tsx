@@ -363,7 +363,7 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
 
         {/* CTA */}
         <div className="mt-auto flex flex-col sm:flex-row gap-3">
-          <Link to="/booking" className="flex-1">
+          <Link to={`/booking?service=${encodeURIComponent(course.title)}`} className="flex-1">
             <Button className="gold-gradient text-primary-foreground border-0 shadow-lg hover:shadow-xl transition-shadow w-full h-12 text-base">
               Записаться на курс
             </Button>

@@ -97,7 +97,7 @@ const UhodZaLicomSpb = () => (
           className="text-primary font-heading text-2xl md:text-3xl mb-8">от 2&nbsp;990&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/booking">
+          <Link to={`/booking?service=Уход за лицом (массаж + маски)`}>
             <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
               Записаться онлайн <ChevronRight size={16} className="ml-1" />
             </Button>
@@ -148,7 +148,7 @@ const UhodZaLicomSpb = () => (
           <Star size={36} className="mx-auto mb-3 opacity-80 relative z-10" />
           <h2 className="font-heading text-2xl md:text-3xl mb-2 relative z-10">Первое посещение — скидка 30%</h2>
           <p className="text-base opacity-90 mb-5 max-w-xl mx-auto relative z-10">На уход за лицом для новых клиентов</p>
-          <Link to="/booking" className="relative z-10">
+          <Link to={`/booking?service=Уход за лицом (массаж + маски)`} className="relative z-10">
             <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">Записаться со скидкой</Button>
           </Link>
         </motion.div>

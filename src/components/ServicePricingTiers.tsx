@@ -144,7 +144,7 @@ const PricingCard = ({ service, idx }: { service: ServicePrice; idx: number }) =
       </div>
 
       <div className="p-4 md:px-6 border-t border-border bg-secondary/10 text-center">
-        <Link to="/booking">
+        <Link to={`/booking?service=${encodeURIComponent(service.name)}`}>
           <Button
             size="lg"
             className={`w-full sm:w-auto ${

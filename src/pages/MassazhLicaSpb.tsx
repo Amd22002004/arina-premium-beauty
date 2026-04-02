@@ -123,7 +123,7 @@ const MassazhLicaSpb = () => (
         </motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/booking">
+          <Link to={`/booking?service=Массаж лица`}>
             <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
               Записаться онлайн <ChevronRight size={16} className="ml-1" />
             </Button>
@@ -180,7 +180,7 @@ const MassazhLicaSpb = () => (
           <p className="text-base opacity-90 mb-5 max-w-xl mx-auto relative z-10">
             На скульптурный массаж лица для новых клиентов
           </p>
-          <Link to="/booking" className="relative z-10">
+          <Link to={`/booking?service=Массаж лица`} className="relative z-10">
             <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               Записаться со скидкой
             </Button>
