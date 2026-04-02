@@ -71,7 +71,7 @@ const OzdorovitelnyeProcedury = () => (
           className="text-primary font-heading text-2xl md:text-3xl mb-8">от 2&nbsp;000&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/booking"><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться на консультацию <ChevronRight size={16} className="ml-1" /></Button></Link>
+          <Link to={`/booking?service=Хиджама`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться на консультацию <ChevronRight size={16} className="ml-1" /></Button></Link>
           <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button></a>
         </motion.div>
       </div>
