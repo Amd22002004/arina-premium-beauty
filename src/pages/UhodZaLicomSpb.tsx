@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronRight, Sparkles, Clock, ShieldCheck, Heart, Droplets, Star } from "lucide-react";
+import { Check, ChevronRight, Sparkles, X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -15,7 +15,7 @@ const fadeUp = {
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08, duration: 0.5 } }),
 };
 
-const procedures = [
+const prices = [
   {
     name: "Уход за лицом (массаж + маски)",
     price: "2 990 ₽",
@@ -28,15 +28,6 @@ const procedures = [
   },
 ];
 
-const benefits = [
-  "Глубокое увлажнение и питание кожи",
-  "Улучшение тонуса и цвета лица",
-  "Уменьшение отёчности и следов усталости",
-  "Разглаживание мелких морщин",
-  "Лифтинг-эффект и подтяжка овала",
-  "Расслабление мимических мышц",
-];
-
 const suitableFor = [
   "Сухая и обезвоженная кожа",
   "Тусклый, уставший цвет лица",
@@ -44,6 +35,15 @@ const suitableFor = [
   "Отёчность и пастозность",
   "Потеря тонуса и эластичности",
   "После стрессов, перелётов, смены климата",
+];
+
+const benefits = [
+  "Глубокое увлажнение и питание кожи",
+  "Улучшение тонуса и цвета лица",
+  "Уменьшение отёчности и следов усталости",
+  "Разглаживание мелких морщин",
+  "Лифтинг-эффект и подтяжка овала",
+  "Расслабление мимических мышц",
 ];
 
 const steps = [
@@ -67,65 +67,91 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Уход за лицом в Санкт-Петербурге",
-  description: "Комплексные уходовые процедуры: массаж лица в сочетании с альгинатной, кислородной и увлажняющей масками для глубокого восстановления и увлажнения кожи.",
-  provider: {
-    "@type": "LocalBusiness",
-    name: "АРТ Косметология",
-    address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
-  },
-  areaServed: { "@type": "City", name: "Санкт-Петербург" },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Уходовые процедуры для лица",
-    itemListElement: procedures.map((p) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: p.name },
-      price: p.price.replace(/\s/g, "").replace("₽", ""),
-      priceCurrency: "RUB",
-    })),
-  },
+  description: "Комплексные уходовые процедуры: массаж лица в сочетании с масками для глубокого восстановления и увлажнения кожи.",
+  provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
+  offers: { "@type": "Offer", price: "2990", priceCurrency: "RUB" },
 };
 
 const UhodZaLicomSpb = () => (
   <Layout>
     <Helmet>
       <title>Уход за лицом в Санкт-Петербурге — массаж лица с масками | АРТ Косметология</title>
-      <meta name="description" content="Уход за лицом в Санкт-Петербурге: массаж лица в сочетании с альгинатной, кислородной и увлажняющей масками для глубокого восстановления и увлажнения кожи." />
-      <meta name="keywords" content="уход за лицом спб, массаж лица с маской спб, альгинатная маска спб, кислородная маска спб, увлажнение лица спб, уходовые процедуры спб" />
+      <meta name="description" content="Уход за лицом в СПб: массаж + маски для увлажнения и восстановления кожи. От 2 990 ₽. Запись онлайн." />
+      <meta name="keywords" content="уход за лицом спб, массаж лица с маской спб, альгинатная маска спб, увлажнение лица спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/uhod-za-licom-spb" />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>
 
     {/* Hero */}
-    <section className="py-16 md:py-24">
+    <section className="py-14 md:py-20 bg-cream">
       <div className="container-wide px-4 md:px-8 text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl mb-6">
-          Уход за лицом в&nbsp;Санкт‑Петербурге
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+          className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
+          Уход за лицом в&nbsp;Санкт&#8209;Петербурге
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-          Комплексные уходовые процедуры: массаж лица в сочетании с масками для глубокого увлажнения и восстановления. Каждая процедура — часть авторского АРТ-протокола.
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.5 }}
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
+          Массаж лица в сочетании с масками для глубокого увлажнения, восстановления и сияния кожи
         </motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="flex flex-wrap gap-4 justify-center">
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 2&nbsp;990&nbsp;₽</motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/booking">
-            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">Записаться онлайн</Button>
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+              Записаться онлайн <ChevronRight size={16} className="ml-1" />
+            </Button>
           </Link>
+          <a href="#prices">
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button>
+          </a>
         </motion.div>
       </div>
     </section>
 
+    {/* Что это */}
+    <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-6">Что такое уход за лицом?</h2>
+        <p className="text-muted-foreground text-lg max-w-3xl mx-auto text-center leading-relaxed">
+          Комплексная процедура, сочетающая авторский массаж лица и профессиональные маски. Глубокое увлажнение, питание и лифтинг-эффект за один сеанс.
+        </p>
+      </div>
+    </section>
+
     {/* Кому подходит */}
-    <section className="py-10 md:py-14 bg-secondary/30">
+    <section className="py-10 md:py-14 bg-card">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Кому подходит</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
           {suitableFor.map((item, i) => (
             <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="flex items-start gap-3 bg-card rounded-lg p-5 border border-border">
-              <Heart size={18} className="text-primary mt-0.5 flex-shrink-0" />
-              <span>{item}</span>
+              className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-foreground/80">{item}</span>
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+
+    {/* Цены */}
+    <div id="prices">
+      <ServicePricingTiers title="Цены на уход за лицом" prices={prices} />
+    </div>
+
+    {/* Акция */}
+    <section className="py-8 md:py-10">
+      <div className="container-narrow px-4 md:px-8">
+        <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground before:absolute before:inset-0 before:bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.18)_50%,transparent_70%)] before:animate-[shimmer_3s_ease-in-out_infinite] before:-translate-x-full before:pointer-events-none">
+          <Star size={36} className="mx-auto mb-3 opacity-80 relative z-10" />
+          <h2 className="font-heading text-2xl md:text-3xl mb-2 relative z-10">Первое посещение — скидка 30%</h2>
+          <p className="text-base opacity-90 mb-5 max-w-xl mx-auto relative z-10">На уход за лицом для новых клиентов</p>
+          <Link to="/booking" className="relative z-10">
+            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">Записаться со скидкой</Button>
+          </Link>
+        </motion.div>
       </div>
     </section>
 
@@ -133,10 +159,10 @@ const UhodZaLicomSpb = () => (
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Что даёт уход за лицом</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
           {benefits.map((b, i) => (
             <motion.div key={b} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="flex items-start gap-3 bg-card rounded-lg p-5 border border-border">
+              className="flex items-start gap-3 p-5 rounded-xl bg-card border border-border">
               <Sparkles size={18} className="text-primary mt-0.5 flex-shrink-0" />
               <span>{b}</span>
             </motion.div>
@@ -145,36 +171,17 @@ const UhodZaLicomSpb = () => (
       </div>
     </section>
 
-    {/* Варианты процедур */}
-    <section className="py-10 md:py-14 bg-secondary/30">
-      <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Варианты процедур</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {procedures.map((p, i) => (
-            <motion.div key={p.name} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card rounded-xl p-6 md:p-8 border border-border hover-lift text-center">
-              <Droplets size={28} className="text-primary mx-auto mb-4" />
-              <h3 className="font-heading text-xl mb-2">{p.name}</h3>
-              <p className="text-muted-foreground text-sm">{p.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
     {/* Как проходит */}
-    <section className="py-10 md:py-14">
+    <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как проходит процедура</h2>
-        <div className="max-w-2xl mx-auto space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
           {steps.map((s, i) => (
             <motion.div key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="flex gap-4 items-start bg-card rounded-lg p-5 border border-border">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full gold-gradient text-primary-foreground flex items-center justify-center text-sm font-bold">{i + 1}</span>
-              <div>
-                <h3 className="font-semibold mb-1">{s.title}</h3>
-                <p className="text-muted-foreground text-sm">{s.desc}</p>
-              </div>
+              className="text-center">
+              <div className="w-12 h-12 rounded-full gold-gradient text-primary-foreground flex items-center justify-center text-lg font-heading mx-auto mb-4">{i + 1}</div>
+              <h3 className="font-heading text-lg mb-2">{s.title}</h3>
+              <p className="text-muted-foreground text-sm">{s.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -182,22 +189,20 @@ const UhodZaLicomSpb = () => (
     </section>
 
     {/* Противопоказания */}
-    <section className="py-10 md:py-14 bg-secondary/30">
+    <section className="py-8 md:py-10 bg-card">
       <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Противопоказания</h2>
-        <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <h2 className="font-heading text-2xl md:text-3xl text-center mb-6">Противопоказания</h2>
+        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {contraindications.map((c) => (
-            <div key={c} className="flex items-center gap-2 text-muted-foreground">
-              <ShieldCheck size={16} className="text-primary flex-shrink-0" /> {c}
-            </div>
+            <span key={c} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border text-sm text-muted-foreground">
+              <X size={14} className="text-destructive flex-shrink-0" />{c}
+            </span>
           ))}
         </div>
       </div>
     </section>
 
     <ConsultationCapture />
-    <ServicePricingTiers title="Цены на уход за лицом" prices={procedures} />
-
     <NextStep currentPath="/uhod-za-licom-spb" />
     <RelatedServices currentPath="/uhod-za-licom-spb" />
     <CTASection />
