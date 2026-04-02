@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronRight, AlertCircle, Info } from "lucide-react";
+import { Check, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -20,7 +20,7 @@ const prices = [
   { name: "Интимное омоложение", price: "5 000 ₽" },
 ];
 
-const forWhom = [
+const suitableFor = [
   "Нужна процедура, которая не входит в стандартные разделы",
   "Хотите дополнить основной курс ухода или коррекции",
   "Требуется индивидуальный подбор процедуры под конкретную задачу",
@@ -34,171 +34,69 @@ const contraindications = [
   "Индивидуальные противопоказания определяются на консультации",
 ];
 
-const steps = [
-  { title: "Обращение", desc: "Свяжитесь с нами и опишите вашу задачу" },
-  { title: "Консультация", desc: "Специалист оценит состояние и подберёт процедуру" },
-  { title: "Процедура", desc: "Проведение по индивидуальному протоколу" },
-  { title: "Рекомендации", desc: "Советы по уходу и дальнейшим действиям" },
-];
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Дополнительные услуги в Санкт-Петербурге",
-  description: "Интимное омоложение, удаление новообразований и другие процедуры по индивидуальному подбору.",
-  provider: {
-    "@type": "LocalBusiness",
-    name: "АРТ Косметология",
-    address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
-  },
-  areaServed: { "@type": "City", name: "Санкт-Петербург" },
-};
-
 const DopolnitelnyeUslugiSpb = () => (
   <Layout>
     <Helmet>
-      <title>Дополнительные услуги в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Дополнительные услуги в Санкт-Петербурге: интимное омоложение, удаление новообразований и другие процедуры по индивидуальному подбору." />
-      <meta name="keywords" content="дополнительные услуги косметология спб, интимное омоложение спб, удаление новообразований спб, процедуры для тела спб, косметологические услуги спб" />
+      <title>Деликатные услуги в Санкт-Петербурге | АРТ Косметология</title>
+      <meta name="description" content="Деликатные услуги в СПб: удаление папиллом и интимное омоложение. От 500 ₽. Запись онлайн." />
+      <meta name="keywords" content="удаление папиллом спб, интимное омоложение спб, деликатные услуги косметология спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/dopolnitelnye-uslugi-spb" />
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org", "@type": "Service",
+        name: "Деликатные услуги в Санкт-Петербурге",
+        provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
+      })}</script>
     </Helmet>
 
-    <section className="py-20 md:py-28">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-          className="font-heading text-4xl md:text-5xl text-center mb-6">
-          Дополнительные услуги
+    <section className="py-14 md:py-20 bg-cream">
+      <div className="container-wide px-4 md:px-8 text-center">
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
+          Деликатные услуги
         </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.5 }}
-          className="text-muted-foreground text-lg md:text-xl text-center max-w-2xl mx-auto mb-4">
-          Процедуры, которые подбираются индивидуально в зависимости от вашей задачи. Могут дополнять основной курс ухода или решать точечные вопросы.
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
+          Процедуры, которые подбираются индивидуально. Конфиденциальность и профессиональный подход
         </motion.p>
-      </div>
-    </section>
-
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Кому подходят процедуры</h2>
-          <ul className="space-y-3">
-            {forWhom.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <CheckCircle2 size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-foreground/80">{item}</span>
-              </li>
-            ))}
-          </ul>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 500&nbsp;₽</motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/booking"><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
+          <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button></a>
         </motion.div>
       </div>
     </section>
 
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Перечень услуг</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold text-lg mb-1">Интимное омоложение</h3>
-              <p className="text-muted-foreground text-sm">Аппаратная процедура для восстановления тонуса и улучшения состояния тканей. Проводится деликатно и конфиденциально.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-1">Удаление новообразований</h3>
-              <p className="text-muted-foreground text-sm">Безопасное удаление папиллом, бородавок и других доброкачественных образований. Требуется предварительная консультация.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-1">Избавление от пяточной шпоры</h3>
-              <p className="text-muted-foreground text-sm">Процедура для снятия болевого синдрома и улучшения состояния стопы.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-1">Инфракрасная сауна + медовая выкатка / обёртывание</h3>
-              <p className="text-muted-foreground text-sm">Комплексная СПА-процедура для расслабления, детокса и улучшения состояния кожи тела.</p>
-            </div>
-          </div>
-        </motion.div>
+    <section className="py-10 md:py-14 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Кому подходит</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          {suitableFor.map((item, i) => (
+            <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" /><span className="text-foreground/80">{item}</span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Как проходит консультация</h2>
-          <div className="space-y-6">
-            {steps.map((s, i) => (
-              <div key={s.title} className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">{i + 1}</div>
-                <div>
-                  <p className="font-semibold">{s.title}</p>
-                  <p className="text-muted-foreground text-sm">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <div id="prices"><ServicePricingTiers title="Цены" prices={prices} /></div>
 
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Противопоказания</h2>
-          <ul className="space-y-3">
-            {contraindications.map((c) => (
-              <li key={c} className="flex items-start gap-3">
-                <AlertCircle size={18} className="text-destructive mt-0.5 flex-shrink-0" />
-                <span className="text-foreground/80">{c}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+    <section className="py-8 md:py-10 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-2xl md:text-3xl text-center mb-6">Противопоказания</h2>
+        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          {contraindications.map((c) => (
+            <span key={c} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border text-sm text-muted-foreground">
+              <X size={14} className="text-destructive flex-shrink-0" />{c}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
 
     <ConsultationCapture />
-    <ServicePricingTiers title="Цены" prices={prices} />
-
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={4.5} variants={fadeUp}
-          className="bg-primary/5 rounded-xl p-6 md:p-8 border border-primary/20 flex items-start gap-4">
-          <Info size={22} className="text-primary mt-0.5 flex-shrink-0" />
-          <div>
-            <p className="font-semibold mb-1">Индивидуальный подбор</p>
-            <p className="text-muted-foreground text-sm">
-              Каждая процедура из этого раздела подбирается после консультации со специалистом с учётом ваших задач и особенностей.
-            </p>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto text-center">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={5} variants={fadeUp}>
-          <h2 className="font-heading text-2xl mb-4">Запишитесь на консультацию</h2>
-          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Расскажите о вашей задаче — подберём подходящую процедуру и составим план.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/booking">
-              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-                Записаться онлайн
-              </Button>
-            </Link>
-            <a href="https://t.me/ART_and_beauty_studio" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-10">
-                Написать в Telegram
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-
     <NextStep currentPath="/dopolnitelnye-uslugi-spb" />
     <RelatedServices currentPath="/dopolnitelnye-uslugi-spb" />
     <CTASection />

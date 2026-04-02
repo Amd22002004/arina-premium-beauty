@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronRight, AlertTriangle, Sparkles, Target, Users, ShieldCheck } from "lucide-react";
+import { Check, ChevronRight, Sparkles, X, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -20,6 +20,14 @@ const prices = [
   { name: "Зоны (шея, декольте, кисти, рубцы, растяжки)", price: "от 4 900 ₽" },
 ];
 
+const suitableFor = [
+  "Морщины и потеря упругости кожи",
+  "Рубцы, шрамы и постакне",
+  "Растяжки на теле",
+  "Неровный рельеф и расширенные поры",
+  "Пигментация и фотостарение",
+];
+
 const benefits = [
   "Разглаживание морщин и заломов",
   "Устранение рубцов, постакне и растяжек",
@@ -27,14 +35,6 @@ const benefits = [
   "Сужение пор и выравнивание рельефа",
   "Стимуляция глубокой выработки коллагена",
   "Выраженный лифтинг-эффект",
-];
-
-const forWhom = [
-  "Морщины и потеря упругости кожи",
-  "Рубцы, шрамы и постакне",
-  "Растяжки на теле",
-  "Неровный рельеф и расширенные поры",
-  "Пигментация и фотостарение",
 ];
 
 const contraindications = [
@@ -47,167 +47,128 @@ const contraindications = [
 ];
 
 const steps = [
-  { step: "01", title: "Консультация", desc: "Осмотр кожи, определение зон и глубины воздействия" },
-  { step: "02", title: "Анестезия", desc: "Нанесение обезболивающего крема за 30–40 минут до процедуры" },
-  { step: "03", title: "Процедура", desc: "Фракционная обработка лазером CO₂ по выбранным зонам" },
-  { step: "04", title: "Завершение", desc: "Нанесение восстанавливающего средства и рекомендации по уходу" },
+  { title: "Консультация", desc: "Осмотр кожи, определение зон и глубины воздействия" },
+  { title: "Анестезия", desc: "Нанесение обезболивающего крема за 30–40 минут" },
+  { title: "Процедура", desc: "Фракционная обработка лазером CO₂ по выбранным зонам" },
+  { title: "Завершение", desc: "Нанесение восстанавливающего средства и рекомендации" },
 ];
 
 const recovery = [
   "Покраснение и отёчность — 3–5 дней",
   "Микрокорочки — 5–7 дней, сходят самостоятельно",
   "Полное восстановление — 10–14 дней",
-  "Обязательно использование SPF 50+ на весь период",
-  "Исключить сауну, бассейн и активный спорт на 2 недели",
+  "Обязательно SPF 50+ на весь период",
+  "Исключить сауну, бассейн и спорт на 2 недели",
 ];
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Фракционный лазер CO2 в Санкт-Петербурге",
-  description: "Фракционный лазер CO2: омоложение кожи, устранение морщин, рубцов и растяжек. Премиальная лазерная процедура с выраженным эффектом.",
-  provider: {
-    "@type": "LocalBusiness",
-    name: "АРТ Косметология",
-    address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
-  },
-  areaServed: { "@type": "City", name: "Санкт-Петербург" },
-  offers: prices.map((p) => ({
-    "@type": "Offer",
-    name: p.name,
-    priceCurrency: "RUB",
-  })),
-};
 
 const FrakcionnyyLazerCo2Spb = () => (
   <Layout>
     <Helmet>
       <title>Фракционный лазер CO2 в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Фракционный лазер CO2 в Санкт-Петербурге: омоложение кожи, устранение морщин, рубцов и растяжек. Премиальная лазерная процедура с выраженным эффектом." />
-      <meta name="keywords" content="фракционный лазер co2 спб, лазерное омоложение лица спб, co2 лазер спб, убрать рубцы лазером спб, лечение постакне спб, лазер от морщин спб, лазерная шлифовка кожи спб" />
+      <meta name="description" content="Фракционный лазер CO₂ в СПб: омоложение кожи, устранение морщин, рубцов и растяжек. От 4 900 ₽. Запись онлайн." />
+      <meta name="keywords" content="фракционный лазер co2 спб, лазерное омоложение спб, co2 лазер спб, убрать рубцы лазером спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/frakcionnyy-lazer-co2-spb" />
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org", "@type": "Service",
+        name: "Фракционный лазер CO2 в Санкт-Петербурге",
+        provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
+        offers: prices.map(p => ({ "@type": "Offer", name: p.name, priceCurrency: "RUB" })),
+      })}</script>
     </Helmet>
 
-    {/* Hero */}
-    <section className="py-20 md:py-28">
-      <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" animate="visible" custom={0} variants={fadeUp} className="text-center max-w-3xl mx-auto">
-          <h1 className="font-heading text-4xl md:text-5xl mb-6">Фракционный лазер CO₂ в&nbsp;Санкт-Петербурге</h1>
-          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-            Глубокое обновление кожи, направленное на устранение морщин, рубцов, постакне и растяжек, а&nbsp;также улучшение текстуры и плотности кожи.
-          </p>
-          <p className="text-sm text-muted-foreground mt-4">Требуется предварительная консультация специалиста</p>
+    <section className="py-14 md:py-20 bg-cream">
+      <div className="container-wide px-4 md:px-8 text-center">
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
+          Фракционный лазер CO₂
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
+          Глубокое обновление кожи для устранения морщин, рубцов, постакне и растяжек
+        </motion.p>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 4&nbsp;900&nbsp;₽</motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/booking"><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
+          <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button></a>
         </motion.div>
       </div>
     </section>
 
-    {/* Кому подходит */}
-    <section className="py-16 bg-secondary/30">
+    <section className="py-10 md:py-14 bg-card">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeUp}>
-          <div className="flex items-center gap-3 mb-8">
-            <Users className="text-primary" size={28} />
-            <h2 className="font-heading text-3xl">Кому подходит</h2>
-          </div>
-          <ul className="grid sm:grid-cols-2 gap-4">
-            {forWhom.map((item) => (
-              <li key={item} className="flex items-start gap-3 bg-card rounded-lg p-4 border border-border">
-                <CheckCircle2 size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Кому подходит</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {suitableFor.map((item, i) => (
+            <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" /><span className="text-foreground/80">{item}</span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* Что даёт */}
-    <section className="py-16">
+    <div id="prices"><ServicePricingTiers title="Цены на фракционный лазер CO₂" prices={prices} /></div>
+
+    <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2} variants={fadeUp}>
-          <div className="flex items-center gap-3 mb-8">
-            <Sparkles className="text-primary" size={28} />
-            <h2 className="font-heading text-3xl">Что даёт процедура</h2>
-          </div>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {benefits.map((b) => (
-              <li key={b} className="flex items-start gap-3 bg-card rounded-lg p-5 border border-border">
-                <CheckCircle2 size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Что даёт процедура</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+          {benefits.map((b, i) => (
+            <motion.div key={b} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-5 rounded-xl bg-card border border-border">
+              <Sparkles size={18} className="text-primary mt-0.5 flex-shrink-0" /><span>{b}</span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* Как проходит */}
-    <section className="py-16 bg-secondary/30">
+    <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3} variants={fadeUp}>
-          <div className="flex items-center gap-3 mb-8">
-            <Target className="text-primary" size={28} />
-            <h2 className="font-heading text-3xl">Как проходит процедура</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((s) => (
-              <div key={s.step} className="bg-card rounded-xl p-6 border border-border text-center">
-                <span className="text-3xl font-heading text-primary">{s.step}</span>
-                <h3 className="font-heading text-lg mt-3 mb-2">{s.title}</h3>
-                <p className="text-muted-foreground text-sm">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как проходит процедура</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {steps.map((s, i) => (
+            <motion.div key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp} className="text-center">
+              <div className="w-12 h-12 rounded-full gold-gradient text-primary-foreground flex items-center justify-center text-lg font-heading mx-auto mb-4">{i + 1}</div>
+              <h3 className="font-heading text-lg mb-2">{s.title}</h3>
+              <p className="text-muted-foreground text-sm">{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
     {/* Восстановление */}
-    <section className="py-16">
+    <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={4} variants={fadeUp}>
-          <div className="flex items-center gap-3 mb-8">
-            <ShieldCheck className="text-primary" size={28} />
-            <h2 className="font-heading text-3xl">Восстановление после процедуры</h2>
-          </div>
-          <div className="bg-card rounded-xl p-8 border border-border max-w-2xl">
-            <ul className="space-y-4">
-              {recovery.map((r) => (
-                <li key={r} className="flex items-start gap-3">
-                  <ChevronRight size={16} className="text-primary mt-1 flex-shrink-0" />
-                  <span>{r}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-8">Восстановление после процедуры</h2>
+        <div className="max-w-2xl mx-auto space-y-3">
+          {recovery.map((r) => (
+            <div key={r} className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
+              <ShieldCheck size={18} className="text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-foreground/80">{r}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* Противопоказания */}
-    <section className="py-16 bg-secondary/30">
+    <section className="py-8 md:py-10 bg-card">
       <div className="container-wide px-4 md:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={5} variants={fadeUp}>
-          <div className="flex items-center gap-3 mb-8">
-            <AlertTriangle className="text-primary" size={28} />
-            <h2 className="font-heading text-3xl">Противопоказания</h2>
-          </div>
-          <ul className="grid sm:grid-cols-2 gap-4">
-            {contraindications.map((c) => (
-              <li key={c} className="flex items-start gap-3 text-muted-foreground">
-                <ChevronRight size={16} className="text-primary mt-1 flex-shrink-0" />
-                <span>{c}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+        <h2 className="font-heading text-2xl md:text-3xl text-center mb-6">Противопоказания</h2>
+        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          {contraindications.map((c) => (
+            <span key={c} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border text-sm text-muted-foreground">
+              <X size={14} className="text-destructive flex-shrink-0" />{c}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
 
     <ConsultationCapture />
-    <ServicePricingTiers title="Цены на фракционный лазер CO₂" prices={prices} />
-
     <NextStep currentPath="/frakcionnyy-lazer-co2-spb" />
     <RelatedServices currentPath="/frakcionnyy-lazer-co2-spb" />
     <CTASection />

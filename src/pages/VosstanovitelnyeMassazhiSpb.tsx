@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronRight, AlertCircle, Sparkles, BadgePercent } from "lucide-react";
+import { Check, ChevronRight, Sparkles, X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -16,26 +16,16 @@ const fadeUp = {
 };
 
 const prices = [
-  {
-    name: "Лимфодренажный массаж",
-    price: "3 000 ₽",
-    priceValue: 3000,
-    tiers: [
-      { count: 5, total: 13500 },
-      { count: 10, total: 26000 },
-    ],
-    desc: "Дренаж, снятие отёков, улучшение лимфотока",
-  },
-  {
-    name: "Висцеральный массаж",
-    price: "3 500 ₽",
-    priceValue: 3500,
-    tiers: [
-      { count: 3, total: 10000 },
-      { count: 5, total: 15000 },
-    ],
-    desc: "Работа с внутренними органами и восстановление",
-  },
+  { name: "Лимфодренажный массаж", price: "3 000 ₽", priceValue: 3000, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 26000 }], desc: "Дренаж, снятие отёков, улучшение лимфотока" },
+  { name: "Висцеральный массаж", price: "3 500 ₽", priceValue: 3500, tiers: [{ count: 3, total: 10000 }, { count: 5, total: 15000 }], desc: "Работа с внутренними органами и восстановление" },
+];
+
+const suitableFor = [
+  "Чувствуете хроническую усталость и напряжение",
+  "Беспокоят отёки лица или тела",
+  "Нужно восстановиться после стресса или болезни",
+  "Хотите мягкий массаж без глубокой проработки",
+  "Ищете процедуру для общего расслабления",
 ];
 
 const benefits = [
@@ -47,14 +37,6 @@ const benefits = [
   "Мягкое воздействие без агрессивных техник",
 ];
 
-const forWhom = [
-  "Чувствуете хроническую усталость и напряжение",
-  "Беспокоят отёки лица или тела",
-  "Нужно восстановиться после стресса или болезни",
-  "Хотите мягкий массаж без глубокой проработки",
-  "Ищете процедуру для общего расслабления и улучшения самочувствия",
-];
-
 const contraindications = [
   "Острые воспалительные процессы",
   "Онкологические заболевания",
@@ -64,147 +46,142 @@ const contraindications = [
   "Тяжёлые сердечно-сосудистые заболевания",
 ];
 
+const types = [
+  { title: "Лимфодренажный массаж", desc: "Мягкая техника для уменьшения отёчности, улучшения микроциркуляции и выведения лишней жидкости." },
+  { title: "Висцеральный массаж", desc: "Работа с внутренними органами для восстановления функций, снятия спазмов и улучшения пищеварения." },
+  { title: "Биоэнергетический массаж", desc: "Расслабляющая техника для снятия мышечного напряжения и восстановления после переутомления." },
+];
+
 const steps = [
   { title: "Консультация", desc: "Определяем состояние и подбираем подходящую технику" },
   { title: "Подготовка", desc: "Расслабление и мягкий разогрев тканей" },
-  { title: "Массаж", desc: "Работа по выбранной методике в мягком, восстановительном режиме (30–50 мин)" },
+  { title: "Массаж", desc: "Работа по выбранной методике (30–50 мин)" },
   { title: "Завершение", desc: "Рекомендации по дальнейшему уходу и режиму" },
 ];
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Восстановительные массажи в Санкт-Петербурге",
-  description: "Мягкие техники для снятия отёков, расслабления и восстановления организма.",
-  provider: {
-    "@type": "LocalBusiness",
-    name: "АРТ Косметология",
-    address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
-  },
-  areaServed: { "@type": "City", name: "Санкт-Петербург" },
-};
 
 const VosstanovitelnyeMassazhiSpb = () => (
   <Layout>
     <Helmet>
       <title>Восстановительные массажи в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Восстановительные массажи в Санкт-Петербурге: мягкие техники для снятия отёков, расслабления и восстановления организма." />
-      <meta name="keywords" content="восстановительный массаж спб, массаж от отёков спб, расслабляющий массаж спб, мягкий массаж тела, восстановление после стресса массаж, лимфодренаж мягкий массаж" />
+      <meta name="description" content="Восстановительные массажи в СПб: лимфодренажный и висцеральный массаж. От 3 000 ₽. Снятие отёков и расслабление. Запись онлайн." />
+      <meta name="keywords" content="восстановительный массаж спб, лимфодренажный массаж спб, висцеральный массаж спб, массаж от отёков спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/vosstanovitelnye-massazhi-spb" />
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org", "@type": "Service",
+        name: "Восстановительные массажи в Санкт-Петербурге",
+        provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
+        offers: { "@type": "Offer", price: "3000", priceCurrency: "RUB" },
+      })}</script>
     </Helmet>
 
-    <section className="py-20 md:py-28">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-          className="font-heading text-4xl md:text-5xl text-center mb-6">
-          Восстановительные массажи в&nbsp;Санкт-Петербурге
+    <section className="py-14 md:py-20 bg-cream">
+      <div className="container-wide px-4 md:px-8 text-center">
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
+          Восстановительные массажи
         </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.5 }}
-          className="text-muted-foreground text-lg md:text-xl text-center max-w-2xl mx-auto mb-4">
-          Мягкие техники для снятия отёков, глубокого расслабления и общего восстановления организма. Без агрессивного воздействия — только комфорт и результат.
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
+          Мягкие техники для снятия отёков, расслабления и восстановления организма
         </motion.p>
-      </div>
-    </section>
-
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Кому подходят восстановительные массажи</h2>
-          <p className="text-muted-foreground mb-6">Процедуры рекомендованы, если вы:</p>
-          <ul className="space-y-3">
-            {forWhom.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <CheckCircle2 size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-foreground/80">{item}</span>
-              </li>
-            ))}
-          </ul>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;000&nbsp;₽</motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/booking"><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
+          <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button></a>
         </motion.div>
       </div>
     </section>
 
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Что дают восстановительные массажи</h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {benefits.map((b) => (
-              <div key={b} className="flex items-start gap-3">
-                <Sparkles size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-foreground/80">{b}</span>
-              </div>
-            ))}
-          </div>
+    <section className="py-10 md:py-14 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Кому подходит</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {suitableFor.map((item, i) => (
+            <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" /><span className="text-foreground/80">{item}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div id="prices"><ServicePricingTiers title="Цены на восстановительные массажи" prices={prices} /></div>
+
+    {/* Акция */}
+    <section className="py-8 md:py-10">
+      <div className="container-narrow px-4 md:px-8">
+        <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground before:absolute before:inset-0 before:bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.18)_50%,transparent_70%)] before:animate-[shimmer_3s_ease-in-out_infinite] before:-translate-x-full before:pointer-events-none">
+          <Star size={36} className="mx-auto mb-3 opacity-80 relative z-10" />
+          <h2 className="font-heading text-2xl md:text-3xl mb-2 relative z-10">Первое посещение — скидка 30%</h2>
+          <p className="text-base opacity-90 mb-5 max-w-xl mx-auto relative z-10">На лимфодренажный массаж для новых клиентов</p>
+          <Link to="/booking" className="relative z-10">
+            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">Записаться со скидкой</Button>
+          </Link>
         </motion.div>
       </div>
     </section>
 
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Виды массажей</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold text-lg mb-1">Массаж для снятия отёков</h3>
-              <p className="text-muted-foreground text-sm">Мягкая лимфодренажная техника для уменьшения отёчности, улучшения микроциркуляции и выведения лишней жидкости.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-1">Биоэнергетический массаж</h3>
-              <p className="text-muted-foreground text-sm">Расслабляющая техника для снятия мышечного напряжения, восстановления после переутомления и улучшения общего тонуса.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-1">БМ-массаж / БЭМ</h3>
-              <p className="text-muted-foreground text-sm">Комплексная восстановительная техника, сочетающая мягкое воздействие на мышцы и ткани для глубокого расслабления и улучшения самочувствия.</p>
-            </div>
-          </div>
-        </motion.div>
+    <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Что дают массажи</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+          {benefits.map((b, i) => (
+            <motion.div key={b} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-5 rounded-xl bg-card border border-border">
+              <Sparkles size={18} className="text-primary mt-0.5 flex-shrink-0" /><span>{b}</span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Как проходит процедура</h2>
-          <div className="space-y-6">
-            {steps.map((s, i) => (
-              <div key={s.title} className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">{i + 1}</div>
-                <div>
-                  <p className="font-semibold">{s.title}</p>
-                  <p className="text-muted-foreground text-sm">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+    <section className="py-10 md:py-14 bg-cream">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Виды массажей</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {types.map((t, i) => (
+            <motion.div key={t.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="bg-card rounded-xl p-6 md:p-8 border border-border">
+              <h3 className="font-heading text-xl mb-3">{t.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{t.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section className="pb-16 md:pb-20">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={4} variants={fadeUp}
-          className="bg-card rounded-xl p-8 md:p-10 border border-border">
-          <h2 className="font-heading text-2xl mb-6">Противопоказания</h2>
-          <ul className="space-y-3">
-            {contraindications.map((c) => (
-              <li key={c} className="flex items-start gap-3">
-                <AlertCircle size={18} className="text-destructive mt-0.5 flex-shrink-0" />
-                <span className="text-foreground/80">{c}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+    <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как проходит процедура</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {steps.map((s, i) => (
+            <motion.div key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp} className="text-center">
+              <div className="w-12 h-12 rounded-full gold-gradient text-primary-foreground flex items-center justify-center text-lg font-heading mx-auto mb-4">{i + 1}</div>
+              <h3 className="font-heading text-lg mb-2">{s.title}</h3>
+              <p className="text-muted-foreground text-sm">{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="py-8 md:py-10 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-2xl md:text-3xl text-center mb-6">Противопоказания</h2>
+        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          {contraindications.map((c) => (
+            <span key={c} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border text-sm text-muted-foreground">
+              <X size={14} className="text-destructive flex-shrink-0" />{c}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
 
     <ConsultationCapture />
-    <ServicePricingTiers title="Цены" prices={prices} />
-
     <NextStep currentPath="/vosstanovitelnye-massazhi-spb" />
     <RelatedServices currentPath="/vosstanovitelnye-massazhi-spb" />
     <CTASection />
