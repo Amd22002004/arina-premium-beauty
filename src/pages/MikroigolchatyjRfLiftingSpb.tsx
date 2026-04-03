@@ -9,6 +9,7 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
+import rfResult from "@/assets/rf-lifting-result.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -206,19 +207,16 @@ const MikroigolchatyjRfLiftingSpb = () => (
       </div>
     </section>
 
-    {/* До/После placeholder */}
+    {/* До/После */}
     <section className="py-10 md:py-14 bg-cream">
-      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">До / После</h2>
-        <p className="text-muted-foreground text-center mb-8">Фотографии результатов наших пациентов</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[1, 2, 3, 4].map((n) => (
-            <motion.div key={n} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={n} variants={fadeUp}
-              className="aspect-[4/3] rounded-xl bg-muted border border-border flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Фото {n} — скоро</span>
-            </motion.div>
-          ))}
-        </div>
+      <div className="container-wide px-4 md:px-8 max-w-2xl mx-auto text-center">
+        <h2 className="font-heading text-3xl md:text-4xl mb-8">До / После</h2>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="rounded-xl overflow-hidden border border-border shadow-md">
+          <img src={rfResult} alt="Результат микроигольчатого RF-лифтинга — до и после" className="w-full h-auto object-contain" />
+        </motion.div>
+        <p className="text-foreground/80 mt-4 text-sm md:text-base">Результат после процедуры микроигольчатого RF‑лифтинга</p>
+        <p className="text-muted-foreground text-xs mt-1">Результаты индивидуальны, требуется консультация специалиста</p>
       </div>
     </section>
 
