@@ -140,6 +140,57 @@ const FrakcionnyyLazerCo2Spb = () => (
       </div>
     </section>
 
+    {/* Видео процесса процедуры */}
+    <section className="py-10 md:py-14 bg-background">
+      <div className="container-wide px-4 md:px-8">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="font-heading text-3xl md:text-4xl text-center mb-3">
+          Как проходит процедура CO₂-лазера
+        </motion.h2>
+        <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+          className="text-muted-foreground text-center mb-8 max-w-xl mx-auto">
+          Реальный процесс процедуры без постановки
+        </motion.p>
+
+        <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.15, duration: 0.5 }}
+          className="max-w-md mx-auto mb-8">
+          <video
+            controls
+            preload="metadata"
+            playsInline
+            className="w-full rounded-2xl shadow-lg"
+            poster=""
+          >
+            <source src="/videos/co2-laser-process.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает воспроизведение видео.
+          </video>
+        </motion.div>
+
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+          className="text-foreground/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">
+          Процедура проводится с использованием фракционного CO₂-лазера. Во время сеанса специалист обрабатывает кожу по заданному протоколу. Возможны ощущения тепла или покалывания. Перед процедурой проводится консультация.
+        </motion.p>
+
+        <div className="max-w-xl mx-auto">
+          <h3 className="font-heading text-lg text-center mb-4">Что важно знать</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              "Процедура проводится специалистом",
+              "Параметры подбираются индивидуально",
+              "Возможен восстановительный период",
+              "Требуется предварительная консультация",
+            ].map((item, i) => (
+              <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+                className="flex items-start gap-3 p-3 rounded-lg bg-card border border-border">
+                <Check size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-foreground/80">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* Восстановление */}
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
