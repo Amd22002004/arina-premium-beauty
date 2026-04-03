@@ -129,6 +129,40 @@ const FrakcionnyyLazerCo2Spb = () => (
       </div>
     </section>
 
+    {/* Результаты: Лицо */}
+    <section className="py-10 md:py-14 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="font-heading text-3xl md:text-4xl text-center mb-3">Результаты наших клиентов</motion.h2>
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+          className="text-muted-foreground text-center mb-10 max-w-xl mx-auto">До и после процедуры фракционного CO₂-лазера</motion.p>
+
+        <h3 className="font-heading text-xl md:text-2xl text-center mb-6">Лицо</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-3">
+          {[co2Face1, co2Face2].map((src, i) => (
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="rounded-2xl overflow-hidden border border-border shadow-sm">
+              <img src={src} alt={`Результат CO₂-лазера — лицо, пример ${i + 1}`} className="w-full h-auto object-cover" loading="lazy" />
+            </motion.div>
+          ))}
+        </div>
+        <p className="text-xs text-muted-foreground text-center mb-12">Результаты индивидуальны, требуется консультация специалиста</p>
+
+        <div className="border-t border-border max-w-xl mx-auto mb-12" />
+
+        <h3 className="font-heading text-xl md:text-2xl text-center mb-6">Зоны тела</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-3">
+          {[co2Body1, co2Body2].map((src, i) => (
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="rounded-2xl overflow-hidden border border-border shadow-sm">
+              <img src={src} alt={`Результат CO₂-лазера — тело, пример ${i + 1}`} className="w-full h-auto object-cover" loading="lazy" />
+            </motion.div>
+          ))}
+        </div>
+        <p className="text-xs text-muted-foreground text-center">Результаты индивидуальны, требуется консультация специалиста</p>
+      </div>
+    </section>
+
     <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как проходит процедура</h2>
