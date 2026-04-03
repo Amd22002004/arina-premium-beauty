@@ -32,6 +32,8 @@ import OzdorovitelnyeProcedury from "./pages/OzdorovitelnyeProcedury";
 import ArtProtocolIntro from "./pages/ArtProtocolIntro";
 import CoursesAndPackages from "./pages/CoursesAndPackages";
 import UdarnoVolnovayaTerapiyaSpb from "./pages/UdarnoVolnovayaTerapiyaSpb";
+import MikroigolchatyjRfLiftingSpb from "./pages/MikroigolchatyjRfLiftingSpb";
+import HolodnayaPlazmaSpb from "./pages/HolodnayaPlazmaSpb";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -74,6 +76,8 @@ const App = () => (
           <Route path="/art-protokol-znakomstvo" element={<ArtProtocolIntro />} />
           <Route path="/kursy-i-kompleksy" element={<CoursesAndPackages />} />
           <Route path="/uvt-spb" element={<UdarnoVolnovayaTerapiyaSpb />} />
+          <Route path="/mikroigolchatyj-rf-lifting-spb" element={<MikroigolchatyjRfLiftingSpb />} />
+          <Route path="/holodnaya-plazma-spb" element={<HolodnayaPlazmaSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

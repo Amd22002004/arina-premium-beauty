@@ -1,0 +1,232 @@
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Check, ChevronRight, X, HelpCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Layout from "@/components/Layout";
+import CTASection from "@/components/CTASection";
+import RelatedServices from "@/components/RelatedServices";
+import NextStep from "@/components/NextStep";
+import ConsultationCapture from "@/components/ConsultationCapture";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08, duration: 0.5 } }),
+};
+
+const bookingLink = (service: string) => `/booking?service=${encodeURIComponent(service)}`;
+
+const benefits = [
+  "Уплотняет кожу",
+  "Улучшает её качество",
+  "Помогает уменьшить дряблость",
+  "Поддерживает лифтинг-эффект",
+  "Выравнивает текстуру кожи",
+];
+
+const indications = [
+  "Дряблость кожи",
+  "Снижение тонуса",
+  "Неровный рельеф",
+  "Расширенные поры",
+  "Следы постакне",
+  "Возрастные изменения кожи",
+];
+
+const steps = [
+  { title: "Консультация", desc: "Оценка состояния кожи, определение задач и подбор параметров воздействия" },
+  { title: "Подготовка кожи", desc: "Очищение, нанесение анестетика для комфортного проведения процедуры" },
+  { title: "Проведение процедуры", desc: "Обработка зоны аппаратом с микроиглами и радиочастотной энергией" },
+  { title: "Рекомендации после сеанса", desc: "Назначение домашнего ухода и определение периода восстановления" },
+];
+
+const contraindications = [
+  "Беременность",
+  "Острые воспалительные процессы",
+  "Онкологические заболевания",
+  "Нарушение целостности кожи",
+  "Индивидуальные противопоказания по консультации специалиста",
+];
+
+const faq = [
+  { q: "Больно ли это?", a: "Процедура проводится с использованием анестезии. Ощущения индивидуальны, но большинство пациентов переносят её комфортно." },
+  { q: "Сколько длится процедура?", a: "В среднем от 40 до 60 минут, в зависимости от обрабатываемой зоны и протокола." },
+  { q: "Нужна ли реабилитация?", a: "После процедуры возможно покраснение и лёгкая отёчность в течение 1–3 дней. Специалист даст рекомендации по уходу." },
+  { q: "Когда можно вернуться к обычному ритму?", a: "Обычно через 2–3 дня. В первые дни рекомендуется избегать активного солнца и сауны." },
+  { q: "Сколько процедур обычно требуется?", a: "Для выраженного результата рекомендуется курс из 3–5 процедур с интервалом 3–4 недели. Точное количество определяется на консультации." },
+];
+
+const MikroigolchatyjRfLiftingSpb = () => (
+  <Layout>
+    <Helmet>
+      <title>Микроигольчатый RF-лифтинг в Санкт-Петербурге | АРТ Косметология</title>
+      <meta name="description" content="Микроигольчатый RF-лифтинг в СПб: подтяжка кожи, уплотнение, коррекция постакне и текстуры. Запись онлайн." />
+      <meta name="keywords" content="микроигольчатый rf лифтинг спб, rf лифтинг микроиглы спб, фракционный rf спб, подтяжка кожи спб" />
+      <link rel="canonical" href="https://arina-premium-beauty.lovable.app/mikroigolchatyj-rf-lifting-spb" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org", "@type": "Service",
+        name: "Микроигольчатый RF-лифтинг в Санкт-Петербурге",
+        provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
+        offers: { "@type": "Offer", price: "7000", priceCurrency: "RUB" },
+      })}</script>
+    </Helmet>
+
+    {/* Hero */}
+    <section className="py-16 md:py-24 bg-cream">
+      <div className="container-wide px-4 md:px-8 text-center">
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
+          Микроигольчатый RF‑лифтинг в&nbsp;Санкт‑Петербурге
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
+          Подтяжка кожи, улучшение качества и уплотнение без операции
+        </motion.p>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 7&nbsp;000&nbsp;₽</motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to={bookingLink("Микроигольчатый RF-лифтинг")}>
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+              Записаться на консультацию <ChevronRight size={16} className="ml-1" />
+            </Button>
+          </Link>
+          <Link to="/contacts">
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
+              Получить консультацию
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* Description */}
+    <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto">
+        <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-foreground/80 text-base md:text-lg text-center leading-relaxed">
+          Микроигольчатый RF — это аппаратная методика, которая сочетает микроигольчатое воздействие и радиочастотную энергию 
+          для стимуляции коллагена, улучшения плотности кожи и повышения её упругости.
+        </motion.p>
+      </div>
+    </section>
+
+    {/* Benefits */}
+    <section className="py-10 md:py-14 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Что делает процедура</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {benefits.map((item, i) => (
+            <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-5 rounded-xl bg-background border border-border">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-foreground/80">{item}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Indications */}
+    <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Показания</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {indications.map((item, i) => (
+            <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-foreground/80">{item}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Steps */}
+    <section className="py-10 md:py-14 bg-cream">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как проходит процедура</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {steps.map((s, i) => (
+            <motion.div key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp} className="text-center">
+              <div className="w-12 h-12 rounded-full gold-gradient text-primary-foreground flex items-center justify-center text-lg font-heading mx-auto mb-4">{i + 1}</div>
+              <h3 className="font-heading text-lg mb-2">{s.title}</h3>
+              <p className="text-muted-foreground text-sm">{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Result */}
+    <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto text-center">
+        <h2 className="font-heading text-3xl md:text-4xl mb-6">Результат</h2>
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+          Первый эффект может быть заметен после первой процедуры, но выраженный результат обычно формируется курсом. 
+          Кожа становится плотнее, текстура выравнивается, лицо выглядит более подтянутым. 
+          Точный прогноз и количество процедур определяются на консультации.
+        </p>
+      </div>
+    </section>
+
+    {/* Contraindications */}
+    <section className="py-8 md:py-10 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-2xl md:text-3xl text-center mb-6">Противопоказания</h2>
+        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          {contraindications.map((c) => (
+            <span key={c} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border text-sm text-muted-foreground">
+              <X size={14} className="text-destructive flex-shrink-0" />{c}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ */}
+    <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-8">Частые вопросы</h2>
+        <Accordion type="single" collapsible className="w-full">
+          {faq.map((item, i) => (
+            <AccordionItem key={i} value={`faq-${i}`}>
+              <AccordionTrigger className="text-left">
+                <span className="flex items-center gap-2">
+                  <HelpCircle size={16} className="text-primary flex-shrink-0" />
+                  {item.q}
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </section>
+
+    {/* До/После placeholder */}
+    <section className="py-10 md:py-14 bg-cream">
+      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">До / После</h2>
+        <p className="text-muted-foreground text-center mb-8">Фотографии результатов наших пациентов</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[1, 2, 3, 4].map((n) => (
+            <motion.div key={n} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={n} variants={fadeUp}
+              className="aspect-[4/3] rounded-xl bg-muted border border-border flex items-center justify-center">
+              <span className="text-muted-foreground text-sm">Фото {n} — скоро</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ConsultationCapture />
+    <NextStep currentPath="/mikroigolchatyj-rf-lifting-spb" />
+    <RelatedServices currentPath="/mikroigolchatyj-rf-lifting-spb" />
+    <CTASection />
+  </Layout>
+);
+
+export default MikroigolchatyjRfLiftingSpb;

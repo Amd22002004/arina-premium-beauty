@@ -30,9 +30,19 @@ const stepsByPath: Record<string, NextStepItem[]> = {
     { icon: <RefreshCw size={20} />, label: "Восстановить кожу", desc: "Уход за лицом с увлажняющими масками", path: "/uhod-za-licom-spb" },
   ],
   "/aparatnye-protokoly-lica-spb": [
-    { icon: <Zap size={20} />, label: "Максимальный результат", desc: "Фракционный лазер CO₂ для глубокого обновления", path: "/frakcionnyy-lazer-co2-spb" },
-    { icon: <RefreshCw size={20} />, label: "Поддержать тонус", desc: "Массаж лица для закрепления лифтинг-эффекта", path: "/massazh-lica-spb" },
-    { icon: <Sparkles size={20} />, label: "Обновление текстуры", desc: "Пилинги для выравнивания кожи", path: "/pilingi-spb" },
+    { icon: <Zap size={20} />, label: "Микроигольчатый RF", desc: "Уплотнение кожи и коррекция текстуры", path: "/mikroigolchatyj-rf-lifting-spb" },
+    { icon: <Sparkles size={20} />, label: "Холодная плазма", desc: "Деликатное восстановление и улучшение кожи", path: "/holodnaya-plazma-spb" },
+    { icon: <RefreshCw size={20} />, label: "Фракционный лазер CO₂", desc: "Глубокое обновление кожи", path: "/frakcionnyy-lazer-co2-spb" },
+  ],
+  "/mikroigolchatyj-rf-lifting-spb": [
+    { icon: <Zap size={20} />, label: "Все аппаратные протоколы", desc: "Обзор аппаратных методик для лица", path: "/aparatnye-protokoly-lica-spb" },
+    { icon: <Sparkles size={20} />, label: "Холодная плазма", desc: "Деликатное восстановление кожи", path: "/holodnaya-plazma-spb" },
+    { icon: <RefreshCw size={20} />, label: "Уход за лицом", desc: "Увлажнение и питание после процедуры", path: "/uhod-za-licom-spb" },
+  ],
+  "/holodnaya-plazma-spb": [
+    { icon: <Zap size={20} />, label: "Микроигольчатый RF", desc: "Уплотнение и лифтинг кожи", path: "/mikroigolchatyj-rf-lifting-spb" },
+    { icon: <Sparkles size={20} />, label: "Все аппаратные протоколы", desc: "Обзор методик для лица", path: "/aparatnye-protokoly-lica-spb" },
+    { icon: <RefreshCw size={20} />, label: "Пилинги", desc: "Обновление текстуры и тона кожи", path: "/pilingi-spb" },
   ],
   "/fotoomolozhenie-bbl-spb": [
     { icon: <Zap size={20} />, label: "Глубокое обновление", desc: "Фракционный лазер CO₂ для рубцов и морщин", path: "/frakcionnyy-lazer-co2-spb" },
