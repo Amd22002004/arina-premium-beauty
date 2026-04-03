@@ -224,7 +224,7 @@ const Index = () => (
               title: "Премиальные процедуры",
               main: "BBL, CO₂, INDIBA",
               sub: "Аппаратные технологии с акцентом на результат.",
-              link: "/apparatnye-protokoly-lica-spb",
+              link: "/aparatnye-protokoly-lica-spb",
               cta: "Узнать больше",
             },
             {
