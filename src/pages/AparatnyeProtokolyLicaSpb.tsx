@@ -67,7 +67,7 @@ const AparatnyeProtokolyLicaSpb = () => (
     <section className="py-14 md:py-20 bg-cream">
       <div className="container-wide px-4 md:px-8 text-center">
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          Аппаратные протоколы лица
+          Аппаратные процедуры лица
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
           className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
