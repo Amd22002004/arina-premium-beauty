@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, X, HelpCircle, Play, User } from "lucide-react";
+import { Check, ChevronRight, X, HelpCircle, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Layout from "@/components/Layout";
@@ -55,11 +55,6 @@ const faq = [
   { q: "Можно ли сочетать с другими процедурами?", a: "Да, холодная плазма хорошо сочетается с другими аппаратными и уходовыми процедурами. Точную комбинацию подберёт специалист." },
 ];
 
-const videoPlaceholders = [
-  { id: 1, name: "Имя пациента", text: "Текст отзыва будет добавлен позже" },
-  { id: 2, name: "Имя пациента", text: "Текст отзыва будет добавлен позже" },
-  { id: 3, name: "Имя пациента", text: "Текст отзыва будет добавлен позже" },
-];
 
 const HolodnayaPlazmaSpb = () => (
   <Layout>
@@ -200,72 +195,37 @@ const HolodnayaPlazmaSpb = () => (
       </div>
     </section>
 
-    {/* Video Reviews Placeholder */}
-    <section className="py-12 md:py-16 bg-cream">
-      <div className="container-wide px-4 md:px-8 max-w-5xl mx-auto">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-3">Видео‑отзывы пациентов</h2>
-        <p className="text-muted-foreground text-center mb-10">
-          Здесь позже будут размещены видеоотзывы о процедуре холодной плазмы
+    {/* Video Review */}
+    <section className="py-12 md:py-16 bg-background">
+      <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto text-center">
+        <h2 className="font-heading text-3xl md:text-4xl mb-3">Видео‑отзыв клиентки</h2>
+        <p className="text-muted-foreground mb-8">
+          Реальный отзыв о результате процедуры и впечатлениях после курса
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Main video */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-            className="md:col-span-2 md:row-span-2">
-            <div className="aspect-video rounded-xl bg-muted border border-border flex flex-col items-center justify-center gap-3 h-full min-h-[280px]">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Play size={28} className="text-primary ml-1" />
-              </div>
-              <span className="text-muted-foreground text-sm">Главный видеоотзыв — скоро</span>
-            </div>
-          </motion.div>
-
-          {/* Side video cards */}
-          {videoPlaceholders.slice(0, 2).map((v, i) => (
-            <motion.div key={v.id} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i + 1} variants={fadeUp}
-              className="flex flex-col bg-card rounded-xl border border-border overflow-hidden">
-              <div className="aspect-video bg-muted flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Play size={20} className="text-primary ml-0.5" />
-                </div>
-              </div>
-              <div className="p-4">
-                <p className="text-muted-foreground text-sm mb-2">{v.text}</p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <User size={14} className="flex-shrink-0" />
-                  <span>{v.name}</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Third small card below */}
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3} variants={fadeUp}
-          className="mt-6 max-w-sm mx-auto">
-          <div className="flex flex-col bg-card rounded-xl border border-border overflow-hidden">
-            <div className="aspect-video bg-muted flex items-center justify-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Play size={20} className="text-primary ml-0.5" />
-              </div>
-            </div>
-            <div className="p-4">
-              <p className="text-muted-foreground text-sm mb-2">{videoPlaceholders[2].text}</p>
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <User size={14} className="flex-shrink-0" />
-                <span>{videoPlaceholders[2].name}</span>
-              </div>
-            </div>
-          </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="rounded-xl overflow-hidden border border-border shadow-sm mb-6">
+          <video
+            controls
+            preload="metadata"
+            className="w-full aspect-video bg-muted"
+            src="/videos/holodnaya-plazma-review.mov"
+          />
         </motion.div>
 
-        <div className="text-center mt-8">
-          <Link to="/reviews">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              Смотреть все отзывы
-            </Button>
-          </Link>
-        </div>
+        <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+          className="max-w-xl mx-auto">
+          <p className="text-foreground/80 text-sm md:text-base leading-relaxed italic mb-3">
+            «Хочу поблагодарить за результат — цвет лица стал заметно ровнее, кожа бархатистая и увлажнённая. В первые дни было небольшое шелушение, но потом всё стабилизировалось. Декоративная косметика теперь ложится совсем иначе, особенно после очищения. Очень довольна!»
+          </p>
+          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-4">
+            <User size={14} className="flex-shrink-0" />
+            <span className="font-medium">Антонина</span>
+          </div>
+          <p className="text-xs text-muted-foreground/60">
+            Видеоотзыв размещён с согласия клиента
+          </p>
+        </motion.div>
       </div>
     </section>
 
