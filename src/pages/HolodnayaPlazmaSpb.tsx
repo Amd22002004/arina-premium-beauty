@@ -204,11 +204,11 @@ const HolodnayaPlazmaSpb = () => (
         </p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="rounded-xl overflow-hidden border border-border shadow-sm mb-6">
+          className="rounded-xl overflow-hidden border border-border shadow-sm mb-6 max-w-lg mx-auto">
           <video
             controls
             preload="metadata"
-            className="w-full aspect-video bg-muted"
+            className="w-full aspect-square object-cover"
             src="/videos/holodnaya-plazma-review.mov"
           />
         </motion.div>
