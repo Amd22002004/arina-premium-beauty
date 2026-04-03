@@ -76,6 +76,8 @@ const App = () => (
           <Route path="/art-protokol-znakomstvo" element={<ArtProtocolIntro />} />
           <Route path="/kursy-i-kompleksy" element={<CoursesAndPackages />} />
           <Route path="/uvt-spb" element={<UdarnoVolnovayaTerapiyaSpb />} />
+          <Route path="/mikroigolchatyj-rf-lifting-spb" element={<MikroigolchatyjRfLiftingSpb />} />
+          <Route path="/holodnaya-plazma-spb" element={<HolodnayaPlazmaSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
