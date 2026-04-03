@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, X } from "lucide-react";
+import { Check, ChevronRight, Sparkles, X, Zap, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -9,6 +9,12 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import rfResult1 from "@/assets/rf-result-1.webp";
+import rfResult2 from "@/assets/rf-result-2.webp";
+import rfResult3 from "@/assets/rf-result-3.webp";
+import rfResult4 from "@/assets/rf-result-4.webp";
+import rfResult5 from "@/assets/rf-result-5.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
