@@ -34,6 +34,8 @@ import CoursesAndPackages from "./pages/CoursesAndPackages";
 import UdarnoVolnovayaTerapiyaSpb from "./pages/UdarnoVolnovayaTerapiyaSpb";
 import MikroigolchatyjRfLiftingSpb from "./pages/MikroigolchatyjRfLiftingSpb";
 import HolodnayaPlazmaSpb from "./pages/HolodnayaPlazmaSpb";
+import RfLiftingSpb from "./pages/RfLiftingSpb";
+import IndibaSpb from "./pages/IndibaSpb";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
