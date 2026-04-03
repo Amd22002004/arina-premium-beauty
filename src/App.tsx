@@ -32,6 +32,8 @@ import OzdorovitelnyeProcedury from "./pages/OzdorovitelnyeProcedury";
 import ArtProtocolIntro from "./pages/ArtProtocolIntro";
 import CoursesAndPackages from "./pages/CoursesAndPackages";
 import UdarnoVolnovayaTerapiyaSpb from "./pages/UdarnoVolnovayaTerapiyaSpb";
+import MikroigolchatyjRfLiftingSpb from "./pages/MikroigolchatyjRfLiftingSpb";
+import HolodnayaPlazmaSpb from "./pages/HolodnayaPlazmaSpb";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
