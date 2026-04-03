@@ -28,8 +28,8 @@ const serviceCards = [
     title: "INDIBA",
     desc: "Глубокое прогревание тканей для восстановления тонуса, уплотнения кожи и лифтинга",
     price: "от 4 999 ₽",
-    path: "/aparatnye-protokoly-lica-spb",
-    internal: true,
+    path: "/indiba-spb",
+    internal: false,
   },
   {
     icon: <Zap size={28} />,
