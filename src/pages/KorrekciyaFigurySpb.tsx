@@ -9,6 +9,10 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
+import result1 from "@/assets/korrekciya-result-1.jpg";
+import result2 from "@/assets/korrekciya-result-2.jpg";
+import result3 from "@/assets/korrekciya-result-3.jpg";
+import result4 from "@/assets/korrekciya-result-4.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -127,6 +131,29 @@ const KorrekciyaFigurySpb = () => (
             <motion.div key={b} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
               className="flex items-start gap-3 p-5 rounded-xl bg-card border border-border">
               <Sparkles size={18} className="text-primary mt-0.5 flex-shrink-0" /><span>{b}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="py-10 md:py-14 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-3">Результаты наших клиентов</h2>
+        <p className="text-muted-foreground text-center text-sm mb-8 max-w-xl mx-auto">
+          Результат индивидуален и зависит от особенностей организма, количества процедур и соблюдения рекомендаций
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {[
+            { src: result1, caption: "Коррекция фигуры — курс 10 процедур" },
+            { src: result2, caption: "Антицеллюлитная программа — курс 8 процедур" },
+            { src: result3, caption: "Моделирование силуэта — курс 10 процедур" },
+            { src: result4, caption: "Уменьшение объёмов — курс 5 процедур" },
+          ].map((item, i) => (
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="rounded-xl border border-border overflow-hidden bg-background">
+              <img src={item.src} alt={item.caption} className="w-full aspect-[4/3] object-cover" loading="lazy" />
+              <p className="text-sm text-muted-foreground text-center py-3 px-4">{item.caption}</p>
             </motion.div>
           ))}
         </div>
