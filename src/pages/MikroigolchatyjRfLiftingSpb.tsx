@@ -9,6 +9,7 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
+import rfResult from "@/assets/rf-lifting-result.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
