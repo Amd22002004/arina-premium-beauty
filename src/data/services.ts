@@ -33,7 +33,9 @@ export const services: Service[] = [
 
   { name: "Пилинг", price: 3700, category: "Пилинги", link: "/pilingi-spb", result: "Обновление текстуры, выравнивание тона, сужение пор" },
 
-  { name: "Аппаратная процедура лица / шеи / декольте", price: 4999, category: "Аппаратные процедуры лица", link: "/aparatnye-protokoly-lica-spb", result: "RF-лифтинг, INDIBA, БМС — омоложение и подтяжка" },
+  { name: "Аппаратная процедура лица / шеи / декольте", price: 4999, category: "Аппаратные процедуры лица", link: "/aparatnye-protokoly-lica-spb", result: "RF-лифтинг, INDIBA — омоложение и подтяжка" },
+  { name: "Микроигольчатый RF-лифтинг", price: 7000, category: "Аппаратные процедуры лица", link: "/mikroigolchatyj-rf-lifting-spb", result: "Уплотнение кожи, коррекция текстуры и постакне" },
+  { name: "Холодная плазма", price: 5000, category: "Аппаратные процедуры лица", link: "/holodnaya-plazma-spb", result: "Деликатное восстановление и улучшение кожи" },
 
   { name: "Фотоомоложение BBL (лицо)", price: 9990, category: "Фотоомоложение BBL", link: "/fotoomolozhenie-bbl-spb", result: "Устранение пигментации и сосудистых звёздочек" },
   { name: "Фотоомоложение BBL (шея / декольте)", price: 7900, category: "Фотоомоложение BBL", link: "/fotoomolozhenie-bbl-spb", result: "Омоложение зоны шеи и декольте" },
