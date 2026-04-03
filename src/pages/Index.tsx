@@ -236,21 +236,18 @@ const Index = () => (
               cta: "Смотреть курсы",
             },
           ].map((o, i) => (
-            <motion.div key={o.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card p-7 rounded-xl border border-border hover-lift text-center">
-              <div className="w-12 h-12 rounded-full bg-gold-light flex items-center justify-center mx-auto mb-4">
-                <o.icon size={22} className="text-primary" />
-              </div>
-              <h3 className="font-heading text-lg mb-2">{o.title}</h3>
-              <p className="text-foreground font-medium leading-relaxed mb-2">{o.main}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{o.sub}</p>
-              {o.link && (
-                <Link to={o.link}>
-                  <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                    {o.cta} <ChevronRight size={14} className="ml-1" />
-                  </Button>
-                </Link>
-              )}
+            <motion.div key={o.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}>
+              <Link to={o.link} className="block bg-card p-7 rounded-xl border border-border hover-lift text-center h-full">
+                <div className="w-12 h-12 rounded-full bg-gold-light flex items-center justify-center mx-auto mb-4">
+                  <o.icon size={22} className="text-primary" />
+                </div>
+                <h3 className="font-heading text-lg mb-2">{o.title}</h3>
+                <p className="text-foreground font-medium leading-relaxed mb-2">{o.main}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{o.sub}</p>
+                <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                  {o.cta} <ChevronRight size={14} className="ml-1" />
+                </Button>
+              </Link>
             </motion.div>
           ))}
         </div>
