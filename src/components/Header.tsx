@@ -31,6 +31,12 @@ const serviceCategories = [
     ],
   },
   {
+    label: "Лечение боли",
+    items: [
+      { to: "/uvt-spb", label: "Ударно-волновая терапия (УВТ)" },
+    ],
+  },
+  {
     label: "Дополнительно",
     items: [
       { to: "/spa-i-vosstanovlenie-spb", label: "СПА и восстановление" },
