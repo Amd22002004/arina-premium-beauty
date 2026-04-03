@@ -20,8 +20,8 @@ const serviceCards = [
     title: "RF-лифтинг",
     desc: "Радиочастотное воздействие для подтяжки кожи, улучшения овала лица и стимуляции коллагена",
     price: "от 4 999 ₽",
-    path: "/aparatnye-protokoly-lica-spb",
-    internal: true,
+    path: "/rf-lifting-spb",
+    internal: false,
   },
   {
     icon: <Waves size={28} />,
