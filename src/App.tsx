@@ -31,6 +31,7 @@ import DopolnitelnyeUslugiSpb from "./pages/DopolnitelnyeUslugiSpb";
 import OzdorovitelnyeProcedury from "./pages/OzdorovitelnyeProcedury";
 import ArtProtocolIntro from "./pages/ArtProtocolIntro";
 import CoursesAndPackages from "./pages/CoursesAndPackages";
+import UdarnoVolnovayaTerapiyaSpb from "./pages/UdarnoVolnovayaTerapiyaSpb";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -72,6 +73,7 @@ const App = () => (
           <Route path="/ozdorovitelnye-procedury-spb" element={<OzdorovitelnyeProcedury />} />
           <Route path="/art-protokol-znakomstvo" element={<ArtProtocolIntro />} />
           <Route path="/kursy-i-kompleksy" element={<CoursesAndPackages />} />
+          <Route path="/uvt-spb" element={<UdarnoVolnovayaTerapiyaSpb />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
