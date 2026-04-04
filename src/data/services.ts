@@ -46,6 +46,9 @@ export const services: Service[] = [
   { name: "Фракционный лазер CO₂ (зоны)", price: 4900, pricePrefix: "от", category: "Фракционный лазер CO₂", link: "/frakcionnyy-lazer-co2-spb", result: "Шея, декольте, кисти, рубцы — по зонам" },
 
   { name: "Коррекция фигуры", price: 3500, category: "Коррекция фигуры", link: "/korrekciya-figury-spb", result: "Уменьшение объёмов, антицеллюлитный эффект" },
+  { name: "Горячий вакуум", price: 3500, category: "Коррекция фигуры", link: "/goryachiy-vakuum-spb", result: "Жиросжигание и уменьшение объёмов" },
+  { name: "Вакуумный массаж", price: 3500, category: "Коррекция фигуры", link: "/vakuumnyj-massazh-spb", result: "Антицеллюлитная коррекция и моделирование контуров" },
+  { name: "RF-лифтинг тела", price: 3500, category: "Коррекция фигуры", link: "/rf-lifting-tela-spb", result: "Подтяжка кожи и тонус мышц" },
 
   { name: "EMS / INDIBA / БМС", price: 3500, category: "EMS / INDIBA / БМС", link: "/apparatnye-protokoly-tela-spb", result: "Моделирование тела, укрепление мышц" },
 

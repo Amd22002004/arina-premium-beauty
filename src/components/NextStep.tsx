@@ -58,9 +58,24 @@ const stepsByPath: Record<string, NextStepItem[]> = {
     { icon: <Sparkles size={20} />, label: "Комплексное восстановление", desc: "СПА-процедуры и обёртывания", path: "/spa-i-vosstanovlenie-spb" },
   ],
   "/korrekciya-figury-spb": [
-    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "EMS / INDIBA / БМС для тонуса мышц", path: "/apparatnye-protokoly-tela-spb" },
-    { icon: <RefreshCw size={20} />, label: "Поддержать результат", desc: "Лимфодренажный массаж для дренажа", path: "/vosstanovitelnye-massazhi-spb" },
-    { icon: <Sparkles size={20} />, label: "Детокс и восстановление", desc: "СПА-процедуры с обёртываниями", path: "/spa-i-vosstanovlenie-spb" },
+    { icon: <Zap size={20} />, label: "Жиросжигание", desc: "Горячий вакуум — термовакуумное уменьшение объёмов", path: "/goryachiy-vakuum-spb" },
+    { icon: <RefreshCw size={20} />, label: "Антицеллюлит", desc: "Вакуумный массаж для проработки целлюлита", path: "/vakuumnyj-massazh-spb" },
+    { icon: <Sparkles size={20} />, label: "Подтяжка кожи", desc: "RF-лифтинг тела для тонуса и лифтинга", path: "/rf-lifting-tela-spb" },
+  ],
+  "/goryachiy-vakuum-spb": [
+    { icon: <Zap size={20} />, label: "Усилить эффект", desc: "RF-лифтинг тела для подтяжки кожи после жиросжигания", path: "/rf-lifting-tela-spb" },
+    { icon: <RefreshCw size={20} />, label: "Добавить антицеллюлит", desc: "Вакуумный массаж для проработки текстуры кожи", path: "/vakuumnyj-massazh-spb" },
+    { icon: <Sparkles size={20} />, label: "Детокс и восстановление", desc: "Лимфодренажный массаж после курса", path: "/vosstanovitelnye-massazhi-spb" },
+  ],
+  "/vakuumnyj-massazh-spb": [
+    { icon: <Zap size={20} />, label: "Усилить жиросжигание", desc: "Горячий вакуум для термовоздействия на жировые отложения", path: "/goryachiy-vakuum-spb" },
+    { icon: <RefreshCw size={20} />, label: "Подтянуть кожу", desc: "RF-лифтинг тела для уплотнения и тонуса", path: "/rf-lifting-tela-spb" },
+    { icon: <Sparkles size={20} />, label: "СПА-восстановление", desc: "Инфракрасная капсула и обёртывания", path: "/spa-i-vosstanovlenie-spb" },
+  ],
+  "/rf-lifting-tela-spb": [
+    { icon: <Zap size={20} />, label: "Добавить жиросжигание", desc: "Горячий вакуум для уменьшения объёмов", path: "/goryachiy-vakuum-spb" },
+    { icon: <RefreshCw size={20} />, label: "Антицеллюлитная коррекция", desc: "Вакуумный массаж для проработки текстуры", path: "/vakuumnyj-massazh-spb" },
+    { icon: <Sparkles size={20} />, label: "Мышечный тонус", desc: "EMS / INDIBA / БМС для укрепления мышц", path: "/apparatnye-protokoly-tela-spb" },
   ],
   "/massazh-tela-spb": [
     { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Коррекция фигуры — прессотерапия и LPG", path: "/korrekciya-figury-spb" },
