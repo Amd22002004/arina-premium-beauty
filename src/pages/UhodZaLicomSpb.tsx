@@ -76,7 +76,7 @@ const jsonLd = {
 const UhodZaLicomSpb = () => (
   <Layout>
     <Helmet>
-      <title>Уход за лицом в Санкт-Петербурге — массаж лица с масками | АРТ Косметология</title>
+      <title>Уход за лицом в СПб — сияющая кожа после первой процедуры | АРТ Косметология</title>
       <meta name="description" content="Уход за лицом в СПб: массаж + маски для увлажнения и восстановления кожи. От 2 990 ₽. Запись онлайн." />
       <meta name="keywords" content="уход за лицом спб, массаж лица с маской спб, альгинатная маска спб, увлажнение лица спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/uhod-za-licom-spb" />
