@@ -181,39 +181,94 @@ const KorrekciyaFigurySpb = () => (
       <div className="container-wide px-4 md:px-8">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="font-heading text-3xl md:text-4xl text-center mb-10">Горячий вакуум</motion.h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
-          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-2 lg:order-1">
+
+        {/* Фото — главный визуальный элемент */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="max-w-3xl mx-auto mb-10">
+          <img src={hotVacuumPhoto} alt="Горячий вакуум — результат коррекции фигуры до и после"
+            className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]" loading="lazy" />
+        </motion.div>
+
+        {/* Текст + преимущества */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="max-w-3xl mx-auto mb-10">
+          <p className="text-foreground/90 leading-relaxed mb-6">
+            Аппаратная процедура с термовакуумным воздействием для интенсивного расщепления жировых отложений,
+            уменьшения объёмов и борьбы с целлюлитом. Прогрев тканей усиливает лимфодренаж и ускоряет метаболизм в проблемных зонах.
+          </p>
+          <ul className="space-y-3 mb-8">
+            {[
+              "Разрушение жировых отложений за счёт термоэффекта",
+              "Выраженный антицеллюлитный результат",
+              "Подтяжка и повышение тонуса кожи",
+              "Улучшение кровообращения и лимфооттока",
+              "Уменьшение объёмов уже после первого сеанса",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <Flame size={18} className="text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-foreground/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <Link to="/booking?service=Горячий вакуум">
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-8 shadow-xl hover:shadow-2xl transition-shadow">
+              Записаться <ChevronRight size={16} className="ml-1" />
+            </Button>
+          </Link>
+        </motion.div>
+
+        {/* Видео */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="max-w-3xl mx-auto">
+          <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg"
+            aria-label="Видео процедуры горячего вакуума">
+            <source src="/videos/hot-vacuum.mp4" type="video/mp4" />
+          </video>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* Аппаратный вакуумный массаж */}
+    <section className="py-10 md:py-14 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="font-heading text-3xl md:text-4xl text-center mb-10">Аппаратный вакуумный массаж</motion.h2>
+
+        <div className="max-w-3xl mx-auto">
+          {/* Видео — главный элемент */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="mb-8">
+            <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg"
+              aria-label="Видео аппаратного вакуумного массажа">
+              <source src="/videos/vacuum-massage.mp4" type="video/mp4" />
+            </video>
+          </motion.div>
+
+          {/* Описание */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="text-foreground/90 leading-relaxed mb-6">
-              Аппаратная процедура с термовакуумным воздействием для интенсивного расщепления жировых отложений,
-              уменьшения объёмов и борьбы с целлюлитом. Прогрев тканей усиливает лимфодренаж и ускоряет метаболизм в проблемных зонах.
+              Аппаратный вакуумный массаж — эффективная методика коррекции фигуры, направленная на глубокую проработку
+              подкожно-жировой клетчатки. Вакуумное воздействие разбивает фиброзные перегородки, усиливает кровообращение
+              и запускает естественный процесс расщепления жировых отложений.
             </p>
             <ul className="space-y-3 mb-8">
               {[
-                "Разрушение жировых отложений за счёт термоэффекта",
-                "Выраженный антицеллюлитный результат",
-                "Подтяжка и повышение тонуса кожи",
-                "Улучшение кровообращения и лимфооттока",
-                "Уменьшение объёмов уже после первого сеанса",
+                "Уменьшение объёмов и моделирование контуров тела",
+                "Глубокая проработка целлюлита и застойных зон",
+                "Активизация лимфодренажа и выведение токсинов",
+                "Повышение эластичности и тонуса кожи",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Flame size={18} className="text-primary mt-0.5 flex-shrink-0" />
+                  <Sparkles size={18} className="text-primary mt-0.5 flex-shrink-0" />
                   <span className="text-foreground/90">{item}</span>
                 </li>
               ))}
             </ul>
-            <Link to="/booking?service=Горячий вакуум">
+            <Link to="/booking?service=Аппаратный вакуумный массаж">
               <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-8 shadow-xl hover:shadow-2xl transition-shadow">
                 Записаться <ChevronRight size={16} className="ml-1" />
               </Button>
             </Link>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-1 lg:order-2 space-y-4">
-            <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg"
-              aria-label="Видео процедуры горячего вакуума">
-              <source src="/videos/hot-vacuum.mp4" type="video/mp4" />
-            </video>
-            <img src={hotVacuumPhoto} alt="Горячий вакуум — результат коррекции фигуры до и после"
-              className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]" loading="lazy" />
           </motion.div>
         </div>
       </div>
