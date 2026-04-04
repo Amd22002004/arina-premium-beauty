@@ -1,40 +1,23 @@
 
 
-## Plan: Add "Results" photo block to Body Contouring page
+## Problem
 
-### What changes
+The page uses Raleway font at default weight 400 with reduced opacity (`text-foreground/80`, `text-muted-foreground`), making text appear thin and hard to read. This affects body text, descriptions, and list items across the CO2 laser page and globally.
 
-**1. Copy 4 uploaded images to `src/assets/`**
+## Plan
 
-- `user-uploads://1775237741599.jpg` -> `src/assets/korrekciya-result-1.jpg`
-- `user-uploads://1775237741602.jpg` -> `src/assets/korrekciya-result-2.jpg`
-- `user-uploads://1775237741608.jpg` -> `src/assets/korrekciya-result-3.jpg`
-- `user-uploads://1775237741611.jpg` -> `src/assets/korrekciya-result-4.jpg`
+### 1. Increase base body font weight globally (`src/index.css`)
+- Set `font-weight: 500` on `body` so all Raleway body text is medium weight instead of regular (400).
 
-**2. Edit `src/pages/KorrekciyaFigurySpb.tsx`**
+### 2. Fix low-contrast text on the CO2 page (`src/pages/FrakcionnyyLazerCo2Spb.tsx`)
+- Replace all `text-foreground/80` with `text-foreground` (full opacity) for list items and descriptions.
+- Replace `text-muted-foreground` on key descriptive paragraphs with `text-foreground/90` for better readability.
+- Keep `text-muted-foreground` only on small disclaimers and secondary labels where lighter text is intentional.
 
-Insert a new section **after** "Что даёт коррекция фигуры" (line 134) and **before** "Виды процедур" (line 136):
+### 3. Ensure headings remain distinct
+- Headings already use Cormorant Garamond at weight 600 — no changes needed there.
 
-- Section title: "Результаты наших клиентов"
-- Subtitle: disclaimer about individual results
-- Grid: `grid-cols-1 md:grid-cols-2`, 4 cards with the imported before/after photos
-- Each card: rounded corners, border, image with `object-cover`, optional caption (e.g. "Коррекция фигуры — курс 10 процедур")
-- Fade-up animation consistent with the rest of the page
-
-Current block order on the page:
-1. Hero
-2. Кому подходит
-3. **Цены** (stays early as designed)
-4. Что даёт коррекция фигуры
-5. **NEW: Результаты наших клиентов**
-6. Виды процедур
-7. Как проходит
-8. Противопоказания
-9. ConsultationCapture / NextStep / Related / CTA
-
-### Technical details
-
-- Images imported as ES6 modules (`import result1 from "@/assets/korrekciya-result-1.jpg"`)
-- Responsive: 1 column on mobile, 2 columns on `md:` breakpoint
-- Light background (`bg-card`) to separate from adjacent sections
+### Scope
+- `src/index.css` — one line change (add `font-weight: 500`)
+- `src/pages/FrakcionnyyLazerCo2Spb.tsx` — ~10 class replacements for opacity/color
 
