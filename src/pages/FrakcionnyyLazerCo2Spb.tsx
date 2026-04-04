@@ -237,7 +237,7 @@ const FrakcionnyyLazerCo2Spb = () => (
           {recovery.map((r) => (
             <div key={r} className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
               <ShieldCheck size={18} className="text-primary mt-0.5 flex-shrink-0" />
-              <span className="text-foreground/80">{r}</span>
+              <span className="text-foreground">{r}</span>
             </div>
           ))}
         </div>
