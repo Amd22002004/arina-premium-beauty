@@ -87,25 +87,21 @@ const UhodZaLicomSpb = () => (
     <section className="py-10 md:py-16 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-10 items-center">
-          {/* Photo — first on mobile */}
-          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }}
-            className="order-1 lg:order-2">
-            <img src={facialCareHero} alt="Профессиональный уход за лицом у косметолога — АРТ Косметология СПб"
-              className="w-full max-h-[420px] rounded-2xl shadow-xl object-cover object-[center_30%] aspect-[4/3]" loading="eager" />
-          </motion.div>
-
-          {/* Text */}
-          <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+          {/* Text — first on mobile */}
+          <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="font-heading text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl text-foreground mb-5 leading-tight">
-              Уход за лицом у&nbsp;косметолога в&nbsp;СПБ
+              className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl text-foreground mb-5 leading-tight">
+              Чистая, увлажнённая и&nbsp;сияющая кожа уже после первой процедуры
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.5 }}
-              className="text-foreground text-lg md:text-xl max-w-xl mb-4 font-medium">
-              Профессиональные процедуры для очищения, увлажнения, питания и&nbsp;восстановления кожи
+              className="text-muted-foreground text-lg md:text-xl max-w-xl mb-4">
+              Подберём уход под ваш тип кожи: уберём тусклость, выровняем тон и&nbsp;вернём коже свежий, ухоженный вид
             </motion.p>
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-              className="text-primary font-heading text-2xl md:text-3xl mb-8">от 2&nbsp;990&nbsp;₽</motion.p>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+              className="mb-6">
+              <span className="text-primary font-heading text-2xl md:text-3xl">от 2&nbsp;990&nbsp;₽</span>
+              <span className="block text-muted-foreground text-sm mt-1">в зависимости от типа кожи и выбранной программы</span>
+            </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
               className="flex flex-col sm:flex-row gap-4">
               <Link to={`/booking?service=Уход за лицом (массаж + маски)`}>
@@ -114,10 +110,21 @@ const UhodZaLicomSpb = () => (
                 </Button>
               </Link>
               <a href="#prices">
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button>
+                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Подобрать уход</Button>
               </a>
             </motion.div>
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
+              className="text-muted-foreground text-sm mt-4">
+              ✦ Консультация косметолога перед процедурой — бесплатно
+            </motion.p>
           </div>
+
+          {/* Photo */}
+          <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }}
+            className="order-2">
+            <img src={facialCareHero} alt="Профессиональный уход за лицом у косметолога — АРТ Косметология СПб"
+              className="w-full max-h-[420px] rounded-2xl shadow-xl object-cover object-[center_30%] aspect-square" loading="eager" />
+          </motion.div>
         </div>
       </div>
     </section>
