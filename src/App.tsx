@@ -36,6 +36,9 @@ import MikroigolchatyjRfLiftingSpb from "./pages/MikroigolchatyjRfLiftingSpb";
 import HolodnayaPlazmaSpb from "./pages/HolodnayaPlazmaSpb";
 import RfLiftingSpb from "./pages/RfLiftingSpb";
 import IndibaSpb from "./pages/IndibaSpb";
+import GoryachiyVakuumSpb from "./pages/GoryachiyVakuumSpb";
+import VakuumnyjMassazhSpb from "./pages/VakuumnyjMassazhSpb";
+import RfLiftingTelaSpb from "./pages/RfLiftingTelaSpb";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
