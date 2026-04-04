@@ -171,7 +171,7 @@ const FrakcionnyyLazerCo2Spb = () => (
             <motion.div key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp} className="text-center">
               <div className="w-12 h-12 rounded-full gold-gradient text-primary-foreground flex items-center justify-center text-lg font-heading mx-auto mb-4">{i + 1}</div>
               <h3 className="font-heading text-lg mb-2">{s.title}</h3>
-              <p className="text-muted-foreground text-sm">{s.desc}</p>
+              <p className="text-foreground/90 text-sm">{s.desc}</p>
             </motion.div>
           ))}
         </div>
