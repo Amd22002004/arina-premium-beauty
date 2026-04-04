@@ -183,16 +183,18 @@ const KorrekciyaFigurySpb = () => (
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="font-heading text-3xl md:text-4xl text-center mb-10">Горячий вакуум</motion.h2>
 
-        {/* Фото — главный визуальный элемент */}
+        {/* Видео — главный визуальный элемент */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="max-w-3xl mx-auto mb-10">
-          <img src={hotVacuumPhoto} alt="Горячий вакуум — результат коррекции фигуры до и после"
-            className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]" loading="lazy" />
+          <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg"
+            aria-label="Видео процедуры горячего вакуума">
+            <source src="/videos/hot-vacuum.mp4" type="video/mp4" />
+          </video>
         </motion.div>
 
         {/* Текст + преимущества */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="max-w-3xl mx-auto mb-10">
+          className="max-w-3xl mx-auto">
           <p className="text-foreground/90 leading-relaxed mb-6">
             Аппаратная процедура с термовакуумным воздействием для интенсивного расщепления жировых отложений,
             уменьшения объёмов и борьбы с целлюлитом. Прогрев тканей усиливает лимфодренаж и ускоряет метаболизм в проблемных зонах.
@@ -216,15 +218,6 @@ const KorrekciyaFigurySpb = () => (
               Записаться <ChevronRight size={16} className="ml-1" />
             </Button>
           </Link>
-        </motion.div>
-
-        {/* Видео */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="max-w-3xl mx-auto">
-          <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg"
-            aria-label="Видео процедуры горячего вакуума">
-            <source src="/videos/hot-vacuum.mp4" type="video/mp4" />
-          </video>
         </motion.div>
       </div>
     </section>
