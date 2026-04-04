@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, X } from "lucide-react";
+import { Check, CheckCircle2, ChevronRight, X, Zap } from "lucide-react";
+import manDorfImg from "@/assets/man-dorf-procedure.jpg";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
