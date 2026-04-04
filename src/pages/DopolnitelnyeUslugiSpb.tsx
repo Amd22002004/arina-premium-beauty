@@ -2,7 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, CheckCircle2, ChevronRight, X, Zap } from "lucide-react";
-import manDorfImg from "@/assets/man-dorf-procedure.jpg";
+import manDorfHero from "@/assets/man-dorf-hero.jpeg";
+import manDorfProcess from "@/assets/man-dorf-process.jpeg";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -101,19 +102,12 @@ const DopolnitelnyeUslugiSpb = () => (
     <section className="py-12 md:py-16 bg-muted/40">
       <div className="container-wide px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Фото */}
-          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <img
-              src={manDorfImg}
-              alt="Мужчина на процедуре аппаратной RF-стимуляции DORF"
-              className="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg"
-            />
-          </motion.div>
+          {/* Контент — слева на десктопе */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+            className="flex flex-col gap-6 order-2 lg:order-1">
 
-          {/* Контент */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
-            className="flex flex-col gap-6">
-            <div>
+            {/* Заголовок — всегда первый на мобильном */}
+            <div className="order-1">
               <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-3">
                 Сидячая работа убивает тонус. Верните контроль.
               </h2>
@@ -122,12 +116,22 @@ const DopolnitelnyeUslugiSpb = () => (
               </p>
             </div>
 
-            <p className="text-foreground/80 text-sm md:text-base leading-relaxed">
+            {/* Hero-фото — видно только на мобильном, после заголовка */}
+            <div className="order-2 lg:hidden">
+              <img
+                src={manDorfHero}
+                alt="Мужчина в клинике перед процедурой DORF"
+                className="w-full aspect-square object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+
+            {/* Текст услуги */}
+            <p className="text-foreground/80 text-sm md:text-base leading-relaxed order-3">
               Если вы проводите большую часть дня сидя — в машине или за компьютером — ткани тазового дна неизбежно теряют тонус из-за нарушения микроциркуляции. Это приводит к застойным процессам, снижению энергии и ухудшению общего состояния. Мы запускаем обратный процесс.
             </p>
 
             {/* Как работает */}
-            <div>
+            <div className="order-4">
               <h3 className="font-heading text-lg md:text-xl text-foreground mb-3 flex items-center gap-2">
                 <Zap size={20} className="text-primary" /> Как работает аппарат
               </h3>
@@ -135,41 +139,30 @@ const DopolnitelnyeUslugiSpb = () => (
                 Во время сеанса фокусированная RF-энергия воздействует на ткани (исключительно наружное применение):
               </p>
               <ul className="space-y-2">
-                {[
-                  "Восстанавливает повреждённую сосудистую сетку",
-                  "Улучшает глубокое кровообращение и снимает «застои»",
-                  "Запускает выработку нового коллагена",
-                  "Возвращает природный тонус и контроль над телом",
-                ].map((t) => (
+                {["Восстанавливает повреждённую сосудистую сетку", "Улучшает глубокое кровообращение и снимает «застои»", "Запускает выработку нового коллагена", "Возвращает природный тонус и контроль над телом"].map((t) => (
                   <li key={t} className="flex items-start gap-2 text-sm text-foreground/80">
-                    <Zap size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                    {t}
+                    <Zap size={14} className="text-primary mt-0.5 flex-shrink-0" />{t}
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Как проходит */}
-            <div>
+            <div className="order-5">
               <h3 className="font-heading text-lg md:text-xl text-foreground mb-3 flex items-center gap-2">
                 <CheckCircle2 size={20} className="text-primary" /> Как проходит
               </h3>
               <ul className="space-y-2">
-                {[
-                  "Комфортная и абсолютно безболезненная процедура",
-                  "Длительность одного сеанса: 60–75 минут",
-                  "Эффект чувствуется уже после первого визита",
-                ].map((t) => (
+                {["Комфортная и абсолютно безболезненная процедура", "Длительность одного сеанса: 60–75 минут", "Эффект чувствуется уже после первого визита"].map((t) => (
                   <li key={t} className="flex items-start gap-2 text-sm text-foreground/80">
-                    <CheckCircle2 size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                    {t}
+                    <CheckCircle2 size={14} className="text-primary mt-0.5 flex-shrink-0" />{t}
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Прайс-карточка */}
-            <div className="rounded-xl border-2 border-primary/30 bg-background p-6 shadow-md">
+            <div className="rounded-xl border-2 border-primary/30 bg-background p-6 shadow-md order-6">
               <p className="text-xs uppercase tracking-wider text-primary mb-1 font-medium">Стартовый протокол восстановления</p>
               <p className="text-muted-foreground text-sm mb-3">2 процедуры</p>
               <p className="font-heading text-3xl md:text-4xl text-foreground mb-1">6 999&nbsp;₽</p>
@@ -181,9 +174,33 @@ const DopolnitelnyeUslugiSpb = () => (
               </Link>
             </div>
 
-            <p className="text-muted-foreground text-xs leading-relaxed">
+            {/* Второе фото — мобильное (процесс / аппарат) */}
+            <div className="order-7 lg:hidden flex justify-center py-4">
+              <img
+                src={manDorfProcess}
+                alt="Процедура аппаратной RF-стимуляции DORF"
+                className="w-[80%] aspect-square object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+
+            <p className="text-muted-foreground text-xs leading-relaxed order-8">
               Большинство клиентов отмечают изменения уже после первого сеанса. Имеются противопоказания. Необходима консультация специалиста.
             </p>
+          </motion.div>
+
+          {/* Фото — справа на десктопе */}
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+            className="hidden lg:flex flex-col gap-6 order-1 lg:order-2 sticky top-24">
+            <img
+              src={manDorfHero}
+              alt="Мужчина в клинике перед процедурой DORF"
+              className="w-full aspect-square object-cover rounded-2xl shadow-lg"
+            />
+            <img
+              src={manDorfProcess}
+              alt="Процедура аппаратной RF-стимуляции DORF"
+              className="w-[80%] mx-auto aspect-square object-cover rounded-2xl shadow-lg"
+            />
           </motion.div>
         </div>
       </div>
