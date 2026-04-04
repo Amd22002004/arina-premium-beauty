@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, X, Flame } from "lucide-react";
+import { Check, ChevronRight, Sparkles, X, Flame, Zap } from "lucide-react";
 import hotVacuumPhoto from "@/assets/hot-vacuum-result.webp";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -14,6 +14,7 @@ import result1 from "@/assets/korrekciya-result-1.jpg";
 import result2 from "@/assets/korrekciya-result-2.jpg";
 import result3 from "@/assets/korrekciya-result-3.jpg";
 import result4 from "@/assets/korrekciya-result-4.jpg";
+import rfLiftingPhoto from "@/assets/rf-lifting-body.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -274,7 +275,51 @@ const KorrekciyaFigurySpb = () => (
       </div>
     </section>
 
+    {/* RF-лифтинг / Миостимуляция тела */}
     <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="font-heading text-3xl md:text-4xl text-center mb-10">RF-лифтинг / Миостимуляция тела</motion.h2>
+
+        <div className="max-w-3xl mx-auto">
+          {/* Фото — главный элемент */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="mb-10">
+            <img src={rfLiftingPhoto} alt="RF-лифтинг и миостимуляция тела — аппаратная процедура коррекции фигуры"
+              className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]" loading="lazy" />
+          </motion.div>
+
+          {/* Текст + преимущества */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <p className="text-foreground/90 leading-relaxed mb-6">
+              Аппаратная процедура с прогревом тканей и глубокой стимуляцией мышц, направленная на уменьшение жировых отложений,
+              подтяжку кожи и формирование контуров тела. Усиливает кровообращение, ускоряет обмен веществ и улучшает тонус.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Подтяжка и уплотнение кожи за счёт прогрева тканей",
+                "Укрепление мышечного каркаса и формирование рельефа",
+                "Уменьшение жировой прослойки в проблемных зонах",
+                "Улучшение микроциркуляции и лимфооттока",
+                "Видимый лифтинг-эффект уже после первых сеансов",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <Zap size={18} className="text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-foreground/90">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link to="/booking?service=RF-лифтинг / Миостимуляция тела">
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-8 shadow-xl hover:shadow-2xl transition-shadow">
+                Записаться <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как проходит процедура</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
