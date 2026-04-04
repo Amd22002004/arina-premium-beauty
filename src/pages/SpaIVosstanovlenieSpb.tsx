@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, X } from "lucide-react";
+import { Check, ChevronRight, Sparkles, X, Droplets } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -9,6 +9,7 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
+import honeyToolsImg from "@/assets/honey-massage-tools.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
