@@ -14,6 +14,7 @@ import result1 from "@/assets/korrekciya-result-1.jpg";
 import result2 from "@/assets/korrekciya-result-2.jpg";
 import result3 from "@/assets/korrekciya-result-3.jpg";
 import result4 from "@/assets/korrekciya-result-4.jpg";
+import rfLiftingPhoto from "@/assets/rf-lifting-body.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
