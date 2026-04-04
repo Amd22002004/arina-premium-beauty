@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Check, ChevronRight, Sparkles, X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import facialCareHero from "@/assets/facial-care-hero.jpeg";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
