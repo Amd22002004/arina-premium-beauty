@@ -179,7 +179,7 @@ const DopolnitelnyeUslugiSpb = () => (
               <img
                 src={manDorfProcess}
                 alt="Процедура аппаратной RF-стимуляции DORF"
-                className="w-[80%] aspect-square object-cover rounded-2xl shadow-lg"
+                className="w-full aspect-square object-cover rounded-2xl shadow-lg"
               />
             </div>
 
@@ -199,7 +199,7 @@ const DopolnitelnyeUslugiSpb = () => (
             <img
               src={manDorfProcess}
               alt="Процедура аппаратной RF-стимуляции DORF"
-              className="w-[80%] mx-auto aspect-square object-cover rounded-2xl shadow-lg"
+              className="w-full aspect-square object-cover rounded-2xl shadow-lg"
             />
           </motion.div>
         </div>
