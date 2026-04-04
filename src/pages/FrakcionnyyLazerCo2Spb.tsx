@@ -106,7 +106,7 @@ const FrakcionnyyLazerCo2Spb = () => (
           {suitableFor.map((item, i) => (
             <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
               className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
-              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" /><span className="text-foreground/80">{item}</span>
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" /><span className="text-foreground">{item}</span>
             </motion.div>
           ))}
         </div>
