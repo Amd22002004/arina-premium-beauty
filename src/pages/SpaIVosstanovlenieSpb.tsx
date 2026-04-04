@@ -143,6 +143,69 @@ const SpaIVosstanovlenieSpb = () => (
       </div>
     </section>
 
+    {/* Медовая выкатка — отдельный блок */}
+    <section className="py-12 md:py-16">
+      <div className="container-wide px-4 md:px-8">
+        <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="font-heading text-3xl md:text-4xl text-center mb-10">Медовая выкатка</motion.h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
+          {/* Левая колонка — текст */}
+          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
+            <p className="text-foreground/90 leading-relaxed text-lg">
+              Традиционная техника восстановления с натуральным мёдом. Мягкая проработка тканей и глубокое расслабление — процедура, после которой тело ощущает лёгкость, а кожа становится гладкой и подтянутой.
+            </p>
+
+            <div className="space-y-3">
+              <h3 className="font-heading text-xl">Преимущества</h3>
+              {[
+                "Выведение токсинов и очищение кожи",
+                "Улучшение микроциркуляции и лимфотока",
+                "Повышение тонуса и эластичности кожи",
+                "Глубокое расслабление мышц и нервной системы",
+                "Ощущение лёгкости и комфорта после сеанса",
+              ].map((b, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <Droplets size={16} className="text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground/90">{b}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-card rounded-xl p-5 border border-border space-y-2">
+              <h3 className="font-heading text-lg">Результат</h3>
+              <p className="text-foreground/80 text-sm leading-relaxed">Расслабление · улучшение тонуса кожи · мягкая проработка тканей · ощущение лёгкости</p>
+            </div>
+
+            <Link to="/booking?service=Медовая выкатка (45 мин)">
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow mt-2">
+                Записаться на процедуру <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+          </motion.div>
+
+          {/* Правая колонка — видео + фото */}
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-5">
+            <video
+              controls
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full rounded-2xl shadow-lg"
+              aria-label="Видео процедуры медовой выкатки"
+            >
+              <source src="/videos/honey-massage.mp4" type="video/mp4" />
+            </video>
+
+            <img
+              src={honeyToolsImg}
+              alt="Медовая выкатка — процесс SPA-процедуры"
+              className="w-full rounded-2xl object-cover shadow-lg max-h-72"
+            />
+          </motion.div>
+        </div>
+      </div>
+
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как проходит процедура</h2>
