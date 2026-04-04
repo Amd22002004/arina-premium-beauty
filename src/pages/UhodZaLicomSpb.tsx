@@ -91,7 +91,7 @@ const UhodZaLicomSpb = () => (
           <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }}
             className="order-1 lg:order-2">
             <img src={facialCareHero} alt="Профессиональный уход за лицом у косметолога — АРТ Косметология СПб"
-              className="w-full max-h-[540px] rounded-2xl shadow-xl object-cover object-[center_30%] aspect-square" loading="eager" />
+              className="w-full max-h-[420px] rounded-2xl shadow-xl object-cover object-[center_30%] aspect-[4/3]" loading="eager" />
           </motion.div>
 
           {/* Text */}
