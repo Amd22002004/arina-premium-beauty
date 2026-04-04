@@ -221,7 +221,7 @@ const FrakcionnyyLazerCo2Spb = () => (
               <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
                 className="flex items-start gap-3 p-3 rounded-lg bg-card border border-border">
                 <Check size={16} className="text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-foreground/80">{item}</span>
+                <span className="text-sm text-foreground">{item}</span>
               </motion.div>
             ))}
           </div>
