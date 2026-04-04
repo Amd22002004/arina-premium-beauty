@@ -97,6 +97,98 @@ const DopolnitelnyeUslugiSpb = () => (
       </div>
     </section>
 
+    {/* Мужской блок DORF */}
+    <section className="py-12 md:py-16 bg-muted/40">
+      <div className="container-wide px-4 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Фото */}
+          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <img
+              src={manDorfImg}
+              alt="Мужчина на процедуре аппаратной RF-стимуляции DORF"
+              className="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg"
+            />
+          </motion.div>
+
+          {/* Контент */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
+            className="flex flex-col gap-6">
+            <div>
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-3">
+                Сидячая работа убивает тонус. Верните контроль.
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg">
+                Аппаратная RF-стимуляция (технология DORF) — современная методика восстановления глубокого кровообращения и физического тонуса без боли и реабилитации.
+              </p>
+            </div>
+
+            <p className="text-foreground/80 text-sm md:text-base leading-relaxed">
+              Если вы проводите большую часть дня сидя — в машине или за компьютером — ткани тазового дна неизбежно теряют тонус из-за нарушения микроциркуляции. Это приводит к застойным процессам, снижению энергии и ухудшению общего состояния. Мы запускаем обратный процесс.
+            </p>
+
+            {/* Как работает */}
+            <div>
+              <h3 className="font-heading text-lg md:text-xl text-foreground mb-3 flex items-center gap-2">
+                <Zap size={20} className="text-primary" /> Как работает аппарат
+              </h3>
+              <p className="text-muted-foreground text-sm mb-2">
+                Во время сеанса фокусированная RF-энергия воздействует на ткани (исключительно наружное применение):
+              </p>
+              <ul className="space-y-2">
+                {[
+                  "Восстанавливает повреждённую сосудистую сетку",
+                  "Улучшает глубокое кровообращение и снимает «застои»",
+                  "Запускает выработку нового коллагена",
+                  "Возвращает природный тонус и контроль над телом",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-2 text-sm text-foreground/80">
+                    <Zap size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Как проходит */}
+            <div>
+              <h3 className="font-heading text-lg md:text-xl text-foreground mb-3 flex items-center gap-2">
+                <CheckCircle2 size={20} className="text-primary" /> Как проходит
+              </h3>
+              <ul className="space-y-2">
+                {[
+                  "Комфортная и абсолютно безболезненная процедура",
+                  "Длительность одного сеанса: 60–75 минут",
+                  "Эффект чувствуется уже после первого визита",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-2 text-sm text-foreground/80">
+                    <CheckCircle2 size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Прайс-карточка */}
+            <div className="rounded-xl border-2 border-primary/30 bg-background p-6 shadow-md">
+              <p className="text-xs uppercase tracking-wider text-primary mb-1 font-medium">Стартовый протокол восстановления</p>
+              <p className="text-muted-foreground text-sm mb-3">2 процедуры</p>
+              <p className="font-heading text-3xl md:text-4xl text-foreground mb-1">6 999&nbsp;₽</p>
+              <p className="text-muted-foreground text-sm mb-5">Первый шаг, чтобы запустить восстановление и вернуть энергию.</p>
+              <Link to="/booking?service=DORF RF-стимуляция (2 процедуры)">
+                <Button size="lg" className="gold-gradient text-primary-foreground border-0 w-full shadow-xl hover:shadow-2xl transition-shadow">
+                  Записаться на первую процедуру <ChevronRight size={16} className="ml-1" />
+                </Button>
+              </Link>
+            </div>
+
+            <p className="text-muted-foreground text-xs leading-relaxed">
+              Большинство клиентов отмечают изменения уже после первого сеанса. Имеются противопоказания. Необходима консультация специалиста.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
     <ConsultationCapture />
     <NextStep currentPath="/dopolnitelnye-uslugi-spb" />
     <RelatedServices currentPath="/dopolnitelnye-uslugi-spb" />
