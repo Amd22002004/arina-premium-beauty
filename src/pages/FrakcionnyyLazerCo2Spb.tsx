@@ -205,7 +205,7 @@ const FrakcionnyyLazerCo2Spb = () => (
         </motion.div>
 
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-          className="text-foreground/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">
+          className="text-foreground text-center max-w-2xl mx-auto mb-8 leading-relaxed">
           Процедура проводится с использованием фракционного CO₂-лазера. Во время сеанса специалист обрабатывает кожу по заданному протоколу. Возможны ощущения тепла или покалывания. Перед процедурой проводится консультация.
         </motion.p>
 
