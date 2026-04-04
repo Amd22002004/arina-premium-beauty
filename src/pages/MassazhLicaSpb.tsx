@@ -139,15 +139,35 @@ const MassazhLicaSpb = () => (
       </div>
     </section>
 
-    {/* 2. Что это — кратко */}
-    <section className="py-10 md:py-14">
+    {/* Feature — фото + описание */}
+    <section className="py-10 md:py-16">
       <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-6">Что такое массаж лица?</h2>
-        <p className="text-muted-foreground text-lg max-w-3xl mx-auto text-center leading-relaxed">
-          Ручная техника глубокой проработки мышц и тканей, которая позволяет подтянуть овал, 
-          разгладить морщины и улучшить цвет кожи без инъекций. Мы используем авторские 
-          АРТ&#8209;протоколы для максимального результата.
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center max-w-5xl mx-auto">
+          {/* Фото — первое на мобильных */}
+          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+            className="order-1">
+            <img src={massageResult} alt="Результат массажа лица — до и после" className="w-full rounded-2xl object-cover shadow-lg" loading="lazy" />
+          </motion.div>
+
+          {/* Текст */}
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
+            className="order-2">
+            <h2 className="font-heading text-3xl md:text-4xl mb-5">Что даёт массаж лица?</h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
+              Ручная техника глубокой проработки мышц и тканей, которая позволяет подтянуть овал,
+              разгладить морщины и улучшить цвет кожи без инъекций. Мы используем авторские
+              АРТ&#8209;протоколы для максимального результата.
+            </p>
+            <ul className="space-y-3">
+              {benefits.slice(0, 4).map((b) => (
+                <li key={b} className="flex items-start gap-3">
+                  <Sparkles size={16} className="text-primary mt-1 flex-shrink-0" />
+                  <span className="text-foreground/80">{b}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
       </div>
     </section>
 
