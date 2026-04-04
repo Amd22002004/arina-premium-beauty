@@ -135,7 +135,7 @@ const FrakcionnyyLazerCo2Spb = () => (
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="font-heading text-3xl md:text-4xl text-center mb-3">Результаты наших клиентов</motion.h2>
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-          className="text-muted-foreground text-center mb-10 max-w-xl mx-auto">До и после процедуры фракционного CO₂-лазера</motion.p>
+          className="text-foreground/90 text-center mb-10 max-w-xl mx-auto">До и после процедуры фракционного CO₂-лазера</motion.p>
 
         <h3 className="font-heading text-xl md:text-2xl text-center mb-6">Лицо</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-3">
