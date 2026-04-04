@@ -86,7 +86,7 @@ const UhodZaLicomSpb = () => (
     {/* Hero */}
     <section className="py-10 md:py-16 bg-cream">
       <div className="container-wide px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-10 items-center">
           {/* Photo — first on mobile */}
           <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }}
             className="order-1 lg:order-2">
