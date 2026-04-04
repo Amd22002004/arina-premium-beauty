@@ -238,14 +238,6 @@ const KorrekciyaFigurySpb = () => (
           className="font-heading text-3xl md:text-4xl text-center mb-10">Аппаратный вакуумный массаж</motion.h2>
 
         <div className="max-w-3xl mx-auto">
-          {/* Видео — главный элемент */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="mb-8">
-            <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg"
-              aria-label="Видео аппаратного вакуумного массажа">
-              <source src="/videos/vacuum-massage.mp4" type="video/mp4" />
-            </video>
-          </motion.div>
 
           {/* Описание */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
