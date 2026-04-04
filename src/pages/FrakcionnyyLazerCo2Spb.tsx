@@ -86,7 +86,7 @@ const FrakcionnyyLazerCo2Spb = () => (
           Фракционный лазер CO₂
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
+          className="text-foreground/90 text-lg md:text-xl max-w-2xl mx-auto mb-4">
           Глубокое обновление кожи для устранения морщин, рубцов, постакне и растяжек
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
@@ -106,7 +106,7 @@ const FrakcionnyyLazerCo2Spb = () => (
           {suitableFor.map((item, i) => (
             <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
               className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
-              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" /><span className="text-foreground/80">{item}</span>
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" /><span className="text-foreground">{item}</span>
             </motion.div>
           ))}
         </div>
@@ -135,7 +135,7 @@ const FrakcionnyyLazerCo2Spb = () => (
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="font-heading text-3xl md:text-4xl text-center mb-3">Результаты наших клиентов</motion.h2>
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-          className="text-muted-foreground text-center mb-10 max-w-xl mx-auto">До и после процедуры фракционного CO₂-лазера</motion.p>
+          className="text-foreground/90 text-center mb-10 max-w-xl mx-auto">До и после процедуры фракционного CO₂-лазера</motion.p>
 
         <h3 className="font-heading text-xl md:text-2xl text-center mb-6">Лицо</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-3">
@@ -171,7 +171,7 @@ const FrakcionnyyLazerCo2Spb = () => (
             <motion.div key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp} className="text-center">
               <div className="w-12 h-12 rounded-full gold-gradient text-primary-foreground flex items-center justify-center text-lg font-heading mx-auto mb-4">{i + 1}</div>
               <h3 className="font-heading text-lg mb-2">{s.title}</h3>
-              <p className="text-muted-foreground text-sm">{s.desc}</p>
+              <p className="text-foreground/90 text-sm">{s.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -186,7 +186,7 @@ const FrakcionnyyLazerCo2Spb = () => (
           Как проходит процедура CO₂-лазера
         </motion.h2>
         <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-          className="text-muted-foreground text-center mb-8 max-w-xl mx-auto">
+          className="text-foreground/90 text-center mb-8 max-w-xl mx-auto">
           Реальный процесс процедуры без постановки
         </motion.p>
 
@@ -205,7 +205,7 @@ const FrakcionnyyLazerCo2Spb = () => (
         </motion.div>
 
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-          className="text-foreground/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">
+          className="text-foreground text-center max-w-2xl mx-auto mb-8 leading-relaxed">
           Процедура проводится с использованием фракционного CO₂-лазера. Во время сеанса специалист обрабатывает кожу по заданному протоколу. Возможны ощущения тепла или покалывания. Перед процедурой проводится консультация.
         </motion.p>
 
@@ -221,7 +221,7 @@ const FrakcionnyyLazerCo2Spb = () => (
               <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
                 className="flex items-start gap-3 p-3 rounded-lg bg-card border border-border">
                 <Check size={16} className="text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-foreground/80">{item}</span>
+                <span className="text-sm text-foreground">{item}</span>
               </motion.div>
             ))}
           </div>
@@ -237,7 +237,7 @@ const FrakcionnyyLazerCo2Spb = () => (
           {recovery.map((r) => (
             <div key={r} className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
               <ShieldCheck size={18} className="text-primary mt-0.5 flex-shrink-0" />
-              <span className="text-foreground/80">{r}</span>
+              <span className="text-foreground">{r}</span>
             </div>
           ))}
         </div>
