@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { ChevronRight, Check, X, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import massageHero from "@/assets/massage-face-hero.webp";
+import massageResult from "@/assets/massage-face-result.webp";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
