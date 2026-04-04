@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, ChevronRight, Sparkles, X, Flame, Zap } from "lucide-react";
-import hotVacuumPhoto from "@/assets/hot-vacuum-result.webp";
+
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
