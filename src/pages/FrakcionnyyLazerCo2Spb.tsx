@@ -86,7 +86,7 @@ const FrakcionnyyLazerCo2Spb = () => (
           Фракционный лазер CO₂
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
+          className="text-foreground/90 text-lg md:text-xl max-w-2xl mx-auto mb-4">
           Глубокое обновление кожи для устранения морщин, рубцов, постакне и растяжек
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
