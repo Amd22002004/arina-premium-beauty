@@ -101,6 +101,9 @@ const DopolnitelnyeUslugiSpb = () => (
     {/* Мужской блок DORF */}
     <section className="py-12 md:py-16 bg-muted/40">
       <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-2xl md:text-3xl text-center text-foreground mb-10">
+          Аппаратное восстановление мужского здоровья
+        </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Контент — слева на десктопе */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -108,9 +111,9 @@ const DopolnitelnyeUslugiSpb = () => (
 
             {/* Заголовок — всегда первый на мобильном */}
             <div className="order-1">
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-3">
+              <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-3">
                 Сидячая работа убивает тонус. Верните контроль.
-              </h2>
+              </h3>
               <p className="text-muted-foreground text-base md:text-lg">
                 Аппаратная RF-стимуляция (технология DORF) — современная методика восстановления глубокого кровообращения и физического тонуса без боли и реабилитации.
               </p>
