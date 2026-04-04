@@ -205,6 +205,7 @@ const SpaIVosstanovlenieSpb = () => (
           </motion.div>
         </div>
       </div>
+    </section>
 
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
