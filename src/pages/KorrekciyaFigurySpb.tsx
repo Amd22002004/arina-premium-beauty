@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, ChevronRight, Sparkles, X, Flame, Zap } from "lucide-react";
-import hotVacuumPhoto from "@/assets/hot-vacuum-result.webp";
+
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -180,15 +180,17 @@ const KorrekciyaFigurySpb = () => (
     {/* Горячий вакуум */}
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="font-heading text-3xl md:text-4xl text-center mb-10">Горячий вакуум</motion.h2>
-
-        {/* Фото — главный визуальный элемент */}
+        {/* Видео (перенесено из блока Аппаратный вакуумный массаж) */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="max-w-3xl mx-auto mb-10">
-          <img src={hotVacuumPhoto} alt="Горячий вакуум — результат коррекции фигуры до и после"
-            className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]" loading="lazy" />
+          <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg"
+            aria-label="Видео аппаратного вакуумного массажа">
+            <source src="/videos/vacuum-massage.mp4" type="video/mp4" />
+          </video>
         </motion.div>
+
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="font-heading text-3xl md:text-4xl text-center mb-10">Горячий вакуум</motion.h2>
 
         {/* Текст + преимущества */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -236,14 +238,6 @@ const KorrekciyaFigurySpb = () => (
           className="font-heading text-3xl md:text-4xl text-center mb-10">Аппаратный вакуумный массаж</motion.h2>
 
         <div className="max-w-3xl mx-auto">
-          {/* Видео — главный элемент */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="mb-8">
-            <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg"
-              aria-label="Видео аппаратного вакуумного массажа">
-              <source src="/videos/vacuum-massage.mp4" type="video/mp4" />
-            </video>
-          </motion.div>
 
           {/* Описание */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
