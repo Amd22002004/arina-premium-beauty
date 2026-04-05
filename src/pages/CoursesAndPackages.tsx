@@ -20,6 +20,12 @@ const fadeUp = {
 type Filter = "all" | "face" | "body" | "recovery";
 type Tier = "5" | "10";
 
+interface ExpressPrice {
+  count: number;
+  label: string;
+  price: string;
+}
+
 interface Course {
   id: Filter;
   title: string;
@@ -34,6 +40,8 @@ interface Course {
   price5: string;
   price10: string;
   links: { label: string; href: string }[];
+  isExpress?: boolean;
+  expressPrices?: ExpressPrice[];
 }
 
 const courses: Course[] = [
