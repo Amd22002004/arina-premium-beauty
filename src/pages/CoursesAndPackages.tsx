@@ -224,8 +224,13 @@ const courses: Course[] = [
       "Локальные жировые отложения",
     ],
     duration: "1–2 процедуры",
-    price5: "14 500 ₽ за 2",
-    price10: "14 500 ₽ за 2",
+    price5: "",
+    price10: "",
+    isExpress: true,
+    expressPrices: [
+      { count: 1, label: "1 процедура", price: "8 000 ₽" },
+      { count: 2, label: "2 процедуры", price: "14 500 ₽" },
+    ],
     links: [
       { label: "Коррекция фигуры", href: "/korrekciya-figury-spb" },
     ],
