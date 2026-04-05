@@ -9,7 +9,7 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
-import honeyToolsImg from "@/assets/honey-massage-tools.webp";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -184,24 +184,18 @@ const SpaIVosstanovlenieSpb = () => (
             </Link>
           </motion.div>
 
-          {/* Правая колонка — видео + фото */}
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-5">
+          {/* Правая колонка — видео */}
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:self-stretch flex items-start">
             <video
               controls
               muted
               playsInline
               preload="metadata"
-              className="w-full rounded-2xl shadow-lg"
+              className="w-full lg:max-h-[480px] rounded-2xl shadow-lg object-cover"
               aria-label="Видео процедуры медовой выкатки"
             >
               <source src="/videos/honey-massage.mp4" type="video/mp4" />
             </video>
-
-            <img
-              src={honeyToolsImg}
-              alt="Медовая выкатка — процесс SPA-процедуры"
-              className="w-full rounded-2xl object-cover shadow-lg max-h-72"
-            />
           </motion.div>
         </div>
       </div>
