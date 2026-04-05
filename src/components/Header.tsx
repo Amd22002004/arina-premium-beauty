@@ -101,12 +101,12 @@ const Header = () => {
 
                 {dropdownOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
-                    <div className="bg-card border border-border rounded-xl shadow-xl p-6 min-w-[600px] grid grid-cols-2 gap-6 animate-fade-in">
-                      {serviceCategories.map((cat) => (
-                        <div key={cat.label}>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">{cat.label}</p>
+                    <div className="bg-card border border-border rounded-xl shadow-xl p-5 min-w-[460px] grid grid-cols-2 gap-5 animate-fade-in">
+                      {[menuColumn1, menuColumn2].map((col) => (
+                        <div key={col.label}>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">{col.label}</p>
                           <ul className="space-y-1">
-                            {cat.items.map((item) => (
+                            {col.items.map((item) => (
                               <li key={item.to}>
                                 <Link
                                   to={item.to}
@@ -183,7 +183,7 @@ const Header = () => {
 
             {mobileServicesOpen && (
               <div className="pl-4 pb-2 space-y-3">
-                {serviceCategories.map((cat) => (
+                {mobileMenuCategories.map((cat) => (
                   <div key={cat.label}>
                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2 mb-1">{cat.label}</p>
                     {cat.items.map((item) => (
