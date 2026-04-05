@@ -351,14 +351,36 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
               transition={{ duration: 0.2 }}
               className="text-center"
             >
-              <span className="text-3xl font-bold text-foreground">{price}</span>
+              <span className="text-3xl font-bold text-foreground">
+                {tier === "5" ? "5 процедур — " : "10 процедур — "}{price}
+              </span>
               {tier === "10" && (
                 <span className="ml-2 inline-flex items-center gap-1 bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full font-medium">
                   <BadgePercent size={12} /> Максимальная выгода
                 </span>
               )}
+              {/* Savings line */}
+              {course.price5 && course.price10 && (() => {
+                const perSession = 3000;
+                const count = tier === "5" ? 5 : 10;
+                const currentPrice = parseInt((tier === "5" ? course.price5 : course.price10).replace(/\s/g, ""));
+                const fullPrice = perSession * count;
+                const saving = fullPrice - currentPrice;
+                return saving > 0 ? (
+                  <p className="text-sm text-primary font-semibold mt-2">
+                    Экономия при курсе: {saving.toLocaleString("ru-RU")} ₽
+                  </p>
+                ) : null;
+              })()}
             </motion.div>
           </AnimatePresence>
+
+          <p className="text-xs text-muted-foreground text-center mt-3">
+            Рекомендуем курс от 5 процедур для выраженного результата
+          </p>
+          <p className="text-[11px] text-primary/70 text-center mt-1 flex items-center justify-center gap-1">
+            <TrendingUp size={11} /> Лучший эффект при прохождении курса
+          </p>
         </div>
 
         {/* CTA */}
