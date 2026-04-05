@@ -32,6 +32,53 @@ const filterServices = (query: string) => {
     );
   };
 
+const navLinks = [
+  { to: "/", label: "Главная" },
+  { to: "/services", label: "Услуги", hasDropdown: true },
+  { to: "/price", label: "Прайс" },
+  { to: "/about", label: "О специалисте" },
+  { to: "/reviews", label: "Отзывы" },
+  { to: "/contacts", label: "Контакты" },
+];
+
+const Header = () => {
+  const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [mobileSearchQuery, setMobileSearchQuery] = useState("");
+  const location = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setOpen(false);
+    setDropdownOpen(false);
+    setMobileServicesOpen(false);
+    setSearchQuery("");
+    setMobileSearchQuery("");
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (dropdownOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [dropdownOpen]);
+
+  useEffect(() => {
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setDropdownOpen(false), 200);
+  };
+
   const filteredDesktop = useMemo(() => filterServices(searchQuery), [searchQuery]);
   const filteredMobile = useMemo(() => filterServices(mobileSearchQuery), [mobileSearchQuery]);
 
