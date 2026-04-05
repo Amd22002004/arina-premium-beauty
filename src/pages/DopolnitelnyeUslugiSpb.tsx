@@ -193,16 +193,16 @@ const DopolnitelnyeUslugiSpb = () => (
 
           {/* Фото — справа на десктопе */}
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-            className="hidden lg:flex flex-col gap-6 order-1 lg:order-2 sticky top-24">
+            className="hidden lg:flex flex-col gap-5 order-1 lg:order-2 sticky top-24">
             <img
               src={manDorfHero}
               alt="Мужчина в клинике перед процедурой DORF"
-              className="w-full aspect-square object-cover rounded-2xl shadow-lg"
+              className="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg"
             />
             <img
               src={manDorfProcess}
               alt="Процедура аппаратной RF-стимуляции DORF"
-              className="w-full aspect-square object-cover rounded-2xl shadow-lg"
+              className="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg"
             />
           </motion.div>
         </div>
