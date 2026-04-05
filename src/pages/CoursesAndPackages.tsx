@@ -20,6 +20,12 @@ const fadeUp = {
 type Filter = "all" | "face" | "body" | "recovery";
 type Tier = "5" | "10";
 
+interface ExpressPrice {
+  count: number;
+  label: string;
+  price: string;
+}
+
 interface Course {
   id: Filter;
   title: string;
@@ -34,6 +40,8 @@ interface Course {
   price5: string;
   price10: string;
   links: { label: string; href: string }[];
+  isExpress?: boolean;
+  expressPrices?: ExpressPrice[];
 }
 
 const courses: Course[] = [
@@ -216,8 +224,13 @@ const courses: Course[] = [
       "Локальные жировые отложения",
     ],
     duration: "1–2 процедуры",
-    price5: "14 500 ₽ за 2",
-    price10: "14 500 ₽ за 2",
+    price5: "",
+    price10: "",
+    isExpress: true,
+    expressPrices: [
+      { count: 1, label: "1 процедура", price: "8 000 ₽" },
+      { count: 2, label: "2 процедуры", price: "14 500 ₽" },
+    ],
     links: [
       { label: "Коррекция фигуры", href: "/korrekciya-figury-spb" },
     ],
@@ -320,74 +333,98 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
 
         {/* Tier selector + price */}
         <div className="bg-muted/40 rounded-xl p-5">
-          <div className="flex gap-2 mb-4">
-            {(["5", "10"] as Tier[]).map((t) => (
-              <button
-                key={t}
-                onClick={() => setTier(t)}
-                className={`flex-1 py-2.5 px-3 rounded-lg text-sm font-medium transition-all ${
-                  tier === t
-                    ? "bg-primary text-primary-foreground shadow-md scale-[1.02]"
-                    : "bg-background text-foreground/70 hover:bg-accent"
-                }`}
-              >
-                {t} процедур
-                {t === "10" && (
-                  <span className="block text-[10px] opacity-80 mt-0.5">Самый выгодный</span>
-                )}
-                {t === "5" && (
-                  <span className="block text-[10px] opacity-80 mt-0.5">Оптимальный</span>
-                )}
-              </button>
-            ))}
-          </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={tier}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.2 }}
-              className="text-center"
-            >
-              <span className="text-3xl font-bold text-foreground">
-                {tier === "5" ? "5 процедур — " : "10 процедур — "}{price}
-              </span>
-              {tier === "10" && (
-                <span className="ml-2 inline-flex items-center gap-1 bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full font-medium">
-                  <BadgePercent size={12} /> Максимальная выгода
-                </span>
-              )}
-              {/* Savings line */}
-              {course.price5 && course.price10 && (() => {
-                const perSession = 3000;
-                const count = tier === "5" ? 5 : 10;
-                const currentPrice = parseInt((tier === "5" ? course.price5 : course.price10).replace(/\s/g, ""));
-                const fullPrice = perSession * count;
-                const saving = fullPrice - currentPrice;
+          {course.isExpress && course.expressPrices ? (
+            /* Express pricing — no tier selector */
+            <div className="space-y-3">
+              {course.expressPrices.map((ep) => (
+                <div key={ep.count} className="flex items-center justify-between bg-background rounded-lg px-4 py-3">
+                  <span className="text-base font-medium text-foreground">{ep.label}</span>
+                  <span className="text-xl font-bold text-foreground">{ep.price}</span>
+                </div>
+              ))}
+              {course.expressPrices.length === 2 && (() => {
+                const single = parseInt(course.expressPrices[0].price.replace(/\s/g, ""));
+                const pair = parseInt(course.expressPrices[1].price.replace(/\s/g, ""));
+                const saving = single * 2 - pair;
                 return saving > 0 ? (
-                  <p className="text-sm text-primary font-semibold mt-2">
-                    Экономия при курсе: {saving.toLocaleString("ru-RU")} ₽
+                  <p className="text-sm text-primary font-semibold text-center">
+                    Выгода при записи на 2 процедуры: {saving.toLocaleString("ru-RU")} ₽
                   </p>
                 ) : null;
               })()}
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          ) : (
+            /* Course pricing with tier selector */
+            <>
+              <div className="flex gap-2 mb-4">
+                {(["5", "10"] as Tier[]).map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => setTier(t)}
+                    className={`flex-1 py-2.5 px-3 rounded-lg text-sm font-medium transition-all ${
+                      tier === t
+                        ? "bg-primary text-primary-foreground shadow-md scale-[1.02]"
+                        : "bg-background text-foreground/70 hover:bg-accent"
+                    }`}
+                  >
+                    {t} процедур
+                    {t === "10" && (
+                      <span className="block text-[10px] opacity-80 mt-0.5">Самый выгодный</span>
+                    )}
+                    {t === "5" && (
+                      <span className="block text-[10px] opacity-80 mt-0.5">Оптимальный</span>
+                    )}
+                  </button>
+                ))}
+              </div>
 
-          <p className="text-xs text-muted-foreground text-center mt-3">
-            Рекомендуем курс от 5 процедур для выраженного результата
-          </p>
-          <p className="text-[11px] text-primary/70 text-center mt-1 flex items-center justify-center gap-1">
-            <TrendingUp size={11} /> Лучший эффект при прохождении курса
-          </p>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={tier}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-center"
+                >
+                  <span className="text-3xl font-bold text-foreground">
+                    {tier === "5" ? "5 процедур — " : "10 процедур — "}{price}
+                  </span>
+                  {tier === "10" && (
+                    <span className="ml-2 inline-flex items-center gap-1 bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full font-medium">
+                      <BadgePercent size={12} /> Максимальная выгода
+                    </span>
+                  )}
+                  {course.price5 && course.price10 && (() => {
+                    const perSession = 3000;
+                    const count = tier === "5" ? 5 : 10;
+                    const currentPrice = parseInt((tier === "5" ? course.price5 : course.price10).replace(/\s/g, ""));
+                    const fullPrice = perSession * count;
+                    const saving = fullPrice - currentPrice;
+                    return saving > 0 ? (
+                      <p className="text-sm text-primary font-semibold mt-2">
+                        Экономия при курсе: {saving.toLocaleString("ru-RU")} ₽
+                      </p>
+                    ) : null;
+                  })()}
+                </motion.div>
+              </AnimatePresence>
+
+              <p className="text-xs text-muted-foreground text-center mt-3">
+                Рекомендуем курс от 5 процедур для выраженного результата
+              </p>
+              <p className="text-[11px] text-primary/70 text-center mt-1 flex items-center justify-center gap-1">
+                <TrendingUp size={11} /> Лучший эффект при прохождении курса
+              </p>
+            </>
+          )}
         </div>
 
         {/* CTA */}
         <div className="mt-auto flex flex-col sm:flex-row gap-3">
           <Link to={`/booking?service=${encodeURIComponent(course.title)}`} className="flex-1">
             <Button className="gold-gradient text-primary-foreground border-0 shadow-lg hover:shadow-xl transition-shadow w-full h-12 text-base">
-              Записаться на курс
+              {course.isExpress ? "Записаться" : "Записаться на курс"}
             </Button>
           </Link>
           <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer" className="flex-1">
