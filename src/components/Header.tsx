@@ -4,55 +4,33 @@ import { Menu, X, Phone, ChevronDown, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
 
-const serviceCategories = [
-  {
-    label: "Лицо",
-    items: [
-      { to: "/massazh-lica-spb", label: "Массаж лица" },
-      { to: "/uhod-za-licom-spb", label: "Уход за лицом" },
-      { to: "/pilingi-spb", label: "Пилинги" },
-      { to: "/aparatnye-protokoly-lica-spb", label: "Аппаратные процедуры лица" },
-      { to: "/fotoomolozhenie-bbl-spb", label: "Фотоомоложение BBL" },
-      { to: "/frakcionnyy-lazer-co2-spb", label: "Фракционный лазер CO₂" },
-    ],
-  },
-  {
-    label: "Тело",
-    items: [
-      { to: "/apparatnye-protokoly-tela-spb", label: "EMS / INDIBA / БМС" },
-      { to: "/korrekciya-figury-spb", label: "Коррекция фигуры" },
-    ],
-  },
-  {
-    label: "Массажи",
-    items: [
-      { to: "/massazh-tela-spb", label: "Медицинский массаж" },
-      { to: "/vosstanovitelnye-massazhi-spb", label: "Лимфодренажный и висцеральный" },
-    ],
-  },
-  {
-    label: "Лечение боли",
-    items: [
-      { to: "/uvt-spb", label: "Ударно-волновая терапия (УВТ)" },
-    ],
-  },
-  {
-    label: "Дополнительно",
-    items: [
-      { to: "/spa-i-vosstanovlenie-spb", label: "СПА и восстановление" },
-      { to: "/dopolnitelnye-uslugi-spb", label: "Деликатные услуги" },
-      { to: "/ozdorovitelnye-procedury-spb", label: "Оздоровительные процедуры" },
-    ],
-  },
-  {
-    label: "Спецпредложения",
-    items: [
-      { to: "/art-protokol-znakomstvo", label: "Знакомство с АРТ-протоколом" },
-      { to: "/kursy-i-kompleksy", label: "Курсы и комплексы" },
-    ],
-  },
-];
+const menuColumn1 = {
+  label: "Лицо",
+  items: [
+    { to: "/massazh-lica-spb", label: "Массаж лица" },
+    { to: "/uhod-za-licom-spb", label: "Уход за лицом" },
+    { to: "/pilingi-spb", label: "Пилинги" },
+    { to: "/aparatnye-protokoly-lica-spb", label: "Аппаратные процедуры лица" },
+    { to: "/fotoomolozhenie-bbl-spb", label: "Фотоомоложение BBL" },
+    { to: "/frakcionnyy-lazer-co2-spb", label: "Фракционный лазер CO₂" },
+  ],
+};
 
+const menuColumn2 = {
+  label: "Тело и прочее",
+  items: [
+    { to: "/apparatnye-protokoly-tela-spb", label: "EMS / INDIBA / БМС" },
+    { to: "/korrekciya-figury-spb", label: "Коррекция фигуры" },
+    { to: "/massazh-tela-spb", label: "Медицинский массаж" },
+    { to: "/vosstanovitelnye-massazhi-spb", label: "Лимфодренажный и висцеральный" },
+    { to: "/spa-i-vosstanovlenie-spb", label: "СПА и восстановление" },
+    { to: "/dopolnitelnye-uslugi-spb", label: "Деликатные услуги" },
+    { to: "/ozdorovitelnye-procedury-spb", label: "Оздоровительные процедуры" },
+    { to: "/kursy-i-kompleksy", label: "Курсы и комплексы" },
+  ],
+};
+
+const mobileMenuCategories = [menuColumn1, menuColumn2];
 const navLinks = [
   { to: "/", label: "Главная" },
   { to: "/services", label: "Услуги", hasDropdown: true },
