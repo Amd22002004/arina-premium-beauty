@@ -5,75 +5,31 @@ import { Button } from "@/components/ui/button";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
 
 const allServices = [
-  { to: "/massazh-lica-spb", label: "Массаж лица", group: "Лицо" },
-  { to: "/uhod-za-licom-spb", label: "Уход за лицом", group: "Лицо" },
-  { to: "/pilingi-spb", label: "Пилинги", group: "Лицо" },
-  { to: "/aparatnye-protokoly-lica-spb", label: "Аппаратные процедуры лица", group: "Лицо" },
-  { to: "/fotoomolozhenie-bbl-spb", label: "Фотоомоложение BBL", group: "Лицо" },
-  { to: "/frakcionnyy-lazer-co2-spb", label: "Фракционный лазер CO₂", group: "Лицо" },
-  { to: "/apparatnye-protokoly-tela-spb", label: "EMS / INDIBA / БМС", group: "Тело и прочее" },
-  { to: "/korrekciya-figury-spb", label: "Коррекция фигуры", group: "Тело и прочее" },
-  { to: "/massazh-tela-spb", label: "Медицинский массаж", group: "Тело и прочее" },
-  { to: "/vosstanovitelnye-massazhi-spb", label: "Лимфодренажный и висцеральный", group: "Тело и прочее" },
-  { to: "/spa-i-vosstanovlenie-spb", label: "СПА и восстановление", group: "Тело и прочее" },
-  { to: "/dopolnitelnye-uslugi-spb", label: "Деликатные услуги", group: "Тело и прочее" },
-  { to: "/ozdorovitelnye-procedury-spb", label: "Оздоровительные процедуры", group: "Тело и прочее" },
-  { to: "/kursy-i-kompleksy", label: "Курсы и комплексы", group: "Тело и прочее" },
+  { to: "/massazh-lica-spb", label: "Массаж лица", group: "Лицо", keywords: ["массаж лица", "скульптурный массаж", "лифтинг лица", "омоложение лица", "подтяжка лица", "буккальный"] },
+  { to: "/uhod-za-licom-spb", label: "Уход за лицом", group: "Лицо", keywords: ["уход за лицом", "чистка лица", "увлажнение", "питание кожи", "уходовые процедуры", "акне", "морщины"] },
+  { to: "/pilingi-spb", label: "Пилинги", group: "Лицо", keywords: ["пилинг", "пилинги", "химический пилинг", "отшелушивание", "обновление кожи", "ретиноловый", "гликолевый"] },
+  { to: "/aparatnye-protokoly-lica-spb", label: "Аппаратные процедуры лица", group: "Лицо", keywords: ["аппаратные процедуры", "аппаратная косметология", "rf лифтинг", "микроигольчатый", "холодная плазма", "микротоки"] },
+  { to: "/fotoomolozhenie-bbl-spb", label: "Фотоомоложение BBL", group: "Лицо", keywords: ["фотоомоложение", "bbl", "пигментация", "сосудистые звёздочки", "розацеа", "купероз", "фототерапия"] },
+  { to: "/frakcionnyy-lazer-co2-spb", label: "Фракционный лазер CO₂", group: "Лицо", keywords: ["лазер", "co2", "фракционный", "шлифовка", "рубцы", "постакне", "лазерное омоложение"] },
+  { to: "/apparatnye-protokoly-tela-spb", label: "EMS / INDIBA / БМС", group: "Тело и прочее", keywords: ["ems", "indiba", "бмс", "миостимуляция", "аппаратный массаж тела", "электростимуляция"] },
+  { to: "/korrekciya-figury-spb", label: "Коррекция фигуры", group: "Тело и прочее", keywords: ["коррекция фигуры", "похудение", "целлюлит", "антицеллюлитный", "моделирование тела", "объёмы", "жиросжигание"] },
+  { to: "/massazh-tela-spb", label: "Медицинский массаж", group: "Тело и прочее", keywords: ["медицинский массаж", "массаж тела", "массаж спины", "лечебный массаж", "классический массаж", "боль в спине"] },
+  { to: "/vosstanovitelnye-massazhi-spb", label: "Лимфодренажный и висцеральный", group: "Тело и прочее", keywords: ["лимфодренаж", "лимфодренажный", "висцеральный", "отёки", "детокс", "лимфа", "внутренние органы"] },
+  { to: "/spa-i-vosstanovlenie-spb", label: "СПА и восстановление", group: "Тело и прочее", keywords: ["спа", "spa", "восстановление", "релакс", "расслабление", "стоунтерапия", "обёртывание", "отдых"] },
+  { to: "/dopolnitelnye-uslugi-spb", label: "Деликатные услуги", group: "Тело и прочее", keywords: ["деликатные", "мужское здоровье", "мужское оздоровление", "интимное", "простата", "потенция", "мужские процедуры", "аппаратное восстановление"] },
+  { to: "/ozdorovitelnye-procedury-spb", label: "Оздоровительные процедуры", group: "Тело и прочее", keywords: ["оздоровление", "оздоровительные", "здоровье", "профилактика", "иммунитет", "общее оздоровление"] },
+  { to: "/kursy-i-kompleksy", label: "Курсы и комплексы", group: "Тело и прочее", keywords: ["курс", "комплекс", "программа", "пакет", "абонемент", "скидка", "спецпредложение"] },
 ];
 
-const quickSuggestions = ["массаж лица", "коррекция фигуры", "лимфодренаж", "пилинги"];
+const quickSuggestions = ["массаж лица", "коррекция фигуры", "мужское оздоровление", "СПА и восстановление"];
 
-const navLinks = [
-  { to: "/", label: "Главная" },
-  { to: "/services", label: "Услуги", hasDropdown: true },
-  { to: "/price", label: "Прайс" },
-  { to: "/about", label: "О специалисте" },
-  { to: "/reviews", label: "Отзывы" },
-  { to: "/contacts", label: "Контакты" },
-];
-
-const Header = () => {
-  const [open, setOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [mobileSearchQuery, setMobileSearchQuery] = useState("");
-  const location = useLocation();
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
-  const searchInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    setOpen(false);
-    setDropdownOpen(false);
-    setMobileServicesOpen(false);
-    setSearchQuery("");
-    setMobileSearchQuery("");
-  }, [location.pathname]);
-
-  useEffect(() => {
-    if (dropdownOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [dropdownOpen]);
-
-  useEffect(() => {
-    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
-  }, []);
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setDropdownOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setDropdownOpen(false), 200);
-  };
-
-  const filterServices = (query: string) => {
+const filterServices = (query: string) => {
     if (!query.trim()) return null;
     const q = query.toLowerCase();
-    return allServices.filter((s) => s.label.toLowerCase().includes(q));
+    return allServices.filter((s) =>
+      s.label.toLowerCase().includes(q) ||
+      s.keywords.some((kw) => kw.toLowerCase().includes(q))
+    );
   };
 
   const filteredDesktop = useMemo(() => filterServices(searchQuery), [searchQuery]);
