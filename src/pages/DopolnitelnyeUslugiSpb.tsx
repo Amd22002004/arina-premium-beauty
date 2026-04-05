@@ -11,7 +11,6 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
-import DorfVideoBlock from "@/components/DorfVideoBlock";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -210,7 +209,6 @@ const DopolnitelnyeUslugiSpb = () => (
       </div>
     </section>
 
-    <DorfVideoBlock />
     <ConsultationCapture />
     <NextStep currentPath="/dopolnitelnye-uslugi-spb" />
     <RelatedServices currentPath="/dopolnitelnye-uslugi-spb" />
