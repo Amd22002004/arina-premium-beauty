@@ -14,7 +14,7 @@ import heroImg from "@/assets/hero-indiba-body.jpeg";
 import consultationImg from "@/assets/consultation-indiba.jpeg";
 import processImg1 from "@/assets/process-indiba-1.jpeg";
 import processImg2 from "@/assets/process-indiba-2.jpeg";
-import resultImg from "@/assets/result-indiba.jpeg";
+import resultImg from "@/assets/hero-indiba-body.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
