@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { TelegramIcon, VKIcon } from "@/components/SocialIcons";
-import { FloralDivider, SectionFloralAccent } from "@/components/FloralDecorations";
+import { FloralDivider, SectionFloralAccent, ScatteredButterflies } from "@/components/FloralDecorations";
 
 const CTASection = ({ title = "Готовы к персональной встрече?", subtitle = "Запишитесь на приватную консультацию — подберём программу индивидуально" }: { title?: string; subtitle?: string }) => (
   <section className="relative py-20 md:py-28 bg-floral-cream overflow-hidden">
     <SectionFloralAccent position="both" />
+    <ScatteredButterflies count={2} />
     <div className="container-narrow px-4 md:px-8 text-center relative">
       <FloralDivider className="mb-6" />
       <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-5">{title}</h2>
