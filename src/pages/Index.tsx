@@ -4,6 +4,7 @@ import { Shield, Heart, Sparkles, Users, ChevronRight, Star, Zap, MapPin, Calend
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
+import heroBg from "@/assets/hero-bg.jpg";
 import ConsultationCapture from "@/components/ConsultationCapture";
 import { services, formatPrice } from "@/data/services";
 import { FloatingPetals, FloralCorner, SectionFloralAccent, FloralDivider, AnimatedButterfly, ScatteredButterflies } from "@/components/FloralDecorations";
@@ -44,17 +45,8 @@ const Index = () => (
     {/* ═══════════ 1. HERO ═══════════ */}
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          poster=""
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/45 to-transparent" />
+        <img src={heroBg} alt="Приватная студия аппаратной эстетики" className="w-full h-full object-cover" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-violet/5" />
       </div>
       <FloatingPetals />
