@@ -262,11 +262,11 @@ const Index = () => (
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            "Авторский подход, а не шаблонные процедуры",
-            "Чёткий прайс без путаницы",
-            "Удобная запись через сайт, VK и Telegram",
-            "Акцент на доверии, аккуратности и эстетике",
-            "Индивидуальный подбор под вашу задачу",
+            "Приватная студия — один мастер, один клиент",
+            "Полная конфиденциальность каждого визита",
+            "Авторские протоколы, а не шаблонные процедуры",
+            "Камерная атмосфера без потока и очередей",
+            "Персональный подбор под вашу задачу",
           ].map((t, i) => (
             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
               className="flex items-start gap-3 p-5 bg-card rounded-lg border border-border">
