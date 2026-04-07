@@ -21,7 +21,7 @@ const prices = [
   {
     name: "Массаж лица",
     price: "1 900 ₽",
-    priceValue: 2490,
+    priceValue: 1900,
     tiers: [
       { count: 5, total: 11200 },
       { count: 10, total: 21000 },
@@ -95,7 +95,7 @@ const jsonLd = {
     address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
     telephone: "+79117193949",
   },
-  offers: { "@type": "Offer", price: "2490", priceCurrency: "RUB" },
+  offers: { "@type": "Offer", price: "1900", priceCurrency: "RUB" },
 };
 
 const MassazhLicaSpb = () => (

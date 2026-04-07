@@ -75,7 +75,7 @@ const SpaIVosstanovlenieSpb = () => (
         "@context": "https://schema.org", "@type": "Service",
         name: "СПА и восстановление в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "1500", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "1200", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 

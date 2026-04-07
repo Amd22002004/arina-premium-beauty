@@ -16,8 +16,8 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Лимфодренажный массаж", price: "2 400 ₽", priceValue: 3000, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 26000 }], desc: "Дренаж, снятие отёков, улучшение лимфотока" },
-  { name: "Висцеральный массаж", price: "2 800 ₽", priceValue: 3500, tiers: [{ count: 3, total: 10000 }, { count: 5, total: 15000 }], desc: "Работа с внутренними органами и восстановление" },
+  { name: "Лимфодренажный массаж", price: "2 400 ₽", priceValue: 2400, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 26000 }], desc: "Дренаж, снятие отёков, улучшение лимфотока" },
+  { name: "Висцеральный массаж", price: "2 800 ₽", priceValue: 2800, tiers: [{ count: 3, total: 10000 }, { count: 5, total: 15000 }], desc: "Работа с внутренними органами и восстановление" },
 ];
 
 const suitableFor = [
@@ -70,7 +70,7 @@ const VosstanovitelnyeMassazhiSpb = () => (
         "@context": "https://schema.org", "@type": "Service",
         name: "Восстановительные массажи в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "3000", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "2400", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 

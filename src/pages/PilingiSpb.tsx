@@ -20,7 +20,7 @@ const prices = [
   {
     name: "Пилинг",
     price: "1 600 ₽",
-    priceValue: 2500,
+    priceValue: 1600,
     tiers: [
       { count: 3, total: 7125 },
       { count: 5, total: 11250 },
@@ -88,7 +88,7 @@ const PilingiSpb = () => (
         "@context": "https://schema.org", "@type": "Service",
         name: "Пилинги в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "2500", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "1600", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 

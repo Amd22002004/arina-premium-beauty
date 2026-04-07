@@ -25,7 +25,7 @@ const prices = [
   {
     name: "EMS / INDIBA / БМС",
     price: "2 800 ₽",
-    priceValue: 3500,
+    priceValue: 2800,
     tiers: [
       { count: 5, total: 16000 },
       { count: 10, total: 30000 },
@@ -83,7 +83,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
         "@context": "https://schema.org", "@type": "Service",
         name: "Аппаратные протоколы тела в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "3500", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "2800", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 

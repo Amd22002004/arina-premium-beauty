@@ -69,7 +69,7 @@ const MikroigolchatyjRfLiftingSpb = () => (
         "@context": "https://schema.org", "@type": "Service",
         name: "Микроигольчатый RF-лифтинг в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "7000", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "5500", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 

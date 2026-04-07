@@ -20,7 +20,7 @@ const prices = [
   {
     name: "Уход за лицом (массаж + маски)",
     price: "2 300 ₽",
-    priceValue: 2990,
+    priceValue: 2300,
     tiers: [
       { count: 5, total: 13500 },
       { count: 10, total: 25000 },
@@ -70,7 +70,7 @@ const jsonLd = {
   name: "Уход за лицом в Санкт-Петербурге",
   description: "Комплексные уходовые процедуры: массаж лица в сочетании с масками для глубокого восстановления и увлажнения кожи.",
   provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-  offers: { "@type": "Offer", price: "2990", priceCurrency: "RUB" },
+  offers: { "@type": "Offer", price: "2300", priceCurrency: "RUB" },
 };
 
 const UhodZaLicomSpb = () => (

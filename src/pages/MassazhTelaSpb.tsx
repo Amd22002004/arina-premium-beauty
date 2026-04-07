@@ -16,9 +16,9 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "ШВЗ (30 мин)", price: "1 600 ₽", priceValue: 2500, tiers: [{ count: 5, total: 11250 }, { count: 10, total: 21250 }] },
-  { name: "Спина (30 мин)", price: "1 600 ₽", priceValue: 2500, tiers: [{ count: 5, total: 11250 }, { count: 10, total: 21250 }] },
-  { name: "Глубокий массаж (ШВЗ + спина)", price: "2 800 ₽", priceValue: 3500, tiers: [{ count: 5, total: 15750 }, { count: 10, total: 29750 }] },
+  { name: "ШВЗ (30 мин)", price: "1 600 ₽", priceValue: 1600, tiers: [{ count: 5, total: 11250 }, { count: 10, total: 21250 }] },
+  { name: "Спина (30 мин)", price: "1 600 ₽", priceValue: 1600, tiers: [{ count: 5, total: 11250 }, { count: 10, total: 21250 }] },
+  { name: "Глубокий массаж (ШВЗ + спина)", price: "2 800 ₽", priceValue: 2800, tiers: [{ count: 5, total: 15750 }, { count: 10, total: 29750 }] },
 ];
 
 const suitableFor = [
@@ -71,7 +71,7 @@ const MassazhTelaSpb = () => (
         "@context": "https://schema.org", "@type": "Service",
         name: "Массаж тела в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "2500", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "1600", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 
