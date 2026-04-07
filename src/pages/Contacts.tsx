@@ -78,9 +78,9 @@ const Contacts = () => {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "АРТ Косметология — Авторские ритуалы и технологии",
+          name: "АРТ Косметология — Приватная студия аппаратной эстетики",
           telephone: "+79117193949",
-          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1 (ЖК Молодежный)", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
           openingHours: "Mo-Su 08:00-19:00",
         }),
       }} />
