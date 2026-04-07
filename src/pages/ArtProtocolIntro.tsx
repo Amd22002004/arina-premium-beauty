@@ -12,13 +12,13 @@ const fadeUp = {
 };
 
 const entryServices = [
-  { name: "Скульптурный массаж лица", price: "2 490 ₽", discounted: "1 743 ₽", duration: "60 мин", link: "/massazh-lica-spb" },
-  { name: "Миофасциальный массаж лица", price: "2 490 ₽", discounted: "1 743 ₽", duration: "60 мин", link: "/massazh-lica-spb" },
-  { name: "Массаж лица 3D", price: "2 490 ₽", discounted: "1 743 ₽", duration: "60 мин", link: "/massazh-lica-spb" },
-  { name: "Лимфодренажный массаж лица", price: "2 490 ₽", discounted: "1 743 ₽", duration: "60 мин", link: "/massazh-lica-spb" },
+  { name: "Скульптурный массаж лица", price: "1 900 ₽", discounted: "1 743 ₽", duration: "60 мин", link: "/massazh-lica-spb" },
+  { name: "Миофасциальный массаж лица", price: "1 900 ₽", discounted: "1 743 ₽", duration: "60 мин", link: "/massazh-lica-spb" },
+  { name: "Массаж лица 3D", price: "1 900 ₽", discounted: "1 743 ₽", duration: "60 мин", link: "/massazh-lica-spb" },
+  { name: "Лимфодренажный массаж лица", price: "1 900 ₽", discounted: "1 743 ₽", duration: "60 мин", link: "/massazh-lica-spb" },
   { name: "Лимфодренажный массаж тела", price: "3 990 ₽", discounted: "2 793 ₽", duration: "60–90 мин", link: "/massazh-tela-spb" },
   { name: "Прессотерапия", price: "1 990 ₽", discounted: "1 393 ₽", duration: "40 мин", link: "/korrekciya-figury-spb" },
-  { name: "Кавитация", price: "2 490 ₽", discounted: "1 743 ₽", duration: "30–40 мин", link: "/korrekciya-figury-spb" },
+  { name: "Кавитация", price: "1 900 ₽", discounted: "1 743 ₽", duration: "30–40 мин", link: "/korrekciya-figury-spb" },
   { name: "Вакуумный массаж", price: "1 990 ₽", discounted: "1 393 ₽", duration: "40 мин", link: "/korrekciya-figury-spb" },
   { name: "Массаж лица + альгинатная маска", price: "3 490 ₽", discounted: "2 443 ₽", duration: "75 мин", link: "/uhod-za-licom-spb" },
   { name: "Массаж лица + увлажняющая маска", price: "3 490 ₽", discounted: "2 443 ₽", duration: "75 мин", link: "/uhod-za-licom-spb" },

@@ -16,8 +16,8 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Лимфодренажный массаж", price: "3 000 ₽", priceValue: 3000, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 26000 }], desc: "Дренаж, снятие отёков, улучшение лимфотока" },
-  { name: "Висцеральный массаж", price: "3 500 ₽", priceValue: 3500, tiers: [{ count: 3, total: 10000 }, { count: 5, total: 15000 }], desc: "Работа с внутренними органами и восстановление" },
+  { name: "Лимфодренажный массаж", price: "2 400 ₽", priceValue: 2400, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 26000 }], desc: "Дренаж, снятие отёков, улучшение лимфотока" },
+  { name: "Висцеральный массаж", price: "2 800 ₽", priceValue: 2800, tiers: [{ count: 3, total: 10000 }, { count: 5, total: 15000 }], desc: "Работа с внутренними органами и восстановление" },
 ];
 
 const suitableFor = [
@@ -63,14 +63,14 @@ const VosstanovitelnyeMassazhiSpb = () => (
   <Layout>
     <Helmet>
       <title>Восстановительные массажи в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Восстановительные массажи в СПб: лимфодренажный и висцеральный массаж. От 3 000 ₽. Снятие отёков и расслабление. Запись онлайн." />
+      <meta name="description" content="Восстановительные массажи в СПб: лимфодренажный и висцеральный массаж. От 2 400 ₽. Снятие отёков и расслабление. Запись онлайн." />
       <meta name="keywords" content="восстановительный массаж спб, лимфодренажный массаж спб, висцеральный массаж спб, массаж от отёков спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/vosstanovitelnye-massazhi-spb" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org", "@type": "Service",
         name: "Восстановительные массажи в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "3000", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "2400", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 
@@ -84,7 +84,7 @@ const VosstanovitelnyeMassazhiSpb = () => (
           Мягкие техники для снятия отёков, расслабления и восстановления организма
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;000&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 2&nbsp;400&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to={`/booking?service=Лимфодренажный массаж`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>

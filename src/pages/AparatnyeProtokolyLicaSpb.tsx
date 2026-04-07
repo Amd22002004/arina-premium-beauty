@@ -19,7 +19,7 @@ const serviceCards = [
     icon: <Radio size={28} />,
     title: "RF-лифтинг",
     desc: "Радиочастотное воздействие для подтяжки кожи, улучшения овала лица и стимуляции коллагена",
-    price: "от 4 999 ₽",
+    price: "от 3 900 ₽",
     path: "/rf-lifting-spb",
     internal: false,
   },
@@ -27,7 +27,7 @@ const serviceCards = [
     icon: <Waves size={28} />,
     title: "INDIBA",
     desc: "Глубокое прогревание тканей для восстановления тонуса, уплотнения кожи и лифтинга",
-    price: "от 4 999 ₽",
+    price: "от 3 900 ₽",
     path: "/indiba-spb",
     internal: false,
   },
@@ -35,7 +35,7 @@ const serviceCards = [
     icon: <Zap size={28} />,
     title: "Микроигольчатый RF-лифтинг",
     desc: "Сочетание микроигл и радиочастотной энергии для уплотнения кожи, коррекции текстуры и постакне",
-    price: "от 7 000 ₽",
+    price: "от 5 400 ₽",
     path: "/mikroigolchatyj-rf-lifting-spb",
     internal: false,
   },
@@ -43,7 +43,7 @@ const serviceCards = [
     icon: <Snowflake size={28} />,
     title: "Холодная плазма",
     desc: "Деликатная аппаратная методика для восстановления кожи и работы с эстетическими задачами",
-    price: "от 5 000 ₽",
+    price: "от 4 000 ₽",
     path: "/holodnaya-plazma-spb",
     internal: false,
   },
@@ -74,7 +74,7 @@ const AparatnyeProtokolyLicaSpb = () => (
           Подбираем аппаратный протокол индивидуально — в зависимости от состояния кожи, задачи и ожидаемого результата
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 4&nbsp;999&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;900&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/booking?service=Аппаратная процедура лица">

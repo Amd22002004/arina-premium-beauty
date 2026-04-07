@@ -19,8 +19,8 @@ const fadeUp = {
 const prices = [
   {
     name: "Пилинг",
-    price: "2 500 ₽",
-    priceValue: 2500,
+    price: "1 600 ₽",
+    priceValue: 1600,
     tiers: [
       { count: 3, total: 7125 },
       { count: 5, total: 11250 },
@@ -81,14 +81,14 @@ const PilingiSpb = () => (
   <Layout>
     <Helmet>
       <title>Пилинги в Санкт-Петербурге — миндальный, азелаиновый, фруктовый | АРТ Косметология</title>
-      <meta name="description" content="Пилинги в СПб: миндальный, азелаиновый и фруктовый для чистой кожи без акне и пигментации. От 2 500 ₽. Запись онлайн." />
+      <meta name="description" content="Пилинги в СПб: миндальный, азелаиновый и фруктовый для чистой кожи без акне и пигментации. От 1 600 ₽. Запись онлайн." />
       <meta name="keywords" content="пилинг спб, миндальный пилинг спб, азелаиновый пилинг спб, фруктовый пилинг спб, пилинг цена спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/pilingi-spb" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org", "@type": "Service",
         name: "Пилинги в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "2500", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "1600", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 
@@ -104,7 +104,7 @@ const PilingiSpb = () => (
           Подберём тип пилинга под вашу кожу: уберём воспаления, выровняем тон и вернём коже свежий, ухоженный вид
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-2 text-center lg:text-left">от 2&nbsp;500&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-2 text-center lg:text-left">от 1&nbsp;600&nbsp;₽</motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.22 }}
           className="text-muted-foreground text-sm mb-6 text-center lg:text-left">в зависимости от типа кожи и выбранной программы</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
@@ -114,7 +114,7 @@ const PilingiSpb = () => (
         </motion.div>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
           className="text-muted-foreground text-sm flex items-center gap-2 justify-center lg:justify-start">
-          <Sparkles size={14} className="text-primary" /> Консультация косметолога перед процедурой — бесплатно
+          <Sparkles size={14} className="text-primary" /> Персональная консультация перед процедурой — бесплатно
         </motion.p>
       </div>
     </section>

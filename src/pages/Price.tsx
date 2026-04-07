@@ -16,7 +16,7 @@ const Price = () => {
     <Layout>
       <Helmet>
         <title>Прайс-лист — АРТ Косметология | Цены на процедуры в СПб</title>
-        <meta name="description" content="Актуальный прайс-лист АРТ Косметологии: массаж лица, пилинги, BBL, коррекция фигуры, СПА. Цены от 500 ₽. Запись онлайн." />
+        <meta name="description" content="Актуальный прайс-лист АРТ Косметологии: массаж лица, пилинги, BBL, коррекция фигуры, СПА. Цены от 400 ₽. Запись онлайн." />
         <link rel="canonical" href="https://arina-premium-beauty.lovable.app/price" />
       </Helmet>
 

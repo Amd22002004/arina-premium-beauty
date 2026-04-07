@@ -16,9 +16,9 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "RF-лифтинг лица", price: "4 999 ₽" },
-  { name: "RF-лифтинг лицо + шея", price: "6 500 ₽" },
-  { name: "RF-лифтинг лицо + шея + декольте", price: "8 000 ₽" },
+  { name: "RF-лифтинг лица", price: "3 900 ₽" },
+  { name: "RF-лифтинг лицо + шея", price: "6 400 ₽" },
+  { name: "RF-лифтинг лицо + шея + декольте", price: "6 000 ₽" },
 ];
 
 const suitableFor = [
@@ -58,7 +58,7 @@ const RfLiftingSpb = () => (
   <Layout>
     <Helmet>
       <title>RF-лифтинг лица в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="RF-лифтинг лица в СПб: подтяжка кожи, улучшение овала лица и стимуляция коллагена. От 4 999 ₽. Запись онлайн." />
+      <meta name="description" content="RF-лифтинг лица в СПб: подтяжка кожи, улучшение овала лица и стимуляция коллагена. От 3 900 ₽. Запись онлайн." />
       <meta name="keywords" content="rf лифтинг спб, радиочастотный лифтинг спб, rf лифтинг лица спб, подтяжка лица аппаратная спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/rf-lifting-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -79,7 +79,7 @@ const RfLiftingSpb = () => (
           Радиочастотное воздействие для подтяжки кожи, улучшения овала лица и стимуляции коллагена
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 4&nbsp;999&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;900&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/booking?service=RF-лифтинг лица"><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>

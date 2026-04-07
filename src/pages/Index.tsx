@@ -15,12 +15,12 @@ const fadeUp = {
 
 // Popular services to show in the pricing preview block
 const popularServices = [
-  { name: "Массаж лица", price: 2490, course: "5 сеансов — 11 200 ₽", link: "/massazh-lica-spb" },
-  { name: "Уход за лицом", price: 2990, course: "5 сеансов — 13 450 ₽", link: "/uhod-za-licom-spb" },
-  { name: "Аппаратный протокол лица", price: 4999, course: "5 сеансов — 22 495 ₽", link: "/apparatnye-protokoly-lica-spb" },
-  { name: "Коррекция фигуры", price: 3500, course: "5 сеансов — 15 750 ₽", link: "/korrekciya-figury-spb" },
-  { name: "Лимфодренажный массаж", price: 3000, course: "5 сеансов — 13 500 ₽", link: "/massazh-tela-spb" },
-  { name: "Фотоомоложение BBL (лицо)", price: 9990, course: "3 сеанса — 26 970 ₽", link: "/fotoomolozhenie-bbl-spb" },
+  { name: "Массаж лица", price: 1900, course: "5 сеансов — 8 500 ₽", link: "/massazh-lica-spb" },
+  { name: "Уход за лицом", price: 2300, course: "5 сеансов — 10 500 ₽", link: "/uhod-za-licom-spb" },
+  { name: "Аппаратный протокол лица", price: 3900, course: "5 сеансов — 17 500 ₽", link: "/aparatnye-protokoly-lica-spb" },
+  { name: "Коррекция фигуры", price: 2800, course: "5 сеансов — 12 500 ₽", link: "/korrekciya-figury-spb" },
+  { name: "Лимфодренажный массаж", price: 2400, course: "5 сеансов — 10 500 ₽", link: "/massazh-tela-spb" },
+  { name: "Фотоомоложение BBL (лицо)", price: 7500, course: "3 сеанса — 21 000 ₽", link: "/fotoomolozhenie-bbl-spb" },
 ];
 
 const Index = () => (
@@ -32,11 +32,11 @@ const Index = () => (
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BeautySalon",
-          name: "АРТ Косметология — Авторские ритуалы и технологии",
+          name: "АРТ Косметология — Приватная студия аппаратной эстетики",
           url: "https://artbody.pro",
           telephone: "+79117193949",
-          address: { "@type": "PostalAddress", streetAddress: "пр-т Энергетиков, 2к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
-          description: "АРТ Косметология — авторские ритуалы и технологии. Омоложение лица и тела в Санкт-Петербурге.",
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1 (ЖК Молодежный)", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          description: "АРТ Косметология — приватная студия аппаратной эстетики. Один мастер, один клиент. Омоложение лица и тела в Санкт-Петербурге.",
         }),
       }}
     />
@@ -44,19 +44,19 @@ const Index = () => (
     {/* ═══════════ 1. HERO ═══════════ */}
     <section className="relative min-h-[92vh] flex items-center">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Кабинет эстетической косметологии" className="w-full h-full object-cover" width={1920} height={1080} />
+        <img src={heroBg} alt="Приватная студия аппаратной эстетики" className="w-full h-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
       </div>
       <div className="relative container-wide px-4 md:px-8 py-24">
         <motion.div initial="hidden" animate="visible" className="max-w-2xl">
           <motion.p variants={fadeUp} custom={0} className="text-primary-foreground/60 text-sm tracking-[0.2em] uppercase font-medium mb-4">
-            АРТ Косметология | Санкт-Петербург
+            Приватная студия | Санкт-Петербург
           </motion.p>
           <motion.h1 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
-            Омоложение лица и&nbsp;тела по&nbsp;авторским протоколам
+            Приватная студия аппаратной эстетики и&nbsp;омоложения
           </motion.h1>
           <motion.p variants={fadeUp} custom={2} className="text-primary-foreground/80 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
-            Массаж, аппаратные технологии, уход и&nbsp;восстановление. Подбираем решение под вашу задачу.
+            Один мастер, один клиент. Камерная атмосфера, персональный подход и&nbsp;полная конфиденциальность.
           </motion.p>
 
           <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -74,8 +74,8 @@ const Index = () => (
 
           <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-x-6 gap-y-2 text-primary-foreground/60 text-sm">
             <span className="flex items-center gap-1.5"><MapPin size={14} /> Санкт-Петербург</span>
-            <span className="flex items-center gap-1.5"><CalendarCheck size={14} /> Приём по записи</span>
-            <span className="flex items-center gap-1.5"><UserCheck size={14} /> Индивидуальный подбор</span>
+            <span className="flex items-center gap-1.5"><CalendarCheck size={14} /> Приватная запись</span>
+            <span className="flex items-center gap-1.5"><UserCheck size={14} /> Один мастер — один клиент</span>
           </motion.div>
         </motion.div>
       </div>
@@ -86,15 +86,15 @@ const Index = () => (
       <div className="container-wide px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Что вы получаете</h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Комплексный подход к омоложению и восстановлению</p>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Камерный формат, персональный подход и премиальный результат</p>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {[
             { icon: Sparkles, title: "Авторские протоколы", desc: "Подготовка → аппарат → восстановление" },
             { icon: Zap, title: "Аппаратные технологии", desc: "INDIBA, RF, EMS, BBL, CO₂" },
-            { icon: Heart, title: "Массаж и уход", desc: "Лицо, тело, лимфодренаж" },
-            { icon: UserCheck, title: "Индивидуальный подбор", desc: "Протокол под вашу задачу" },
-            { icon: Shield, title: "Безопасность", desc: "Деликатный подход без рисков" },
+            { icon: Heart, title: "Приватная атмосфера", desc: "Один мастер, один клиент" },
+            { icon: UserCheck, title: "Персональный подход", desc: "Протокол под вашу задачу" },
+            { icon: Shield, title: "Конфиденциальность", desc: "Полная приватность визита" },
           ].map((b, i) => (
             <motion.div key={b.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
               className="bg-card p-5 rounded-xl border border-border text-center hover-lift">
@@ -181,8 +181,8 @@ const Index = () => (
           <ServiceBlock
             icon={Shield}
             title="Массаж"
-            subtitle="Лечебный, лимфодренажный, висцеральный."
-            items={["медицинский массаж", "лимфодренаж", "висцеральный массаж", "массаж ШВЗ"]}
+            subtitle="Восстановительный, лимфодренажный, висцеральный."
+            items={["восстановительный массаж", "лимфодренаж", "висцеральный массаж", "массаж ШВЗ"]}
             link="/massazh-tela-spb"
             index={2}
           />
@@ -262,11 +262,11 @@ const Index = () => (
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            "Авторский подход, а не шаблонные процедуры",
-            "Чёткий прайс без путаницы",
-            "Удобная запись через сайт, VK и Telegram",
-            "Акцент на доверии, аккуратности и эстетике",
-            "Индивидуальный подбор под вашу задачу",
+            "Приватная студия — один мастер, один клиент",
+            "Полная конфиденциальность каждого визита",
+            "Авторские протоколы, а не шаблонные процедуры",
+            "Камерная атмосфера без потока и очередей",
+            "Персональный подбор под вашу задачу",
           ].map((t, i) => (
             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
               className="flex items-start gap-3 p-5 bg-card rounded-lg border border-border">

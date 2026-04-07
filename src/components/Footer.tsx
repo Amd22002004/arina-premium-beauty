@@ -8,9 +8,9 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
           <h3 className="font-heading text-2xl mb-1">АРТ Косметология</h3>
-          <p className="text-xs opacity-50 mb-3 tracking-widest uppercase">Авторские ритуалы и технологии</p>
+          <p className="text-xs opacity-50 mb-3 tracking-widest uppercase">Приватная студия аппаратной эстетики</p>
           <p className="text-sm opacity-70 font-body leading-relaxed">
-            Эстетическая косметология и&nbsp;омоложение в&nbsp;Санкт&#8209;Петербурге. Авторские протоколы, аппаратные процедуры, массаж.
+            Приватная студия эстетики в&nbsp;Санкт&#8209;Петербурге. Один мастер, один клиент, полная конфиденциальность. Авторские протоколы, аппаратные процедуры, массаж.
           </p>
         </div>
 
@@ -32,8 +32,9 @@ const Footer = () => (
               <Phone size={14} /> +7 (911) 719-39-49
             </a>
             <span className="flex items-center gap-2">
-              <MapPin size={14} /> пр-т Энергетиков, 2к1
+              <MapPin size={14} /> пр-т Обуховской Обороны, 110к1 (ЖК «Молодежный»)
             </span>
+            <span className="text-xs opacity-50 mt-1">Точный номер квартиры направляется при подтверждении записи</span>
           </div>
           <div className="flex gap-3 mt-4">
             <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity"><VKIcon size={20} /></a>

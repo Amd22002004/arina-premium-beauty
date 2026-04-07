@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { TelegramIcon, VKIcon } from "@/components/SocialIcons";
 
-const CTASection = ({ title = "Готовы начать путь к обновлению?", subtitle = "Запишитесь на консультацию — подберём программу индивидуально" }: { title?: string; subtitle?: string }) => (
+const CTASection = ({ title = "Готовы к персональной встрече?", subtitle = "Запишитесь на приватную консультацию — подберём программу индивидуально" }: { title?: string; subtitle?: string }) => (
   <section className="py-20 md:py-28 bg-cream">
     <div className="container-narrow px-4 md:px-8 text-center">
       <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-5">{title}</h2>

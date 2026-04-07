@@ -24,8 +24,8 @@ const fadeUp = {
 const prices = [
   {
     name: "EMS / INDIBA / БМС",
-    price: "3 500 ₽",
-    priceValue: 3500,
+    price: "2 800 ₽",
+    priceValue: 2800,
     tiers: [
       { count: 5, total: 16000 },
       { count: 10, total: 30000 },
@@ -76,14 +76,14 @@ const ApparatnyeProtokolyTelaSpb = () => (
   <Layout>
     <Helmet>
       <title>Аппаратные протоколы тела в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Аппаратные протоколы тела в СПб: EMS, INDIBA, БМС для коррекции фигуры и тонуса. От 3 500 ₽. Запись онлайн." />
+      <meta name="description" content="Аппаратные протоколы тела в СПб: EMS, INDIBA, БМС для коррекции фигуры и тонуса. От 2 800 ₽. Запись онлайн." />
       <meta name="keywords" content="аппаратные процедуры для тела спб, ems body sculpt спб, индиба тело спб, бмс мышцы спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/apparatnye-protokoly-tela-spb" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org", "@type": "Service",
         name: "Аппаратные протоколы тела в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "3500", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "2800", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 
@@ -100,7 +100,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
             <p className="text-white/85 text-base sm:text-lg md:text-xl mb-2">
               EMS / INDIBA / БМС — моделирование фигуры без операций
             </p>
-            <p className="text-white font-heading text-2xl md:text-3xl mb-6">от 3&nbsp;500&nbsp;₽</p>
+            <p className="text-white font-heading text-2xl md:text-3xl mb-6">от 2&nbsp;800&nbsp;₽</p>
             <Link to="/booking?service=EMS / INDIBA / БМС">
               <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
                 Записаться онлайн <ChevronRight size={16} className="ml-1" />
@@ -140,7 +140,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
             ))}
           </div>
           <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <img src={consultationImg} alt="Консультация косметолога перед процедурой INDIBA" className="w-full aspect-[4/3] object-cover object-top rounded-2xl shadow-lg" />
+            <img src={consultationImg} alt="Персональная консультация перед процедурой INDIBA" className="w-full aspect-[4/3] object-cover object-top rounded-2xl shadow-lg" />
           </motion.div>
         </div>
       </div>

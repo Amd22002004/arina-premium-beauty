@@ -204,9 +204,9 @@ const Booking = () => {
       <section className="section-padding">
         <div className="container-narrow max-w-md">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <h1 className="font-heading text-4xl md:text-5xl text-center mb-4">Онлайн-запись</h1>
+            <h1 className="font-heading text-4xl md:text-5xl text-center mb-4">Приватная запись</h1>
             <p className="text-muted-foreground text-center mb-10">
-              Заполните форму, и мы свяжемся с вами в течение 10 минут
+              Заполните форму — мы свяжемся лично для подтверждения и направим точный адрес
             </p>
 
             {sent ? (

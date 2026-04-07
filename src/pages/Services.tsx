@@ -43,7 +43,7 @@ const categories: { label: string; key: string; groups: ServiceGroup[] }[] = [
     label: "Массажи",
     key: "massage",
     groups: [
-      { title: "Медицинский массаж", desc: "ШВЗ, спина, глубокий массаж — работа с мышечным напряжением и зажимами", items: ["ШВЗ (30 мин)", "Спина (30 мин)", "Глубокий массаж (ШВЗ + спина)"], link: "/massazh-tela-spb" },
+      { title: "Восстановительный массаж", desc: "ШВЗ, спина, глубокий массаж — работа с мышечным напряжением и зажимами", items: ["ШВЗ (30 мин)", "Спина (30 мин)", "Глубокий массаж (ШВЗ + спина)"], link: "/massazh-tela-spb" },
       { title: "Лимфодренажный и висцеральный", desc: "Дренаж, снятие отёков, восстановление внутренних процессов", items: ["Лимфодренажный массаж", "Висцеральный массаж"], link: "/vosstanovitelnye-massazhi-spb" },
     ],
   },
@@ -69,7 +69,7 @@ const Services = () => {
         <div className="container-wide px-4 md:px-8">
           <h1 className="font-heading text-4xl md:text-5xl text-center mb-4">Услуги</h1>
           <p className="text-muted-foreground text-center text-lg mb-10 max-w-2xl mx-auto">
-            Полный спектр процедур для красоты и здоровья лица и тела. Каждая услуга — часть комплексного авторского АРТ-протокола.
+            Приватная студия аппаратной эстетики. Каждая услуга — часть авторского АРТ-протокола в камерном формате.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 mb-12">

@@ -80,14 +80,14 @@ const KorrekciyaFigurySpb = () => (
   <Layout>
     <Helmet>
       <title>Коррекция фигуры в Санкт-Петербурге — аппаратные процедуры | АРТ Косметология</title>
-      <meta name="description" content="Аппаратная коррекция фигуры в СПб: горячий вакуум, вакуумный массаж, RF-лифтинг тела. Уменьшение объёмов, антицеллюлит, подтяжка кожи. От 3 500 ₽." />
+      <meta name="description" content="Аппаратная коррекция фигуры в СПб: горячий вакуум, вакуумный массаж, RF-лифтинг тела. Уменьшение объёмов, антицеллюлит, подтяжка кожи. От 2 800 ₽." />
       <meta name="keywords" content="коррекция фигуры спб, горячий вакуум спб, вакуумный массаж спб, rf лифтинг тела спб, антицеллюлитные процедуры спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/korrekciya-figury-spb" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org", "@type": "Service",
         name: "Коррекция фигуры в Санкт-Петербурге",
         provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "3500", priceCurrency: "RUB" },
+        offers: { "@type": "Offer", price: "2800", priceCurrency: "RUB" },
       })}</script>
     </Helmet>
 
@@ -103,7 +103,7 @@ const KorrekciyaFigurySpb = () => (
           Три аппаратные методики для разных задач: жиросжигание, антицеллюлит, подтяжка кожи
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;500&nbsp;₽ за процедуру</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 2&nbsp;800&nbsp;₽ за процедуру</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/booking?service=Коррекция фигуры">

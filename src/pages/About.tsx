@@ -27,10 +27,10 @@ const About = () => (
           <motion.div initial="hidden" animate="visible" custom={1} variants={fadeUp}>
             <h1 className="font-heading text-4xl md:text-5xl mb-6">Ариана Ханова</h1>
             <p className="text-lg text-muted-foreground mb-2 font-medium">
-              Специалист по массажу, аппаратной косметологии и коррекции фигуры
+              Мастер приватной студии аппаратной эстетики и коррекции фигуры
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Работает с лицом и телом: омоложение, восстановление, дренаж, тонус, эстетика.
+              Работает с лицом и телом в камерном формате: омоложение, восстановление, дренаж, тонус, эстетика. Один мастер — один клиент.
             </p>
 
             <h3 className="font-heading text-xl mb-3">Комплексный подход</h3>
@@ -48,7 +48,7 @@ const About = () => (
 
             <div className="bg-gold-light/50 rounded-lg p-5 border border-primary/20">
               <p className="text-foreground font-medium text-sm leading-relaxed">
-                📌 Акцент: не разовые процедуры, а системный результат через авторские протоколы.
+                📌 Приватная студия: не потоковый приём, а персональная работа с каждым клиентом. Полная конфиденциальность.
               </p>
             </div>
           </motion.div>
