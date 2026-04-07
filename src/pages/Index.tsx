@@ -324,9 +324,9 @@ const ServiceBlock = ({ icon: Icon, title, subtitle, items, link, index }: {
   icon: React.ElementType; title: string; subtitle: string; items: string[]; link: string; index: number;
 }) => (
   <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={index} variants={fadeUp}
-    className="bg-card rounded-xl p-7 border border-border hover-lift">
+    className="bg-card/90 backdrop-blur-sm rounded-xl p-7 border border-primary/10 hover-lift shadow-floral">
     <div className="flex items-center gap-3 mb-4">
-      <div className="w-10 h-10 rounded-full bg-gold-light flex items-center justify-center shrink-0">
+      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center shrink-0">
         <Icon size={20} className="text-primary" />
       </div>
       <h3 className="font-heading text-xl">{title}</h3>
@@ -334,7 +334,7 @@ const ServiceBlock = ({ icon: Icon, title, subtitle, items, link, index }: {
     <p className="text-muted-foreground leading-relaxed mb-4">{subtitle}</p>
     <div className="flex flex-wrap gap-2 mb-5">
       {items.map((item) => (
-        <span key={item} className="inline-flex items-center gap-1.5 bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm">
+        <span key={item} className="inline-flex items-center gap-1.5 bg-rose-light/50 text-foreground px-3 py-1.5 rounded-full text-sm border border-primary/5">
           <Check size={13} className="text-primary" /> {item}
         </span>
       ))}
