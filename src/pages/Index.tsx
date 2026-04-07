@@ -15,12 +15,12 @@ const fadeUp = {
 
 // Popular services to show in the pricing preview block
 const popularServices = [
-  { name: "Массаж лица", price: 1900, course: "5 сеансов — 8 400 ₽", link: "/massazh-lica-spb" },
-  { name: "Уход за лицом", price: 2300, course: "5 сеансов — 13 450 ₽", link: "/uhod-za-licom-spb" },
-  { name: "Аппаратный протокол лица", price: 3900, course: "5 сеансов — 22 495 ₽", link: "/apparatnye-protokoly-lica-spb" },
-  { name: "Коррекция фигуры", price: 2800, course: "5 сеансов — 11 600 ₽", link: "/korrekciya-figury-spb" },
-  { name: "Лимфодренажный массаж", price: 2400, course: "5 сеансов — 10 400 ₽", link: "/massazh-tela-spb" },
-  { name: "Фотоомоложение BBL (лицо)", price: 7500, course: "3 сеанса — 26 970 ₽", link: "/fotoomolozhenie-bbl-spb" },
+  { name: "Массаж лица", price: 1900, course: "5 сеансов — 8 500 ₽", link: "/massazh-lica-spb" },
+  { name: "Уход за лицом", price: 2300, course: "5 сеансов — 10 500 ₽", link: "/uhod-za-licom-spb" },
+  { name: "Аппаратный протокол лица", price: 3900, course: "5 сеансов — 17 500 ₽", link: "/aparatnye-protokoly-lica-spb" },
+  { name: "Коррекция фигуры", price: 2800, course: "5 сеансов — 12 500 ₽", link: "/korrekciya-figury-spb" },
+  { name: "Лимфодренажный массаж", price: 2400, course: "5 сеансов — 10 500 ₽", link: "/massazh-tela-spb" },
+  { name: "Фотоомоложение BBL (лицо)", price: 7500, course: "3 сеанса — 21 000 ₽", link: "/fotoomolozhenie-bbl-spb" },
 ];
 
 const Index = () => (
