@@ -23,6 +23,7 @@ const About = () => (
       <ScatteredButterflies count={3} />
       <SectionFloralAccent position="both" />
       <div className="container-wide relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" animate="visible" custom={0} variants={fadeUp}>
             <img src={specialistPhoto} alt="Ариана Ханова — специалист АРТ Косметология" className="rounded-lg shadow-lg w-full max-w-lg mx-auto" width={800} height={1000} />
           </motion.div>
