@@ -7,6 +7,7 @@ import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
 import heroBg from "@/assets/hero-bg.jpg";
 import ConsultationCapture from "@/components/ConsultationCapture";
 import { services, formatPrice } from "@/data/services";
+import { FloatingPetals, FloralCorner, SectionFloralAccent, FloralDivider, Butterfly } from "@/components/FloralDecorations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -42,17 +43,19 @@ const Index = () => (
     />
 
     {/* ═══════════ 1. HERO ═══════════ */}
-    <section className="relative min-h-[92vh] flex items-center">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={heroBg} alt="Приватная студия аппаратной эстетики" className="w-full h-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-rose/5" />
       </div>
+      <FloatingPetals />
       <div className="relative container-wide px-4 md:px-8 py-24">
         <motion.div initial="hidden" animate="visible" className="max-w-2xl">
-          <motion.p variants={fadeUp} custom={0} className="text-primary-foreground/60 text-sm tracking-[0.2em] uppercase font-medium mb-4">
-            Приватная студия | Санкт-Петербург
-          </motion.p>
-          <motion.h1 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
+          <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-primary-foreground px-5 py-2 rounded-full text-sm font-medium mb-6 border border-primary-foreground/10">
+            <Sparkles size={14} /> Приватная студия | Санкт-Петербург
+          </motion.div>
+          <motion.h1 variants={fadeUp} custom={1} className="font-heading text-5xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight mb-6">
             Приватная студия аппаратной эстетики и&nbsp;омоложения
           </motion.h1>
           <motion.p variants={fadeUp} custom={2} className="text-primary-foreground/80 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
@@ -61,8 +64,8 @@ const Index = () => (
 
           <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-4 mb-10">
             <Link to="/booking">
-              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 text-base shadow-xl hover:shadow-2xl transition-shadow">
-                Записаться на консультацию
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 text-base shadow-xl hover:shadow-2xl transition-shadow text-lg">
+                ✿ Записаться на консультацию
               </Button>
             </Link>
             <a href="#prices">
@@ -79,11 +82,15 @@ const Index = () => (
           </motion.div>
         </motion.div>
       </div>
+      {/* Decorative butterfly */}
+      <Butterfly className="absolute bottom-20 right-[10%] w-20 h-16 hidden lg:block opacity-40" />
     </section>
 
     {/* ═══════════ 2. BENEFITS ═══════════ */}
-    <section className="py-10 md:py-14 bg-cream">
-      <div className="container-wide px-4 md:px-8">
+    <section className="relative py-10 md:py-14 bg-floral-cream overflow-hidden">
+      <SectionFloralAccent position="both" />
+      <div className="container-wide px-4 md:px-8 relative">
+        <FloralDivider className="mb-6" />
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Что вы получаете</h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">Камерный формат, персональный подход и премиальный результат</p>
@@ -97,8 +104,8 @@ const Index = () => (
             { icon: Shield, title: "Конфиденциальность", desc: "Полная приватность визита" },
           ].map((b, i) => (
             <motion.div key={b.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card p-5 rounded-xl border border-border text-center hover-lift">
-              <div className="w-12 h-12 rounded-full bg-gold-light flex items-center justify-center mx-auto mb-3">
+              className="bg-card/80 backdrop-blur-sm p-5 rounded-xl border border-primary/10 text-center hover-lift shadow-floral">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center mx-auto mb-3">
                 <b.icon size={20} className="text-primary" />
               </div>
               <h3 className="font-heading text-base mb-1">{b.title}</h3>
@@ -110,19 +117,20 @@ const Index = () => (
     </section>
 
     {/* ═══════════ 3. POPULAR PRICES ═══════════ */}
-    <section id="prices" className="py-10 md:py-14 scroll-mt-20">
-      <div className="container-wide px-4 md:px-8">
+    <section id="prices" className="relative py-10 md:py-14 bg-glamour scroll-mt-20 overflow-hidden">
+      <div className="container-wide px-4 md:px-8 relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Популярные процедуры</h2>
+          <FloralDivider className="mb-2" />
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">Цены на разовую процедуру и курсы</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {popularServices.map((s, i) => (
             <motion.div key={s.name} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card rounded-xl border border-border p-6 flex flex-col justify-between hover-lift">
+              className="bg-card/90 backdrop-blur-sm rounded-xl border border-primary/10 p-6 flex flex-col justify-between hover-lift shadow-floral">
               <div>
                 <h3 className="font-heading text-lg mb-2">{s.name}</h3>
-                <p className="font-heading text-2xl text-primary mb-1">{formatPrice(s.price)}</p>
+                <p className="font-heading text-2xl text-glamour mb-1">{formatPrice(s.price)}</p>
                 <p className="text-sm text-muted-foreground mb-4">{s.course}</p>
               </div>
               <Link to={s.link}>
@@ -141,7 +149,7 @@ const Index = () => (
           </Link>
           <Link to="/booking">
             <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-              Записаться
+              ✿ Записаться
             </Button>
           </Link>
         </div>
@@ -151,13 +159,15 @@ const Index = () => (
     <ConsultationCapture />
 
     {/* ═══════════ 4. SERVICES BLOCKS ═══════════ */}
-    <section className="py-8 md:py-10 bg-cream">
-      <div className="container-wide px-4 md:px-8">
+    <section className="relative py-8 md:py-10 bg-floral-cream overflow-hidden">
+      <SectionFloralAccent position="right" />
+      <div className="container-wide px-4 md:px-8 relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
-            <Zap size={16} /> Направления
+            <Sparkles size={16} /> Направления
           </div>
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Услуги и протоколы</h2>
+          <FloralDivider className="mb-2" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Кому подходит, какой эффект, сколько нужно сеансов</p>
         </motion.div>
 
@@ -207,8 +217,8 @@ const Index = () => (
     </section>
 
     {/* ═══════════ 5. OFFERS ═══════════ */}
-    <section className="py-10 md:py-12">
-      <div className="container-wide px-4 md:px-8">
+    <section className="relative py-10 md:py-12 bg-glamour overflow-hidden">
+      <div className="container-wide px-4 md:px-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
@@ -237,8 +247,8 @@ const Index = () => (
             },
           ].map((o, i) => (
             <motion.div key={o.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}>
-              <Link to={o.link} className="block bg-card p-7 rounded-xl border border-border hover-lift text-center h-full">
-                <div className="w-12 h-12 rounded-full bg-gold-light flex items-center justify-center mx-auto mb-4">
+              <Link to={o.link} className="block bg-card/90 backdrop-blur-sm p-7 rounded-xl border border-primary/10 hover-lift text-center h-full shadow-floral">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center mx-auto mb-4">
                   <o.icon size={22} className="text-primary" />
                 </div>
                 <h3 className="font-heading text-lg mb-2">{o.title}</h3>
@@ -255,10 +265,12 @@ const Index = () => (
     </section>
 
     {/* ═══════════ 6. SOCIAL PROOF / WHY US ═══════════ */}
-    <section className="py-10 md:py-12 bg-cream">
-      <div className="container-narrow px-4 md:px-8">
+    <section className="relative py-10 md:py-12 bg-floral-cream overflow-hidden">
+      <SectionFloralAccent position="left" />
+      <div className="container-narrow px-4 md:px-8 relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Почему выбирают нас</h2>
+          <FloralDivider />
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
@@ -269,7 +281,7 @@ const Index = () => (
             "Персональный подбор под вашу задачу",
           ].map((t, i) => (
             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="flex items-start gap-3 p-5 bg-card rounded-lg border border-border">
+              className="flex items-start gap-3 p-5 bg-card/80 backdrop-blur-sm rounded-lg border border-primary/10 shadow-floral">
               <Check size={18} className="text-primary mt-0.5 shrink-0" />
               <span className="text-foreground leading-relaxed">{t}</span>
             </motion.div>
@@ -312,9 +324,9 @@ const ServiceBlock = ({ icon: Icon, title, subtitle, items, link, index }: {
   icon: React.ElementType; title: string; subtitle: string; items: string[]; link: string; index: number;
 }) => (
   <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={index} variants={fadeUp}
-    className="bg-card rounded-xl p-7 border border-border hover-lift">
+    className="bg-card/90 backdrop-blur-sm rounded-xl p-7 border border-primary/10 hover-lift shadow-floral">
     <div className="flex items-center gap-3 mb-4">
-      <div className="w-10 h-10 rounded-full bg-gold-light flex items-center justify-center shrink-0">
+      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center shrink-0">
         <Icon size={20} className="text-primary" />
       </div>
       <h3 className="font-heading text-xl">{title}</h3>
@@ -322,7 +334,7 @@ const ServiceBlock = ({ icon: Icon, title, subtitle, items, link, index }: {
     <p className="text-muted-foreground leading-relaxed mb-4">{subtitle}</p>
     <div className="flex flex-wrap gap-2 mb-5">
       {items.map((item) => (
-        <span key={item} className="inline-flex items-center gap-1.5 bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm">
+        <span key={item} className="inline-flex items-center gap-1.5 bg-rose-light/50 text-foreground px-3 py-1.5 rounded-full text-sm border border-primary/5">
           <Check size={13} className="text-primary" /> {item}
         </span>
       ))}
