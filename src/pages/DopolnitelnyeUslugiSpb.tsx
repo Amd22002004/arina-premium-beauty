@@ -220,10 +220,12 @@ const DopolnitelnyeUslugiSpb = () => (
       </div>
     </section>
 
-    <ConsultationCapture />
-    <NextStep currentPath="/dopolnitelnye-uslugi-spb" />
-    <RelatedServices currentPath="/dopolnitelnye-uslugi-spb" />
-    <CTASection />
+    <div style={{ '--primary': '35 55% 48%', '--primary-foreground': '40 30% 98%', '--gold': '35 55% 48%', '--gold-glow': '40 50% 55%', '--rose': '35 45% 58%', '--rose-light': '40 40% 93%', '--berry': '30 50% 38%', '--lavender': '35 40% 60%', '--lavender-light': '40 30% 94%', '--violet': '35 50% 50%', '--ring': '35 55% 48%' } as React.CSSProperties}>
+      <ConsultationCapture />
+      <NextStep currentPath="/dopolnitelnye-uslugi-spb" />
+      <RelatedServices currentPath="/dopolnitelnye-uslugi-spb" />
+      <CTASection />
+    </div>
   </Layout>
 );
 
