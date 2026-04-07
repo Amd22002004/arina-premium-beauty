@@ -127,6 +127,7 @@ const Index = () => (
 
     {/* ═══════════ 3. POPULAR PRICES ═══════════ */}
     <section id="prices" className="relative py-10 md:py-14 bg-glamour scroll-mt-20 overflow-hidden">
+      <ScatteredButterflies count={2} />
       <div className="container-wide px-4 md:px-8 relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Популярные процедуры</h2>
