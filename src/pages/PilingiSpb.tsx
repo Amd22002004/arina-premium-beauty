@@ -114,7 +114,7 @@ const PilingiSpb = () => (
         </motion.div>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
           className="text-muted-foreground text-sm flex items-center gap-2 justify-center lg:justify-start">
-          <Sparkles size={14} className="text-primary" /> Консультация косметолога перед процедурой — бесплатно
+          <Sparkles size={14} className="text-primary" /> Персональная консультация перед процедурой — бесплатно
         </motion.p>
       </div>
     </section>

@@ -74,9 +74,9 @@ const faq = [
 const UdarnoVolnovayaTerapiyaSpb = () => (
   <Layout>
     <Helmet>
-      <title>Ударно-волновая терапия (УВТ) в Санкт-Петербурге — лечение боли | АРТ Косметология</title>
-      <meta name="description" content="Ударно-волновая терапия (УВТ) в СПб: лечение боли в суставах, пяточной шпоры, кальцификатов. От 2 800 ₽ за зону. Курсы со скидкой. Запись онлайн." />
-      <meta name="keywords" content="увт спб, ударно-волновая терапия спб, увт при болях, увт пяточная шпора спб, лечение боли суставов спб" />
+      <title>Ударно-волновая терапия (УВТ) в Санкт-Петербурге — работа с болью | АРТ Косметология</title>
+      <meta name="description" content="Ударно-волновая терапия (УВТ) в СПб: работа с болью в суставах, пяточной шпоры, кальцификатов. От 2 800 ₽ за зону. Курсы со скидкой. Запись онлайн." />
+      <meta name="keywords" content="увт спб, ударно-волновая терапия спб, увт при болях, увт пяточная шпора спб, работа с болью суставов спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/uvt-spb" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org", "@type": "Service",

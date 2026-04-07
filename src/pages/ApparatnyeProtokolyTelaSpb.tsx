@@ -140,7 +140,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
             ))}
           </div>
           <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <img src={consultationImg} alt="Консультация косметолога перед процедурой INDIBA" className="w-full aspect-[4/3] object-cover object-top rounded-2xl shadow-lg" />
+            <img src={consultationImg} alt="Персональная консультация перед процедурой INDIBA" className="w-full aspect-[4/3] object-cover object-top rounded-2xl shadow-lg" />
           </motion.div>
         </div>
       </div>

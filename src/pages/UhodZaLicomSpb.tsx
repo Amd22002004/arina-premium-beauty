@@ -115,7 +115,7 @@ const UhodZaLicomSpb = () => (
             </motion.div>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
               className="text-muted-foreground text-sm mt-4">
-              ✦ Консультация косметолога перед процедурой — бесплатно
+              ✦ Персональная консультация перед процедурой — бесплатно
             </motion.p>
           </div>
 
