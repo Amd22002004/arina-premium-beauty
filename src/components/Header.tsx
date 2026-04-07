@@ -100,7 +100,7 @@ const Header = () => {
         <Link to="/" className="font-heading text-xl md:text-2xl font-semibold tracking-wide text-foreground">
           АРТ Косметология
           <span className="block text-[10px] md:text-xs font-body font-normal tracking-[0.15em] uppercase text-muted-foreground">
-            Авторские ритуалы и технологии
+            Приватная студия аппаратной эстетики
           </span>
         </Link>
 
