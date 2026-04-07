@@ -32,7 +32,6 @@ const suitableFor = [
 const contraindications = [
   "Острые воспалительные процессы",
   "Онкологические заболевания",
-  "Беременность и лактация (для ряда процедур)",
   "Индивидуальные противопоказания определяются на консультации",
 ];
 
@@ -83,7 +82,19 @@ const DopolnitelnyeUslugiSpb = () => (
       </div>
     </section>
 
-    <div id="prices"><ServicePricingTiers title="Цены" prices={prices} /></div>
+    <div id="prices" className="delikate-gold">
+      <style>{`
+        .delikate-gold .font-heading.text-3xl { color: hsl(35 50% 35%) !important; }
+        .delikate-gold .text-primary, .delikate-gold .text-glamour { color: hsl(35 60% 45%) !important; -webkit-text-fill-color: hsl(35 60% 45%) !important; background: none !important; }
+        .delikate-gold .border-primary { border-color: hsl(35 40% 70%) !important; }
+        .delikate-gold .bg-primary\\/10 { background-color: hsl(40 50% 94%) !important; }
+        .delikate-gold .bg-primary { background-color: hsl(35 55% 48%) !important; }
+        .delikate-gold .animate-border-glow { animation: none !important; box-shadow: 0 0 8px 2px hsl(35 50% 60% / 0.25) !important; }
+        .delikate-gold button[class*="border-primary"] { border-color: hsl(35 40% 65%) !important; color: hsl(35 50% 40%) !important; }
+        .delikate-gold .bg-primary.text-primary-foreground { background-color: hsl(35 55% 48%) !important; color: white !important; }
+      `}</style>
+      <ServicePricingTiers title="Цены" prices={prices} />
+    </div>
 
     <section className="py-8 md:py-10 bg-card">
       <div className="container-wide px-4 md:px-8">
