@@ -50,7 +50,7 @@ const DopolnitelnyeUslugiSpb = () => (
       })}</script>
     </Helmet>
 
-    <section className="py-14 md:py-20 bg-cream">
+    <section className="py-14 md:py-20" style={{ background: 'linear-gradient(135deg, hsl(40 50% 96%), hsl(35 60% 92%), hsl(45 40% 95%))' }}>
       <div className="container-wide px-4 md:px-8 text-center">
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
           Деликатные услуги
@@ -60,11 +60,11 @@ const DopolnitelnyeUslugiSpb = () => (
           Процедуры, которые подбираются индивидуально. Конфиденциальность и профессиональный подход
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 400&nbsp;₽</motion.p>
+          className="font-heading text-2xl md:text-3xl mb-8" style={{ color: 'hsl(35 60% 45%)' }}>от 400&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to={`/booking?service=Удаление папиллом`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
-          <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button></a>
+          <Link to={`/booking?service=Удаление папиллом`}><Button size="lg" className="border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow text-white" style={{ background: 'linear-gradient(135deg, hsl(35 60% 45%), hsl(40 55% 55%), hsl(30 50% 40%))' }}>Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
+          <a href="#prices"><Button size="lg" variant="outline" className="px-8" style={{ borderColor: 'hsl(35 50% 50%)', color: 'hsl(35 50% 40%)' }}>Смотреть цены</Button></a>
         </motion.div>
       </div>
     </section>
