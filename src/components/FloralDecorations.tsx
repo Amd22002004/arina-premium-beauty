@@ -50,7 +50,7 @@ export const AnimatedButterfly = ({
       <motion.path
         d="M40 30C25 10 5 5 5 20C5 32 20 38 40 30Z"
         fill={color1}
-        opacity="0.2"
+        opacity="0.45"
         animate={{ d: [
           "M40 30C25 10 5 5 5 20C5 32 20 38 40 30Z",
           "M40 30C28 14 10 8 8 22C8 33 22 37 40 30Z",
@@ -62,7 +62,7 @@ export const AnimatedButterfly = ({
       <motion.path
         d="M40 30C55 10 75 5 75 20C75 32 60 38 40 30Z"
         fill={color2}
-        opacity="0.2"
+        opacity="0.45"
         animate={{ d: [
           "M40 30C55 10 75 5 75 20C75 32 60 38 40 30Z",
           "M40 30C52 14 70 8 72 22C72 33 58 37 40 30Z",
@@ -74,7 +74,7 @@ export const AnimatedButterfly = ({
       <motion.path
         d="M40 30C30 40 15 50 20 55C28 55 35 45 40 30Z"
         fill={color1}
-        opacity="0.12"
+        opacity="0.3"
         animate={{ d: [
           "M40 30C30 40 15 50 20 55C28 55 35 45 40 30Z",
           "M40 30C32 42 18 48 22 54C29 54 36 44 40 30Z",
@@ -86,7 +86,7 @@ export const AnimatedButterfly = ({
       <motion.path
         d="M40 30C50 40 65 50 60 55C52 55 45 45 40 30Z"
         fill={color2}
-        opacity="0.12"
+        opacity="0.3"
         animate={{ d: [
           "M40 30C50 40 65 50 60 55C52 55 45 45 40 30Z",
           "M40 30C48 42 62 48 58 54C51 54 44 44 40 30Z",
