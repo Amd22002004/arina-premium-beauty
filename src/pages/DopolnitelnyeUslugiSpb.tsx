@@ -99,7 +99,7 @@ const DopolnitelnyeUslugiSpb = () => (
     </section>
 
     {/* Мужской блок DORF */}
-    <section className="py-12 md:py-16 bg-muted/40">
+    <section className="py-12 md:py-16 theme-masculine bg-[hsl(0_0%_8%)] text-[hsl(0_0%_95%)]">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-2xl md:text-3xl text-center text-foreground mb-10">
           Аппаратное восстановление мужского здоровья
