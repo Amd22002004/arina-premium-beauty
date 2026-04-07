@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import specialistPhoto from "@/assets/specialist-arina.png";
 import certificateImg from "@/assets/certificate.jpg";
+import { ScatteredButterflies, SectionFloralAccent, FloralDivider } from "@/components/FloralDecorations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -18,8 +19,10 @@ const approach = [
 
 const About = () => (
   <Layout>
-    <section className="section-padding">
-      <div className="container-wide">
+    <section className="relative section-padding bg-floral-cream overflow-hidden">
+      <ScatteredButterflies count={3} />
+      <SectionFloralAccent position="both" />
+      <div className="container-wide relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" animate="visible" custom={0} variants={fadeUp}>
             <img src={specialistPhoto} alt="Ариана Ханова — специалист АРТ Косметология" className="rounded-lg shadow-lg w-full max-w-lg mx-auto" width={800} height={1000} />

@@ -4,10 +4,9 @@ import { Shield, Heart, Sparkles, Users, ChevronRight, Star, Zap, MapPin, Calend
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
-import heroBg from "@/assets/hero-bg.jpg";
 import ConsultationCapture from "@/components/ConsultationCapture";
 import { services, formatPrice } from "@/data/services";
-import { FloatingPetals, FloralCorner, SectionFloralAccent, FloralDivider, Butterfly } from "@/components/FloralDecorations";
+import { FloatingPetals, FloralCorner, SectionFloralAccent, FloralDivider, AnimatedButterfly, ScatteredButterflies } from "@/components/FloralDecorations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -45,9 +44,18 @@ const Index = () => (
     {/* ═══════════ 1. HERO ═══════════ */}
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Приватная студия аппаратной эстетики" className="w-full h-full object-cover" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-rose/5" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          poster=""
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-violet/5" />
       </div>
       <FloatingPetals />
       <div className="relative container-wide px-4 md:px-8 py-24">
@@ -56,7 +64,7 @@ const Index = () => (
             <Sparkles size={14} /> Приватная студия | Санкт-Петербург
           </motion.div>
           <motion.h1 variants={fadeUp} custom={1} className="font-heading text-5xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight mb-6">
-            Приватная студия аппаратной эстетики и&nbsp;омоложения
+            Аппаратная эстетика и&nbsp;искусство омоложения
           </motion.h1>
           <motion.p variants={fadeUp} custom={2} className="text-primary-foreground/80 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
             Один мастер, один клиент. Камерная атмосфера, персональный подход и&nbsp;полная конфиденциальность.
@@ -82,8 +90,9 @@ const Index = () => (
           </motion.div>
         </motion.div>
       </div>
-      {/* Decorative butterfly */}
-      <Butterfly className="absolute bottom-20 right-[10%] w-20 h-16 hidden lg:block opacity-40" />
+      {/* Decorative animated butterflies */}
+      <AnimatedButterfly className="absolute bottom-20 right-[10%] hidden lg:block" size={56} delay={0.5} />
+      <AnimatedButterfly className="absolute top-32 right-[18%] hidden lg:block" size={38} delay={2} />
     </section>
 
     {/* ═══════════ 2. BENEFITS ═══════════ */}
@@ -118,6 +127,7 @@ const Index = () => (
 
     {/* ═══════════ 3. POPULAR PRICES ═══════════ */}
     <section id="prices" className="relative py-10 md:py-14 bg-glamour scroll-mt-20 overflow-hidden">
+      <ScatteredButterflies count={2} />
       <div className="container-wide px-4 md:px-8 relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Популярные процедуры</h2>
@@ -218,6 +228,7 @@ const Index = () => (
 
     {/* ═══════════ 5. OFFERS ═══════════ */}
     <section className="relative py-10 md:py-12 bg-glamour overflow-hidden">
+      <ScatteredButterflies count={2} />
       <div className="container-wide px-4 md:px-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
