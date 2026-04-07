@@ -19,7 +19,7 @@ const fadeUp = {
 const prices = [
   {
     name: "Уход за лицом (массаж + маски)",
-    price: "2 990 ₽",
+    price: "2 300 ₽",
     priceValue: 2990,
     tiers: [
       { count: 5, total: 13500 },
@@ -77,7 +77,7 @@ const UhodZaLicomSpb = () => (
   <Layout>
     <Helmet>
       <title>Уход за лицом в СПб — сияющая кожа после первой процедуры | АРТ Косметология</title>
-      <meta name="description" content="Уход за лицом в СПб: массаж + маски для увлажнения и восстановления кожи. От 2 990 ₽. Запись онлайн." />
+      <meta name="description" content="Уход за лицом в СПб: массаж + маски для увлажнения и восстановления кожи. От 2 300 ₽. Запись онлайн." />
       <meta name="keywords" content="уход за лицом спб, массаж лица с маской спб, альгинатная маска спб, увлажнение лица спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/uhod-za-licom-spb" />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -99,7 +99,7 @@ const UhodZaLicomSpb = () => (
             </motion.p>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
               className="mb-6">
-              <span className="text-primary font-heading text-2xl md:text-3xl">от 2&nbsp;990&nbsp;₽</span>
+              <span className="text-primary font-heading text-2xl md:text-3xl">от 2&nbsp;300&nbsp;₽</span>
               <span className="block text-muted-foreground text-sm mt-1">в зависимости от типа кожи и выбранной программы</span>
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}

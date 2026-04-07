@@ -18,7 +18,7 @@ const fadeUp = {
 const prices = [
   {
     name: "Горячий вакуум",
-    price: "3 500 ₽",
+    price: "2 800 ₽",
     priceValue: 3500,
     tiers: [
       { count: 5, total: 16000 },
@@ -71,7 +71,7 @@ const GoryachiyVakuumSpb = () => (
   <Layout>
     <Helmet>
       <title>Горячий вакуум в СПб — жиросжигание и коррекция фигуры | АРТ Косметология</title>
-      <meta name="description" content="Горячий вакуум в Санкт-Петербурге: термовакуумная процедура для жиросжигания, уменьшения объёмов и борьбы с целлюлитом. Результат после первой процедуры. От 3 500 ₽." />
+      <meta name="description" content="Горячий вакуум в Санкт-Петербурге: термовакуумная процедура для жиросжигания, уменьшения объёмов и борьбы с целлюлитом. Результат после первой процедуры. От 2 800 ₽." />
       <meta name="keywords" content="горячий вакуум спб, термовакуум спб, жиросжигание спб, уменьшение объёмов спб, антицеллюлитные процедуры" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/goryachiy-vakuum-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -93,7 +93,7 @@ const GoryachiyVakuumSpb = () => (
             <p className="text-muted-foreground text-lg mb-4">
               Термовакуумная аппаратная процедура для расщепления жировых отложений, уменьшения объёмов и борьбы с целлюлитом
             </p>
-            <p className="text-primary font-heading text-2xl mb-6">от 3&nbsp;500&nbsp;₽</p>
+            <p className="text-primary font-heading text-2xl mb-6">от 2&nbsp;800&nbsp;₽</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/booking?service=Горячий вакуум">
                 <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">

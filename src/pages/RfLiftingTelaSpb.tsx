@@ -18,7 +18,7 @@ const fadeUp = {
 const prices = [
   {
     name: "RF-лифтинг тела",
-    price: "3 500 ₽",
+    price: "2 800 ₽",
     priceValue: 3500,
     tiers: [
       { count: 5, total: 16000 },
@@ -71,7 +71,7 @@ const RfLiftingTelaSpb = () => (
   <Layout>
     <Helmet>
       <title>RF-лифтинг тела в СПб — подтяжка кожи и миостимуляция | АРТ Косметология</title>
-      <meta name="description" content="RF-лифтинг тела в Санкт-Петербурге: аппаратная подтяжка кожи, миостимуляция мышц, формирование контуров тела. Лифтинг-эффект после первого сеанса. От 3 500 ₽." />
+      <meta name="description" content="RF-лифтинг тела в Санкт-Петербурге: аппаратная подтяжка кожи, миостимуляция мышц, формирование контуров тела. Лифтинг-эффект после первого сеанса. От 2 800 ₽." />
       <meta name="keywords" content="rf лифтинг тела спб, миостимуляция тела спб, подтяжка кожи тела спб, аппаратный лифтинг тела" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/rf-lifting-tela-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -93,7 +93,7 @@ const RfLiftingTelaSpb = () => (
             <p className="text-muted-foreground text-lg mb-4">
               Аппаратный прогрев тканей и миостимуляция для формирования контуров тела, уплотнения кожи и укрепления мышечного каркаса
             </p>
-            <p className="text-primary font-heading text-2xl mb-6">от 3&nbsp;500&nbsp;₽</p>
+            <p className="text-primary font-heading text-2xl mb-6">от 2&nbsp;800&nbsp;₽</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/booking?service=RF-лифтинг тела">
                 <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">

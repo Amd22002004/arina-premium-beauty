@@ -16,10 +16,10 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "BBL лицо", price: "9 990 ₽" },
-  { name: "BBL шея / декольте", price: "7 900 ₽" },
-  { name: "BBL кисти рук", price: "5 900 ₽" },
-  { name: "BBL лицо + шея + декольте", price: "17 890 ₽" },
+  { name: "BBL лицо", price: "7 400 ₽" },
+  { name: "BBL шея / декольте", price: "6 000 ₽" },
+  { name: "BBL кисти рук", price: "4 700 ₽" },
+  { name: "BBL лицо + шея + декольте", price: "14 000 ₽" },
 ];
 
 const suitableFor = [
@@ -59,7 +59,7 @@ const FotoomolozhenieBblSpb = () => (
   <Layout>
     <Helmet>
       <title>Фотоомоложение BBL в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Фотоомоложение BBL в СПб: лицо, шея, декольте и кисти рук. Выравнивание тона, устранение пигментации. От 5 900 ₽. Запись онлайн." />
+      <meta name="description" content="Фотоомоложение BBL в СПб: лицо, шея, декольте и кисти рук. Выравнивание тона, устранение пигментации. От 4 700 ₽. Запись онлайн." />
       <meta name="keywords" content="фотоомоложение bbl спб, bbl лицо спб, bbl шея декольте спб, убрать пигментацию спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/fotoomolozhenie-bbl-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -80,7 +80,7 @@ const FotoomolozhenieBblSpb = () => (
           Технология широкополосного света для омоложения кожи, выравнивания тона и устранения пигментации
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 5&nbsp;900&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 4&nbsp;700&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to={`/booking?service=Фотоомоложение BBL (лицо)`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>

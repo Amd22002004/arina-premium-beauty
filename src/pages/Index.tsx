@@ -15,12 +15,12 @@ const fadeUp = {
 
 // Popular services to show in the pricing preview block
 const popularServices = [
-  { name: "Массаж лица", price: 2490, course: "5 сеансов — 11 200 ₽", link: "/massazh-lica-spb" },
-  { name: "Уход за лицом", price: 2990, course: "5 сеансов — 13 450 ₽", link: "/uhod-za-licom-spb" },
-  { name: "Аппаратный протокол лица", price: 4999, course: "5 сеансов — 22 495 ₽", link: "/apparatnye-protokoly-lica-spb" },
-  { name: "Коррекция фигуры", price: 3500, course: "5 сеансов — 15 750 ₽", link: "/korrekciya-figury-spb" },
-  { name: "Лимфодренажный массаж", price: 3000, course: "5 сеансов — 13 500 ₽", link: "/massazh-tela-spb" },
-  { name: "Фотоомоложение BBL (лицо)", price: 9990, course: "3 сеанса — 26 970 ₽", link: "/fotoomolozhenie-bbl-spb" },
+  { name: "Массаж лица", price: 1900, course: "5 сеансов — 8 400 ₽", link: "/massazh-lica-spb" },
+  { name: "Уход за лицом", price: 2300, course: "5 сеансов — 13 450 ₽", link: "/uhod-za-licom-spb" },
+  { name: "Аппаратный протокол лица", price: 3900, course: "5 сеансов — 22 495 ₽", link: "/apparatnye-protokoly-lica-spb" },
+  { name: "Коррекция фигуры", price: 2800, course: "5 сеансов — 11 600 ₽", link: "/korrekciya-figury-spb" },
+  { name: "Лимфодренажный массаж", price: 2400, course: "5 сеансов — 10 400 ₽", link: "/massazh-tela-spb" },
+  { name: "Фотоомоложение BBL (лицо)", price: 7500, course: "3 сеанса — 26 970 ₽", link: "/fotoomolozhenie-bbl-spb" },
 ];
 
 const Index = () => (
@@ -35,7 +35,7 @@ const Index = () => (
           name: "АРТ Косметология — Авторские ритуалы и технологии",
           url: "https://artbody.pro",
           telephone: "+79117193949",
-          address: { "@type": "PostalAddress", streetAddress: "пр-т Энергетиков, 2к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
           description: "АРТ Косметология — авторские ритуалы и технологии. Омоложение лица и тела в Санкт-Петербурге.",
         }),
       }}

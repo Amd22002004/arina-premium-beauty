@@ -16,9 +16,9 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "INDIBA лицо", price: "4 999 ₽" },
-  { name: "INDIBA лицо + шея", price: "6 500 ₽" },
-  { name: "INDIBA лицо + шея + декольте", price: "8 500 ₽" },
+  { name: "INDIBA лицо", price: "3 900 ₽" },
+  { name: "INDIBA лицо + шея", price: "6 400 ₽" },
+  { name: "INDIBA лицо + шея + декольте", price: "8 400 ₽" },
 ];
 
 const suitableFor = [
@@ -58,7 +58,7 @@ const IndibaSpb = () => (
   <Layout>
     <Helmet>
       <title>INDIBA-терапия лица в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="INDIBA-терапия лица в СПб: глубокое прогревание тканей для восстановления тонуса, уплотнения кожи и лифтинга. От 4 999 ₽. Запись онлайн." />
+      <meta name="description" content="INDIBA-терапия лица в СПб: глубокое прогревание тканей для восстановления тонуса, уплотнения кожи и лифтинга. От 3 900 ₽. Запись онлайн." />
       <meta name="keywords" content="индиба спб, indiba спб, индиба терапия лица спб, глубокое прогревание кожи спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/indiba-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -79,7 +79,7 @@ const IndibaSpb = () => (
           Глубокое прогревание тканей для восстановления тонуса, уплотнения кожи и лифтинга
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 4&nbsp;999&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;900&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/booking?service=INDIBA лицо"><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>

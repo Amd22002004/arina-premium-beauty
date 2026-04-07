@@ -20,8 +20,8 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Лицо", price: "9 900 ₽" },
-  { name: "Зоны (шея, декольте, кисти, рубцы, растяжки)", price: "от 4 900 ₽" },
+  { name: "Лицо", price: "7 400 ₽" },
+  { name: "Зоны (шея, декольте, кисти, рубцы, растяжки)", price: "от 3 900 ₽" },
 ];
 
 const suitableFor = [
@@ -69,7 +69,7 @@ const FrakcionnyyLazerCo2Spb = () => (
   <Layout>
     <Helmet>
       <title>Фракционный лазер CO2 в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Фракционный лазер CO₂ в СПб: омоложение кожи, устранение морщин, рубцов и растяжек. От 4 900 ₽. Запись онлайн." />
+      <meta name="description" content="Фракционный лазер CO₂ в СПб: омоложение кожи, устранение морщин, рубцов и растяжек. От 3 900 ₽. Запись онлайн." />
       <meta name="keywords" content="фракционный лазер co2 спб, лазерное омоложение спб, co2 лазер спб, убрать рубцы лазером спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/frakcionnyy-lazer-co2-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -90,7 +90,7 @@ const FrakcionnyyLazerCo2Spb = () => (
           Глубокое обновление кожи для устранения морщин, рубцов, постакне и растяжек
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 4&nbsp;900&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;900&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to={`/booking?service=Фракционный лазер CO₂ (лицо)`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>

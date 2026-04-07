@@ -18,8 +18,8 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Удаление папиллом", price: "от 500 ₽" },
-  { name: "Интимное омоложение", price: "5 000 ₽" },
+  { name: "Удаление папиллом", price: "от 400 ₽" },
+  { name: "Интимное омоложение", price: "4 000 ₽" },
 ];
 
 const suitableFor = [
@@ -40,7 +40,7 @@ const DopolnitelnyeUslugiSpb = () => (
   <Layout>
     <Helmet>
       <title>Деликатные услуги в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Деликатные услуги в СПб: удаление папиллом и интимное омоложение. От 500 ₽. Запись онлайн." />
+      <meta name="description" content="Деликатные услуги в СПб: удаление папиллом и интимное омоложение. От 400 ₽. Запись онлайн." />
       <meta name="keywords" content="удаление папиллом спб, интимное омоложение спб, деликатные услуги косметология спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/dopolnitelnye-uslugi-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -60,7 +60,7 @@ const DopolnitelnyeUslugiSpb = () => (
           Процедуры, которые подбираются индивидуально. Конфиденциальность и профессиональный подход
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 500&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 400&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to={`/booking?service=Удаление папиллом`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>

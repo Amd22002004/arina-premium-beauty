@@ -20,10 +20,10 @@ const bookingLink = (service: string) =>
   `/booking?service=${encodeURIComponent(service)}`;
 
 const priceRows = [
-  { label: "1 зона / 1 сеанс", price: "3 500 ₽" },
-  { label: "2 зоны / 1 сеанс", price: "5 700 ₽" },
-  { label: "3 зоны / 1 сеанс", price: "8 600 ₽" },
-  { label: "Курс 5 процедур (1 зона)", price: "от 16 500 ₽", note: "экономия" },
+  { label: "1 зона / 1 сеанс", price: "2 800 ₽" },
+  { label: "2 зоны / 1 сеанс", price: "4 400 ₽" },
+  { label: "3 зоны / 1 сеанс", price: "6 400 ₽" },
+  { label: "Курс 5 процедур (1 зона)", price: "от 16 400 ₽", note: "экономия" },
   { label: "Курс 7 процедур (1 зона)", price: "от 22 400 ₽", note: "максимальная выгода" },
 ];
 
@@ -75,7 +75,7 @@ const UdarnoVolnovayaTerapiyaSpb = () => (
   <Layout>
     <Helmet>
       <title>Ударно-волновая терапия (УВТ) в Санкт-Петербурге — лечение боли | АРТ Косметология</title>
-      <meta name="description" content="Ударно-волновая терапия (УВТ) в СПб: лечение боли в суставах, пяточной шпоры, кальцификатов. От 3 500 ₽ за зону. Курсы со скидкой. Запись онлайн." />
+      <meta name="description" content="Ударно-волновая терапия (УВТ) в СПб: лечение боли в суставах, пяточной шпоры, кальцификатов. От 2 800 ₽ за зону. Курсы со скидкой. Запись онлайн." />
       <meta name="keywords" content="увт спб, ударно-волновая терапия спб, увт при болях, увт пяточная шпора спб, лечение боли суставов спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/uvt-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -109,7 +109,7 @@ const UdarnoVolnovayaTerapiyaSpb = () => (
           Лечение боли, воспалений и дегенеративных изменений без медикаментов и операций
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="font-heading text-2xl md:text-3xl mb-8 text-white">от 3&nbsp;500&nbsp;₽ за зону</motion.p>
+          className="font-heading text-2xl md:text-3xl mb-8 text-white">от 2&nbsp;800&nbsp;₽ за зону</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to={bookingLink("Ударно-волновая терапия (УВТ) — 1 зона")}>

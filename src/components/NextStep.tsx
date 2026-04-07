@@ -54,7 +54,7 @@ const stepsByPath: Record<string, NextStepItem[]> = {
   ],
   "/apparatnye-protokoly-tela-spb": [
     { icon: <Zap size={20} />, label: "Усилить эффект", desc: "Коррекция фигуры — кавитация и LPG-массаж", path: "/korrekciya-figury-spb" },
-    { icon: <RefreshCw size={20} />, label: "Расслабление после процедуры", desc: "Медицинский массаж для снятия напряжения", path: "/massazh-tela-spb" },
+    { icon: <RefreshCw size={20} />, label: "Расслабление после процедуры", desc: "Восстановительный массаж для снятия напряжения", path: "/massazh-tela-spb" },
     { icon: <Sparkles size={20} />, label: "Комплексное восстановление", desc: "СПА-процедуры и обёртывания", path: "/spa-i-vosstanovlenie-spb" },
   ],
   "/korrekciya-figury-spb": [
@@ -83,13 +83,13 @@ const stepsByPath: Record<string, NextStepItem[]> = {
     { icon: <Sparkles size={20} />, label: "Полный релакс", desc: "СПА-процедуры с инфракрасной капсулой", path: "/spa-i-vosstanovlenie-spb" },
   ],
   "/vosstanovitelnye-massazhi-spb": [
-    { icon: <Zap size={20} />, label: "Добавить тонус", desc: "Медицинский массаж — ШВЗ и спина", path: "/massazh-tela-spb" },
+    { icon: <Zap size={20} />, label: "Добавить тонус", desc: "Восстановительный массаж — ШВЗ и спина", path: "/massazh-tela-spb" },
     { icon: <RefreshCw size={20} />, label: "Глубокий релакс", desc: "СПА-процедуры и обёртывания", path: "/spa-i-vosstanovlenie-spb" },
     { icon: <Sparkles size={20} />, label: "Уход за лицом", desc: "Массаж лица для комплексного эффекта", path: "/massazh-lica-spb" },
   ],
   "/spa-i-vosstanovlenie-spb": [
     { icon: <Zap size={20} />, label: "Усилить детокс", desc: "Лимфодренажный массаж для дренажа", path: "/vosstanovitelnye-massazhi-spb" },
-    { icon: <RefreshCw size={20} />, label: "Мягкое восстановление", desc: "Медицинский массаж после СПА", path: "/massazh-tela-spb" },
+    { icon: <RefreshCw size={20} />, label: "Мягкое восстановление", desc: "Восстановительный массаж после СПА", path: "/massazh-tela-spb" },
     { icon: <Sparkles size={20} />, label: "Уход за лицом", desc: "Комплексный уход с масками и массажем", path: "/uhod-za-licom-spb" },
   ],
   "/dopolnitelnye-uslugi-spb": [

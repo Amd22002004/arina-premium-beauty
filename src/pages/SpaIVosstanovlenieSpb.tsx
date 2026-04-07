@@ -17,11 +17,11 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Обёртывание", price: "1 500 ₽" },
-  { name: "Инфракрасная капсула (50 мин)", price: "2 000 ₽" },
-  { name: "Медовая выкатка (45 мин)", price: "2 500 ₽" },
-  { name: "Медовая выкатка (60 мин)", price: "3 500 ₽" },
-  { name: "Комплекс (капсула + выкатка)", price: "3 700 ₽" },
+  { name: "Обёртывание", price: "1 200 ₽" },
+  { name: "Инфракрасная капсула (50 мин)", price: "1 600 ₽" },
+  { name: "Медовая выкатка (45 мин)", price: "1 600 ₽" },
+  { name: "Медовая выкатка (60 мин)", price: "2 800 ₽" },
+  { name: "Комплекс (капсула + выкатка)", price: "2 900 ₽" },
 ];
 
 const suitableFor = [
@@ -68,7 +68,7 @@ const SpaIVosstanovlenieSpb = () => (
   <Layout>
     <Helmet>
       <title>СПА и восстановление в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="СПА в СПб: инфракрасная капсула, медовая выкатка и обёртывания. От 1 500 ₽. Расслабление и детокс. Запись онлайн." />
+      <meta name="description" content="СПА в СПб: инфракрасная капсула, медовая выкатка и обёртывания. От 1 200 ₽. Расслабление и детокс. Запись онлайн." />
       <meta name="keywords" content="спа процедуры спб, инфракрасная сауна спб, медовая выкатка спб, обёртывания спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/spa-i-vosstanovlenie-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -89,7 +89,7 @@ const SpaIVosstanovlenieSpb = () => (
           Расслабление, детокс и восстановление после нагрузок. Мягкий уход за телом и душевный комфорт
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 1&nbsp;500&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 1&nbsp;200&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to={`/booking?service=Инфракрасная капсула (50 мин)`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>

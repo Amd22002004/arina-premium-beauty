@@ -69,8 +69,8 @@ const courses: Course[] = [
       "Есть отёчность лица по утрам",
     ],
     duration: "5–10 процедур",
-    price5: "от 13 500 ₽",
-    price10: "от 25 000 ₽",
+    price5: "от 10 400 ₽",
+    price10: "от 20 000 ₽",
     links: [
       { label: "Массаж лица", href: "/massazh-lica-spb" },
       { label: "Уход за лицом", href: "/uhod-za-licom-spb" },
@@ -102,8 +102,8 @@ const courses: Course[] = [
       "Нужен видимый результат к событию",
     ],
     duration: "5–10 процедур",
-    price5: "от 11 500 ₽",
-    price10: "от 22 000 ₽",
+    price5: "от 11 200 ₽",
+    price10: "от 17 400 ₽",
     links: [
       { label: "Коррекция фигуры", href: "/korrekciya-figury-spb" },
       { label: "Аппаратные протоколы тела", href: "/apparatnye-protokoly-tela-spb" },
@@ -134,8 +134,8 @@ const courses: Course[] = [
       "Ведёте сидячий образ жизни",
     ],
     duration: "5–10 процедур",
-    price5: "от 12 000 ₽",
-    price10: "от 22 500 ₽",
+    price5: "от 11 600 ₽",
+    price10: "от 21 600 ₽",
     links: [
       { label: "Массаж тела", href: "/massazh-tela-spb" },
       { label: "Восстановительные массажи", href: "/vosstanovitelnye-massazhi-spb" },
@@ -198,8 +198,8 @@ const courses: Course[] = [
       "Хотите улучшить общее самочувствие",
     ],
     duration: "1–10 процедур",
-    price5: "13 500 ₽",
-    price10: "24 000 ₽",
+    price5: "10 400 ₽",
+    price10: "19 000 ₽",
     links: [
       { label: "Коррекция фигуры", href: "/korrekciya-figury-spb" },
       { label: "Лимфодренажный массаж", href: "/vosstanovitelnye-massazhi-spb" },
@@ -228,8 +228,8 @@ const courses: Course[] = [
     price10: "",
     isExpress: true,
     expressPrices: [
-      { count: 1, label: "1 процедура", price: "8 000 ₽" },
-      { count: 2, label: "2 процедуры", price: "14 500 ₽" },
+      { count: 1, label: "1 процедура", price: "6 000 ₽" },
+      { count: 2, label: "2 процедуры", price: "11 200 ₽" },
     ],
     links: [
       { label: "Коррекция фигуры", href: "/korrekciya-figury-spb" },

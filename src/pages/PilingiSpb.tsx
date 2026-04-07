@@ -19,7 +19,7 @@ const fadeUp = {
 const prices = [
   {
     name: "Пилинг",
-    price: "2 500 ₽",
+    price: "1 600 ₽",
     priceValue: 2500,
     tiers: [
       { count: 3, total: 7125 },
@@ -81,7 +81,7 @@ const PilingiSpb = () => (
   <Layout>
     <Helmet>
       <title>Пилинги в Санкт-Петербурге — миндальный, азелаиновый, фруктовый | АРТ Косметология</title>
-      <meta name="description" content="Пилинги в СПб: миндальный, азелаиновый и фруктовый для чистой кожи без акне и пигментации. От 2 500 ₽. Запись онлайн." />
+      <meta name="description" content="Пилинги в СПб: миндальный, азелаиновый и фруктовый для чистой кожи без акне и пигментации. От 1 600 ₽. Запись онлайн." />
       <meta name="keywords" content="пилинг спб, миндальный пилинг спб, азелаиновый пилинг спб, фруктовый пилинг спб, пилинг цена спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/pilingi-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -104,7 +104,7 @@ const PilingiSpb = () => (
           Подберём тип пилинга под вашу кожу: уберём воспаления, выровняем тон и вернём коже свежий, ухоженный вид
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-2 text-center lg:text-left">от 2&nbsp;500&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-2 text-center lg:text-left">от 1&nbsp;600&nbsp;₽</motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.22 }}
           className="text-muted-foreground text-sm mb-6 text-center lg:text-left">в зависимости от типа кожи и выбранной программы</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}

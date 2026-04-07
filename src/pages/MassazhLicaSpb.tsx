@@ -20,7 +20,7 @@ const fadeUp = {
 const prices = [
   {
     name: "Массаж лица",
-    price: "2 490 ₽",
+    price: "1 900 ₽",
     priceValue: 2490,
     tiers: [
       { count: 5, total: 11200 },
@@ -102,7 +102,7 @@ const MassazhLicaSpb = () => (
   <Layout>
     <Helmet>
       <title>Массаж лица в Санкт-Петербурге — скульптурный, миофасциальный, 3D | АРТ Косметология</title>
-      <meta name="description" content="Массаж лица в СПб: скульптурный, миофасциальный и 3D-массаж для подтяжки овала и тонуса кожи. От 2 490 ₽. Запись онлайн." />
+      <meta name="description" content="Массаж лица в СПб: скульптурный, миофасциальный и 3D-массаж для подтяжки овала и тонуса кожи. От 1 900 ₽. Запись онлайн." />
       <meta name="keywords" content="массаж лица спб, скульптурный массаж лица спб, миофасциальный массаж спб, 3d массаж лица спб, подтяжка овала лица спб, массаж лица цена спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/massazh-lica-spb" />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -121,7 +121,7 @@ const MassazhLicaSpb = () => (
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
           className="text-primary font-heading text-2xl md:text-3xl mb-8">
-          от 2&nbsp;490&nbsp;₽
+          от 1&nbsp;900&nbsp;₽
         </motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">

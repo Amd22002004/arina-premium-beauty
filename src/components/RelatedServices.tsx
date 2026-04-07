@@ -21,7 +21,7 @@ export const allServices = [
   { title: "Горячий вакуум", path: "/goryachiy-vakuum-spb", short: "Термовакуумное жиросжигание и уменьшение объёмов", category: "body" },
   { title: "Вакуумный массаж", path: "/vakuumnyj-massazh-spb", short: "Аппаратная антицеллюлитная коррекция", category: "body" },
   { title: "RF-лифтинг тела", path: "/rf-lifting-tela-spb", short: "Подтяжка кожи и миостимуляция мышц", category: "body" },
-  { title: "Медицинский массаж", path: "/massazh-tela-spb", short: "ШВЗ, спина, глубокий массаж", category: "massage" },
+  { title: "Восстановительный массаж", path: "/massazh-tela-spb", short: "ШВЗ, спина, глубокий массаж", category: "massage" },
   { title: "Лимфодренажный и висцеральный", path: "/vosstanovitelnye-massazhi-spb", short: "Дренаж, снятие отёков, висцеральная терапия", category: "massage" },
   { title: "СПА и восстановление", path: "/spa-i-vosstanovlenie-spb", short: "Инфракрасная капсула, медовая выкатка, обёртывания", category: "extra" },
   { title: "Деликатные услуги", path: "/dopolnitelnye-uslugi-spb", short: "Интимное омоложение, удаление папиллом", category: "extra" },

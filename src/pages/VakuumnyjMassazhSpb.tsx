@@ -17,7 +17,7 @@ const fadeUp = {
 const prices = [
   {
     name: "Вакуумный массаж",
-    price: "3 500 ₽",
+    price: "2 800 ₽",
     priceValue: 3500,
     tiers: [
       { count: 5, total: 16000 },
@@ -72,7 +72,7 @@ const VakuumnyjMassazhSpb = () => (
   <Layout>
     <Helmet>
       <title>Вакуумный массаж в СПб — антицеллюлитная коррекция фигуры | АРТ Косметология</title>
-      <meta name="description" content="Аппаратный вакуумный массаж в Санкт-Петербурге: антицеллюлитная коррекция, моделирование контуров тела, лимфодренаж. От 3 500 ₽. Результат после 2–3 процедур." />
+      <meta name="description" content="Аппаратный вакуумный массаж в Санкт-Петербурге: антицеллюлитная коррекция, моделирование контуров тела, лимфодренаж. От 2 800 ₽. Результат после 2–3 процедур." />
       <meta name="keywords" content="вакуумный массаж спб, антицеллюлитный массаж спб, аппаратный массаж спб, коррекция фигуры спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/vakuumnyj-massazh-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -94,7 +94,7 @@ const VakuumnyjMassazhSpb = () => (
             <p className="text-muted-foreground text-lg mb-4">
               Глубокая проработка подкожно-жировой клетчатки: разрушение фиброзных перегородок, моделирование контуров и улучшение текстуры кожи
             </p>
-            <p className="text-primary font-heading text-2xl mb-6">от 3&nbsp;500&nbsp;₽</p>
+            <p className="text-primary font-heading text-2xl mb-6">от 2&nbsp;800&nbsp;₽</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/booking?service=Вакуумный массаж">
                 <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">

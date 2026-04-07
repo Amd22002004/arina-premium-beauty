@@ -32,7 +32,7 @@ const Footer = () => (
               <Phone size={14} /> +7 (911) 719-39-49
             </a>
             <span className="flex items-center gap-2">
-              <MapPin size={14} /> пр-т Энергетиков, 2к1
+              <MapPin size={14} /> пр-т Обуховской Обороны, 110к1
             </span>
           </div>
           <div className="flex gap-3 mt-4">
