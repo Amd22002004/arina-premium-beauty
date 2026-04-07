@@ -50,9 +50,9 @@
     --font-heading: 'Cormorant Garamond', 'Georgia', serif;
     --font-body: 'Raleway', 'Helvetica Neue', sans-serif;
 
-    --shadow-soft: 0 4px 20px -4px hsl(32 45% 42% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(32 45% 42% / 0.1);
-    --shadow-elevated: 0 20px 60px -15px hsl(32 45% 42% / 0.15);
+    --shadow-soft: 0 4px 20px -4px hsl(340 40% 50% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(340 40% 50% / 0.1);
+    --shadow-elevated: 0 20px 60px -15px hsl(340 40% 50% / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
