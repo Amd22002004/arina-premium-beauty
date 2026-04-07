@@ -85,8 +85,9 @@ const Index = () => (
         </motion.div>
       </div>
       {/* Decorative animated butterflies */}
-      <AnimatedButterfly className="absolute bottom-20 right-[10%] hidden lg:block" size={56} delay={0.5} />
-      <AnimatedButterfly className="absolute top-32 right-[18%] hidden lg:block" size={38} delay={2} />
+      <AnimatedButterfly className="absolute bottom-24 right-[8%] hidden lg:block" size={64} delay={0.5} />
+      <AnimatedButterfly className="absolute top-28 right-[15%] hidden lg:block" size={48} delay={2} />
+      <AnimatedButterfly className="absolute bottom-40 right-[30%] hidden xl:block" size={36} delay={3.5} />
     </section>
 
     {/* ═══════════ 2. BENEFITS ═══════════ */}

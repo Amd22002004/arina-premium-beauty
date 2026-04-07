@@ -149,11 +149,11 @@ export const FloatingPetals = () => (
 /* ═══ Scattered butterflies for open sections — hidden on mobile ═══ */
 export const ScatteredButterflies = ({ count = 3 }: { count?: number }) => {
   const positions = [
-    { x: "88%", y: "15%", size: 40, delay: 0, rot: -10 },
-    { x: "6%", y: "60%", size: 34, delay: 2.5, rot: 15 },
-    { x: "78%", y: "72%", size: 30, delay: 1.2, rot: -20 },
-    { x: "15%", y: "20%", size: 28, delay: 3.5, rot: 8 },
-    { x: "92%", y: "50%", size: 36, delay: 0.8, rot: -5 },
+    { x: "85%", y: "12%", size: 52, delay: 0, rot: -10 },
+    { x: "5%", y: "55%", size: 44, delay: 2.5, rot: 15 },
+    { x: "80%", y: "68%", size: 40, delay: 1.2, rot: -20 },
+    { x: "12%", y: "18%", size: 38, delay: 3.5, rot: 8 },
+    { x: "90%", y: "42%", size: 48, delay: 0.8, rot: -5 },
   ].slice(0, count);
 
   return (
