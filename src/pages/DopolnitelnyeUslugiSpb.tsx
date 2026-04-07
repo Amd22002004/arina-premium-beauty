@@ -69,14 +69,14 @@ const DopolnitelnyeUslugiSpb = () => (
       </div>
     </section>
 
-    <section className="py-10 md:py-14 bg-card">
+    <section className="py-10 md:py-14" style={{ background: 'hsl(40 30% 98%)' }}>
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Кому подходит</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {suitableFor.map((item, i) => (
             <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
-              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" /><span className="text-foreground/80">{item}</span>
+              className="flex items-start gap-3 p-4 rounded-lg bg-background border" style={{ borderColor: 'hsl(35 40% 85%)' }}>
+              <Check size={18} className="mt-0.5 flex-shrink-0" style={{ color: 'hsl(35 60% 45%)' }} /><span className="text-foreground/80">{item}</span>
             </motion.div>
           ))}
         </div>
