@@ -32,11 +32,11 @@ const Index = () => (
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BeautySalon",
-          name: "АРТ Косметология — Авторские ритуалы и технологии",
+          name: "АРТ Косметология — Приватная студия аппаратной эстетики",
           url: "https://artbody.pro",
           telephone: "+79117193949",
-          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
-          description: "АРТ Косметология — авторские ритуалы и технологии. Омоложение лица и тела в Санкт-Петербурге.",
+          address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1 (ЖК Молодежный)", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
+          description: "АРТ Косметология — приватная студия аппаратной эстетики. Один мастер, один клиент. Омоложение лица и тела в Санкт-Петербурге.",
         }),
       }}
     />
@@ -44,19 +44,19 @@ const Index = () => (
     {/* ═══════════ 1. HERO ═══════════ */}
     <section className="relative min-h-[92vh] flex items-center">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Кабинет эстетической косметологии" className="w-full h-full object-cover" width={1920} height={1080} />
+        <img src={heroBg} alt="Приватная студия аппаратной эстетики" className="w-full h-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
       </div>
       <div className="relative container-wide px-4 md:px-8 py-24">
         <motion.div initial="hidden" animate="visible" className="max-w-2xl">
           <motion.p variants={fadeUp} custom={0} className="text-primary-foreground/60 text-sm tracking-[0.2em] uppercase font-medium mb-4">
-            АРТ Косметология | Санкт-Петербург
+            Приватная студия | Санкт-Петербург
           </motion.p>
           <motion.h1 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
-            Омоложение лица и&nbsp;тела по&nbsp;авторским протоколам
+            Приватная студия аппаратной эстетики и&nbsp;омоложения
           </motion.h1>
           <motion.p variants={fadeUp} custom={2} className="text-primary-foreground/80 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
-            Массаж, аппаратные технологии, уход и&nbsp;восстановление. Подбираем решение под вашу задачу.
+            Один мастер, один клиент. Камерная атмосфера, персональный подход и&nbsp;полная конфиденциальность.
           </motion.p>
 
           <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -74,8 +74,8 @@ const Index = () => (
 
           <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-x-6 gap-y-2 text-primary-foreground/60 text-sm">
             <span className="flex items-center gap-1.5"><MapPin size={14} /> Санкт-Петербург</span>
-            <span className="flex items-center gap-1.5"><CalendarCheck size={14} /> Приём по записи</span>
-            <span className="flex items-center gap-1.5"><UserCheck size={14} /> Индивидуальный подбор</span>
+            <span className="flex items-center gap-1.5"><CalendarCheck size={14} /> Приватная запись</span>
+            <span className="flex items-center gap-1.5"><UserCheck size={14} /> Один мастер — один клиент</span>
           </motion.div>
         </motion.div>
       </div>
