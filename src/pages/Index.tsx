@@ -228,6 +228,7 @@ const Index = () => (
 
     {/* ═══════════ 5. OFFERS ═══════════ */}
     <section className="relative py-10 md:py-12 bg-glamour overflow-hidden">
+      <ScatteredButterflies count={2} />
       <div className="container-wide px-4 md:px-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
