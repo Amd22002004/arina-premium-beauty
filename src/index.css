@@ -15,8 +15,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 340 20% 15%;
 
-    --primary: 340 45% 55%;
-    --primary-foreground: 340 30% 98%;
+    --primary: 320 50% 52%;
+    --primary-foreground: 320 30% 98%;
 
     --secondary: 20 40% 94%;
     --secondary-foreground: 340 20% 15%;
@@ -36,16 +36,19 @@
 
     --radius: 0.625rem;
 
-    --gold: 340 45% 55%;
-    --gold-light: 340 35% 93%;
-    --gold-glow: 350 50% 62%;
-    --cream: 20 40% 96%;
+    --gold: 320 50% 52%;
+    --gold-light: 310 40% 93%;
+    --gold-glow: 280 45% 60%;
+    --cream: 320 20% 97%;
     --sage: 150 15% 55%;
     --sage-light: 150 15% 92%;
-    --rose: 350 40% 62%;
-    --rose-light: 350 35% 95%;
-    --peach: 20 60% 88%;
-    --berry: 330 50% 40%;
+    --rose: 330 50% 62%;
+    --rose-light: 330 40% 95%;
+    --peach: 310 35% 90%;
+    --berry: 290 45% 42%;
+    --lavender: 270 40% 72%;
+    --lavender-light: 270 35% 94%;
+    --violet: 280 50% 55%;
 
     --font-heading: 'Cormorant Garamond', 'Georgia', serif;
     --font-body: 'Raleway', 'Helvetica Neue', sans-serif;
