@@ -86,15 +86,15 @@ const Index = () => (
       <div className="container-wide px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Что вы получаете</h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Комплексный подход к омоложению и восстановлению</p>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Камерный формат, персональный подход и премиальный результат</p>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {[
             { icon: Sparkles, title: "Авторские протоколы", desc: "Подготовка → аппарат → восстановление" },
             { icon: Zap, title: "Аппаратные технологии", desc: "INDIBA, RF, EMS, BBL, CO₂" },
-            { icon: Heart, title: "Массаж и уход", desc: "Лицо, тело, лимфодренаж" },
-            { icon: UserCheck, title: "Индивидуальный подбор", desc: "Протокол под вашу задачу" },
-            { icon: Shield, title: "Безопасность", desc: "Деликатный подход без рисков" },
+            { icon: Heart, title: "Приватная атмосфера", desc: "Один мастер, один клиент" },
+            { icon: UserCheck, title: "Персональный подход", desc: "Протокол под вашу задачу" },
+            { icon: Shield, title: "Конфиденциальность", desc: "Полная приватность визита" },
           ].map((b, i) => (
             <motion.div key={b.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
               className="bg-card p-5 rounded-xl border border-border text-center hover-lift">
