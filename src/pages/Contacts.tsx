@@ -9,13 +9,13 @@ const Contacts = () => {
       <section className="section-padding">
         <div className="container-narrow">
           <h1 className="font-heading text-4xl md:text-5xl text-center mb-4">Контакты</h1>
-          <p className="text-muted-foreground text-center mb-16">Свяжитесь с нами любым удобным способом</p>
+          <p className="text-muted-foreground text-center mb-16">Свяжитесь с нами — мы ответим лично</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
                 <h2 className="font-heading text-2xl mb-4">Ариана Ханова</h2>
-                <p className="text-muted-foreground text-sm mb-6">Специалист по массажу, аппаратной косметологии и коррекции фигуры</p>
+                <p className="text-muted-foreground text-sm mb-6">Мастер приватной студии аппаратной эстетики и коррекции фигуры</p>
               </div>
 
               <div className="space-y-4">
@@ -26,7 +26,7 @@ const Contacts = () => {
 
                 <div className="flex items-center gap-3 text-foreground">
                   <div className="w-10 h-10 rounded-full bg-gold-light flex items-center justify-center"><MapPin size={18} className="text-primary" /></div>
-                  <div><p className="text-sm font-medium">пр-т Обуховской Обороны, 110к1</p><p className="text-xs text-muted-foreground">Санкт-Петербург</p></div>
+                  <div><p className="text-sm font-medium">пр-т Обуховской Обороны, 110к1 (ЖК «Молодежный»)</p><p className="text-xs text-muted-foreground">Точный номер квартиры направляется при подтверждении записи</p></div>
                 </div>
 
                 <div className="flex items-center gap-3 text-foreground">
@@ -57,7 +57,8 @@ const Contacts = () => {
                 <div className="text-center">
                   <MapPin size={48} className="text-primary mx-auto mb-4" />
                   <p className="text-lg font-heading mb-2">пр-т Обуховской Обороны, 110к1</p>
-                  <p className="text-muted-foreground text-sm mb-4">Санкт-Петербург</p>
+                  <p className="text-muted-foreground text-sm mb-2">ЖК «Молодежный», Санкт-Петербург</p>
+                  <p className="text-xs text-muted-foreground mb-4">Точный номер квартиры направляется при подтверждении записи</p>
                   <a
                     href="https://2gis.ru/spb/search/пр-т%20Обуховской%20Обороны%20110к1"
                     target="_blank"
