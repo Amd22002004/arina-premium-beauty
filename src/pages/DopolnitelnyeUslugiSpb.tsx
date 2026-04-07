@@ -123,7 +123,7 @@ const DopolnitelnyeUslugiSpb = () => (
             <div className="order-2 lg:hidden">
               <img
                 src={manDorfHero}
-                alt="Мужчина в клинике перед процедурой DORF"
+                alt="Мужчина в студии перед процедурой DORF"
                 className="w-full aspect-square object-cover rounded-2xl shadow-lg"
               />
             </div>
@@ -196,7 +196,7 @@ const DopolnitelnyeUslugiSpb = () => (
             className="hidden lg:flex flex-col gap-5 order-1 lg:order-2 sticky top-24">
             <img
               src={manDorfHero}
-              alt="Мужчина в клинике перед процедурой DORF"
+              alt="Мужчина в студии перед процедурой DORF"
               className="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg"
             />
             <img
