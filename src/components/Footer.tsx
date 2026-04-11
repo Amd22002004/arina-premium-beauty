@@ -50,7 +50,23 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs opacity-50">
+      {/* Мини-блок маршрута */}
+      <div className="border-t border-primary-foreground/10 mt-10 pt-6 pb-6 flex flex-col sm:flex-row items-center gap-4 text-sm">
+        <div className="flex items-center gap-2 opacity-70">
+          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary-foreground/20 text-primary-foreground text-[10px] font-bold">М</span>
+          <span>Пролетарская — 3 мин. пешком</span>
+        </div>
+        <a
+          href="https://yandex.ru/maps/?rtext=~Санкт-Петербург, пр-т Обуховской Обороны, 110к1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary-foreground/90 hover:text-primary-foreground underline underline-offset-2 transition-colors text-xs"
+        >
+          Построить маршрут →
+        </a>
+      </div>
+
+      <div className="border-t border-primary-foreground/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs opacity-50">
         <span>© {new Date().getFullYear()} АРТ Косметология. Все права защищены.</span>
         <div className="flex gap-4">
           <Link to="/privacy" className="hover:opacity-100">Политика конфиденциальности</Link>
