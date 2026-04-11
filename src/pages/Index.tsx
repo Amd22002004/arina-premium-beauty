@@ -7,7 +7,7 @@ import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
 import heroBg from "@/assets/hero-bg.jpg";
 import ConsultationCapture from "@/components/ConsultationCapture";
 import { services, formatPrice } from "@/data/services";
-import { FloatingPetals, FloralCorner, SectionFloralAccent, FloralDivider, AnimatedButterfly, ScatteredButterflies } from "@/components/FloralDecorations";
+import { FloatingPetals, FloralCorner, SectionFloralAccent, FloralDivider } from "@/components/FloralDecorations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -84,16 +84,11 @@ const Index = () => (
           </motion.div>
         </motion.div>
       </div>
-      {/* Decorative animated butterflies */}
-      <AnimatedButterfly className="absolute bottom-24 right-[8%] hidden lg:block" size={64} delay={0.5} />
-      <AnimatedButterfly className="absolute top-28 right-[15%] hidden lg:block" size={48} delay={2} />
-      <AnimatedButterfly className="absolute bottom-40 right-[30%] hidden xl:block" size={36} delay={3.5} />
     </section>
 
     {/* ═══════════ 2. BENEFITS ═══════════ */}
     <section className="relative py-10 md:py-14 bg-floral-cream overflow-hidden">
       <SectionFloralAccent position="both" />
-      <ScatteredButterflies count={2} />
       <div className="container-wide px-4 md:px-8 relative">
         <FloralDivider className="mb-6" />
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
@@ -123,7 +118,6 @@ const Index = () => (
 
     {/* ═══════════ 3. POPULAR PRICES ═══════════ */}
     <section id="prices" className="relative py-10 md:py-14 bg-glamour scroll-mt-20 overflow-hidden">
-      <ScatteredButterflies count={2} />
       <div className="container-wide px-4 md:px-8 relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Популярные процедуры</h2>
@@ -167,7 +161,7 @@ const Index = () => (
     {/* ═══════════ 4. SERVICES BLOCKS ═══════════ */}
     <section className="relative py-8 md:py-10 bg-floral-cream overflow-hidden">
       <SectionFloralAccent position="right" />
-      <ScatteredButterflies count={3} />
+      
       <div className="container-wide px-4 md:px-8 relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
@@ -225,7 +219,6 @@ const Index = () => (
 
     {/* ═══════════ 5. OFFERS ═══════════ */}
     <section className="relative py-10 md:py-12 bg-glamour overflow-hidden">
-      <ScatteredButterflies count={2} />
       <div className="container-wide px-4 md:px-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
@@ -275,7 +268,7 @@ const Index = () => (
     {/* ═══════════ 6. SOCIAL PROOF / WHY US ═══════════ */}
     <section className="relative py-10 md:py-12 bg-floral-cream overflow-hidden">
       <SectionFloralAccent position="left" />
-      <ScatteredButterflies count={2} />
+      
       <div className="container-narrow px-4 md:px-8 relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl mb-3">Почему выбирают нас</h2>
