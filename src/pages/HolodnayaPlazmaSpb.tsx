@@ -81,7 +81,7 @@ const HolodnayaPlazmaSpb = () => (
           className="w-full h-full object-cover object-[70%_center]"
         />
         {/* Left gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/85 to-transparent" />
+        <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-cream to-transparent" />
       </div>
 
       <div className="container-wide px-4 md:px-8 relative z-10 flex flex-col justify-center min-h-[520px] md:min-h-[600px] lg:min-h-[680px]">
