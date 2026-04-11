@@ -96,25 +96,25 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-      {/* Top metro bar */}
-      <div className="hidden md:flex items-center justify-center gap-2 bg-secondary/50 text-xs text-muted-foreground py-1">
-        <a
-          href="https://yandex.ru/maps/?rtext=~Санкт-Петербург, пр-т Обуховской Обороны, 110к1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
-        >
-          <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-primary text-primary-foreground text-[9px] font-bold">М</span>
-          Пролетарская · 3 минуты пешком
-        </a>
-      </div>
       <div className="container-wide flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
-        <Link to="/" className="font-heading text-xl md:text-2xl font-semibold tracking-wide text-foreground">
-          АРТ Косметология
-          <span className="block text-[10px] md:text-xs font-body font-normal tracking-[0.15em] uppercase text-muted-foreground">
-            Приватная студия аппаратной эстетики
-          </span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link to="/" className="font-heading text-xl md:text-2xl font-semibold tracking-wide text-foreground">
+            АРТ Косметология
+            <span className="block text-[10px] md:text-xs font-body font-normal tracking-[0.15em] uppercase text-muted-foreground">
+              Приватная студия аппаратной эстетики
+            </span>
+          </Link>
+          {/* Mobile metro badge */}
+          <a
+            href="https://yandex.ru/maps/?rtext=~Санкт-Петербург, пр-т Обуховской Обороны, 110к1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lg:hidden inline-flex items-center gap-1 text-[10px] text-muted-foreground hover:text-primary transition-colors border border-border rounded-full px-2 py-0.5"
+          >
+            <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-primary text-primary-foreground text-[8px] font-bold">М</span>
+            <span>3 мин</span>
+          </a>
+        </div>
 
         <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((l) =>
@@ -237,6 +237,16 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="https://yandex.ru/maps/?rtext=~Санкт-Петербург, пр-т Обуховской Обороны, 110к1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border rounded-full px-3 py-1"
+          >
+            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-primary text-primary-foreground text-[9px] font-bold">М</span>
+            Пролетарская · 3 мин
+          </a>
+          <span className="w-px h-4 bg-border" />
           <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer" aria-label="VK" className="text-muted-foreground hover:text-primary transition-colors">
             <VKIcon />
           </a>
