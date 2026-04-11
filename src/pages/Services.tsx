@@ -5,7 +5,7 @@ import { ChevronRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
-import { ScatteredButterflies, FloralDivider, SectionFloralAccent } from "@/components/FloralDecorations";
+import { FloralDivider, SectionFloralAccent } from "@/components/FloralDecorations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -67,7 +67,7 @@ const Services = () => {
   return (
     <Layout>
       <section className="relative py-20 md:py-28 bg-floral-cream overflow-hidden">
-        <ScatteredButterflies count={3} />
+        
         <SectionFloralAccent position="both" />
         <div className="container-wide px-4 md:px-8 relative">
           <h1 className="font-heading text-4xl md:text-5xl text-center mb-4">Услуги</h1>
