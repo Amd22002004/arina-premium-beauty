@@ -61,7 +61,7 @@ const Index = () => (
             Аппаратная эстетика и&nbsp;искусство омоложения
           </motion.h1>
           <motion.p variants={fadeUp} custom={2} className="text-primary-foreground/80 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
-            Один мастер, один клиент. Камерная атмосфера, персональный подход и&nbsp;полная конфиденциальность.
+            Один мастер, один клиент. Абсолютная приватность, уютная обстановка, персональный подход и&nbsp;полная конфиденциальность.
           </motion.p>
 
           <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -286,7 +286,7 @@ const Index = () => (
             "Приватная студия — один мастер, один клиент",
             "Полная конфиденциальность каждого визита",
             "Авторские протоколы, а не шаблонные процедуры",
-            "Камерная атмосфера без потока и очередей",
+            "Уютная обстановка без потока и очередей",
             "Персональный подбор под вашу задачу",
           ].map((t, i) => (
             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
