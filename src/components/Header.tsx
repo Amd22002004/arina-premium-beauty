@@ -237,6 +237,16 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="https://yandex.ru/maps/?rtext=~Санкт-Петербург, пр-т Обуховской Обороны, 110к1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border rounded-full px-3 py-1"
+          >
+            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-primary text-primary-foreground text-[9px] font-bold">М</span>
+            Пролетарская · 3 мин
+          </a>
+          <span className="w-px h-4 bg-border" />
           <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer" aria-label="VK" className="text-muted-foreground hover:text-primary transition-colors">
             <VKIcon />
           </a>
