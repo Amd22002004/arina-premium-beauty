@@ -195,6 +195,28 @@ const HolodnayaPlazmaSpb = () => (
       </div>
     </section>
 
+    {/* Photo Result */}
+    <section className="py-12 md:py-16 bg-background">
+      <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto text-center">
+        <h2 className="font-heading text-3xl md:text-4xl mb-3">Как меняется кожа после курса</h2>
+        <p className="text-muted-foreground mb-8">Динамика результата: до процедуры, после 1‑го и 2‑го сеанса</p>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="rounded-xl overflow-hidden border border-border shadow-sm">
+          <img
+            src="/images/holodnaya-plazma-result.webp"
+            alt="Результат процедуры холодной плазмы: до, после 1 сеанса и после 2 сеансов"
+            className="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </motion.div>
+
+        <p className="text-xs text-muted-foreground/60 mt-4">
+          Результат индивидуален и зависит от исходного состояния кожи. Необходима консультация специалиста.
+        </p>
+      </div>
+    </section>
+
     {/* Video Review */}
     <section className="py-12 md:py-16 bg-background">
       <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto text-center">
