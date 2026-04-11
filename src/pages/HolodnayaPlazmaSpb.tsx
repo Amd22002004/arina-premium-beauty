@@ -72,31 +72,53 @@ const HolodnayaPlazmaSpb = () => (
     </Helmet>
 
     {/* Hero */}
-    <section className="py-16 md:py-24 bg-cream">
-      <div className="container-wide px-4 md:px-8 text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          Холодная плазма в&nbsp;Санкт‑Петербурге
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
-          Деликатное воздействие для восстановления кожи и улучшения её состояния
-        </motion.p>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 4&nbsp;000&nbsp;₽</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to={bookingLink("Холодная плазма")}>
-            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-              Записаться <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </Link>
-          <Link to="/contacts">
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-              Получить консультацию
-            </Button>
-          </Link>
-        </motion.div>
+    <section className="relative min-h-[520px] md:min-h-[600px] lg:min-h-[680px] overflow-hidden bg-cream">
+      {/* Background image — desktop */}
+      <div className="hidden md:block absolute inset-0">
+        <img
+          src="/images/holodnaya-plazma-hero.jpeg"
+          alt=""
+          className="w-full h-full object-cover object-[70%_center]"
+        />
+        {/* Left gradient for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/85 to-transparent" />
+      </div>
+
+      <div className="container-wide px-4 md:px-8 relative z-10 flex flex-col justify-center min-h-[520px] md:min-h-[600px] lg:min-h-[680px]">
+        <div className="max-w-xl py-16 md:py-24">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5 text-left">
+            Холодная плазма в&nbsp;Санкт‑Петербурге
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+            className="text-foreground text-lg md:text-xl mb-4 text-left">
+            Деликатное воздействие для восстановления кожи и улучшения её состояния
+          </motion.p>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+            className="text-primary font-heading text-2xl md:text-3xl mb-8 text-left">от 4&nbsp;000&nbsp;₽</motion.p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+            className="flex flex-col sm:flex-row gap-4">
+            <Link to={bookingLink("Холодная плазма")}>
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+                Записаться <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+            <Link to="/contacts">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
+                Получить консультацию
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Mobile image below text */}
+      <div className="md:hidden w-full">
+        <img
+          src="/images/holodnaya-plazma-hero.jpeg"
+          alt="Консультация косметолога"
+          className="w-full h-64 object-cover object-[70%_center]"
+        />
       </div>
     </section>
 
