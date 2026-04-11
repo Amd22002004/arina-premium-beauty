@@ -74,6 +74,55 @@ const Contacts = () => {
         </div>
       </section>
 
+      {/* Как добраться */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-narrow">
+          <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Как добраться</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-8">
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <p className="text-lg font-medium text-foreground">Санкт-Петербург</p>
+                <p className="text-foreground">пр-т Обуховской Обороны, 110к1</p>
+                <p className="text-muted-foreground text-sm">ЖК «Молодежный»</p>
+              </div>
+
+              <div className="flex items-center gap-2 text-foreground">
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold">М</span>
+                <span className="font-medium">Пролетарская</span>
+                <span className="text-muted-foreground">— 3 минуты пешком</span>
+              </div>
+
+              <a
+                href="https://yandex.ru/maps/?rtext=~Санкт-Петербург, пр-т Обуховской Обороны, 110к1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block gold-gradient text-primary-foreground px-8 py-3 rounded-md text-sm font-medium hover:opacity-90 transition-opacity shadow-lg mt-4"
+              >
+                Построить маршрут
+              </a>
+            </div>
+
+            <div className="text-sm text-muted-foreground space-y-2">
+              <p>Выходите на станции метро «Пролетарская» и двигайтесь в сторону проспекта Обуховской Обороны. Студия находится в жилом комплексе «Молодежный».</p>
+              <p className="text-xs opacity-70">Точный номер квартиры направляется при подтверждении записи.</p>
+            </div>
+          </div>
+
+          <div className="rounded-xl overflow-hidden border border-border shadow-sm">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?ll=30.4898%2C59.8975&z=16&pt=30.4898%2C59.8975%2Cpm2rdm&mode=search&text=пр-т%20Обуховской%20Обороны%2C%20110к1%2C%20Санкт-Петербург"
+              width="100%"
+              height="400"
+              frameBorder="0"
+              allowFullScreen
+              style={{ border: 0 }}
+              title="Карта — АРТ Косметология"
+            />
+          </div>
+        </div>
+      </section>
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
