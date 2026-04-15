@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, Shield, Users, Zap, Award, ArrowRight } from "lucide-react";
+import { Check, ChevronRight, Sparkles, Shield, Users, Zap, Award, ArrowRight, Droplets, Waves, Heart } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
