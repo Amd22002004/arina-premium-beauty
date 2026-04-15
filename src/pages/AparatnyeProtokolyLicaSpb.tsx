@@ -16,36 +16,32 @@ const fadeUp = {
 
 const serviceCards = [
   {
-    icon: <Radio size={28} />,
-    title: "RF-лифтинг",
-    desc: "Радиочастотное воздействие для подтяжки кожи, улучшения овала лица и стимуляции коллагена",
-    price: "от 3 900 ₽",
-    path: "/rf-lifting-spb",
-    internal: false,
-  },
-  {
-    icon: <Waves size={28} />,
-    title: "INDIBA",
-    desc: "Глубокое прогревание тканей для восстановления тонуса, уплотнения кожи и лифтинга",
-    price: "от 3 900 ₽",
-    path: "/indiba-spb",
-    internal: false,
+    icon: <Snowflake size={28} />,
+    title: "Холодная плазма",
+    desc: "Омоложение, выравнивание рельефа и тона кожи, лифтинг и безоперационная блефаропластика",
+    price: "от 4 000 ₽",
+    path: "/holodnaya-plazma-spb",
   },
   {
     icon: <Zap size={28} />,
-    title: "Микроигольчатый RF-лифтинг",
-    desc: "Сочетание микроигл и радиочастотной энергии для уплотнения кожи, коррекции текстуры и постакне",
-    price: "от 5 400 ₽",
-    path: "/mikroigolchatyj-rf-lifting-spb",
-    internal: false,
+    title: "Лазерная шлифовка лица (CO₂)",
+    desc: "Глубокое обновление кожи, устранение морщин, рубцов, постакне и растяжек",
+    price: "от 3 900 ₽",
+    path: "/frakcionnyy-lazer-co2-spb",
   },
   {
-    icon: <Snowflake size={28} />,
-    title: "Холодная плазма",
-    desc: "Деликатная аппаратная методика для восстановления кожи и работы с эстетическими задачами",
-    price: "от 4 000 ₽",
-    path: "/holodnaya-plazma-spb",
-    internal: false,
+    icon: <Waves size={28} />,
+    title: "BBL фотоомоложение",
+    desc: "Выравнивание тона, осветление, устранение пигментации и сосудистых проявлений",
+    price: "от 7 400 ₽",
+    path: "/fotoomolozhenie-bbl-spb",
+  },
+  {
+    icon: <Radio size={28} />,
+    title: "Микроигольчатый RF-лифтинг",
+    desc: "Подтяжка и уплотнение кожи, улучшение качества без операции",
+    price: "от 5 400 ₽",
+    path: "/mikroigolchatyj-rf-lifting-spb",
   },
 ];
 
@@ -89,7 +85,7 @@ const AparatnyeProtokolyLicaSpb = () => (
     {/* Service Cards */}
     <section className="py-12 md:py-16">
       <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">Наши аппаратные методики</h2>
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">Аппаратная косметология</h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10">
           Каждая методика решает свои задачи. Выберите интересующее направление, чтобы узнать подробнее
         </p>

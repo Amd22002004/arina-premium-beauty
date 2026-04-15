@@ -31,18 +31,17 @@ export const services: Service[] = [
 
   { name: "Уход за лицом (массаж + маски)", price: 2300, category: "Уход за лицом", link: "/uhod-za-licom-spb", result: "Глубокое увлажнение, питание и сияние кожи" },
 
-  { name: "Пилинг", price: 2900, category: "Пилинги", link: "/pilingi-spb", result: "Обновление текстуры, выравнивание тона, сужение пор" },
+  { name: "Пилинг", price: 3000, pricePrefix: "от", category: "Пилинги", link: "/pilingi-spb", result: "Обновление текстуры, выравнивание тона, сужение пор" },
 
   { name: "Аппаратная процедура лица / шеи / декольте", price: 3900, category: "Аппаратные процедуры лица", link: "/aparatnye-protokoly-lica-spb", result: "RF-лифтинг, INDIBA — омоложение и подтяжка" },
   { name: "Микроигольчатый RF-лифтинг", price: 5500, category: "Аппаратные процедуры лица", link: "/mikroigolchatyj-rf-lifting-spb", result: "Уплотнение кожи, коррекция текстуры и постакне" },
   { name: "Холодная плазма", price: 4000, category: "Аппаратные процедуры лица", link: "/holodnaya-plazma-spb", result: "Деликатное восстановление и улучшение кожи" },
 
-  { name: "Фотоомоложение BBL (лицо)", price: 7500, category: "Фотоомоложение BBL", link: "/fotoomolozhenie-bbl-spb", result: "Устранение пигментации и сосудистых звёздочек" },
-  { name: "Фотоомоложение BBL (шея / декольте)", price: 6000, category: "Фотоомоложение BBL", link: "/fotoomolozhenie-bbl-spb", result: "Омоложение зоны шеи и декольте" },
+  { name: "Фотоомоложение BBL (лицо)", price: 7400, category: "Фотоомоложение BBL", link: "/fotoomolozhenie-bbl-spb", result: "Выравнивание тона, устранение пигментации и сосудистых проявлений" },
+  { name: "Фотоомоложение BBL комбо (лицо + шея)", price: 11000, pricePrefix: "от", category: "Фотоомоложение BBL", link: "/fotoomolozhenie-bbl-spb", result: "Комплексное фотоомоложение" },
   { name: "Фотоомоложение BBL (кисти рук)", price: 4700, category: "Фотоомоложение BBL", link: "/fotoomolozhenie-bbl-spb", result: "Устранение пигментных пятен на кистях" },
-  { name: "Фотоомоложение BBL (лицо + шея + декольте)", price: 14000, category: "Фотоомоложение BBL", link: "/fotoomolozhenie-bbl-spb", result: "Комплексное фотоомоложение трёх зон" },
 
-  { name: "Фракционный лазер CO₂ (лицо)", price: 7500, category: "Фракционный лазер CO₂", link: "/frakcionnyy-lazer-co2-spb", result: "Глубокое обновление, устранение морщин и рубцов" },
+  { name: "Лазерная шлифовка лица CO₂", price: 7500, category: "Фракционный лазер CO₂", link: "/frakcionnyy-lazer-co2-spb", result: "Глубокое обновление, устранение морщин и рубцов" },
   { name: "Фракционный лазер CO₂ (зоны)", price: 3900, pricePrefix: "от", category: "Фракционный лазер CO₂", link: "/frakcionnyy-lazer-co2-spb", result: "Шея, декольте, кисти, рубцы — по зонам" },
 
   { name: "Коррекция фигуры", price: 2800, category: "Коррекция фигуры", link: "/korrekciya-figury-spb", result: "Уменьшение объёмов, антицеллюлитный эффект" },

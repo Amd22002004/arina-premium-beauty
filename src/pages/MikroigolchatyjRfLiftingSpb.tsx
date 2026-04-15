@@ -82,7 +82,7 @@ const MikroigolchatyjRfLiftingSpb = () => (
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
           className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
-          Подтяжка кожи, улучшение качества и уплотнение без операции
+          Подтяжка кожи · Уплотнение кожи · Улучшение качества кожи без операции
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
           className="text-primary font-heading text-2xl md:text-3xl mb-8">от 5&nbsp;400&nbsp;₽</motion.p>

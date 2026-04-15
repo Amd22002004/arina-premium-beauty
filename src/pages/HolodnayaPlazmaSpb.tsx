@@ -18,18 +18,26 @@ const fadeUp = {
 const bookingLink = (service: string) => `/booking?service=${encodeURIComponent(service)}`;
 
 const whatItDoes = [
-  "Улучшает внешний вид кожи",
-  "Поддерживает восстановительные процессы",
-  "Помогает работать с эстетическими несовершенствами",
-  "Подходит для деликатных протоколов",
-  "Может использоваться как самостоятельная процедура или в курсе",
+  "Омоложение лица",
+  "Выравнивание рельефа кожи",
+  "Осветление и выравнивание тона",
+  "Лифтинг и повышение упругости",
+];
+
+const indications = [
+  "Воспаления и высыпания",
+  "Постакне",
+  "Пигментация",
+  "Купероз",
+  "Расширенные поры",
+  "Дряблая кожа",
 ];
 
 const suitableFor = [
+  "Безоперационная блефаропластика (верхние и нижние веки)",
   "Тем, кто хочет улучшить качество кожи",
   "Тем, кто ищет деликатную аппаратную методику",
   "Тем, кому важен аккуратный косметологический результат",
-  "Тем, кто рассматривает курс процедур",
 ];
 
 const steps = [
@@ -90,10 +98,15 @@ const HolodnayaPlazmaSpb = () => (
             className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5 text-left">
             Холодная плазма в&nbsp;Санкт‑Петербурге
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-            className="text-foreground text-lg md:text-xl mb-4 text-left">
-            Деликатное воздействие для восстановления кожи и улучшения её состояния
-          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+            className="mb-4 text-left">
+            <ul className="text-foreground text-lg md:text-xl space-y-1">
+              <li>Омоложение лица</li>
+              <li>Выравнивание рельефа кожи</li>
+              <li>Осветление и выравнивание тона</li>
+              <li>Лифтинг и повышение упругости</li>
+            </ul>
+          </motion.div>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
             className="text-primary font-heading text-2xl md:text-3xl mb-8 text-left">от 4&nbsp;000&nbsp;₽</motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
@@ -126,9 +139,13 @@ const HolodnayaPlazmaSpb = () => (
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto">
         <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-foreground/80 text-base md:text-lg text-center leading-relaxed">
-          Холодная плазма — это современная аппаратная методика, которая используется в косметологии для улучшения состояния кожи, 
-          восстановления и работы с эстетическими задачами.
+          className="text-foreground/80 text-base md:text-lg text-center leading-relaxed mb-4">
+          Холодная плазма — современная аппаратная методика для омоложения, выравнивания тона и рельефа кожи, 
+          лифтинга и повышения упругости. Также применяется для безоперационной блефаропластики.
+        </motion.p>
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+          className="text-primary font-heading text-xl text-center">
+          Блефаропластика — 4 000 ₽
         </motion.p>
       </div>
     </section>
@@ -149,8 +166,20 @@ const HolodnayaPlazmaSpb = () => (
       </div>
     </section>
 
-    {/* Suitable for */}
+    {/* Показания */}
     <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Показания</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {indications.map((item, i) => (
+            <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-foreground/80">{item}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Кому подходит</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">

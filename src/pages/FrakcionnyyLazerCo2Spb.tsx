@@ -68,7 +68,7 @@ const recovery = [
 const FrakcionnyyLazerCo2Spb = () => (
   <Layout>
     <Helmet>
-      <title>Фракционный лазер CO2 в Санкт-Петербурге | АРТ Косметология</title>
+      <title>Лазерная шлифовка лица (CO₂) в Санкт-Петербурге | АРТ Косметология</title>
       <meta name="description" content="Фракционный лазер CO₂ в СПб: омоложение кожи, устранение морщин, рубцов и растяжек. От 3 900 ₽. Запись онлайн." />
       <meta name="keywords" content="фракционный лазер co2 спб, лазерное омоложение спб, co2 лазер спб, убрать рубцы лазером спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/frakcionnyy-lazer-co2-spb" />
@@ -83,7 +83,7 @@ const FrakcionnyyLazerCo2Spb = () => (
     <section className="py-14 md:py-20 bg-cream">
       <div className="container-wide px-4 md:px-8 text-center">
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          Фракционный лазер CO₂
+          Лазерная шлифовка лица (CO₂)
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
           className="text-foreground/90 text-lg md:text-xl max-w-2xl mx-auto mb-4">
