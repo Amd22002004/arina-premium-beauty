@@ -20,6 +20,9 @@ const fadeUp = {
 const prices = [
   { name: "Удаление папиллом", price: "от 400 ₽" },
   { name: "Интимное омоложение", price: "4 000 ₽" },
+  { name: "Гуаша (лицо / тело)", price: "2 000 ₽" },
+  { name: "Body Sculpt", price: "2 800 ₽" },
+  { name: "Кресло Кегеля", price: "1 500 ₽" },
 ];
 
 const suitableFor = [
