@@ -16,12 +16,12 @@ const fadeUp = {
 
 const prices = [
   {
-    name: "Вакуумный массаж",
+    name: "Вакуумно-роликовый массаж (4D)",
     price: "2 800 ₽",
     priceValue: 2800,
     tiers: [
-      { count: 5, total: 16000 },
-      { count: 10, total: 30000 },
+      { count: 5, total: 13500 },
+      { count: 10, total: 25000 },
     ],
     desc: "Аппаратный антицеллюлитный массаж для моделирования контуров тела",
   },
@@ -89,7 +89,7 @@ const VakuumnyjMassazhSpb = () => (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="order-2 lg:order-1">
             <h1 className="font-heading text-4xl md:text-5xl text-foreground mb-5">
-              Вакуумный массаж — аппаратная борьба с целлюлитом
+              Вакуумно-роликовый массаж (4D) — аппаратная борьба с целлюлитом
             </h1>
             <p className="text-muted-foreground text-lg mb-4">
               Глубокая проработка подкожно-жировой клетчатки: разрушение фиброзных перегородок, моделирование контуров и улучшение текстуры кожи
@@ -135,7 +135,7 @@ const VakuumnyjMassazhSpb = () => (
     </section>
 
     {/* Prices */}
-    <div id="prices"><ServicePricingTiers title="Стоимость вакуумного массажа" prices={prices} /></div>
+    <div id="prices"><ServicePricingTiers title="Стоимость массажа по коррекции фигуры" prices={prices} /></div>
 
     {/* Benefits */}
     <section className="py-10 md:py-14 bg-cream">

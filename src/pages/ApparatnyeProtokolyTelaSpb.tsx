@@ -23,14 +23,14 @@ const fadeUp = {
 
 const prices = [
   {
-    name: "EMS / INDIBA / БМС",
+    name: "Аппаратная процедура тела",
     price: "2 800 ₽",
     priceValue: 2800,
     tiers: [
-      { count: 5, total: 16000 },
-      { count: 10, total: 30000 },
+      { count: 5, total: 13500 },
+      { count: 10, total: 25000 },
     ],
-    desc: "Аппаратное моделирование тела",
+    desc: "EMS, BMS, прессотерапия, Impulse, MTS-липосоник, кавитация, 4D массаж, INDIBA",
   },
 ];
 
@@ -98,7 +98,7 @@ const ApparatnyeProtokolyTelaSpb = () => (
               Аппаратные протоколы тела
             </h1>
             <p className="text-white/85 text-base sm:text-lg md:text-xl mb-2">
-              EMS / INDIBA / БМС — моделирование фигуры без операций
+              EMS · BMS · Прессотерапия · Impulse · MTS-липосоник · Кавитация · 4D массаж · INDIBA
             </p>
             <p className="text-white font-heading text-2xl md:text-3xl mb-6">от 2&nbsp;800&nbsp;₽</p>
             <Link to="/booking?service=EMS / INDIBA / БМС">
@@ -149,11 +149,16 @@ const ApparatnyeProtokolyTelaSpb = () => (
     {/* SECTION 4 — ЧТО ЭТО И КАК РАБОТАЕТ */}
     <section className="py-12 md:py-16 bg-cream">
       <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto text-center">
-        <h2 className="font-heading text-3xl md:text-4xl mb-8">Что это и как работает</h2>
+        <h2 className="font-heading text-3xl md:text-4xl mb-8">Наши аппаратные методики</h2>
         <div className="space-y-5 text-foreground/80 text-base md:text-lg leading-relaxed">
-          <p><span className="font-semibold text-foreground">INDIBA</span> — технология, которая стимулирует микроциркуляцию, улучшает лимфоток и запускает восстановительные процессы в тканях.</p>
-          <p><span className="font-semibold text-foreground">EMS</span> — воздействие на мышцы для повышения тонуса.</p>
-          <p><span className="font-semibold text-foreground">БМС</span> — комплексная коррекция тела.</p>
+          <p><span className="font-semibold text-foreground">EMS</span> — электромиостимуляция для укрепления мышц и формирования рельефа тела.</p>
+          <p><span className="font-semibold text-foreground">BMS</span> — биомеханическая стимуляция мышц для глубокого тонуса и восстановления.</p>
+          <p><span className="font-semibold text-foreground">Прессотерапия</span> — аппаратный лимфодренаж для снятия отёков и детоксикации.</p>
+          <p><span className="font-semibold text-foreground">Impulse</span> — импульсное воздействие для коррекции фигуры.</p>
+          <p><span className="font-semibold text-foreground">MTS-липосоник</span> — ультразвуковое расщепление жировых отложений.</p>
+          <p><span className="font-semibold text-foreground">Кавитация</span> — ультразвуковая липосакция без хирургии.</p>
+          <p><span className="font-semibold text-foreground">4D массаж</span> — объёмное аппаратное воздействие для моделирования контуров.</p>
+          <p><span className="font-semibold text-foreground">INDIBA</span> — радиочастотная терапия для восстановления тонуса тканей.</p>
         </div>
       </div>
     </section>

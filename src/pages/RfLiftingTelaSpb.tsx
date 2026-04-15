@@ -21,8 +21,8 @@ const prices = [
     price: "2 800 ₽",
     priceValue: 2800,
     tiers: [
-      { count: 5, total: 16000 },
-      { count: 10, total: 30000 },
+      { count: 5, total: 13500 },
+      { count: 10, total: 25000 },
     ],
     desc: "Прогрев тканей + миостимуляция для подтяжки и тонуса тела",
   },

@@ -36,8 +36,8 @@ const categories: { label: string; key: string; groups: ServiceGroup[] }[] = [
     label: "Тело",
     key: "body",
     groups: [
-      { title: "EMS / INDIBA / БМС", desc: "Аппаратное моделирование и укрепление мышц тела", items: ["EMS Body Sculpt", "INDIBA тело", "БМС"], link: "/apparatnye-protokoly-tela-spb" },
-      { title: "Коррекция фигуры", desc: "Кавитация, прессотерапия, LPG — эффективное моделирование силуэта", items: ["Кавитация", "Прессотерапия", "LPG-массаж", "Вакуумный массаж"], link: "/korrekciya-figury-spb" },
+      { title: "Аппаратные процедуры тела", desc: "EMS, BMS, прессотерапия, Impulse, MTS-липосоник, кавитация, 4D массаж, INDIBA", items: ["EMS", "BMS", "Прессотерапия", "Impulse", "MTS-липосоник", "Кавитация", "4D массаж", "INDIBA"], link: "/apparatnye-protokoly-tela-spb" },
+      { title: "Коррекция фигуры", desc: "Вакуумно-роликовый массаж (4D), горячий вакуум, RF-лифтинг тела — моделирование силуэта", items: ["Вакуумно-роликовый массаж (4D)", "Горячий вакуум", "RF-лифтинг тела"], link: "/korrekciya-figury-spb" },
     ],
   },
   {
