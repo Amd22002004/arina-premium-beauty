@@ -180,6 +180,7 @@ const courses: Course[] = [
       { label: "СПА и восстановление", href: "/spa-i-vosstanovlenie-spb" },
       { label: "Восстановительные массажи", href: "/vosstanovitelnye-massazhi-spb" },
     ],
+  },
 ];
 
 const filters: { key: Filter; label: string; icon: typeof Sparkles }[] = [
