@@ -117,18 +117,20 @@ const VosstanovitelnyeMassazhiSpb = () => (
 
     <div id="prices"><ServicePricingTiers title="Цены на восстановительные массажи" prices={prices} /></div>
 
-    {/* Акция */}
-    <section className="py-8 md:py-10">
-      <div className="container-narrow px-4 md:px-8">
-        <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground before:absolute before:inset-0 before:bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.18)_50%,transparent_70%)] before:animate-[shimmer_3s_ease-in-out_infinite] before:-translate-x-full before:pointer-events-none">
-          <Star size={36} className="mx-auto mb-3 opacity-80 relative z-10" />
-          <h2 className="font-heading text-2xl md:text-3xl mb-2 relative z-10">Первое посещение — скидка 30%</h2>
-          <p className="text-base opacity-90 mb-5 max-w-xl mx-auto relative z-10">На лимфодренажный массаж для новых клиентов</p>
-          <Link to={`/booking?service=Лимфодренажный массаж`} className="relative z-10">
-            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">Записаться со скидкой</Button>
-          </Link>
-        </motion.div>
+    {/* Методы лимфодренажа */}
+    <section className="py-10 md:py-14 bg-cream">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-3">Методы лимфодренажа</h2>
+        <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">Подбираем оптимальную технику индивидуально — в зависимости от состояния и целей</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          {lymphMethods.map((m, i) => (
+            <motion.div key={m.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="bg-card rounded-xl p-6 border border-border">
+              <h3 className="font-heading text-lg mb-2">{m.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{m.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
