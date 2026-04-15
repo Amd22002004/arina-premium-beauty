@@ -555,22 +555,6 @@ const CoursesAndPackages = () => {
       {/* Comparison */}
       <ComparisonBlock />
 
-      {/* First visit */}
-      <section className="py-12 md:py-16 bg-cream">
-        <div className="container-wide px-4 md:px-8 text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
-            <h2 className="font-heading text-3xl md:text-4xl mb-4">Ещё не пробовали?</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-              Начните со знакомства — первый визит со скидкой 30% на входные процедуры.
-            </p>
-            <Link to="/art-protokol-znakomstvo">
-              <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-                Знакомство с АРТ-протоколом
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Trust */}
       <ConsultationCapture />
