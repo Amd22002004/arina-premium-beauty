@@ -104,8 +104,8 @@ const courses: Course[] = [
       "Нужен видимый результат к событию",
     ],
     duration: "5–10 процедур",
-    price5: "от 11 200 ₽",
-    price10: "от 17 400 ₽",
+    price5: "13 500 ₽",
+    price10: "25 000 ₽",
     links: [
       { label: "Коррекция фигуры", href: "/korrekciya-figury-spb" },
       { label: "Аппаратные протоколы тела", href: "/apparatnye-protokoly-tela-spb" },
