@@ -16,8 +16,8 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Хиджама", price: "от 1 600 ₽" },
-  { name: "Гирудотерапия", price: "от 1 600 ₽" },
+  { name: "Хиджама", price: "5 000 ₽" },
+  { name: "Гирудотерапия", price: "2 000 ₽" },
 ];
 
 const suitableFor = [
