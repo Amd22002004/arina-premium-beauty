@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, Shield, Users, Zap, Award, ArrowRight } from "lucide-react";
+import { Check, ChevronRight, Sparkles, Shield, Users, Zap, Award, ArrowRight, Droplets, Waves, Heart } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -120,37 +120,75 @@ const KorrekciyaFigurySpb = () => (
       </div>
     </section>
 
-    {/* Procedure cards */}
-    <section id="procedures" className="py-12 md:py-16">
+    {/* Task-based cards */}
+    <section id="procedures" className="py-14 md:py-20 bg-rose-light">
       <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">Какую задачу решаем?</h2>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10">
-          Каждая методика работает по-своему. Выберите процедуру под свою цель — или запишитесь на консультацию, и мы подберём программу
-        </p>
+        <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="font-heading text-3xl md:text-[42px] leading-tight text-center mb-3">
+          Какая у вас задача?
+        </motion.h2>
+        <motion.p initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+          className="text-muted-foreground text-center max-w-2xl mx-auto mb-12 text-base md:text-lg">
+          Подберём процедуру под вашу цель — работаем не по шаблону, а по результату
+        </motion.p>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {procedures.map((p, i) => (
-            <motion.div key={p.slug} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}>
-              <Link to={p.slug} className="group flex flex-col h-full bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all">
-                {/* Media */}
-                <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  {p.video ? (
-                    <video muted playsInline preload="metadata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                      <source src={p.video} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  )}
-                </div>
-                {/* Content */}
-                <div className="flex flex-col flex-1 p-6">
-                  <span className="text-xs font-medium text-primary bg-primary/10 self-start px-3 py-1 rounded-full mb-3">{p.tag}</span>
-                  <h3 className="font-heading text-2xl mb-1 group-hover:text-primary transition-colors">{p.title}</h3>
-                  <p className="text-sm font-medium text-primary/80 mb-3 whitespace-pre-line">{p.angle}</p>
-                  <p className="text-muted-foreground text-sm flex-1 leading-relaxed whitespace-pre-line">{p.desc}</p>
-                  <div className="flex items-center gap-2 text-primary font-medium mt-4">
-                    Подробнее <ArrowRight size={16} />
-                  </div>
-                </div>
+          {[
+            {
+              icon: <Droplets size={28} />,
+              title: "Уменьшить объёмы и убрать целлюлит",
+              benefits: [
+                "Убираем застой жидкости и жировые отложения",
+                "Разглаживаем кожу и уменьшаем «апельсиновую корку»",
+                "Формируем более подтянутый силуэт",
+              ],
+              methods: "вакуумно-роликовый массаж (4D), горячий вакуум, кавитация",
+              link: "/booking?service=Коррекция фигуры — объёмы",
+            },
+            {
+              icon: <Heart size={28} />,
+              title: "Подтянуть кожу и вернуть тонус",
+              benefits: [
+                "Укрепляем мышечный каркас",
+                "Повышаем плотность и упругость кожи",
+                "Формируем более чёткие контуры тела",
+              ],
+              methods: "RF-лифтинг, EMS, BMS, индиба",
+              link: "/booking?service=Коррекция фигуры — подтяжка",
+            },
+            {
+              icon: <Waves size={28} />,
+              title: "Убрать отёки и лёгкость в теле",
+              benefits: [
+                "Запускаем лимфодренаж",
+                "Убираем лишнюю жидкость",
+                "Лёгкость уже после первых процедур",
+              ],
+              methods: "прессотерапия, вакуумный массаж, лимфодренажные техники",
+              link: "/booking?service=Лимфодренаж",
+            },
+          ].map((card, i) => (
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="group flex flex-col bg-card rounded-2xl border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out p-6">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+                {card.icon}
+              </div>
+              <h3 className="font-heading text-xl md:text-2xl leading-snug mb-4">{card.title}</h3>
+              <ul className="space-y-3 flex-1 mb-5">
+                {card.benefits.map((b, j) => (
+                  <li key={j} className="flex items-start gap-2.5 text-sm text-foreground leading-relaxed">
+                    <Check size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-muted-foreground mb-5 leading-relaxed">
+                <span className="font-medium">Методы:</span> {card.methods}
+              </p>
+              <Link to={card.link}>
+                <Button className="w-full gold-gradient text-primary-foreground border-0 rounded-xl px-5 py-2.5 hover:shadow-lg transition-shadow duration-200">
+                  Подобрать процедуру <ArrowRight size={16} className="ml-1" />
+                </Button>
               </Link>
             </motion.div>
           ))}
