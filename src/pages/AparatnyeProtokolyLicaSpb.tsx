@@ -86,6 +86,7 @@ const AparatnyeProtokolyLicaSpb = () => (
     <section className="py-12 md:py-16">
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">Аппаратная косметология</h2>
+        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10">
           Каждая методика решает свои задачи. Выберите интересующее направление, чтобы узнать подробнее
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
