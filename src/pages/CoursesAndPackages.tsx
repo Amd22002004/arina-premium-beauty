@@ -70,8 +70,8 @@ const courses: Course[] = [
       "Есть отёчность лица по утрам",
     ],
     duration: "5–10 процедур",
-    price5: "11 500 ₽",
-    price10: "21 000 ₽",
+    price5: "9 000 ₽",
+    price10: "17 000 ₽",
     links: [
       { label: "Массаж лица", href: "/massazh-lica-spb" },
       { label: "Уход за лицом", href: "/uhod-za-licom-spb" },
@@ -142,7 +142,7 @@ const courses: Course[] = [
       "Ведёте сидячий образ жизни",
     ],
     duration: "5–10 процедур",
-    price5: "11 200 ₽",
+    price5: "11 000 ₽",
     price10: "21 000 ₽",
     links: [
       { label: "Массаж тела", href: "/massazh-tela-spb" },
@@ -345,18 +345,7 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
                       <BadgePercent size={12} /> Максимальная выгода
                     </span>
                   )}
-                  {course.price5 && course.price10 && (() => {
-                    const perSession = 3000;
-                    const count = tier === "5" ? 5 : 10;
-                    const currentPrice = parseInt((tier === "5" ? course.price5 : course.price10).replace(/\s/g, ""));
-                    const fullPrice = perSession * count;
-                    const saving = fullPrice - currentPrice;
-                    return saving > 0 ? (
-                      <p className="text-sm text-primary font-semibold mt-2">
-                        Экономия при курсе: {saving.toLocaleString("ru-RU")} ₽
-                      </p>
-                    ) : null;
-                  })()}
+                  {/* No fake savings — price speaks for itself */}
                 </motion.div>
               </AnimatePresence>
 

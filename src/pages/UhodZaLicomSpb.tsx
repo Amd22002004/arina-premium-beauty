@@ -22,8 +22,8 @@ const prices = [
     price: "2 300 ₽",
     priceValue: 2300,
     tiers: [
-      { count: 5, total: 13500 },
-      { count: 10, total: 25000 },
+      { count: 5, total: 11000 },
+      { count: 10, total: 21000 },
     ],
     desc: "Альгинатная, кислородная или увлажняющая маска — подбираем под состояние кожи",
   },

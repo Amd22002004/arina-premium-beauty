@@ -23,8 +23,8 @@ const prices = [
     price: "1 900 ₽",
     priceValue: 1900,
     tiers: [
-      { count: 5, total: 11200 },
-      { count: 10, total: 21000 },
+      { count: 5, total: 9000 },
+      { count: 10, total: 17000 },
     ],
     desc: "Скульптурный, миофасциальный, 3D-массаж — подбираем технику под вашу задачу",
     duration: "60 мин",
