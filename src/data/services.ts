@@ -23,6 +23,7 @@ export const categories = [
   "Работа с болью и суставами",
   "СПА и восстановление",
   "Деликатные услуги",
+  "Дополнительные услуги",
   "Оздоровительные процедуры",
 ];
 
@@ -76,6 +77,10 @@ export const services: Service[] = [
 
   { name: "Удаление папиллом", price: 400, pricePrefix: "от", category: "Деликатные услуги", link: "/dopolnitelnye-uslugi-spb", result: "Безопасное удаление новообразований" },
   { name: "Интимное омоложение", price: 4000, category: "Деликатные услуги", link: "/dopolnitelnye-uslugi-spb", result: "Восстановление и омоложение деликатных зон" },
+
+  { name: "Гуаша (лицо / тело)", price: 2000, category: "Дополнительные услуги", link: "/dopolnitelnye-uslugi-spb", result: "Лимфодренаж, снятие зажимов, улучшение тонуса" },
+  { name: "Body Sculpt", price: 2800, category: "Дополнительные услуги", link: "/dopolnitelnye-uslugi-spb", result: "Моделирование силуэта и укрепление мышц" },
+  { name: "Кресло Кегеля", price: 1500, category: "Дополнительные услуги", link: "/dopolnitelnye-uslugi-spb", result: "Укрепление мышц тазового дна" },
 
   { name: "Хиджама", price: 5000, category: "Оздоровительные процедуры", link: "/ozdorovitelnye-procedury-spb", result: "Оздоровление, детоксикация организма" },
   { name: "Гирудотерапия", price: 2000, category: "Оздоровительные процедуры", link: "/ozdorovitelnye-procedury-spb", result: "Улучшение кровообращения, оздоровление" },
