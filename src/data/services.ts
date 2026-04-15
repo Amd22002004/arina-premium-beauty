@@ -46,10 +46,10 @@ export const services: Service[] = [
 
   { name: "Коррекция фигуры", price: 2800, category: "Коррекция фигуры", link: "/korrekciya-figury-spb", result: "Уменьшение объёмов, антицеллюлитный эффект" },
   { name: "Горячий вакуум", price: 2800, category: "Коррекция фигуры", link: "/goryachiy-vakuum-spb", result: "Жиросжигание и уменьшение объёмов" },
-  { name: "Вакуумный массаж", price: 2800, category: "Коррекция фигуры", link: "/vakuumnyj-massazh-spb", result: "Антицеллюлитная коррекция и моделирование контуров" },
+  { name: "Вакуумно-роликовый массаж (4D)", price: 2800, category: "Коррекция фигуры", link: "/vakuumnyj-massazh-spb", result: "Антицеллюлитная коррекция и моделирование контуров" },
   { name: "RF-лифтинг тела", price: 2800, category: "Коррекция фигуры", link: "/rf-lifting-tela-spb", result: "Подтяжка кожи и тонус мышц" },
 
-  { name: "EMS / INDIBA / БМС", price: 2800, category: "EMS / INDIBA / БМС", link: "/apparatnye-protokoly-tela-spb", result: "Моделирование тела, укрепление мышц" },
+  { name: "Аппаратные процедуры тела", price: 2800, category: "EMS / INDIBA / БМС", link: "/apparatnye-protokoly-tela-spb", result: "EMS, BMS, прессотерапия, кавитация, 4D массаж, INDIBA" },
 
   { name: "Массаж ШВЗ (30 мин)", price: 1600, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Снятие зажимов шейно-воротниковой зоны" },
   { name: "Массаж спины (30 мин)", price: 1600, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Расслабление и снятие напряжения спины" },
