@@ -166,8 +166,20 @@ const HolodnayaPlazmaSpb = () => (
       </div>
     </section>
 
-    {/* Suitable for */}
+    {/* Показания */}
     <section className="py-10 md:py-14">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Показания</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {indications.map((item, i) => (
+            <motion.div key={item} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-foreground/80">{item}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
       <div className="container-wide px-4 md:px-8">
         <h2 className="font-heading text-3xl md:text-4xl text-center mb-10">Кому подходит</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
