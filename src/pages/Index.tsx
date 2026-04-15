@@ -1,27 +1,126 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Heart, Sparkles, Users, ChevronRight, Star, Zap, MapPin, CalendarCheck, UserCheck, MessageCircle, Check, Gift, Crown, Layers, Leaf, Clock, ArrowRight } from "lucide-react";
+import { ChevronRight, Check, MapPin, CalendarCheck, UserCheck, Sparkles, Zap, Heart, Eye, Droplets, CircleDot, Sun, Layers, Scan, FlameKindling, Activity, Crown, Gift, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
-import heroBg from "@/assets/hero-bg.jpg";
 import ConsultationCapture from "@/components/ConsultationCapture";
-import { services, formatPrice } from "@/data/services";
-import { FloatingPetals, FloralCorner, SectionFloralAccent, FloralDivider } from "@/components/FloralDecorations";
+import { formatPrice } from "@/data/services";
+import { FloatingPetals, SectionFloralAccent, FloralDivider } from "@/components/FloralDecorations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.5 } }),
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
 };
 
-// Popular services to show in the pricing preview block
-const popularServices = [
-  { name: "Массаж лица", price: 1900, course: "5 сеансов — 8 500 ₽", link: "/massazh-lica-spb" },
-  { name: "Уход за лицом", price: 2300, course: "5 сеансов — 10 500 ₽", link: "/uhod-za-licom-spb" },
-  { name: "Аппаратный протокол лица", price: 3900, course: "5 сеансов — 17 500 ₽", link: "/aparatnye-protokoly-lica-spb" },
-  { name: "Коррекция фигуры", price: 2800, course: "5 сеансов — 12 500 ₽", link: "/korrekciya-figury-spb" },
-  { name: "Лимфодренажный массаж", price: 2400, course: "5 сеансов — 10 500 ₽", link: "/massazh-tela-spb" },
-  { name: "Фотоомоложение BBL (лицо)", price: 7500, course: "3 сеанса — 21 000 ₽", link: "/fotoomolozhenie-bbl-spb" },
+const problems = [
+  { icon: Droplets, text: "Отёки и мешки под глазами" },
+  { icon: Scan, text: "Поплыл овал лица" },
+  { icon: Layers, text: "Дряблая кожа, потеря тонуса" },
+  { icon: Sun, text: "Пигментация и неровный тон" },
+  { icon: CircleDot, text: "Акне и постакне" },
+  { icon: Activity, text: "Лишние объёмы и целлюлит" },
+];
+
+const solutionCategories = [
+  {
+    title: "Лицо — массаж",
+    items: ["Скульптурный", "Миофасциальный 3D", "Лимфодренажный", "Классический", "Флиптинг", "INDIBA"],
+    link: "/massazh-lica-spb",
+  },
+  {
+    title: "Лицо — аппаратная косметология",
+    items: ["Холодная плазма", "RF-лифтинг (микроигольчатый)", "Фотоомоложение BBL", "Лазерная шлифовка CO₂", "Пилинги"],
+    link: "/aparatnye-protokoly-lica-spb",
+  },
+  {
+    title: "Тело",
+    items: ["Вакуумно-роликовый массаж (4D)", "Горячий вакуум", "EMS / BMS", "Прессотерапия", "Кавитация", "INDIBA"],
+    link: "/korrekciya-figury-spb",
+  },
+];
+
+const keyProcedures = [
+  {
+    title: "Холодная плазма",
+    results: ["Омоложение и лифтинг", "Выравнивание кожи", "Постакне и пигментация", "Блефаропластика без операции"],
+    price: 3900,
+    link: "/holodnaya-plazma-spb",
+  },
+  {
+    title: "Массаж лица",
+    results: ["Убирает отёки", "Формирует овал", "Улучшает тонус кожи"],
+    price: 1900,
+    note: "Курс выгоднее — от 1 700 ₽/сеанс",
+    link: "/massazh-lica-spb",
+  },
+  {
+    title: "RF-лифтинг",
+    results: ["Подтяжка без операции", "Уплотнение кожи", "Стимуляция коллагена"],
+    price: 3900,
+    link: "/mikroigolchatyj-rf-lifting-spb",
+  },
+  {
+    title: "Коррекция фигуры",
+    results: ["Уменьшение объёмов", "Лимфодренаж", "Антицеллюлит"],
+    price: 2800,
+    note: "5 сеансов — 13 500 ₽",
+    link: "/korrekciya-figury-spb",
+  },
+];
+
+const courses = [
+  { name: "Массаж лица", sessions: "5 процедур", price: "11 500 ₽", bonus: "+ гуаша в подарок", link: "/kursy-i-kompleksy" },
+  { name: "Коррекция фигуры", sessions: "Индивидуальный комплекс", price: "от 13 500 ₽", link: "/kursy-i-kompleksy" },
+  { name: "Лимфодренаж", sessions: "Курс процедур", price: "от 11 200 ₽", link: "/kursy-i-kompleksy" },
+  { name: "Восстановление", sessions: "Массаж + SPA", price: "от 13 500 ₽", link: "/kursy-i-kompleksy" },
+];
+
+const steps = [
+  { num: "01", title: "Консультация", desc: "Обсуждаем задачу, анализируем состояние кожи и тела" },
+  { num: "02", title: "Подбор протокола", desc: "Составляем индивидуальный план: подготовка → процедура → восстановление" },
+  { num: "03", title: "Процедура", desc: "Работаем в приватной обстановке, без спешки, с полным вниманием" },
+  { num: "04", title: "Результат", desc: "Видимый эффект уже после первого сеанса, накопительный — с курсом" },
+];
+
+const priceGroups = [
+  {
+    title: "Лицо",
+    items: [
+      { name: "Массаж лица", price: "от 1 900 ₽" },
+      { name: "Уход за лицом", price: "от 2 300 ₽" },
+      { name: "Пилинги", price: "от 3 000 ₽" },
+    ],
+    link: "/massazh-lica-spb",
+  },
+  {
+    title: "Аппаратные процедуры",
+    items: [
+      { name: "Холодная плазма", price: "от 3 900 ₽" },
+      { name: "BBL фотоомоложение", price: "от 7 500 ₽" },
+      { name: "Лазерная шлифовка CO₂", price: "от 6 000 ₽" },
+      { name: "Микроигольчатый RF", price: "от 3 900 ₽" },
+    ],
+    link: "/aparatnye-protokoly-lica-spb",
+  },
+  {
+    title: "Тело",
+    items: [
+      { name: "Коррекция фигуры", price: "от 2 800 ₽" },
+      { name: "Массаж тела", price: "от 2 000 ₽" },
+      { name: "Лимфодренаж", price: "от 2 400 ₽" },
+    ],
+    link: "/korrekciya-figury-spb",
+  },
+  {
+    title: "Курсы",
+    items: [
+      { name: "Массаж лица (5 сеансов)", price: "11 500 ₽" },
+      { name: "Коррекция фигуры (5 сеансов)", price: "13 500 ₽" },
+      { name: "Лимфодренаж (5 сеансов)", price: "11 200 ₽" },
+    ],
+    link: "/kursy-i-kompleksy",
+  },
 ];
 
 const Index = () => (
@@ -37,12 +136,12 @@ const Index = () => (
           url: "https://artbody.pro",
           telephone: "+79117193949",
           address: { "@type": "PostalAddress", streetAddress: "пр-т Обуховской Обороны, 110к1 (ЖК Молодежный)", addressLocality: "Санкт-Петербург", addressCountry: "RU" },
-          description: "АРТ Косметология — приватная студия аппаратной эстетики. Один мастер, один клиент. Омоложение лица и тела в Санкт-Петербурге.",
+          description: "Массаж лица и коррекция фигуры в Санкт-Петербурге. Убираем отёки, подтягиваем овал, улучшаем качество кожи и тела без операций.",
         }),
       }}
     />
 
-    {/* ═══════════ 1. HERO ═══════════ */}
+    {/* ═══════════ 1. HERO — сразу в боль ═══════════ */}
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <video autoPlay loop muted playsInline className="w-full h-full object-cover">
@@ -58,23 +157,20 @@ const Index = () => (
             <Sparkles size={14} /> Приватная студия | Санкт-Петербург
           </motion.div>
           <motion.h1 variants={fadeUp} custom={1} className="font-heading text-5xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight mb-6">
-            Аппаратная эстетика и&nbsp;искусство омоложения
+            Массаж лица и&nbsp;коррекция фигуры в&nbsp;Санкт-Петербурге
           </motion.h1>
-          <motion.p variants={fadeUp} custom={2} className="text-primary-foreground/80 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
-            Один мастер, один клиент. Абсолютная приватность, уютная обстановка, персональный подход и&nbsp;полная конфиденциальность.
-          </motion.p>
+          <motion.div variants={fadeUp} custom={2} className="text-primary-foreground/90 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl space-y-1">
+            <p>Убираем отёки</p>
+            <p>Подтягиваем овал лица</p>
+            <p>Улучшаем качество кожи и тела без операций</p>
+          </motion.div>
 
           <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-4 mb-10">
             <Link to="/booking">
-              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 text-base shadow-xl hover:shadow-2xl transition-shadow text-lg">
-                ✿ Записаться на консультацию
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 text-lg shadow-xl hover:shadow-2xl transition-shadow">
+                ✿ Записаться
               </Button>
             </Link>
-            <a href="#prices">
-              <Button size="lg" className="bg-primary-foreground/20 backdrop-blur-sm border-2 border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground/30 px-8 text-base font-medium">
-                Смотреть цены <ChevronRight size={16} className="ml-1" />
-              </Button>
-            </a>
           </motion.div>
 
           <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-x-6 gap-y-2 text-primary-foreground/60 text-sm">
@@ -86,177 +182,88 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ═══════════ 2. BENEFITS ═══════════ */}
-    <section className="relative py-10 md:py-14 bg-floral-cream overflow-hidden">
+    {/* ═══════════ 2. С КАКИМИ ПРОБЛЕМАМИ РАБОТАЕМ ═══════════ */}
+    <section className="relative py-16 md:py-20 bg-floral-cream overflow-hidden">
       <SectionFloralAccent position="both" />
       <div className="container-wide px-4 md:px-8 relative">
-        <FloralDivider className="mb-6" />
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
-          <h2 className="font-heading text-3xl md:text-4xl mb-3">Что вы получаете</h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Камерный формат, персональный подход и премиальный результат</p>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">С какими проблемами работаем</h2>
+          <FloralDivider className="mb-2" />
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Узнайте себя — мы знаем, как помочь</p>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-          {[
-            { icon: Sparkles, title: "Авторские протоколы", desc: "Подготовка → аппарат → восстановление" },
-            { icon: Zap, title: "Аппаратные технологии", desc: "INDIBA, RF, EMS, BBL, CO₂" },
-            { icon: Heart, title: "Приватная атмосфера", desc: "Один мастер, один клиент" },
-            { icon: UserCheck, title: "Персональный подход", desc: "Протокол под вашу задачу" },
-            { icon: Shield, title: "Конфиденциальность", desc: "Полная приватность визита" },
-          ].map((b, i) => (
-            <motion.div key={b.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card/80 backdrop-blur-sm p-5 rounded-xl border border-primary/10 text-center hover-lift shadow-floral">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center mx-auto mb-3">
-                <b.icon size={20} className="text-primary" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+          {problems.map((p, i) => (
+            <motion.div key={p.text} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="flex items-center gap-4 p-5 bg-card/80 backdrop-blur-sm rounded-xl border border-primary/10 shadow-floral hover-lift">
+              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center shrink-0">
+                <p.icon size={20} className="text-primary" />
               </div>
-              <h3 className="font-heading text-base mb-1">{b.title}</h3>
-              <p className="text-muted-foreground text-sm">{b.desc}</p>
+              <span className="text-foreground font-medium leading-snug">{p.text}</span>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
 
-    {/* ═══════════ 3. POPULAR PRICES ═══════════ */}
-    <section id="prices" className="relative py-10 md:py-14 bg-glamour scroll-mt-20 overflow-hidden">
+    {/* ═══════════ 3. КАК МЫ ЭТО РЕШАЕМ ═══════════ */}
+    <section className="relative py-16 md:py-20 bg-glamour overflow-hidden">
       <div className="container-wide px-4 md:px-8 relative">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
-          <h2 className="font-heading text-3xl md:text-4xl mb-3">Популярные процедуры</h2>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Как мы это решаем</h2>
           <FloralDivider className="mb-2" />
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Цены на разовую процедуру и курсы</p>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Системный подход — не хаос процедур, а чёткий план</p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-          {popularServices.map((s, i) => (
-            <motion.div key={s.name} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="bg-card/90 backdrop-blur-sm rounded-xl border border-primary/10 p-6 flex flex-col justify-between hover-lift shadow-floral">
-              <div>
-                <h3 className="font-heading text-lg mb-2">{s.name}</h3>
-                <p className="font-heading text-2xl text-glamour mb-1">{formatPrice(s.price)}</p>
-                <p className="text-sm text-muted-foreground mb-4">{s.course}</p>
-              </div>
-              <Link to={s.link}>
-                <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {solutionCategories.map((cat, i) => (
+            <motion.div key={cat.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="bg-card/90 backdrop-blur-sm rounded-xl p-7 border border-primary/10 shadow-floral hover-lift">
+              <h3 className="font-heading text-xl mb-4">{cat.title}</h3>
+              <ul className="space-y-2.5 mb-5">
+                {cat.items.map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-foreground">
+                    <Check size={15} className="text-primary shrink-0" /> {item}
+                  </li>
+                ))}
+              </ul>
+              <Link to={cat.link}>
+                <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                   Подробнее <ChevronRight size={14} className="ml-1" />
                 </Button>
               </Link>
             </motion.div>
           ))}
         </div>
-        <div className="text-center mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/price">
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-10">
-              Полный прайс-лист <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </Link>
-          <Link to="/booking">
-            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-              ✿ Записаться
-            </Button>
-          </Link>
-        </div>
       </div>
     </section>
 
-    <ConsultationCapture />
-
-    {/* ═══════════ 4. SERVICES BLOCKS ═══════════ */}
-    <section className="relative py-8 md:py-10 bg-floral-cream overflow-hidden">
+    {/* ═══════════ 4. КЛЮЧЕВЫЕ ПРОЦЕДУРЫ (продающий) ═══════════ */}
+    <section className="relative py-16 md:py-20 bg-floral-cream overflow-hidden">
       <SectionFloralAccent position="right" />
-      
       <div className="container-wide px-4 md:px-8 relative">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
-            <Sparkles size={16} /> Направления
-          </div>
-          <h2 className="font-heading text-3xl md:text-4xl mb-3">Услуги и протоколы</h2>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Ключевые процедуры</h2>
           <FloralDivider className="mb-2" />
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Кому подходит, какой эффект, сколько нужно сеансов</p>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Самые эффективные решения для лица и тела</p>
         </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <ServiceBlock
-            icon={Sparkles}
-            title="АРТ-протоколы лица"
-            subtitle="Лифтинг, работа с отёками, качеством кожи и контуром лица."
-            items={["массаж лица", "INDIBA", "РФ лифтинг 3D", "микроигольчатый RF", "холодная плазма", "уходовые маски"]}
-            link="/massazh-lica-spb"
-            index={0}
-          />
-          <ServiceBlock
-            icon={Heart}
-            title="АРТ-протоколы тела"
-            subtitle="Коррекция фигуры, дренаж и восстановление."
-            items={["EMS Body Sculpt", "INDIBA", "БМС тела", "LPG", "кавитация", "вакуумный массаж"]}
-            link="/korrekciya-figury-spb"
-            index={1}
-          />
-          <ServiceBlock
-            icon={Shield}
-            title="Массаж"
-            subtitle="Восстановительный, лимфодренажный, висцеральный."
-            items={["восстановительный массаж", "лимфодренаж", "висцеральный массаж", "массаж ШВЗ"]}
-            link="/massazh-tela-spb"
-            index={2}
-          />
-          <ServiceBlock
-            icon={Leaf}
-            title="СПА и восстановление"
-            subtitle="Инфракрасная капсула, медовая выкатка, обёртывания."
-            items={["инфракрасная капсула", "медовая выкатка", "обёртывания", "комплексные ритуалы"]}
-            link="/spa-i-vosstanovlenie-spb"
-            index={3}
-          />
-        </div>
-
-        <div className="text-center mt-8">
-          <Link to="/services">
-            <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-              Все услуги <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </section>
-
-    {/* ═══════════ 5. OFFERS ═══════════ */}
-    <section className="relative py-10 md:py-12 bg-glamour overflow-hidden">
-      <div className="container-wide px-4 md:px-8 relative">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              icon: Gift,
-              title: "Первое посещение",
-              main: "Скидка 30% на входные процедуры",
-              sub: "Массаж, лимфодренаж, мягкие уходы.",
-              link: "/art-protokol-znakomstvo",
-              cta: "Подробнее",
-            },
-            {
-              icon: Crown,
-              title: "Премиальные процедуры",
-              main: "BBL, CO₂, INDIBA",
-              sub: "Аппаратные технологии с акцентом на результат.",
-              link: "/aparatnye-protokoly-lica-spb",
-              cta: "Узнать больше",
-            },
-            {
-              icon: Layers,
-              title: "Курсы и комплексы",
-              main: "Экономия до 20% при покупке курса",
-              sub: "Подготовка → аппарат → восстановление.",
-              link: "/kursy-i-kompleksy",
-              cta: "Смотреть курсы",
-            },
-          ].map((o, i) => (
-            <motion.div key={o.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}>
-              <Link to={o.link} className="block bg-card/90 backdrop-blur-sm p-7 rounded-xl border border-primary/10 hover-lift text-center h-full shadow-floral">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center mx-auto mb-4">
-                  <o.icon size={22} className="text-primary" />
-                </div>
-                <h3 className="font-heading text-lg mb-2">{o.title}</h3>
-                <p className="text-foreground font-medium leading-relaxed mb-2">{o.main}</p>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{o.sub}</p>
-                <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  {o.cta} <ChevronRight size={14} className="ml-1" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {keyProcedures.map((proc, i) => (
+            <motion.div key={proc.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="bg-card/90 backdrop-blur-sm rounded-xl p-7 border border-primary/10 shadow-floral hover-lift flex flex-col">
+              <h3 className="font-heading text-2xl mb-4">{proc.title}</h3>
+              <ul className="space-y-2 mb-5 flex-1">
+                {proc.results.map((r) => (
+                  <li key={r} className="flex items-center gap-2.5 text-foreground">
+                    <Check size={15} className="text-primary shrink-0" /> {r}
+                  </li>
+                ))}
+              </ul>
+              <div className="mb-4">
+                <span className="font-heading text-2xl text-glamour">{formatPrice(proc.price)}</span>
+                {proc.note && <p className="text-sm text-muted-foreground mt-1">{proc.note}</p>}
+              </div>
+              <Link to={proc.link}>
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full">
+                  Подробнее <ChevronRight size={14} className="ml-1" />
                 </Button>
               </Link>
             </motion.div>
@@ -265,53 +272,171 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ═══════════ 6. SOCIAL PROOF / WHY US ═══════════ */}
-    <section className="relative py-10 md:py-12 bg-floral-cream overflow-hidden">
-      <SectionFloralAccent position="left" />
-      
-      <div className="container-narrow px-4 md:px-8 relative">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-8">
-          <h2 className="font-heading text-3xl md:text-4xl mb-3">Почему выбирают нас</h2>
-          <FloralDivider />
+    {/* ═══════════ 5. КУРСЫ (ГДЕ ДЕНЬГИ) ═══════════ */}
+    <section className="relative py-16 md:py-20 bg-glamour overflow-hidden">
+      <div className="container-wide px-4 md:px-8 relative">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-medium mb-4">
+            <Crown size={16} /> Результат только курсом
+          </div>
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Курсы и комплексы</h2>
+          <FloralDivider className="mb-2" />
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Экономия до 20% и стабильный результат</p>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            "Приватная студия — один мастер, один клиент",
-            "Полная конфиденциальность каждого визита",
-            "Авторские протоколы, а не шаблонные процедуры",
-            "Уютная обстановка без потока и очередей",
-            "Персональный подбор под вашу задачу",
-          ].map((t, i) => (
-            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-              className="flex items-start gap-3 p-5 bg-card/80 backdrop-blur-sm rounded-lg border border-primary/10 shadow-floral">
-              <Check size={18} className="text-primary mt-0.5 shrink-0" />
-              <span className="text-foreground leading-relaxed">{t}</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+          {courses.map((c, i) => (
+            <motion.div key={c.name} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="bg-card/90 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-floral hover-lift text-center flex flex-col">
+              <h3 className="font-heading text-lg mb-2">{c.name}</h3>
+              <p className="text-sm text-muted-foreground mb-3">{c.sessions}</p>
+              <p className="font-heading text-2xl text-glamour mb-1">{c.price}</p>
+              {c.bonus && <p className="text-sm text-primary font-medium mb-3">{c.bonus}</p>}
+              <div className="mt-auto pt-3">
+                <Link to={c.link}>
+                  <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full">
+                    Смотреть курс <ChevronRight size={14} className="ml-1" />
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
 
-    {/* ═══════════ 7. CTA ═══════════ */}
-    <section className="py-10 md:py-14">
+    <ConsultationCapture />
+
+    {/* ═══════════ 6. КАК ПРОХОДИТ ПРОЦЕДУРА ═══════════ */}
+    <section className="relative py-16 md:py-20 bg-floral-cream overflow-hidden">
+      <SectionFloralAccent position="left" />
+      <div className="container-wide px-4 md:px-8 relative">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Как проходит процедура</h2>
+          <FloralDivider className="mb-2" />
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Всё просто и прозрачно — снимаем любые страхи</p>
+        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {steps.map((s, i) => (
+            <motion.div key={s.num} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="text-center">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center mx-auto mb-4 border-2 border-primary/20">
+                <span className="font-heading text-2xl text-primary">{s.num}</span>
+              </div>
+              <h3 className="font-heading text-lg mb-2">{s.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ═══════════ 7. О МАСТЕРЕ ═══════════ */}
+    <section className="relative py-16 md:py-20 bg-glamour overflow-hidden">
+      <div className="container-narrow px-4 md:px-8 relative">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">О мастере</h2>
+          <FloralDivider />
+        </motion.div>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeUp}
+          className="bg-card/90 backdrop-blur-sm rounded-xl p-8 md:p-10 border border-primary/10 shadow-floral max-w-2xl mx-auto text-center">
+          <p className="text-foreground text-lg leading-relaxed mb-4">
+            Подбираю процедуры под задачу, а не делаю по шаблону. Каждый протокол — индивидуальный, каждый визит — приватный.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            Опыт в аппаратной эстетике и массажных техниках. Работаю с лицом и телом, совмещаю ручные и аппаратные методики для максимального результата.
+          </p>
+          <Link to="/about">
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              Узнать больше <ChevronRight size={14} className="ml-1" />
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* ═══════════ 8. ЦЕНЫ (структурно) ═══════════ */}
+    <section id="prices" className="relative py-16 md:py-20 bg-floral-cream scroll-mt-20 overflow-hidden">
+      <SectionFloralAccent position="both" />
+      <div className="container-wide px-4 md:px-8 relative">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="text-center mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Цены</h2>
+          <FloralDivider className="mb-2" />
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Лицо, аппаратные процедуры, тело и курсы — отдельно</p>
+        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+          {priceGroups.map((g, i) => (
+            <motion.div key={g.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
+              className="bg-card/90 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-floral hover-lift flex flex-col">
+              <h3 className="font-heading text-lg mb-4 text-center">{g.title}</h3>
+              <ul className="space-y-3 flex-1 mb-5">
+                {g.items.map((item) => (
+                  <li key={item.name} className="flex justify-between items-baseline gap-2">
+                    <span className="text-foreground text-sm">{item.name}</span>
+                    <span className="text-primary font-medium text-sm whitespace-nowrap">{item.price}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to={g.link}>
+                <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full">
+                  Подробнее <ChevronRight size={14} className="ml-1" />
+                </Button>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+        <div className="text-center mt-8">
+          <Link to="/price">
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+              Полный прайс-лист <ChevronRight size={16} className="ml-1" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    {/* ═══════════ 9. ОТЗЫВЫ (ссылка) ═══════════ */}
+    <section className="relative py-10 md:py-14 bg-glamour overflow-hidden">
       <div className="container-narrow px-4 md:px-8 text-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
-          <h2 className="font-heading text-3xl md:text-4xl mb-5">Запишитесь на АРТ-протокол</h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Подберём процедуру под вашу задачу: лицо, тело, восстановление или комплексный уход.
-          </p>
+          <h2 className="font-heading text-3xl md:text-4xl mb-4">Отзывы клиентов</h2>
+          <p className="text-muted-foreground text-lg mb-6">Реальные результаты и обратная связь</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/reviews">
+              <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
+                Смотреть отзывы <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+            <Link to="/before-after">
+              <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
+                Результаты до/после <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* ═══════════ 10. ФИНАЛЬНЫЙ CTA ═══════════ */}
+    <section className="py-16 md:py-20 bg-floral-cream">
+      <div className="container-narrow px-4 md:px-8 text-center">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
+          <FloralDivider className="mb-6" />
+          <h2 className="font-heading text-3xl md:text-4xl mb-5">Подберём процедуру под вашу задачу</h2>
+          <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
+            Расскажите, что беспокоит — подготовим индивидуальный протокол и запишем на удобное время
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
             <Link to="/booking">
-              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow text-base">Записаться онлайн</Button>
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow text-base">✿ Записаться</Button>
             </Link>
             <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 text-base gap-2">
-                <TelegramIcon size={18} /> Написать в Telegram
+                <TelegramIcon size={18} /> Telegram
               </Button>
             </a>
             <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 text-base gap-2">
-                <VKIcon size={18} /> Открыть VK
+                <VKIcon size={18} /> VK
               </Button>
             </a>
           </div>
@@ -319,34 +444,6 @@ const Index = () => (
       </div>
     </section>
   </Layout>
-);
-
-/* ═══════════ Service Block Component ═══════════ */
-const ServiceBlock = ({ icon: Icon, title, subtitle, items, link, index }: {
-  icon: React.ElementType; title: string; subtitle: string; items: string[]; link: string; index: number;
-}) => (
-  <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={index} variants={fadeUp}
-    className="bg-card/90 backdrop-blur-sm rounded-xl p-7 border border-primary/10 hover-lift shadow-floral">
-    <div className="flex items-center gap-3 mb-4">
-      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-light to-rose-light flex items-center justify-center shrink-0">
-        <Icon size={20} className="text-primary" />
-      </div>
-      <h3 className="font-heading text-xl">{title}</h3>
-    </div>
-    <p className="text-muted-foreground leading-relaxed mb-4">{subtitle}</p>
-    <div className="flex flex-wrap gap-2 mb-5">
-      {items.map((item) => (
-        <span key={item} className="inline-flex items-center gap-1.5 bg-rose-light/50 text-foreground px-3 py-1.5 rounded-full text-sm border border-primary/5">
-          <Check size={13} className="text-primary" /> {item}
-        </span>
-      ))}
-    </div>
-    <Link to={link}>
-      <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-        Подробнее <ChevronRight size={14} className="ml-1" />
-      </Button>
-    </Link>
-  </motion.div>
 );
 
 export default Index;
