@@ -66,6 +66,14 @@ const massageTypes = [
     title: "Удаление второго подбородка + подтяжка овала",
     desc: "Целенаправленная работа с зоной подбородка и нижней третью лица. Уменьшение объёма, подтяжка контура, чёткая линия челюсти.",
   },
+  {
+    title: "Флиптинг",
+    desc: "Инновационная массажная техника с глубоким воздействием на мышцы и фасции лица. Мгновенный лифтинг-эффект и улучшение микроциркуляции.",
+  },
+  {
+    title: "INDIBA",
+    desc: "Радиочастотная терапия для глубокого прогрева тканей. Стимулирует выработку коллагена, уплотняет кожу и улучшает овал лица.",
+  },
 ];
 
 const steps = [
@@ -115,10 +123,23 @@ const MassazhLicaSpb = () => (
           className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
           Массаж лица в&nbsp;Санкт&#8209;Петербурге
         </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.5 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
-          Скульптурный, миофасциальный и&nbsp;3D&#8209;массаж для подтяжки овала, тонуса кожи и&nbsp;уменьшения отёчности
-        </motion.p>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.5 }}
+          className="max-w-2xl mx-auto mb-2">
+          <ul className="text-muted-foreground text-lg md:text-xl space-y-1">
+            <li>Скульптурный массаж</li>
+            <li>Миофасциальный 3D массаж</li>
+            <li>Лимфодренажный массаж</li>
+            <li>Классический массаж</li>
+          </ul>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
+          className="max-w-2xl mx-auto mb-4">
+          <ul className="text-primary/80 text-base md:text-lg space-y-0.5">
+            <li>Для подтяжки овала лица</li>
+            <li>Для упругости и тонуса кожи</li>
+            <li>Для более чёткого контура лица</li>
+          </ul>
+        </motion.div>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
           className="text-primary font-heading text-2xl md:text-3xl mb-8">
           от 1&nbsp;900&nbsp;₽
@@ -192,24 +213,6 @@ const MassazhLicaSpb = () => (
       <ServicePricingTiers title="Цены на массаж лица" prices={prices} />
     </div>
 
-    {/* Акция — первое посещение */}
-    <section className="py-8 md:py-10">
-      <div className="container-narrow px-4 md:px-8">
-        <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground before:absolute before:inset-0 before:bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.18)_50%,transparent_70%)] before:animate-[shimmer_3s_ease-in-out_infinite] before:-translate-x-full before:pointer-events-none">
-          <Star size={36} className="mx-auto mb-3 opacity-80 relative z-10" />
-          <h2 className="font-heading text-2xl md:text-3xl mb-2 relative z-10">Первое посещение — скидка 30%</h2>
-          <p className="text-base opacity-90 mb-5 max-w-xl mx-auto relative z-10">
-            На скульптурный массаж лица для новых клиентов
-          </p>
-          <Link to={`/booking?service=Массаж лица`} className="relative z-10">
-            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">
-              Записаться со скидкой
-            </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
 
     {/* 5. Что даёт */}
     <section className="py-10 md:py-14">
