@@ -29,124 +29,20 @@ const procedures = [
     tag: "Термовоздействие",
   },
   {
-    title: "Вакуумный массаж",
+    title: "Вакуумно-роликовый массаж (4D)",
     slug: "/vakuumnyj-massazh-spb",
     video: "/videos/vacuum-massage.mp4",
-    angle: "Антицеллюлитная коррекция",
-    desc: "Аппаратная проработка подкожно-жировой клетчатки: разбивает фиброзные перегородки, моделирует контуры и улучшает текстуру кожи.",
+    angle: "- Антицеллюлитная коррекция\n+ Уменьшение объёмов и коррекция фигуры",
+    desc: "Разбивает жировые отложения\nУменьшает целлюлит\nМоделирует контуры тела\nЗапускает лимфодренаж",
     tag: "Вакуум",
   },
-  {
-    title: "RF-лифтинг тела",
-    slug: "/rf-lifting-tela-spb",
-    image: rfLiftingPhoto,
-    angle: "Подтяжка кожи и тонус мышц",
-    desc: "Глубокий прогрев тканей и миостимуляция формируют контуры тела, уплотняют кожу и укрепляют мышечный каркас без хирургии.",
-    tag: "RF + миостимуляция",
-  },
-];
-
-const comparison = [
-  { feature: "Основная задача", hot: "Жиросжигание", vacuum: "Антицеллюлит", rf: "Подтяжка кожи" },
-  { feature: "Механизм", hot: "Термовакуум", vacuum: "Вакуумный массаж", rf: "RF-прогрев + EMS" },
-  { feature: "Эффект после 1-й процедуры", hot: "Уменьшение объёмов", vacuum: "Улучшение текстуры", rf: "Лифтинг-эффект" },
-  { feature: "Курс", hot: "5–10 процедур", vacuum: "8–12 процедур", rf: "6–10 процедур" },
-  { feature: "Зоны", hot: "Живот, бока, бёдра", vacuum: "Бёдра, ягодицы, руки", rf: "Всё тело" },
-];
-
-const trust = [
-  { icon: <Award size={24} />, title: "12+ лет опыта", desc: "Практический опыт в аппаратной косметологии тела" },
-  { icon: <Shield size={24} />, title: "Сертифицированные аппараты", desc: "Работаем на профессиональном оборудовании с доказанной эффективностью" },
-  { icon: <Users size={24} />, title: "Индивидуальный подход", desc: "Подбираем программу под задачу, а не продаём одну процедуру всем" },
-  { icon: <Sparkles size={24} />, title: "Видимый результат", desc: "Фиксируем замеры до и после — вы видите прогресс в цифрах" },
-];
-
-const faq = [
-  { q: "Сколько нужно процедур для результата?", a: "Зависит от методики и задачи. Горячий вакуум — от 5, вакуумный массаж — от 8, RF-лифтинг — от 6 процедур. Точный курс определяем на консультации." },
-  { q: "Кому подходит коррекция фигуры?", a: "Тем, кто хочет уменьшить объёмы, убрать целлюлит, подтянуть кожу после похудения или родов. Подбираем методику под вашу задачу." },
-  { q: "Есть ли противопоказания?", a: "Да: беременность, онкология, острые воспаления, металлические импланты в зоне воздействия. Полный список обсуждаем на консультации." },
-  { q: "Как быстро заметен эффект?", a: "Горячий вакуум и RF-лифтинг дают видимый эффект уже после первой процедуры. Вакуумный массаж — после 2–3 сеансов." },
-  { q: "Чем отличаются методики друг от друга?", a: "Горячий вакуум — жиросжигание через нагрев. Вакуумный массаж — механическая проработка целлюлита. RF-лифтинг — подтяжка кожи и тонус мышц. Часто комбинируем для максимального эффекта." },
-];
-
-const steps = [
-  { num: 1, title: "Консультация", desc: "Определяем проблемные зоны и подбираем программу" },
-  { num: 2, title: "Подбор методики", desc: "Выбираем процедуру или комбинацию под вашу задачу" },
-  { num: 3, title: "Процедура", desc: "Проводим сеанс на профессиональном оборудовании (30–60 мин)" },
-  { num: 4, title: "Рекомендации", desc: "Даём советы по питанию и активности для закрепления результата" },
-];
-
-const KorrekciyaFigurySpb = () => (
-  <Layout>
-    <Helmet>
-      <title>Коррекция фигуры в Санкт-Петербурге — аппаратные процедуры | АРТ Косметология</title>
-      <meta name="description" content="Аппаратная коррекция фигуры в СПб: горячий вакуум, вакуумный массаж, RF-лифтинг тела. Уменьшение объёмов, антицеллюлит, подтяжка кожи. От 2 800 ₽." />
-      <meta name="keywords" content="коррекция фигуры спб, горячий вакуум спб, вакуумный массаж спб, rf лифтинг тела спб, антицеллюлитные процедуры спб" />
-      <link rel="canonical" href="https://arina-premium-beauty.lovable.app/korrekciya-figury-spb" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org", "@type": "Service",
-        name: "Коррекция фигуры в Санкт-Петербурге",
-        provider: { "@type": "LocalBusiness", name: "АРТ Косметология", address: { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", addressCountry: "RU" } },
-        offers: { "@type": "Offer", price: "2800", priceCurrency: "RUB" },
-      })}</script>
-    </Helmet>
-
-    {/* Hero */}
-    <section className="py-14 md:py-20 bg-cream">
-      <div className="container-wide px-4 md:px-8 text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          Коррекция фигуры в&nbsp;Санкт&#8209;Петербурге
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
-          Три аппаратные методики для разных задач: жиросжигание, антицеллюлит, подтяжка кожи
-        </motion.p>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 2&nbsp;800&nbsp;₽ за процедуру</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/booking?service=Коррекция фигуры">
-            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-              Записаться на консультацию <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </Link>
-          <a href="#procedures">
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-              Выбрать процедуру
-            </Button>
-          </a>
-        </motion.div>
-      </div>
-    </section>
-
-    {/* Procedure cards */}
-    <section id="procedures" className="py-12 md:py-16">
-      <div className="container-wide px-4 md:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-4">Какую задачу решаем?</h2>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10">
-          Каждая методика работает по-своему. Выберите процедуру под свою цель — или запишитесь на консультацию, и мы подберём программу
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {procedures.map((p, i) => (
-            <motion.div key={p.slug} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}>
-              <Link to={p.slug} className="group flex flex-col h-full bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all">
-                {/* Media */}
-                <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  {p.video ? (
-                    <video muted playsInline preload="metadata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                      <source src={p.video} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  )}
-                </div>
+...
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
                   <span className="text-xs font-medium text-primary bg-primary/10 self-start px-3 py-1 rounded-full mb-3">{p.tag}</span>
                   <h3 className="font-heading text-2xl mb-1 group-hover:text-primary transition-colors">{p.title}</h3>
-                  <p className="text-sm font-medium text-primary/80 mb-3">{p.angle}</p>
-                  <p className="text-muted-foreground text-sm flex-1 leading-relaxed">{p.desc}</p>
+                  <p className="text-sm font-medium text-primary/80 mb-3 whitespace-pre-line">{p.angle}</p>
+                  <p className="text-muted-foreground text-sm flex-1 leading-relaxed whitespace-pre-line">{p.desc}</p>
                   <div className="flex items-center gap-2 text-primary font-medium mt-4">
                     Подробнее <ArrowRight size={16} />
                   </div>
