@@ -16,8 +16,8 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "Хиджама", price: "от 1 600 ₽" },
-  { name: "Гирудотерапия", price: "от 1 600 ₽" },
+  { name: "Хиджама", price: "5 000 ₽" },
+  { name: "Гирудотерапия", price: "2 000 ₽" },
 ];
 
 const suitableFor = [
@@ -48,7 +48,7 @@ const OzdorovitelnyeProcedury = () => (
   <Layout>
     <Helmet>
       <title>Оздоровительные процедуры в Санкт-Петербурге | АРТ Косметология</title>
-      <meta name="description" content="Оздоровительные процедуры в СПб: хиджама и гирудотерапия. От 1 600 ₽. Только по консультации. Запись онлайн." />
+      <meta name="description" content="Оздоровительные процедуры в СПб: хиджама (5 000 ₽) и гирудотерапия (2 000 ₽). Только по консультации. Запись онлайн." />
       <meta name="keywords" content="хиджама спб, гирудотерапия спб, оздоровительные процедуры спб" />
       <link rel="canonical" href="https://arina-premium-beauty.lovable.app/ozdorovitelnye-procedury-spb" />
       <script type="application/ld+json">{JSON.stringify({
@@ -68,7 +68,7 @@ const OzdorovitelnyeProcedury = () => (
           Дополнительные методы восстановления организма. Проводятся только после консультации специалиста
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 1&nbsp;600&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 2&nbsp;000&nbsp;₽</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to={`/booking?service=Хиджама`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться на консультацию <ChevronRight size={16} className="ml-1" /></Button></Link>

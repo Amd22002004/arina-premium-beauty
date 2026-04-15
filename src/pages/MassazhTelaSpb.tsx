@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, X, Star } from "lucide-react";
+import { Check, ChevronRight, Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
@@ -16,9 +16,13 @@ const fadeUp = {
 };
 
 const prices = [
-  { name: "ШВЗ (30 мин)", price: "1 600 ₽", priceValue: 1600, tiers: [{ count: 5, total: 11250 }, { count: 10, total: 21250 }] },
-  { name: "Спина (30 мин)", price: "1 600 ₽", priceValue: 1600, tiers: [{ count: 5, total: 11250 }, { count: 10, total: 21250 }] },
-  { name: "Глубокий массаж (ШВЗ + спина)", price: "2 800 ₽", priceValue: 2800, tiers: [{ count: 5, total: 15750 }, { count: 10, total: 29750 }] },
+  { name: "ШВЗ (30 мин)", price: "1 600 ₽", priceValue: 1600, tiers: [{ count: 5, total: 7500 }, { count: 10, total: 14000 }] },
+  { name: "Спина (30 мин)", price: "1 600 ₽", priceValue: 1600, tiers: [{ count: 5, total: 7500 }, { count: 10, total: 14000 }] },
+  { name: "Глубокий массаж (ШВЗ + спина)", price: "2 800 ₽", priceValue: 2800, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 25000 }] },
+  { name: "Расслабляющий массаж (60 мин)", price: "2 800 ₽", priceValue: 2800, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 25000 }] },
+  { name: "Классический массаж (60 мин)", price: "2 800 ₽", priceValue: 2800, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 25000 }] },
+  { name: "Оздоровительный массаж (60 мин)", price: "2 800 ₽", priceValue: 2800, tiers: [{ count: 5, total: 13500 }, { count: 10, total: 25000 }] },
+  { name: "Тайский массаж (60 мин)", price: "3 500 ₽", priceValue: 3500, tiers: [{ count: 5, total: 16000 }, { count: 10, total: 30000 }] },
 ];
 
 const suitableFor = [
@@ -48,9 +52,12 @@ const contraindications = [
 ];
 
 const types = [
+  { title: "Классический массаж", desc: "Традиционная техника для общего расслабления, снятия напряжения и улучшения кровообращения." },
+  { title: "Расслабляющий массаж", desc: "Мягкое воздействие для глубокого расслабления, снятия стресса и восстановления нервной системы." },
+  { title: "Оздоровительный массаж", desc: "Комплексная проработка всего тела для укрепления мышечного тонуса и профилактики заболеваний." },
+  { title: "Тайский массаж", desc: "Древняя техника с элементами растяжки и акупрессуры для глубокого восстановления и гибкости." },
   { title: "ШВЗ + спина", desc: "Классический массаж шейно-воротниковой зоны и спины. Снимает напряжение, улучшает кровообращение." },
-  { title: "Лимфодренажный массаж тела", desc: "Специальная техника для улучшения лимфооттока, снятия отёков и выведения лишней жидкости." },
-  { title: "Медицинский / восстановительный массаж", desc: "Глубокая проработка мышц и тканей. Помогает при болях в спине и восстановлении после травм." },
+  { title: "Глубокий массаж", desc: "Интенсивная проработка мышц и тканей. Помогает при болях в спине и восстановлении после травм." },
 ];
 
 const steps = [
@@ -110,20 +117,6 @@ const MassazhTelaSpb = () => (
 
     <div id="prices"><ServicePricingTiers title="Цены на массаж тела" prices={prices} /></div>
 
-    {/* Акция */}
-    <section className="py-8 md:py-10">
-      <div className="container-narrow px-4 md:px-8">
-        <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl gold-gradient p-8 md:p-12 text-center text-primary-foreground before:absolute before:inset-0 before:bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.18)_50%,transparent_70%)] before:animate-[shimmer_3s_ease-in-out_infinite] before:-translate-x-full before:pointer-events-none">
-          <Star size={36} className="mx-auto mb-3 opacity-80 relative z-10" />
-          <h2 className="font-heading text-2xl md:text-3xl mb-2 relative z-10">Первое посещение — скидка 30%</h2>
-          <p className="text-base opacity-90 mb-5 max-w-xl mx-auto relative z-10">На массаж тела для новых клиентов</p>
-          <Link to={`/booking?service=Массаж спины (30 мин)`} className="relative z-10">
-            <Button size="lg" className="bg-white text-primary font-semibold px-10 border-0 shadow-lg hover:shadow-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300">Записаться со скидкой</Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
 
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">

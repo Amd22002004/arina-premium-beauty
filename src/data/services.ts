@@ -54,6 +54,10 @@ export const services: Service[] = [
   { name: "Массаж ШВЗ (30 мин)", price: 1600, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Снятие зажимов шейно-воротниковой зоны" },
   { name: "Массаж спины (30 мин)", price: 1600, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Расслабление и снятие напряжения спины" },
   { name: "Глубокий массаж (ШВЗ + спина)", price: 2800, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Комплексная проработка шеи и спины" },
+  { name: "Расслабляющий массаж (60 мин)", price: 2800, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Глубокое расслабление и снятие стресса" },
+  { name: "Классический массаж (60 мин)", price: 2800, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Общее расслабление и улучшение кровообращения" },
+  { name: "Оздоровительный массаж (60 мин)", price: 2800, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Укрепление тонуса и профилактика заболеваний" },
+  { name: "Тайский массаж (60 мин)", price: 3500, category: "Восстановительный массаж", link: "/massazh-tela-spb", result: "Растяжка, акупрессура и глубокое восстановление" },
 
   { name: "Лимфодренажный массаж", price: 2400, category: "Лимфодренажный массаж", link: "/vosstanovitelnye-massazhi-spb", result: "Снятие отёков, улучшение лимфооттока" },
 
@@ -63,6 +67,7 @@ export const services: Service[] = [
   { name: "Ударно-волновая терапия (УВТ) — 2 зоны", price: 4500, category: "Работа с болью и суставами", link: "/uvt-spb", result: "Комплексное воздействие на две проблемные зоны" },
   { name: "Ударно-волновая терапия (УВТ) — 3 зоны", price: 6500, category: "Работа с болью и суставами", link: "/uvt-spb", result: "Максимальный охват: три зоны за одну процедуру" },
 
+  { name: "Стоунтерапия (60 мин)", price: 3000, category: "СПА и восстановление", link: "/spa-i-vosstanovlenie-spb", result: "Глубокий прогрев камнями, расслабление и восстановление" },
   { name: "Инфракрасная капсула (50 мин)", price: 1600, category: "СПА и восстановление", link: "/spa-i-vosstanovlenie-spb", result: "Детоксикация, расслабление, прогревание" },
   { name: "Медовая выкатка (45 мин)", price: 1600, category: "СПА и восстановление", link: "/spa-i-vosstanovlenie-spb", result: "Очищение кожи, расслабление, детокс" },
   { name: "Медовая выкатка (60 мин)", price: 2800, category: "СПА и восстановление", link: "/spa-i-vosstanovlenie-spb", result: "Глубокий детокс и расслабление" },
@@ -72,8 +77,8 @@ export const services: Service[] = [
   { name: "Удаление папиллом", price: 400, pricePrefix: "от", category: "Деликатные услуги", link: "/dopolnitelnye-uslugi-spb", result: "Безопасное удаление новообразований" },
   { name: "Интимное омоложение", price: 4000, category: "Деликатные услуги", link: "/dopolnitelnye-uslugi-spb", result: "Восстановление и омоложение деликатных зон" },
 
-  { name: "Хиджама", price: 1600, pricePrefix: "от", category: "Оздоровительные процедуры", link: "/ozdorovitelnye-procedury-spb", result: "Оздоровление, детоксикация организма" },
-  { name: "Гирудотерапия", price: 1600, pricePrefix: "от", category: "Оздоровительные процедуры", link: "/ozdorovitelnye-procedury-spb", result: "Улучшение кровообращения, оздоровление" },
+  { name: "Хиджама", price: 5000, category: "Оздоровительные процедуры", link: "/ozdorovitelnye-procedury-spb", result: "Оздоровление, детоксикация организма" },
+  { name: "Гирудотерапия", price: 2000, category: "Оздоровительные процедуры", link: "/ozdorovitelnye-procedury-spb", result: "Улучшение кровообращения, оздоровление" },
 ];
 
 export const formatPrice = (price: number, prefix?: string) => {
