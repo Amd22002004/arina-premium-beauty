@@ -29,11 +29,11 @@ const procedures = [
     tag: "Термовоздействие",
   },
   {
-    title: "Вакуумный массаж",
+    title: "Вакуумно-роликовый массаж (4D)",
     slug: "/vakuumnyj-massazh-spb",
     video: "/videos/vacuum-massage.mp4",
-    angle: "Антицеллюлитная коррекция",
-    desc: "Аппаратная проработка подкожно-жировой клетчатки: разбивает фиброзные перегородки, моделирует контуры и улучшает текстуру кожи.",
+    angle: "- Антицеллюлитная коррекция\n+ Уменьшение объёмов и коррекция фигуры",
+    desc: "Разбивает жировые отложения\nУменьшает целлюлит\nМоделирует контуры тела\nЗапускает лимфодренаж",
     tag: "Вакуум",
   },
   {
@@ -63,7 +63,7 @@ const trust = [
 
 const faq = [
   { q: "Сколько нужно процедур для результата?", a: "Зависит от методики и задачи. Горячий вакуум — от 5, вакуумный массаж — от 8, RF-лифтинг — от 6 процедур. Точный курс определяем на консультации." },
-  { q: "Кому подходит коррекция фигуры?", a: "Тем, кто хочет уменьшить объёмы, убрать целлюлит, подтянуть кожу после похудения или родов. Подбираем методику под вашу задачу." },
+  { q: "Кому подходит коррекция фигуры?", a: "Тем, кто хочет уменьшить объёмов, убрать целлюлит, подтянуть кожу после похудения или родов. Подбираем методику под вашу задачу." },
   { q: "Есть ли противопоказания?", a: "Да: беременность, онкология, острые воспаления, металлические импланты в зоне воздействия. Полный список обсуждаем на консультации." },
   { q: "Как быстро заметен эффект?", a: "Горячий вакуум и RF-лифтинг дают видимый эффект уже после первой процедуры. Вакуумный массаж — после 2–3 сеансов." },
   { q: "Чем отличаются методики друг от друга?", a: "Горячий вакуум — жиросжигание через нагрев. Вакуумный массаж — механическая проработка целлюлита. RF-лифтинг — подтяжка кожи и тонус мышц. Часто комбинируем для максимального эффекта." },
@@ -145,8 +145,8 @@ const KorrekciyaFigurySpb = () => (
                 <div className="flex flex-col flex-1 p-6">
                   <span className="text-xs font-medium text-primary bg-primary/10 self-start px-3 py-1 rounded-full mb-3">{p.tag}</span>
                   <h3 className="font-heading text-2xl mb-1 group-hover:text-primary transition-colors">{p.title}</h3>
-                  <p className="text-sm font-medium text-primary/80 mb-3">{p.angle}</p>
-                  <p className="text-muted-foreground text-sm flex-1 leading-relaxed">{p.desc}</p>
+                  <p className="text-sm font-medium text-primary/80 mb-3 whitespace-pre-line">{p.angle}</p>
+                  <p className="text-muted-foreground text-sm flex-1 leading-relaxed whitespace-pre-line">{p.desc}</p>
                   <div className="flex items-center gap-2 text-primary font-medium mt-4">
                     Подробнее <ArrowRight size={16} />
                   </div>
@@ -171,7 +171,7 @@ const KorrekciyaFigurySpb = () => (
               <tr className="border-b border-border">
                 <th className="text-left py-4 px-3 font-heading text-base text-muted-foreground"></th>
                 <th className="text-center py-4 px-3 font-heading text-base">Горячий вакуум</th>
-                <th className="text-center py-4 px-3 font-heading text-base">Вакуумный массаж</th>
+                <th className="text-center py-4 px-3 font-heading text-base">Вакуумно-роликовый массаж (4D)</th>
                 <th className="text-center py-4 px-3 font-heading text-base">RF-лифтинг тела</th>
               </tr>
             </thead>
