@@ -180,67 +180,6 @@ const courses: Course[] = [
       { label: "СПА и восстановление", href: "/spa-i-vosstanovlenie-spb" },
       { label: "Восстановительные массажи", href: "/vosstanovitelnye-massazhi-spb" },
     ],
-  },
-  {
-    id: "body",
-    title: "Озоно-кислородная терапия + прессотерапия",
-    subtitle: "Детокс, дренаж и восстановление в одном комплексе",
-    icon: Droplets,
-    badge: "Новый курс",
-    badgeIcon: Zap,
-    includes: [
-      "Озоно-кислородная терапия",
-      "Прессотерапия",
-    ],
-    results: [
-      "Улучшение лимфотока и дренажа",
-      "Снижение отёчности",
-      "Детоксикация организма",
-      "Повышение тонуса и энергии",
-    ],
-    suitsIf: [
-      "Отёчность и тяжесть в теле",
-      "Нужен комплексный детокс",
-      "Хотите улучшить общее самочувствие",
-    ],
-    duration: "1–10 процедур",
-    price5: "10 400 ₽",
-    price10: "19 000 ₽",
-    links: [
-      { label: "Коррекция фигуры", href: "/korrekciya-figury-spb" },
-      { label: "Лимфодренажный массаж", href: "/vosstanovitelnye-massazhi-spb" },
-    ],
-  },
-  {
-    id: "body",
-    title: "МРТС срочное похудение",
-    subtitle: "Экспресс-коррекция объёмов за 1–2 процедуры",
-    icon: Zap,
-    badge: "Экспресс",
-    badgeIcon: Award,
-    includes: [
-      "МРТС аппаратная процедура",
-    ],
-    results: [
-      "Уменьшение объёмов уже после 1 процедуры",
-      "Локальное жиросжигание",
-    ],
-    suitsIf: [
-      "Нужен быстрый результат к событию",
-      "Локальные жировые отложения",
-    ],
-    duration: "1–2 процедуры",
-    price5: "",
-    price10: "",
-    isExpress: true,
-    expressPrices: [
-      { count: 1, label: "1 процедура", price: "6 000 ₽" },
-      { count: 2, label: "2 процедуры", price: "11 200 ₽" },
-    ],
-    links: [
-      { label: "Коррекция фигуры", href: "/korrekciya-figury-spb" },
-    ],
-  },
 ];
 
 const filters: { key: Filter; label: string; icon: typeof Sparkles }[] = [
