@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Price from "./pages/Price";
-import BeforeAfter from "./pages/BeforeAfter";
 import Reviews from "./pages/Reviews";
 import FAQ from "./pages/FAQ";
 import Contacts from "./pages/Contacts";
@@ -57,7 +56,6 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/price" element={<Price />} />
-          <Route path="/before-after" element={<BeforeAfter />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contacts" element={<Contacts />} />
