@@ -121,8 +121,10 @@ const courses: Course[] = [
     badgeIcon: ThumbsUp,
     includes: [
       "Лимфодренажный массаж",
-      "Прессотерапия",
-      "Мягкие восстановительные процедуры",
+      "Вакуумно-роликовый массаж",
+      "BMS",
+      "INDIBA",
+      "Гуаша",
     ],
     results: [
       "Снижение отёчности лица и тела",
@@ -136,8 +138,8 @@ const courses: Course[] = [
       "Ведёте сидячий образ жизни",
     ],
     duration: "5–10 процедур",
-    price5: "от 11 600 ₽",
-    price10: "от 21 600 ₽",
+    price5: "11 200 ₽",
+    price10: "21 000 ₽",
     links: [
       { label: "Массаж тела", href: "/massazh-tela-spb" },
       { label: "Восстановительные массажи", href: "/vosstanovitelnye-massazhi-spb" },
