@@ -236,6 +236,64 @@ const ApparatnyeProtokolyTelaSpb = () => (
     {/* SECTION 9 — ПРАЙС */}
     <div id="prices"><ServicePricingTiers title="Цены на аппаратные протоколы тела" prices={prices} /></div>
 
+    {/* SECTION 9.5 — ВИДЕО ПРОЦЕДУРЫ */}
+    <section className="py-14 md:py-20 bg-cream">
+      <div className="container-wide px-4 md:px-8">
+        <div className="text-center mb-8 md:mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Как проходит процедура</h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
+            Современные аппаратные технологии для бережной коррекции фигуры
+          </p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="w-full max-w-[500px] mx-auto"
+          >
+            <video
+              src="/videos/apparatnye-protokoly-tela-process.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full rounded-2xl shadow-lg"
+            />
+          </motion.div>
+          <div className="flex flex-col gap-4">
+            {[
+              "Безопасное аппаратное воздействие",
+              "Комфортно и без боли",
+              "Видимый результат уже после первых процедур",
+            ].map((item, i) => (
+              <motion.div
+                key={item}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                variants={fadeUp}
+                className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border"
+              >
+                <Check size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-foreground">{item}</span>
+              </motion.div>
+            ))}
+            <p className="text-primary font-medium text-base md:text-lg mt-2">
+              Подходит даже для чувствительной кожи
+            </p>
+            <Link to="/booking?service=EMS / INDIBA / БМС" className="mt-2">
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-8 shadow-xl hover:shadow-2xl transition-shadow w-full sm:w-auto">
+                Записаться на процедуру <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* SECTION 10 — ПРОТИВОПОКАЗАНИЯ */}
     <section className="py-8 md:py-10 bg-card">
       <div className="container-wide px-4 md:px-8">
