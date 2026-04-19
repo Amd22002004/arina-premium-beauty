@@ -9,6 +9,7 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
+import spaHeroBg from "@/assets/spa-hero-bg.jpg";
 
 
 const fadeUp = {
@@ -81,22 +82,28 @@ const SpaIVosstanovlenieSpb = () => (
       })}</script>
     </Helmet>
 
-    <section className="py-14 md:py-20 bg-cream">
-      <div className="container-wide px-4 md:px-8 text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          СПА и восстановление
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
-          Расслабление, детокс и восстановление после нагрузок. Мягкий уход за телом и душевный комфорт
-        </motion.p>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 1&nbsp;200&nbsp;₽</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to={`/booking?service=Инфракрасная капсула (50 мин)`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
-          <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button></a>
-        </motion.div>
+    <section
+      className="relative py-20 md:py-32 bg-cover bg-center"
+      style={{ backgroundImage: `url(${spaHeroBg})` }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 md:from-background/85 md:via-background/55 md:to-background/20" />
+      <div className="container-wide px-4 md:px-8 relative">
+        <div className="max-w-2xl">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
+            СПА и восстановление
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+            className="text-foreground/90 text-lg md:text-xl mb-4">
+            Расслабление, детокс и восстановление после нагрузок. Мягкий уход за телом и душевный комфорт
+          </motion.p>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+            className="text-primary font-heading text-2xl md:text-3xl mb-8">от 1&nbsp;200&nbsp;₽</motion.p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+            className="flex flex-col sm:flex-row gap-4">
+            <Link to={`/booking?service=Инфракрасная капсула (50 мин)`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
+            <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 bg-background/60 backdrop-blur-sm">Смотреть цены</Button></a>
+          </motion.div>
+        </div>
       </div>
     </section>
 
