@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
 import ConsultationCapture from "@/components/ConsultationCapture";
+import vacuumHeroBg from "@/assets/vacuum-massage-hero-bg.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -83,39 +84,38 @@ const VakuumnyjMassazhSpb = () => (
       })}</script>
     </Helmet>
 
-    {/* Hero — видео как главный визуал */}
-    <section className="py-14 md:py-20 bg-cream">
-      <div className="container-wide px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="order-2 lg:order-1">
-            <h1 className="font-heading text-4xl md:text-5xl text-foreground mb-5">
-              Вакуумно-роликовый массаж (4D) — аппаратная борьба с целлюлитом
-            </h1>
-            <p className="text-muted-foreground text-lg mb-4">
-              Глубокая проработка подкожно-жировой клетчатки: разрушение фиброзных перегородок, моделирование контуров и улучшение текстуры кожи
-            </p>
-            <p className="text-primary font-heading text-2xl mb-6">от 2&nbsp;800&nbsp;₽</p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/booking?service=Вакуумный массаж">
-                <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">
-                  Записаться <ChevronRight size={16} className="ml-1" />
-                </Button>
-              </Link>
-              <a href="#prices">
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-                  Смотреть цены
-                </Button>
-              </a>
-            </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
-            className="order-1 lg:order-2">
-            <video controls playsInline preload="metadata" className="w-full rounded-2xl shadow-lg aspect-[4/3] object-cover"
-              aria-label="Видео аппаратного вакуумного массажа">
-              <source src="/videos/vacuum-massage.mp4" type="video/mp4" />
-            </video>
-          </motion.div>
-        </div>
+    {/* Hero — фоновое фото */}
+    <section
+      className="relative py-20 md:py-32 bg-cover bg-center"
+      style={{ backgroundImage: `url(${vacuumHeroBg})` }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/30 md:from-background/85 md:via-background/55 md:to-transparent" />
+      <div className="container-wide px-4 md:px-8 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-2xl"
+        >
+          <h1 className="font-heading text-4xl md:text-5xl text-foreground mb-5">
+            Вакуумно-роликовый массаж (4D) — аппаратная борьба с целлюлитом
+          </h1>
+          <p className="text-foreground/90 text-lg mb-4">
+            Глубокая проработка подкожно-жировой клетчатки: разрушение фиброзных перегородок, моделирование контуров и улучшение текстуры кожи
+          </p>
+          <p className="text-primary font-heading text-2xl mb-6">от 2&nbsp;800&nbsp;₽</p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link to="/booking?service=Вакуумный массаж">
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">
+                Записаться <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+            <a href="#prices">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 bg-background/60 backdrop-blur-sm">
+                Смотреть цены
+              </Button>
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
 
