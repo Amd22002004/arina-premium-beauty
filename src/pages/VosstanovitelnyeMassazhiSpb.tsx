@@ -105,7 +105,7 @@ const VosstanovitelnyeMassazhiSpb = () => (
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="order-1 lg:order-2 mx-auto w-full max-w-[480px]"
+            className="order-1 lg:order-2 mx-auto w-full max-w-[320px] lg:max-w-[360px]"
           >
             <video
               autoPlay
