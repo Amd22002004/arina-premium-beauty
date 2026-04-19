@@ -85,6 +85,41 @@ const Contacts = () => {
         </div>
       </section>
 
+      {/* Как добраться */}
+      <section className="pb-16 md:pb-20">
+        <div className="container-narrow">
+          <div className="rounded-2xl border border-border bg-secondary/30 p-6 md:p-8">
+            <h2 className="font-heading text-2xl md:text-3xl mb-6">Как добраться</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+              <div className="space-y-3">
+                <div>
+                  <p className="font-medium">Санкт-Петербург</p>
+                  <p>пр-т Обуховской Обороны, 110к1</p>
+                  <p className="text-muted-foreground text-sm">ЖК «Молодежный»</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold">М</span>
+                  <span className="font-medium">Пролетарская</span>
+                  <span className="text-muted-foreground text-sm">— 3 минуты пешком</span>
+                </div>
+                <a
+                  href="https://yandex.ru/maps/?rtext=~Санкт-Петербург, пр-т Обуховской Обороны, 110к1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block gold-gradient text-primary-foreground px-6 py-2.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity shadow-md mt-2"
+                >
+                  Построить маршрут
+                </a>
+              </div>
+              <div className="text-sm text-muted-foreground space-y-2 md:border-l md:border-border md:pl-8">
+                <p>Выходите на станции метро «Пролетарская» и двигайтесь в сторону проспекта Обуховской Обороны. Студия находится в жилом комплексе «Молодежный».</p>
+                <p className="text-xs opacity-80">Точный номер квартиры направляется при подтверждении записи.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
