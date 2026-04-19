@@ -10,6 +10,7 @@ import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
 import pilingPhoto from "@/assets/piling-procedure.jpeg";
+import pilingHeroBg from "@/assets/piling-hero-bg.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -102,27 +103,33 @@ const PilingiSpb = () => (
     </Helmet>
 
     {/* Hero */}
-    <section className="py-14 md:py-20 bg-cream">
-      <div className="container-wide px-4 md:px-8 max-w-4xl">
+    <section
+      className="relative min-h-[90vh] flex items-center bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${pilingHeroBg})` }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/45 to-black/25" />
+
+      <div className="relative container-wide px-4 md:px-8 max-w-4xl py-16 md:py-24">
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5 text-center lg:text-left">
+          className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-5 text-center lg:text-left drop-shadow-lg">
           Чистая кожа без&nbsp;акне, пятен и&nbsp;тусклости уже после курса пилингов
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }}
-          className="text-foreground/90 text-lg md:text-xl max-w-2xl mb-4 text-center lg:text-left">
+          className="text-white/95 text-lg md:text-xl max-w-2xl mb-4 text-center lg:text-left drop-shadow-md">
           Подберём тип пилинга под вашу кожу: уберём воспаления, выровняем тон и вернём коже свежий, ухоженный вид
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-2 text-center lg:text-left">от 3&nbsp;000&nbsp;₽</motion.p>
+          className="text-primary font-heading text-2xl md:text-3xl mb-2 text-center lg:text-left drop-shadow-lg">от 3&nbsp;000&nbsp;₽</motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.22 }}
-          className="text-muted-foreground text-sm mb-6 text-center lg:text-left">в зависимости от типа кожи и выбранной программы</motion.p>
+          className="text-white/80 text-sm mb-6 text-center lg:text-left">в зависимости от типа кожи и выбранной программы</motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-5">
           <Link to="/booking?service=Пилинг"><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Подобрать пилинг <ChevronRight size={16} className="ml-1" /></Button></Link>
-          <Link to="/booking?service=Пилинг"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Записаться на процедуру</Button></Link>
+          <Link to="/booking?service=Пилинг"><Button size="lg" variant="outline" className="border-white text-white bg-transparent hover:bg-white hover:text-foreground px-8">Записаться на процедуру</Button></Link>
         </motion.div>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
-          className="text-muted-foreground text-sm flex items-center gap-2 justify-center lg:justify-start">
+          className="text-white/90 text-sm flex items-center gap-2 justify-center lg:justify-start">
           <Sparkles size={14} className="text-primary" /> Персональная консультация перед процедурой — бесплатно
         </motion.p>
       </div>
