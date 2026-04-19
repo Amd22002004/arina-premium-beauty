@@ -81,15 +81,16 @@ const HolodnayaPlazmaSpb = () => (
 
     {/* Hero */}
     <section className="relative min-h-[520px] md:min-h-[600px] lg:min-h-[680px] overflow-hidden bg-cream">
-      {/* Background image — desktop */}
-      <div className="hidden md:block absolute inset-0">
+      {/* Background image — all viewports */}
+      <div className="absolute inset-0">
         <img
           src="/images/holodnaya-plazma-hero.jpeg"
           alt=""
           className="w-full h-full object-cover object-[70%_center]"
         />
-        {/* Left gradient for text readability */}
-        <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-cream to-transparent" />
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/85 md:via-cream/70 to-transparent md:w-1/2" />
+        <div className="md:hidden absolute inset-0 bg-cream/40" />
       </div>
 
       <div className="container-wide px-4 md:px-8 relative z-10 flex flex-col justify-center min-h-[520px] md:min-h-[600px] lg:min-h-[680px]">
@@ -123,15 +124,6 @@ const HolodnayaPlazmaSpb = () => (
             </Link>
           </motion.div>
         </div>
-      </div>
-
-      {/* Mobile image below text */}
-      <div className="md:hidden w-full">
-        <img
-          src="/images/holodnaya-plazma-hero.jpeg"
-          alt="Консультация косметолога"
-          className="w-full h-64 object-cover object-[70%_center]"
-        />
       </div>
     </section>
 
