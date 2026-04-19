@@ -137,6 +137,43 @@ const VakuumnyjMassazhSpb = () => (
     {/* Prices */}
     <div id="prices"><ServicePricingTiers title="Стоимость массажа по коррекции фигуры" prices={prices} /></div>
 
+    {/* Видео — как происходит процедура */}
+    <section className="py-12 md:py-16 bg-cream">
+      <div className="container-wide px-4 md:px-8">
+        <div className="max-w-md mx-auto text-center">
+          <h2 className="font-heading text-3xl md:text-4xl mb-4">Как проходит процедура</h2>
+          <p className="text-foreground/80 mb-8">
+            Аппаратная проработка тканей с роликово-вакуумной насадкой — комфортно и без боли
+          </p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-[420px]"
+          >
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full rounded-2xl shadow-lg aspect-[9/16] object-cover bg-muted"
+              aria-label="Видео аппаратного вакуумного массажа"
+            >
+              <source src="/videos/vacuum-massage.mp4" type="video/mp4" />
+            </video>
+          </motion.div>
+          <div className="mt-6">
+            <Link to="/booking?service=Вакуумный массаж">
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl">
+                Записаться на массаж <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* Benefits */}
     <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
