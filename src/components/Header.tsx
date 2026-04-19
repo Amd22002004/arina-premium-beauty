@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown, ChevronRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
+import { VKIcon, TelegramIcon, MaxIcon, MAX_LINK } from "@/components/SocialIcons";
 
 const allServices = [
   { to: "/massazh-lica-spb", label: "Массаж лица", group: "Лицо", keywords: ["массаж лица", "скульптурный массаж", "лифтинг лица", "омоложение лица", "подтяжка лица", "буккальный"] },
@@ -225,11 +225,14 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer" aria-label="VK" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="https://vk.com/id26767569" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте" className="text-muted-foreground hover:text-primary transition-colors">
             <VKIcon />
           </a>
           <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-muted-foreground hover:text-primary transition-colors">
             <TelegramIcon />
+          </a>
+          <a href={MAX_LINK} target="_blank" rel="noopener noreferrer" aria-label="MAX" className="text-muted-foreground hover:text-primary transition-colors">
+            <MaxIcon />
           </a>
           <a href="tel:+79117193949" className="text-muted-foreground hover:text-primary transition-colors">
             <Phone size={18} />
@@ -353,8 +356,9 @@ const Header = () => {
             ))}
 
             <div className="flex items-center gap-4 pt-3">
-              <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary"><VKIcon /></a>
-              <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary"><TelegramIcon /></a>
+              <a href="https://vk.com/id26767569" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте" className="text-muted-foreground hover:text-primary"><VKIcon /></a>
+              <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-muted-foreground hover:text-primary"><TelegramIcon /></a>
+              <a href={MAX_LINK} target="_blank" rel="noopener noreferrer" aria-label="MAX" className="text-muted-foreground hover:text-primary"><MaxIcon /></a>
               <a href="tel:+79117193949" className="text-muted-foreground hover:text-primary"><Phone size={18} /></a>
             </div>
             <Link to="/booking" onClick={() => setOpen(false)}>

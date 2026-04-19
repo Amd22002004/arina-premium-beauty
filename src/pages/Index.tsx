@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Check, MapPin, CalendarCheck, UserCheck, Sparkles, Zap, Heart, Eye, Droplets, CircleDot, Sun, Layers, Scan, FlameKindling, Activity, Crown, Gift, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
-import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
+import { VKIcon, TelegramIcon, MaxIcon, MAX_LINK } from "@/components/SocialIcons";
 import ConsultationCapture from "@/components/ConsultationCapture";
 import { formatPrice } from "@/data/services";
 import { FloatingPetals, SectionFloralAccent, FloralDivider } from "@/components/FloralDecorations";
@@ -434,9 +434,14 @@ const Index = () => (
                 <TelegramIcon size={18} /> Telegram
               </Button>
             </a>
-            <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer">
+            <a href="https://vk.com/id26767569" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 text-base gap-2">
-                <VKIcon size={18} /> VK
+                <VKIcon size={18} /> ВКонтакте
+              </Button>
+            </a>
+            <a href={MAX_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 text-base gap-2">
+                <MaxIcon size={18} /> MAX
               </Button>
             </a>
           </div>
