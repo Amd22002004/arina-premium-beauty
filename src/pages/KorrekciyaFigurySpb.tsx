@@ -134,13 +134,14 @@ const KorrekciyaFigurySpb = () => (
               <Link to={p.slug} className="group flex flex-col h-full bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all">
                 {/* Media */}
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  {p.video ? (
-                    <video muted playsInline preload="metadata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                      <source src={p.video} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  )}
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    width={1024}
+                    height={768}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
