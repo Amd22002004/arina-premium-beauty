@@ -207,9 +207,9 @@ const PilingiSpb = () => (
           <div className="relative">
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg bg-background">
               <img
-                src={pilingBeforeAfter}
+                src={pilingBefore}
                 alt="Лицо до курса пилингов"
-                className="w-full h-full object-cover object-left"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
