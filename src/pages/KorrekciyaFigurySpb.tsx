@@ -11,8 +11,9 @@ import result1 from "@/assets/korrekciya-result-1.jpg";
 import result2 from "@/assets/korrekciya-result-2.jpg";
 import result3 from "@/assets/korrekciya-result-3.jpg";
 import result4 from "@/assets/korrekciya-result-4.jpg";
-import rfLiftingPhoto from "@/assets/rf-lifting-body.webp";
-import hotVacuumPhoto from "@/assets/hot-vacuum-result.webp";
+import hotVacuumPhoto from "@/assets/body-hot-vacuum-card.jpg";
+import vacuumRollerPhoto from "@/assets/body-vacuum-roller-card.jpg";
+import rfLiftingPhoto from "@/assets/body-rf-lifting-card.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -31,7 +32,7 @@ const procedures = [
   {
     title: "Вакуумно-роликовый массаж (4D)",
     slug: "/vakuumnyj-massazh-spb",
-    video: "/videos/vacuum-massage.mp4",
+    image: vacuumRollerPhoto,
     angle: "- Антицеллюлитная коррекция\n+ Уменьшение объёмов и коррекция фигуры",
     desc: "Разбивает жировые отложения\nУменьшает целлюлит\nМоделирует контуры тела\nЗапускает лимфодренаж",
     tag: "Вакуум",
@@ -133,13 +134,14 @@ const KorrekciyaFigurySpb = () => (
               <Link to={p.slug} className="group flex flex-col h-full bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all">
                 {/* Media */}
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  {p.video ? (
-                    <video muted playsInline preload="metadata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                      <source src={p.video} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  )}
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    width={1024}
+                    height={768}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
