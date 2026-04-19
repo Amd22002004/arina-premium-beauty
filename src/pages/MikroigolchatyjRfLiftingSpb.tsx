@@ -172,6 +172,41 @@ const MikroigolchatyjRfLiftingSpb = () => (
       </div>
     </section>
 
+    {/* Vertical process video */}
+    <section className="py-12 md:py-16 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-3">
+          Как проходит процедура RF‑лифтинга
+        </h2>
+        <p className="text-center text-muted-foreground max-w-xl mx-auto mb-8">
+          Процедура проходит под контролем специалиста, с минимальным дискомфортом
+        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto w-full max-w-[420px] rounded-2xl overflow-hidden border border-border shadow-xl bg-background"
+          style={{ aspectRatio: "9 / 16" }}
+        >
+          <video
+            src="/videos/microneedling-rf-process.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+        <div className="flex justify-center mt-8">
+          <Link to={bookingLink("Микроигольчатый RF-лифтинг")}>
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+              Записаться на RF‑лифтинг <ChevronRight size={16} className="ml-1" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+
     {/* Result */}
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8 max-w-3xl mx-auto text-center">
