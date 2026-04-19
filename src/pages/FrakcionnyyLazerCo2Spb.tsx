@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Check, ChevronRight, Sparkles, X, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import co2Face1 from "@/assets/co2-face-1.webp";
+import co2HeroBg from "@/assets/co2-laser-hero.jpeg";
 import co2Face2 from "@/assets/co2-face-2.webp";
 import co2Body1 from "@/assets/co2-body-1.webp";
 import co2Body2 from "@/assets/co2-body-2.webp";
@@ -80,22 +81,31 @@ const FrakcionnyyLazerCo2Spb = () => (
       })}</script>
     </Helmet>
 
-    <section className="py-14 md:py-20 bg-cream">
-      <div className="container-wide px-4 md:px-8 text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          Лазерная шлифовка лица (CO₂)
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-foreground/90 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-          Глубокое обновление кожи для устранения морщин, рубцов, постакне и растяжек
-        </motion.p>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;900&nbsp;₽</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to={`/booking?service=Фракционный лазер CO₂ (лицо)`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
-          <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button></a>
-        </motion.div>
+    <section className="relative py-14 md:py-20 bg-cream overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${co2HeroBg})` }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-cream/95 via-cream/80 to-cream/40 md:from-cream/90 md:via-cream/60 md:to-transparent" aria-hidden="true" />
+      <div className="absolute inset-0 bg-cream/40 md:hidden" aria-hidden="true" />
+      <div className="container-wide relative px-4 md:px-8 text-center md:text-left min-h-[420px] md:min-h-[480px] flex flex-col justify-center">
+        <div className="max-w-2xl">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
+            Лазерная шлифовка лица (CO₂)
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+            className="text-foreground text-lg md:text-xl mb-4">
+            Глубокое обновление кожи для устранения морщин, рубцов, постакне и растяжек
+          </motion.p>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+            className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;900&nbsp;₽</motion.p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <Link to={`/booking?service=Фракционный лазер CO₂ (лицо)`}><Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">Записаться онлайн <ChevronRight size={16} className="ml-1" /></Button></Link>
+            <a href="#prices"><Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">Смотреть цены</Button></a>
+          </motion.div>
+        </div>
       </div>
     </section>
 
