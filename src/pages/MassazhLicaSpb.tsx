@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Check, X, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
-import massageHero from "@/assets/massage-face-hero.webp";
+import massageHeroBg from "@/assets/massage-face-hero-bg.jpeg";
 import massageResult from "@/assets/massage-face-result.webp";
 import ServicePricingTiers from "@/components/ServicePricingTiers";
 import CTASection from "@/components/CTASection";
@@ -116,47 +116,74 @@ const MassazhLicaSpb = () => (
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>
 
-    {/* 1. Hero с ценовым ориентиром */}
-    <section className="py-14 md:py-20 bg-cream">
-      <div className="container-wide px-4 md:px-8 text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-          className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          Массаж лица в&nbsp;Санкт&#8209;Петербурге
-        </motion.h1>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.5 }}
-          className="max-w-2xl mx-auto mb-2">
-          <ul className="text-muted-foreground text-lg md:text-xl space-y-1">
-            <li>Скульптурный массаж</li>
-            <li>Миофасциальный 3D массаж</li>
-            <li>Лимфодренажный массаж</li>
-            <li>Классический массаж</li>
-          </ul>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
-          className="max-w-2xl mx-auto mb-4">
-          <ul className="text-primary/80 text-base md:text-lg space-y-0.5">
-            <li>Для подтяжки овала лица</li>
-            <li>Для упругости и тонуса кожи</li>
-            <li>Для более чёткого контура лица</li>
-          </ul>
-        </motion.div>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">
-          от 1&nbsp;900&nbsp;₽
-        </motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to={`/booking?service=Массаж лица`}>
-            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-              Записаться онлайн <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </Link>
-          <a href="#prices">
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-              Смотреть цены
-            </Button>
-          </a>
-        </motion.div>
+    {/* 1. Hero с фоновым изображением */}
+    <section
+      className="relative w-full overflow-hidden min-h-[640px] md:min-h-screen md:h-screen flex items-center"
+      style={{
+        backgroundImage: `url(${massageHeroBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Overlay для читаемости текста */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20" aria-hidden="true" />
+
+      <div className="relative z-10 container-wide px-4 md:px-8 py-16 md:py-0 w-full">
+        <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-5 drop-shadow-lg"
+          >
+            Массаж лица в&nbsp;Санкт&#8209;Петербурге
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.5 }}
+            className="mb-3"
+          >
+            <ul className="text-white/90 text-base md:text-lg lg:text-xl space-y-1">
+              <li>Скульптурный массаж</li>
+              <li>Миофасциальный 3D массаж</li>
+              <li>Лимфодренажный массаж</li>
+              <li>Классический массаж</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
+            className="mb-5"
+          >
+            <ul className="text-primary text-sm md:text-base lg:text-lg space-y-0.5 font-medium drop-shadow">
+              <li>Для подтяжки овала лица</li>
+              <li>Для упругости и тонуса кожи</li>
+              <li>Для более чёткого контура лица</li>
+            </ul>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+            className="text-white font-heading text-2xl md:text-3xl mb-8 drop-shadow-lg"
+          >
+            от 1&nbsp;900&nbsp;₽
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+          >
+            <Link to={`/booking?service=Массаж лица`}>
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow w-full sm:w-auto">
+                Записаться онлайн <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+            <a href="#prices">
+              <Button size="lg" variant="outline" className="border-white text-white bg-transparent hover:bg-white hover:text-foreground px-8 w-full sm:w-auto">
+                Смотреть цены
+              </Button>
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
 
