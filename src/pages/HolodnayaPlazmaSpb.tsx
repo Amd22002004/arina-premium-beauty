@@ -210,6 +210,56 @@ const HolodnayaPlazmaSpb = () => (
       </div>
     </section>
 
+    {/* Video процесса процедуры */}
+    <section className="py-14 md:py-20 bg-background">
+      <div className="container-wide px-4 md:px-8 max-w-5xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Холодная плазма</h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+            Современная технология для обновления кожи без травм и восстановления
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div className="w-full max-w-[500px] mx-auto md:ml-auto md:mr-0">
+            <video
+              src="/videos/holodnaya-plazma-process.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full rounded-2xl shadow-xl"
+            />
+          </div>
+
+          <div className="text-center md:text-left">
+            <ul className="space-y-3 mb-6">
+              {[
+                "Стимулирует обновление клеток",
+                "Улучшает тон и текстуру кожи",
+                "Без боли и длительного восстановления",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3 justify-center md:justify-start">
+                  <Check size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-foreground">{t}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="text-primary font-heading text-lg md:text-xl mb-6">
+              Эффект заметен уже после первых процедур
+            </p>
+
+            <Link to="/booking?service=Холодная плазма">
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-8 shadow-xl hover:shadow-2xl transition-shadow">
+                Записаться на процедуру <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* Advantages */}
     <section className="py-10 md:py-14">
       <div className="container-wide px-4 md:px-8">
