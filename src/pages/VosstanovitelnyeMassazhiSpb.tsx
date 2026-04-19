@@ -105,7 +105,7 @@ const VosstanovitelnyeMassazhiSpb = () => (
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="order-1 lg:order-2 mx-auto w-full max-w-[420px]"
+            className="order-1 lg:order-2 mx-auto w-full max-w-[480px]"
           >
             <video
               autoPlay
@@ -113,7 +113,7 @@ const VosstanovitelnyeMassazhiSpb = () => (
               loop
               playsInline
               preload="metadata"
-              className="w-full rounded-2xl shadow-lg aspect-[9/16] object-cover bg-muted"
+              className="w-full rounded-2xl shadow-lg aspect-square object-cover bg-muted"
               aria-label="Видео восстановительного массажа"
             >
               <source src="/videos/vosstanovitelnye-massazhi.mp4" type="video/mp4" />
