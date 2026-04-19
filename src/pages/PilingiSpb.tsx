@@ -12,6 +12,8 @@ import ConsultationCapture from "@/components/ConsultationCapture";
 import pilingPhoto from "@/assets/piling-procedure.jpeg";
 import pilingHeroBg from "@/assets/piling-hero-bg.jpeg";
 import pilingBeforeAfter from "@/assets/piling-before-after.jpeg";
+import pilingBefore from "@/assets/piling-before.jpg";
+import pilingAfter from "@/assets/piling-after.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
