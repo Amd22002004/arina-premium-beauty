@@ -10,6 +10,7 @@ import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
 import rfResult from "@/assets/rf-lifting-result.webp";
+import heroBg from "@/assets/microneedling-rf-hero.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -73,32 +74,42 @@ const MikroigolchatyjRfLiftingSpb = () => (
       })}</script>
     </Helmet>
 
-    {/* Hero */}
-    <section className="py-16 md:py-24 bg-cream">
-      <div className="container-wide px-4 md:px-8 text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          Микроигольчатый RF‑лифтинг в&nbsp;Санкт‑Петербурге
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
-          Подтяжка кожи · Уплотнение кожи · Улучшение качества кожи без операции
-        </motion.p>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 5&nbsp;400&nbsp;₽</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to={bookingLink("Микроигольчатый RF-лифтинг")}>
-            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-              Записаться на консультацию <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </Link>
-          <Link to="/contacts">
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8">
-              Получить консультацию
-            </Button>
-          </Link>
-        </motion.div>
+    {/* Hero with background image */}
+    <section className="relative min-h-[560px] md:min-h-[640px] flex items-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
+        aria-hidden
+      />
+      {/* Overlay: stronger on mobile for readability, soft gradient on desktop */}
+      <div className="absolute inset-0 bg-background/55 md:bg-gradient-to-r md:from-background/85 md:via-background/60 md:to-background/20" aria-hidden />
+
+      <div className="container-wide relative px-4 md:px-8 py-16 md:py-24 w-full">
+        <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5 drop-shadow-sm">
+            Микроигольчатый RF‑лифтинг в&nbsp;Санкт‑Петербурге
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+            className="text-foreground text-lg md:text-xl max-w-2xl mb-4">
+            Подтяжка кожи · Уплотнение кожи · Улучшение качества кожи без операции
+          </motion.p>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+            className="text-primary font-heading text-2xl md:text-3xl mb-8">от 5&nbsp;400&nbsp;₽</motion.p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <Link to={bookingLink("Микроигольчатый RF-лифтинг")}>
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+                Записаться на консультацию <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+            <Link to="/contacts">
+              <Button size="lg" variant="outline" className="border-primary text-primary bg-background/70 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground px-8">
+                Получить консультацию
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
 
@@ -157,6 +168,41 @@ const MikroigolchatyjRfLiftingSpb = () => (
               <p className="text-muted-foreground text-sm">{s.desc}</p>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Vertical process video */}
+    <section className="py-12 md:py-16 bg-card">
+      <div className="container-wide px-4 md:px-8">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-3">
+          Как проходит процедура RF‑лифтинга
+        </h2>
+        <p className="text-center text-muted-foreground max-w-xl mx-auto mb-8">
+          Процедура проходит под контролем специалиста, с минимальным дискомфортом
+        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto w-full max-w-[420px] rounded-2xl overflow-hidden border border-border shadow-xl bg-background"
+          style={{ aspectRatio: "9 / 16" }}
+        >
+          <video
+            src="/videos/microneedling-rf-process.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+        <div className="flex justify-center mt-8">
+          <Link to={bookingLink("Микроигольчатый RF-лифтинг")}>
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+              Записаться на RF‑лифтинг <ChevronRight size={16} className="ml-1" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
