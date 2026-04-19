@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { TelegramIcon, VKIcon } from "@/components/SocialIcons";
+import { TelegramIcon, VKIcon, MaxIcon, MAX_LINK } from "@/components/SocialIcons";
 import { FloralDivider, SectionFloralAccent } from "@/components/FloralDecorations";
 
 const CTASection = ({ title = "Готовы к персональной встрече?", subtitle = "Запишитесь на приватную консультацию — подберём программу индивидуально" }: { title?: string; subtitle?: string }) => (
@@ -20,9 +20,14 @@ const CTASection = ({ title = "Готовы к персональной встр
             <TelegramIcon size={18} /> Написать в Telegram
           </Button>
         </a>
-        <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer">
+        <a href="https://vk.com/id26767569" target="_blank" rel="noopener noreferrer">
           <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 text-base gap-2">
-            <VKIcon size={18} /> Открыть VK
+            <VKIcon size={18} /> ВКонтакте
+          </Button>
+        </a>
+        <a href={MAX_LINK} target="_blank" rel="noopener noreferrer">
+          <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 text-base gap-2">
+            <MaxIcon size={18} /> MAX
           </Button>
         </a>
       </div>

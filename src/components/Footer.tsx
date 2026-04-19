@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin } from "lucide-react";
-import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
+import { VKIcon, TelegramIcon, MaxIcon, MAX_LINK } from "@/components/SocialIcons";
 
 const Footer = () => (
   <footer className="bg-foreground text-primary-foreground">
@@ -37,8 +37,9 @@ const Footer = () => (
             <span className="text-xs opacity-50 mt-1">Точный номер квартиры направляется при подтверждении записи</span>
           </div>
           <div className="flex gap-3 mt-4">
-            <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity"><VKIcon size={20} /></a>
-            <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity"><TelegramIcon size={20} /></a>
+            <a href="https://vk.com/id26767569" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте" className="opacity-70 hover:opacity-100 transition-opacity"><VKIcon size={20} /></a>
+            <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="opacity-70 hover:opacity-100 transition-opacity"><TelegramIcon size={20} /></a>
+            <a href={MAX_LINK} target="_blank" rel="noopener noreferrer" aria-label="MAX" className="opacity-70 hover:opacity-100 transition-opacity"><MaxIcon size={20} /></a>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 import { Phone, MapPin, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
-import { VKIcon, TelegramIcon } from "@/components/SocialIcons";
+import { VKIcon, TelegramIcon, MaxIcon, MAX_LINK } from "@/components/SocialIcons";
 
 const Contacts = () => {
   return (
@@ -36,17 +36,17 @@ const Contacts = () => {
               </div>
 
               <div className="flex flex-wrap gap-3 pt-2">
-                <a href="https://vk.com/beauty_salon_arina" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg text-sm hover:bg-accent transition-colors">
-                  <VKIcon /> Группа VK
-                </a>
                 <a href="https://vk.com/id26767569" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg text-sm hover:bg-accent transition-colors">
-                  <VKIcon /> Личная страница
+                  <VKIcon /> ВКонтакте
                 </a>
                 <a href="https://t.me/Arin4Van" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg text-sm hover:bg-accent transition-colors">
                   <TelegramIcon /> Telegram
+                </a>
+                <a href={MAX_LINK} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg text-sm hover:bg-accent transition-colors">
+                  <MaxIcon /> MAX
                 </a>
               </div>
             </div>
