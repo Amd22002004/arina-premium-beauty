@@ -195,6 +195,49 @@ const PilingiSpb = () => (
     {/* Цены */}
     <div id="prices"><ServicePricingTiers title="Цены на пилинги" prices={prices} /></div>
 
+    {/* Результат до/после */}
+    <section className="py-14 md:py-20 bg-cream">
+      <div className="container-wide px-4 md:px-8 max-w-4xl mx-auto">
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-3">Результат после процедур</h2>
+        <p className="text-muted-foreground text-center mb-10 text-lg">Реальные изменения кожи без инъекций</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6">
+          <div className="relative">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg bg-background">
+              <img
+                src={pilingBeforeAfter}
+                alt="Лицо до курса пилингов"
+                className="w-full h-full object-cover object-left"
+                loading="lazy"
+              />
+            </div>
+            <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-background/90 text-foreground text-sm font-heading shadow">До</span>
+          </div>
+          <div className="relative">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg bg-background">
+              <img
+                src={pilingBeforeAfter}
+                alt="Лицо после курса пилингов"
+                className="w-full h-full object-cover object-right"
+                loading="lazy"
+              />
+            </div>
+            <span className="absolute top-3 left-3 px-3 py-1 rounded-full gold-gradient text-primary-foreground text-sm font-heading shadow">После</span>
+          </div>
+        </div>
+
+        <p className="text-center text-sm text-muted-foreground mb-8">Фото без фильтров и ретуши</p>
+
+        <div className="flex justify-center">
+          <Link to="/booking?service=Пилинг">
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+              Записаться <ChevronRight size={16} className="ml-1" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+
     {/* Как проходит — шаги */}
     <section className="py-10 md:py-14 bg-cream">
       <div className="container-wide px-4 md:px-8">
