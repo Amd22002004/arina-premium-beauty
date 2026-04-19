@@ -8,6 +8,7 @@ import CTASection from "@/components/CTASection";
 import RelatedServices from "@/components/RelatedServices";
 import NextStep from "@/components/NextStep";
 import ConsultationCapture from "@/components/ConsultationCapture";
+import heroBg from "@/assets/aparatnye-protokoly-hero.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -60,25 +61,31 @@ const AparatnyeProtokolyLicaSpb = () => (
     </Helmet>
 
     {/* Hero */}
-    <section className="py-14 md:py-20 bg-cream">
-      <div className="container-wide px-4 md:px-8 text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
-          Аппаратные процедуры лица
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4">
-          Подбираем аппаратный протокол индивидуально — в зависимости от состояния кожи, задачи и ожидаемого результата
-        </motion.p>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-          className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;900&nbsp;₽</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/booking?service=Аппаратная процедура лица">
-            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
-              Записаться на консультацию <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </Link>
-        </motion.div>
+    <section
+      className="relative py-20 md:py-32 bg-cover bg-center overflow-hidden"
+      style={{ backgroundImage: `url(${heroBg})` }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/30" />
+      <div className="container-wide px-4 md:px-8 relative z-10">
+        <div className="max-w-2xl text-center md:text-left">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-5">
+            Аппаратные процедуры лица
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+            className="text-foreground text-lg md:text-xl mb-4">
+            Подбираем аппаратный протокол индивидуально — в зависимости от состояния кожи, задачи и ожидаемого результата
+          </motion.p>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+            className="text-primary font-heading text-2xl md:text-3xl mb-8">от 3&nbsp;900&nbsp;₽</motion.p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <Link to="/booking?service=Аппаратная процедура лица">
+              <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+                Записаться на консультацию <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
 
