@@ -11,8 +11,9 @@ import result1 from "@/assets/korrekciya-result-1.jpg";
 import result2 from "@/assets/korrekciya-result-2.jpg";
 import result3 from "@/assets/korrekciya-result-3.jpg";
 import result4 from "@/assets/korrekciya-result-4.jpg";
-import rfLiftingPhoto from "@/assets/rf-lifting-body.webp";
-import hotVacuumPhoto from "@/assets/hot-vacuum-result.webp";
+import hotVacuumPhoto from "@/assets/body-hot-vacuum-card.jpg";
+import vacuumRollerPhoto from "@/assets/body-vacuum-roller-card.jpg";
+import rfLiftingPhoto from "@/assets/body-rf-lifting-card.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -31,7 +32,7 @@ const procedures = [
   {
     title: "Вакуумно-роликовый массаж (4D)",
     slug: "/vakuumnyj-massazh-spb",
-    video: "/videos/vacuum-massage.mp4",
+    image: vacuumRollerPhoto,
     angle: "- Антицеллюлитная коррекция\n+ Уменьшение объёмов и коррекция фигуры",
     desc: "Разбивает жировые отложения\nУменьшает целлюлит\nМоделирует контуры тела\nЗапускает лимфодренаж",
     tag: "Вакуум",
