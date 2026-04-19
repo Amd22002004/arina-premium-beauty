@@ -25,10 +25,10 @@ const About = () => (
       <div className="container-wide relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" animate="visible" custom={0} variants={fadeUp}>
-            <img src={specialistPhoto} alt="Ариана Ханова — специалист АРТ Косметология" className="rounded-lg shadow-lg w-full max-w-lg mx-auto" width={800} height={1000} />
+            <img src={specialistPhoto} alt="Арина Ханова — специалист АРТ Косметология" className="rounded-lg shadow-lg w-full max-w-lg mx-auto" width={800} height={1000} />
           </motion.div>
           <motion.div initial="hidden" animate="visible" custom={1} variants={fadeUp}>
-            <h1 className="font-heading text-4xl md:text-5xl mb-6">Ариана Ханова</h1>
+            <h1 className="font-heading text-4xl md:text-5xl mb-6">Арина Ханова</h1>
             <p className="text-lg text-muted-foreground mb-2 font-medium">
               Мастер приватной студии аппаратной эстетики и коррекции фигуры
             </p>
