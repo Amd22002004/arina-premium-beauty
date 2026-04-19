@@ -12,6 +12,8 @@ import ConsultationCapture from "@/components/ConsultationCapture";
 import pilingPhoto from "@/assets/piling-procedure.jpeg";
 import pilingHeroBg from "@/assets/piling-hero-bg.jpeg";
 import pilingBeforeAfter from "@/assets/piling-before-after.jpeg";
+import pilingBefore from "@/assets/piling-before.jpg";
+import pilingAfter from "@/assets/piling-after.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -205,9 +207,9 @@ const PilingiSpb = () => (
           <div className="relative">
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg bg-background">
               <img
-                src={pilingBeforeAfter}
+                src={pilingBefore}
                 alt="Лицо до курса пилингов"
-                className="w-full h-full object-cover object-left"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
@@ -216,9 +218,9 @@ const PilingiSpb = () => (
           <div className="relative">
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg bg-background">
               <img
-                src={pilingBeforeAfter}
+                src={pilingAfter}
                 alt="Лицо после курса пилингов"
-                className="w-full h-full object-cover object-right"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
