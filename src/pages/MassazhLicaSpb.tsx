@@ -240,6 +240,48 @@ const MassazhLicaSpb = () => (
       <ServicePricingTiers title="Цены на массаж лица" prices={prices} />
     </div>
 
+    {/* 4.5 Видео процесса */}
+    <section className="py-14 md:py-20 bg-cream">
+      <div className="max-w-[900px] mx-auto px-4 md:px-8">
+        <div className="text-center mb-8">
+          <h2 className="font-heading text-3xl md:text-4xl mb-3">Как проходит процедура</h2>
+          <p className="text-muted-foreground text-base md:text-lg">Без боли, без инъекций — мягкое воздействие с видимым результатом</p>
+        </div>
+
+        <div className="flex justify-center">
+          <video
+            src="/massage-face-process.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full max-w-[420px] aspect-[9/16] object-cover rounded-2xl shadow-xl bg-black"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 max-w-3xl mx-auto">
+          {[
+            "Уже после 1 процедуры заметен лифтинг",
+            "Комфортно и расслабляюще",
+            "Подходит для любого типа кожи",
+          ].map((t) => (
+            <div key={t} className="flex items-start gap-2 p-4 rounded-xl bg-background border border-border text-center sm:text-left">
+              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-sm">{t}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-8">
+          <Link to="/booking?service=Массаж лица">
+            <Button size="lg" className="gold-gradient text-primary-foreground border-0 px-10 shadow-xl hover:shadow-2xl transition-shadow">
+              Записаться на процедуру <ChevronRight size={16} className="ml-1" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
 
     {/* 5. Что даёт */}
     <section className="py-10 md:py-14">
