@@ -107,8 +107,8 @@ const priceGroups = [
     title: "Тело",
     items: [
       { name: "Коррекция фигуры", price: "от 2 800 ₽" },
-      { name: "Массаж тела", price: "от 2 000 ₽" },
-      { name: "Лимфодренаж", price: "от 2 400 ₽" },
+      { name: "Массаж тела", price: "от 2 600 ₽" },
+      { name: "Лимфодренаж", price: "от 2 500 ₽" },
     ],
     link: "/korrekciya-figury-spb",
   },
