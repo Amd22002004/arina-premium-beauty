@@ -3,7 +3,16 @@ import { Check } from "lucide-react";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import specialistPhoto from "@/assets/specialist-arina.png";
-import certificateImg from "@/assets/certificate.jpg";
+import certificate01 from "@/assets/certificate-01.jfif";
+import certificate02 from "@/assets/certificate-02.jfif";
+import certificate03 from "@/assets/certificate-03.jfif";
+import certificate04 from "@/assets/certificate-04.jfif";
+import certificate05 from "@/assets/certificate-05.jfif";
+import certificate06 from "@/assets/certificate-06.jfif";
+import certificate07 from "@/assets/certificate-07.jfif";
+import certificate08 from "@/assets/certificate-08.jfif";
+import certificate09 from "@/assets/certificate-09.jfif";
+import certificate10 from "@/assets/certificate-10.jfif";
 import { ScatteredButterflies, SectionFloralAccent, FloralDivider } from "@/components/FloralDecorations";
 
 const fadeUp = {
@@ -15,6 +24,19 @@ const approach = [
   "массаж и подготовка тканей",
   "аппаратные технологии",
   "восстановление и уход",
+];
+
+const certificates = [
+  certificate01,
+  certificate02,
+  certificate03,
+  certificate04,
+  certificate05,
+  certificate06,
+  certificate07,
+  certificate08,
+  certificate09,
+  certificate10,
 ];
 
 const About = () => (
@@ -59,9 +81,17 @@ const About = () => (
 
         <div className="mt-20">
           <h2 className="font-heading text-3xl text-center mb-10">Сертификаты и дипломы</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((n) => (
-              <img key={n} src={certificateImg} alt={`Сертификат ${n}`} className="rounded-lg shadow-md hover-lift" loading="lazy" width={800} height={600} />
+          <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
+            {certificates.map((certificate, index) => (
+              <img
+                key={certificate}
+                src={certificate}
+                alt={`Сертификат или диплом Арины Хановой ${index + 1}`}
+                className="h-[360px] w-[260px] md:h-[420px] md:w-[300px] shrink-0 rounded-xl shadow-md object-cover snap-start"
+                loading="lazy"
+                width={600}
+                height={840}
+              />
             ))}
           </div>
         </div>
