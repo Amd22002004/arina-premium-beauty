@@ -1,5 +1,6 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import specialistPhoto from "@/assets/specialist-arina.png";
@@ -13,6 +14,14 @@ import certificate07 from "@/assets/certificate-07.jfif";
 import certificate08 from "@/assets/certificate-08.jfif";
 import certificate09 from "@/assets/certificate-09.jfif";
 import certificate10 from "@/assets/certificate-10.jfif";
+import aboutVertical01 from "@/assets/about-vertical-01.jfif";
+import aboutVertical02 from "@/assets/about-vertical-02.jfif";
+import aboutVertical03 from "@/assets/about-vertical-03.jfif";
+import aboutVertical04 from "@/assets/about-vertical-04.jfif";
+import aboutVertical05 from "@/assets/about-vertical-05.jfif";
+import aboutVertical06 from "@/assets/about-vertical-06.jfif";
+import aboutVertical07 from "@/assets/about-vertical-07.jfif";
+import aboutVertical08 from "@/assets/about-vertical-08.jfif";
 import { ScatteredButterflies, SectionFloralAccent, FloralDivider } from "@/components/FloralDecorations";
 
 const fadeUp = {
@@ -38,6 +47,102 @@ const certificates = [
   certificate09,
   certificate10,
 ];
+
+const verticalPhotos = [
+  aboutVertical01,
+  aboutVertical02,
+  aboutVertical03,
+  aboutVertical04,
+  aboutVertical05,
+  aboutVertical06,
+  aboutVertical07,
+  aboutVertical08,
+];
+
+type CertificateScrollerProps = {
+  images: string[];
+  variant: "horizontal" | "vertical";
+  altPrefix: string;
+};
+
+const CertificateScroller = ({ images, variant, altPrefix }: CertificateScrollerProps) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [scrollStart, setScrollStart] = useState(0);
+
+  const scrollByDirection = (direction: -1 | 1) => {
+    scrollRef.current?.scrollBy({ left: direction * 360, behavior: "smooth" });
+  };
+
+  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    if (!scrollRef.current) return;
+    event.preventDefault();
+    scrollRef.current.scrollLeft += event.deltaY || event.deltaX;
+  };
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setDragStartX(event.clientX);
+    setScrollStart(scrollRef.current.scrollLeft);
+    scrollRef.current.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging || !scrollRef.current) return;
+    scrollRef.current.scrollLeft = scrollStart - (event.clientX - dragStartX);
+  };
+
+  const stopDragging = () => setIsDragging(false);
+
+  const imageClass =
+    variant === "horizontal"
+      ? "h-[170px] w-[260px] md:h-[220px] md:w-[340px] object-contain bg-background"
+      : "h-[300px] w-[210px] md:h-[380px] md:w-[270px] object-cover";
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        aria-label="Прокрутить влево"
+        onClick={() => scrollByDirection(-1)}
+        className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-primary/30 bg-background/90 text-foreground shadow-md backdrop-blur transition hover:bg-primary hover:text-primary-foreground"
+      >
+        <ChevronLeft size={22} />
+      </button>
+      <div
+        ref={scrollRef}
+        onWheel={handleWheel}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={stopDragging}
+        onPointerCancel={stopDragging}
+        onPointerLeave={stopDragging}
+        className="flex cursor-grab touch-pan-x select-none gap-4 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden active:cursor-grabbing"
+      >
+        {images.map((image, index) => (
+          <img
+            key={image}
+            src={image}
+            alt={`${altPrefix} ${index + 1}`}
+            className={`${imageClass} shrink-0 rounded-xl shadow-md snap-start pointer-events-none`}
+            loading="lazy"
+            draggable={false}
+          />
+        ))}
+      </div>
+      <button
+        type="button"
+        aria-label="Прокрутить вправо"
+        onClick={() => scrollByDirection(1)}
+        className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-primary/30 bg-background/90 text-foreground shadow-md backdrop-blur transition hover:bg-primary hover:text-primary-foreground"
+      >
+        <ChevronRight size={22} />
+      </button>
+    </div>
+  );
+};
 
 const About = () => (
   <Layout>
