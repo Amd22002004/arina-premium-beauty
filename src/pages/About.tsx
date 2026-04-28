@@ -11,7 +11,6 @@ import certificate04 from "@/assets/certificate-04.jfif";
 import certificate05 from "@/assets/certificate-05.jfif";
 import certificate06 from "@/assets/certificate-06.jfif";
 import certificate07 from "@/assets/certificate-07.jfif";
-import certificate08 from "@/assets/certificate-08.jfif";
 import certificate09 from "@/assets/certificate-09.jfif";
 import certificate10 from "@/assets/certificate-10.jfif";
 import aboutVertical01 from "@/assets/about-vertical-01.jfif";
@@ -43,7 +42,6 @@ const certificates = [
   certificate05,
   certificate06,
   certificate07,
-  certificate08,
   certificate09,
   certificate10,
 ];
@@ -99,7 +97,7 @@ const CertificateScroller = ({ images, variant, altPrefix }: CertificateScroller
   const imageClass =
     variant === "horizontal"
       ? "h-[170px] w-[260px] md:h-[220px] md:w-[340px] object-contain bg-background"
-      : "h-[300px] w-[210px] md:h-[380px] md:w-[270px] object-cover";
+      : "h-[260px] w-[170px] md:h-[340px] md:w-[220px] object-cover";
 
   return (
     <div className="relative">
