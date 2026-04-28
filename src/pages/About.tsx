@@ -22,7 +22,7 @@ import aboutVertical05 from "@/assets/about-vertical-05.jfif";
 import aboutVertical06 from "@/assets/about-vertical-06.jfif";
 import aboutVertical07 from "@/assets/about-vertical-07.jfif";
 import aboutVertical08 from "@/assets/about-vertical-08.jfif";
-import { ScatteredButterflies, SectionFloralAccent, FloralDivider } from "@/components/FloralDecorations";
+import { ScatteredButterflies, SectionFloralAccent } from "@/components/FloralDecorations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -186,18 +186,9 @@ const About = () => (
 
         <div className="mt-20">
           <h2 className="font-heading text-3xl text-center mb-10">Сертификаты и дипломы</h2>
-          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
-            {certificates.map((certificate, index) => (
-              <img
-                key={certificate}
-                src={certificate}
-                alt={`Сертификат или диплом Арины Хановой ${index + 1}`}
-                className="h-[170px] w-[260px] md:h-[220px] md:w-[340px] shrink-0 rounded-xl shadow-md object-contain bg-background snap-start"
-                loading="lazy"
-                width={680}
-                height={440}
-              />
-            ))}
+          <div className="space-y-5">
+            <CertificateScroller images={certificates} variant="horizontal" altPrefix="Сертификат или диплом Арины Хановой" />
+            <CertificateScroller images={verticalPhotos} variant="vertical" altPrefix="Вертикальное фото сертификата Арины Хановой" />
           </div>
         </div>
       </div>
