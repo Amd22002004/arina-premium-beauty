@@ -37,7 +37,6 @@ const approach = [
 
 const certificates = [
   certificate01,
-  certificate02,
   certificate03,
   certificate04,
   certificate05,
@@ -61,11 +60,10 @@ const verticalPhotos = [
 
 type CertificateScrollerProps = {
   images: string[];
-  variant: "horizontal" | "vertical";
   altPrefix: string;
 };
 
-const CertificateScroller = ({ images, variant, altPrefix }: CertificateScrollerProps) => {
+const CertificateScroller = ({ images, altPrefix }: CertificateScrollerProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
@@ -96,11 +94,6 @@ const CertificateScroller = ({ images, variant, altPrefix }: CertificateScroller
 
   const stopDragging = () => setIsDragging(false);
 
-  const imageClass =
-    variant === "horizontal"
-      ? "h-[170px] w-[260px] md:h-[220px] md:w-[340px] object-contain bg-background"
-      : "h-[300px] w-[210px] md:h-[380px] md:w-[270px] object-cover";
-
   return (
     <div className="relative">
       <button
@@ -122,14 +115,18 @@ const CertificateScroller = ({ images, variant, altPrefix }: CertificateScroller
         className="flex cursor-grab touch-pan-x select-none gap-4 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden active:cursor-grabbing"
       >
         {images.map((image, index) => (
-          <img
+          <div
             key={image}
-            src={image}
-            alt={`${altPrefix} ${index + 1}`}
-            className={`${imageClass} shrink-0 rounded-xl shadow-md snap-start pointer-events-none`}
-            loading="lazy"
-            draggable={false}
-          />
+            className="aspect-[16/10] w-[260px] shrink-0 snap-start overflow-hidden rounded-xl bg-background shadow-md md:w-[340px]"
+          >
+            <img
+              src={image}
+              alt={`${altPrefix} ${index + 1}`}
+              className="h-full w-full object-contain pointer-events-none"
+              loading="lazy"
+              draggable={false}
+            />
+          </div>
         ))}
       </div>
       <button
@@ -187,8 +184,8 @@ const About = () => (
         <div className="mt-20">
           <h2 className="font-heading text-3xl text-center mb-10">Сертификаты и дипломы</h2>
           <div className="space-y-5">
-            <CertificateScroller images={certificates} variant="horizontal" altPrefix="Сертификат или диплом Арины Хановой" />
-            <CertificateScroller images={verticalPhotos} variant="vertical" altPrefix="Вертикальное фото сертификата Арины Хановой" />
+            <CertificateScroller images={certificates} altPrefix="Сертификат или диплом Арины Хановой" />
+            <CertificateScroller images={verticalPhotos} altPrefix="Вертикальное фото сертификата Арины Хановой" />
           </div>
         </div>
       </div>
