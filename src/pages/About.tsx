@@ -81,16 +81,16 @@ const About = () => (
 
         <div className="mt-20">
           <h2 className="font-heading text-3xl text-center mb-10">Сертификаты и дипломы</h2>
-          <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
+          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
             {certificates.map((certificate, index) => (
               <img
                 key={certificate}
                 src={certificate}
                 alt={`Сертификат или диплом Арины Хановой ${index + 1}`}
-                className="h-[360px] w-[260px] md:h-[420px] md:w-[300px] shrink-0 rounded-xl shadow-md object-cover snap-start"
+                className="h-[170px] w-[260px] md:h-[220px] md:w-[340px] shrink-0 rounded-xl shadow-md object-contain bg-background snap-start"
                 loading="lazy"
-                width={600}
-                height={840}
+                width={680}
+                height={440}
               />
             ))}
           </div>
